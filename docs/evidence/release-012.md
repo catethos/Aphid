@@ -64,3 +64,14 @@ Qualified source archive SHA256: `7236de60e361c8eabe2d4f17973ce6f9e71b247570deb5
 The frozen-source package-only Hex dry run passes. Publication uses this exact
 retained tarball through Hex 2.5.1's `Hex.API.Release.publish/5`, with the normal
 authentication wrapper and `replace=false`, matching the installed CLI flow.
+
+## Public native release
+
+The signed [GitHub prerelease](https://github.com/catethos/Aphid/releases/tag/v0.1.2-dev)
+is public with thirteen assets. Every anonymous download matches the staged
+SHA256 and size; the prior `v0.1.1-dev` release and all of its assets are unchanged.
+Public default installations pass 101 tests each on macOS ARM64 and both Linux
+architectures ([public Linux run](https://github.com/catethos/Aphid/actions/runs/34256497743)).
+The exact qualified Hex publisher has been launched in Terminal using Hex's
+normal authentication flow. Registry publication is not confirmed until its
+public archive is independently verified.
