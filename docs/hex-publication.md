@@ -4,6 +4,10 @@ For subsequent versions, see [publishing updates and platform changes](publishin
 
 ## 0.1.1-dev
 
+Published: [aphid 0.1.1-dev](https://hex.pm/packages/aphid/0.1.1-dev). The public
+archive matches the exact three-target qualified package, SHA256
+`9faa9af3eb1c826446b0bf9473e94632e4fbb9fcb6bfc9d85bae1a90862f2448`.
+
 The owner authorized a follow-up stability/correctness prerelease, including new
 native bundles for macOS ARM64 and both Linux architectures. This version requires
 the new three-target qualification and final package checks before publication;

@@ -1,5 +1,14 @@
 # Implementation status
 
+Published: [aphid 0.1.1-dev on Hex](https://hex.pm/packages/aphid/0.1.1-dev) and
+[GitHub](https://github.com/catethos/Aphid/releases/tag/v0.1.1-dev), with rebuilt
+native bundles containing the five hardening fixes. The public Hex archive
+matches the exact package qualified on all three targets. Fresh Hex registry
+installations pass 99 tests each on macOS ARM64 and Linux x86_64/ARM64. See
+[release evidence](evidence/release-011.md) for publication and installation checks.
+This remains an experimental prerelease; earlier publication checkpoints below
+are historical.
+
 Local source hardening checkpoint (2026-09-08): **99 public tests pass** on
 macOS ARM64 against normal and fatal ASan/UBSan builds. Five demonstrated native
 defects are patched and pinned, with new combined mutation/cancellation/shutdown
@@ -13,7 +22,7 @@ Temporary cleanup: [130 Aphid temporary entries cleared](evidence/temp-cleanup-1
 with a verified local recovery archive retained; 2.96 GiB net space recovered.
 Use fresh directories for subsequent registry tests.
 
-Current outcome (2026-09-08): [aphid 0.1.0-dev is published on Hex](https://hex.pm/packages/aphid/0.1.0-dev).
+Previous release outcome (2026-09-08): [aphid 0.1.0-dev is published on Hex](https://hex.pm/packages/aphid/0.1.0-dev).
 The public Hex archive matches the exact reviewed SHA256
 `922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7`.
 See [publication and registry-installation evidence](evidence/hex-published-1.md).

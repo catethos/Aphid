@@ -64,7 +64,7 @@ The intermediate macOS-only source package is SHA256
 It retains the earlier Linux catalogs and is **not** the final publication
 package. A final combined-catalog source package must be qualified separately.
 
-## Remaining release steps
+## Final package and publication
 
 The [final Linux consumer run](https://github.com/catethos/Aphid/actions/runs/34242496036)
 passed on both architectures, including 99 fresh-consumer and 99 relocated
@@ -91,15 +91,31 @@ thirteen asset identities remain unchanged. [macOS default installation](release
 passes 99 tests, and [Linux public-consumer run 34243869828](https://github.com/catethos/Aphid/actions/runs/34243869828)
 passes 99 tests on both architectures with no native compiler invocation.
 
-Hex submission is waiting for the owner's private 2FA entry. The exact-archive
-[publisher](release-011-publish.exs) runs with the installed Hex archive on the
-normal Elixir code path. Initial `mix run` attempts pruned Hex/SSL paths and
-failed before submission; the direct Elixir invocation passed its read-only
-404 lookup and reached Hex's standard OTP challenge. No existing version is
-replaced. After authentication, verify the registry archive SHA256 and fresh
-registry installation on all three architectures.
-If Hex requires private 2FA, the owner must enter it directly in the terminal.
-No code or credential should enter chat or evidence logs.
+[aphid 0.1.1-dev is published on Hex](https://hex.pm/packages/aphid/0.1.1-dev).
+The owner completed Hex's normal 2FA privately in Terminal; the publisher exited
+with status 0. [Public release metadata](release-011-hex-release.json) and the
+[independently downloaded registry archive](release-011-hex-archive.json) match
+the exact qualified SHA256 above (121,856 bytes). No existing version was replaced.
+
+The exact-archive [publisher](release-011-publish.exs) used the installed Hex
+archive on the normal Elixir code path. Initial `mix run` attempts pruned Hex/SSL
+paths and failed before submission; the direct Elixir invocation completed the
+standard authentication flow. No code or credential is retained in evidence.
+
+Final fresh **Hex registry** installations pass all 99 tests on each target:
+
+- [macOS ARM64 log](release-011-hex-registry-macos.log) and
+  [input identities](release-011-hex-registry-macos-inputs.json).
+- [Linux x86_64 and ARM64 run](https://github.com/catethos/Aphid/actions/runs/34245955775),
+  [metadata](release-011-hex-registry-linux-run.json) and
+  [complete log](release-011-hex-registry-linux-run.log). Both jobs explicitly
+  enable `HEX_REGISTRY=true`.
+
+Each check acquires Aphid itself from Hex with normal registry dependencies,
+compares it with the independently pinned qualified archive, installs the native
+bundle through its public default URL, and runs with native compilers denied.
+Offline runtime, unchanged native files and installed notice hashes pass.
+Publication and the required three-target registry checks are complete.
 
 Minimum-system/CPU, other OTP versions, Linux sanitizers, broader TSan/Zig
 allocation coverage and remaining implementation stages stay open. None of
