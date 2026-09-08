@@ -14,7 +14,8 @@ run(["cmake", "-S", "native/tests", "-B", "_build/native/tests", "-G", "Ninja",
      f"-DDuckDB_DIR={ROOT / '_build/native/duckdb'}",
      f"-DLADYBUG_SOURCE={ROOT / 'native/upstream/ladybug'}",
      f"-DLADYBUG_BUILD={ROOT / '_build/native/ladybug'}"])
-run(["cmake", "--build", "_build/native/tests", "--target", "fixture", "--parallel", "2"])
+run(["cmake", "--build", "_build/native/tests", "--target", "fixture", "int128_arithmetic", "--parallel", "2"])
+run([str(ROOT / "_build/native/tests/int128_arithmetic")], timeout=30)
 
 run(["mix", "test", "--seed", "0"],
     env=dict(os.environ, MIX_ENV="test", ERL_FLAGS="+S 1:1 +SDcpu 1:1"), timeout=120)

@@ -1,0 +1,11 @@
+--- a/src/common/types/int128_t.cpp
++++ b/src/common/types/int128_t.cpp
+@@ -106,7 +106,7 @@
+         if (lhs.high < INT64_MIN - rhs.high - overflow) {
+             return false;
+         }
+-        lhs.high = lhs.high + rhs.high + overflow;
++        lhs.high = lhs.high + (rhs.high + overflow);
+     }
+     lhs.low += rhs.low;
+     if (lhsPositive && rhsPositive && lhs.high == INT64_MIN && lhs.low == 0) {

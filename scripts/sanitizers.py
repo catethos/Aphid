@@ -31,11 +31,13 @@ env = dict(os.environ, ASAN_OPTIONS="halt_on_error=1:abort_on_error=1",
            UBSAN_OPTIONS="halt_on_error=1:print_stacktrace=1")
 run([str(out / "bridge/lifecycle")], env=env, timeout=120)
 run([str(out / "tests/hash_alignment")], env=env, timeout=30)
+run([str(out / "tests/int128_arithmetic")], env=env, timeout=30)
 run([str(out / "tests/alp_range")], env=env, timeout=30)
 run([str(out / "tests/aggregate_alignment")], env=env, timeout=30)
 with tempfile.TemporaryDirectory(prefix="aphid-sanitizers-") as temp:
     fixture = str(Path(temp) / "café fixture.duckdb")
     run([str(out / "tests/fixture"), fixture], env=env, timeout=60)
+    run([str(out / "bridge/extension_concurrency"), fixture], env=env, timeout=120)
     for mode in ["create", "reopen"]:
         run([str(out / "tests/features"), mode, str(Path(temp) / "graph"), fixture],
             env=env, timeout=120)

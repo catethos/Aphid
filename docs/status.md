@@ -1,5 +1,14 @@
 # Implementation status
 
+Local source hardening checkpoint (2026-09-08): **99 public tests pass** on
+macOS ARM64 against normal and fatal ASan/UBSan builds. Five demonstrated native
+defects are patched and pinned, with new combined mutation/cancellation/shutdown
+coverage. See [hardening evidence](evidence/hardening-2026-09-08.md).
+The source lock has advanced; published bundles/catalogs remain unchanged and
+do not contain these fixes. Use explicit source installation for this revision;
+new bundles need rebuilding and qualification. TSan mutation/GC coverage, Linux
+sanitizers, Zig allocation instrumentation and release support remain open.
+
 Temporary cleanup: [130 Aphid temporary entries cleared](evidence/temp-cleanup-1.md),
 with a verified local recovery archive retained; 2.96 GiB net space recovered.
 Use fresh directories for subsequent registry tests.

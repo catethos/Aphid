@@ -19,6 +19,10 @@ add_executable(hash_alignment hash_alignment.cpp)
 target_include_directories(hash_alignment PRIVATE
     ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
 target_link_libraries(hash_alignment PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
+add_executable(int128_arithmetic int128_arithmetic.cpp)
+target_include_directories(int128_arithmetic PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(int128_arithmetic PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
 add_executable(fts_cancel_capacity fts_cancel_capacity.cpp)
 target_include_directories(fts_cancel_capacity PRIVATE
     ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)

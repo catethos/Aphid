@@ -1,0 +1,12 @@
+--- a/src/processor/operator/ddl/alter.cpp
++++ b/src/processor/operator/ddl/alter.cpp
+@@ -23,7 +23,8 @@
+ 
+ void Alter::initLocalStateInternal(ResultSet* resultSet, ExecutionContext* context) {
+     if (defaultValueEvaluator) {
+-        defaultValueEvaluator->init(*resultSet, context->clientContext);
++        const ResultSet emptyResultSet;
++        defaultValueEvaluator->init(resultSet ? *resultSet : emptyResultSet, context->clientContext);
+     }
+ }
+ 

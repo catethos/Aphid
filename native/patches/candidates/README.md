@@ -2,6 +2,18 @@
 
 These files are not part of `native/lock.json` and are not applied by the build.
 
+## Hardening promotion (2026-09-08)
+
+`float-sort-key-alignment.patch`, `int128-add-carry.patch`, and
+`int128-negate-overflow.patch`, `alter-default-result-set.patch`, and
+`path-probe-id-alignment.patch` were moved to `native/patches/` and pinned in
+`native/lock.json`. All 99 public tests pass against independently rebuilt normal
+and ASan/UBSan engines; native arithmetic, lifecycle, concurrency and persistence
+checks pass. All five patches apply/reverse exactly and both private source trees
+match the locked inputs. See
+[`docs/evidence/hardening-2026-09-08.md`](../../../docs/evidence/hardening-2026-09-08.md).
+Published artifacts retain their earlier lock and do not contain these fixes.
+
 ## Status (2026-09-07): all listed candidates promoted
 
 `fts-atomic-create.patch` and the seven alignment/finalize patches described

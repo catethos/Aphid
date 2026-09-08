@@ -1,0 +1,11 @@
+--- a/src/include/common/types/int128_t.h
++++ b/src/include/common/types/int128_t.h
+@@ -117,7 +117,7 @@
+             throw common::OverflowException("INT128 is out of range: cannot negate INT128_MIN");
+         }
+         input.low = UINT64_MAX + 1 - input.low;
+-        input.high = -input.high - 1 + (input.low == 0);
++        input.high = ~input.high + (input.low == 0);
+     }
+ 
+     static int128_t negate(int128_t input) {

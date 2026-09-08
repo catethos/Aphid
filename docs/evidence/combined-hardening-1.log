@@ -1,0 +1,11 @@
+warning: failed to subscribe to Mix events using TCP, reason: :eperm
+
+** (Mix) failed to acquire filesystem lock using TCP, reason: :eperm
+{"command": ["mix", "test", "test/combined_hardening_test.exs", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 0.792}
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import sys; sys.path.insert(0,"scripts"); from proof import run; run(["mix","test","test/combined_hardening_test.exs","--seed","0"],timeout=180)
+                                                                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 29, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'test', 'test/combined_hardening_test.exs', '--seed', '0']

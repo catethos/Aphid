@@ -1,0 +1,37 @@
+-- The CXX compiler identification is AppleClang 21.0.0.21000101
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON", "-DCMAKE_TOOLCHAIN_FILE=/Users/catethos/workspace/ladybugex/zig_library/native/cmake/sanitizer-clt21.cmake", "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/source", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/ladybug", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.172}
+[1/10] Building CXX object CMakeFiles/hash_alignment.dir/hash_alignment.cpp.o
+[2/10] Building CXX object CMakeFiles/features.dir/features.cpp.o
+[3/10] Building CXX object CMakeFiles/int128_arithmetic.dir/int128_arithmetic.cpp.o
+[4/10] Building CXX object CMakeFiles/alp_range.dir/alp_range.cpp.o
+[5/10] Linking CXX executable features
+[6/10] Linking CXX executable hash_alignment
+[7/10] Linking CXX executable int128_arithmetic
+FAILED: [code=1] int128_arithmetic 
+: && /Library/Developer/CommandLineTools/usr/bin/clang++ -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk -mmacosx-version-min=13.3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/int128_arithmetic.dir/int128_arithmetic.cpp.o -o int128_arithmetic  -Wl,-rpath,/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/ladybug/src  /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/ladybug/src/liblbug.dylib && :
+Undefined symbols for architecture arm64:
+  "lbug::common::Int128_t::addInPlace(lbug::common::int128_t&, lbug::common::int128_t)", referenced from:
+      _main in int128_arithmetic.cpp.o
+      _main in int128_arithmetic.cpp.o
+      _main in int128_arithmetic.cpp.o
+ld: symbol(s) not found for architecture arm64
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+[8/10] Building CXX object CMakeFiles/aggregate_alignment.dir/aggregate_alignment.cpp.o
+ninja: build stopped: subcommand failed.
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests", "--target", "int128_arithmetic", "hash_alignment", "alp_range", "aggregate_alignment", "features", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 3.579}
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 29, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['cmake', '--build', '/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests', '--target', 'int128_arithmetic', 'hash_alignment', 'alp_range', 'aggregate_alignment', 'features', '--parallel', '2']

@@ -1,0 +1,21 @@
+--- a/src/processor/operator/path_property_probe.cpp
++++ b/src/processor/operator/path_property_probe.cpp
+@@ -3,6 +3,7 @@
+ #include "common/constants.h"
+ #include "common/exception/runtime.h"
+ #include "function/hash/hash_functions.h"
++#include <cstring>
+ #include <format>
+ 
+ using namespace lbug::common;
+@@ -306,7 +307,9 @@
+         auto id = idVector->getValue<internalID_t>(sizeProbed + i);
+         while (localState.probedTuples[i]) {
+             auto currentTuple = localState.probedTuples[i];
+-            if (*(internalID_t*)currentTuple == id) {
++            internalID_t storedID;
++            std::memcpy(&storedID, currentTuple, sizeof(storedID));
++            if (storedID == id) {
+                 localState.matchedTuples[i] = currentTuple;
+                 break;
+             }

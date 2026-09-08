@@ -1,0 +1,53 @@
+{
+  "base_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+  "patches": [
+    {
+      "path": "native/patches/candidates/alter-default-result-set.patch",
+      "sha256": "441b40ee9e877e458a0a43adb44a8c475d26c97e2788a42fb284d7a01886234e"
+    },
+    {
+      "path": "native/patches/candidates/float-sort-key-alignment.patch",
+      "sha256": "cd960b9b8e2d6ee2951924da53b1a96d097fa84e704b8a64aea807fc1defc7e0"
+    },
+    {
+      "path": "native/patches/candidates/int128-add-carry.patch",
+      "sha256": "25a0e7380d723a034c903f9cf136f248474c4cf959412ec2378a1d50340b1cba"
+    },
+    {
+      "path": "native/patches/candidates/int128-negate-overflow.patch",
+      "sha256": "dc8170526908f1323f397d09dcc824e3d287199847f42252bc6c7044aed2eb6c"
+    },
+    {
+      "path": "native/patches/candidates/path-probe-id-alignment.patch",
+      "sha256": "77d76d521abdf19a3cd8dca0763717e827af732ea047212e911b40d72d5ef470"
+    }
+  ],
+  "files": {
+    "src/common/types/int128_t.cpp": {
+      "base": "f376ca0ba8b7320b036cb21fa899f328c7e052878beb95d3fd94bef6568f280d",
+      "patched": "e39519de380e93259aa4f49d8ffb6f88afa878607e8e3ecd9196f3630f3f0202",
+      "both_build_sources_match": true
+    },
+    "src/include/common/types/int128_t.h": {
+      "base": "b200d76365454cd2b9123601d7dc6c5785243c0ab5eebb68d357e456d47f7011",
+      "patched": "314d76669594b9b41bea1e71ca45b6c0cf1a5e89b5eec5f564997715e86aba57",
+      "both_build_sources_match": true
+    },
+    "src/processor/operator/ddl/alter.cpp": {
+      "base": "9126b317dd048144de084a8ce8423ff780a184cd263e47a15513bdf509ea71ec",
+      "patched": "a8ed9bd2d383e37cdc7762e2d45ee98b1a6504374c032b2f896d5bf51440d08d",
+      "both_build_sources_match": true
+    },
+    "src/processor/operator/order_by/order_by_key_encoder.cpp": {
+      "base": "b0a74758981f5053c6c9944fe6bbb9c6062166da5a049d26526f58200c13c23f",
+      "patched": "77907469e7e5fa6cac60fe1f35b54190b180b0c4a1b0cc5200209e0df398539d",
+      "both_build_sources_match": true
+    },
+    "src/processor/operator/path_property_probe.cpp": {
+      "base": "1f854d6b437ea2d58114cb87be8934a25956b5090f476da9a7783f78ac84c8de",
+      "patched": "19b667a13ce356690f82c825e98b902997c010cf39ef1fb502194ee9cc1e850d",
+      "both_build_sources_match": true
+    }
+  },
+  "all_patches_reverse_to_exact_baseline": true
+}

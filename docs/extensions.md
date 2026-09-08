@@ -44,15 +44,15 @@ does not prove rollback. For transaction outcome meanings, see the
 [transaction contract](../README.md#transactions) and
 [telemetry timing boundaries](telemetry.md).
 
-The normal development engine still has a demonstrated FTS creation defect:
-interruption can leave internal tables behind, and repeating creation with the
-same name then fails. An atomic creation patch passes isolated cancellation and
-rebuild checks but remains a candidate pending hardening. Do not treat a timed-out
-FTS build as safely retryable, or delete internal tables based only on their names.
-The application must retain the error and inspect recovery against a copy of its
-data. This is an incomplete release gate, not supported automatic recovery.
+The locked engine includes the atomic FTS creation patch. The original
+interruption defect left internal tables behind; cancellation, same-name rebuild,
+query and drop now pass in memory and on disk. OOM and injected late-registration
+failure recovery also passed the checks recorded in
+[Stage 07](evidence/stage-07.md#sanitizer-gate-completion-and-atomic-fts-promotion-2026-09-07).
+Wait for native cleanup before an explicit rebuild. Aphid does not automatically
+retry writes, and a timeout response alone does not establish recovery.
 
-The candidate's 300,000-document fixture requires an explicit 1 GiB buffer pool
+The 300,000-document cancellation fixture requires an explicit 1 GiB buffer pool
 on the tested host. A 64 MiB pool can fail during creation. Pool size is per
 database and does not cap total RSS. Larger builds need their own capacity
 measurements; [streaming measurements](evidence/stage-06.md) separately report

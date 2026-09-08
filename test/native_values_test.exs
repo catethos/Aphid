@@ -9,6 +9,40 @@ defmodule Aphid.NativeValuesTest do
     %{db: db}
   end
 
+  for type <- ["DOUBLE", "FLOAT"] do
+    test "#{type} sort keys preserve signed values and null ordering", %{db: db} do
+      text =
+        "UNWIND [2.5,-0.5,0.0,8.0,-9.0,NULL] AS raw WITH CAST(raw AS #{unquote(type)}) AS n RETURN n ORDER BY n"
+
+      expected = [[-9.0], [-0.5], [0.0], [2.5], [8.0], [nil]]
+      assert query(db, text).rows == expected
+      assert query(db, text <> " DESC").rows == Enum.reverse(expected)
+    end
+  end
+
+  test "INT128 addition applies a low-word carry before checking the signed high word", %{db: db} do
+    minimum = -Integer.pow(2, 127)
+
+    assert query(db, "RETURN CAST('#{minimum + 1}' AS INT128) + CAST(-1 AS INT128)").rows == [
+             [minimum]
+           ]
+
+    operation = Native.submit(db, 0, "RETURN CAST('#{minimum}' AS INT128) + CAST(-1 AS INT128)")
+    assert_receive {:aphid_native, ^operation, 3}, 3000
+    assert {:error, 3, _} = Native.operation_error(operation)
+    Native.finish(operation)
+  end
+
+  test "ALTER initializes explicit and null defaults without an input result set", %{db: db} do
+    query(db, "CREATE NODE TABLE Altered(id INT64, PRIMARY KEY(id))")
+    query(db, "UNWIND range(1,2) AS i CREATE (:Altered {id:i})")
+    query(db, "ALTER TABLE Altered ADD score INT64 DEFAULT 19 + 23")
+    query(db, "ALTER TABLE Altered ADD note STRING")
+
+    assert query(db, "MATCH (n:Altered) RETURN n.id,n.score,n.note ORDER BY n.id").rows ==
+             [[1, 42, nil], [2, 42, nil]]
+  end
+
   test "all integer widths retain exact values and types", %{db: db} do
     for {type, bits, signed} <- [
           {:int8, 8, true},

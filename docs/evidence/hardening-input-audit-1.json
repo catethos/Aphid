@@ -1,0 +1,22 @@
+{
+  "base_snapshot_matching_files": 4387,
+  "files": {
+    "native/lock.json": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+    "native/bridge.cpp": "5a0abb57840f62753ba10cfbbb6d4900c48720080acd6a109ae863ef5469e0cd",
+    "native/aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
+    "native/cmake/sanitizer-clt21.cmake": "c8da6ded338be118c096febd87304cfc0afc155a8772564a38f3ecc30931a012",
+    "_build/hardening-beam/lib/aphid/priv/lib/Elixir.Aphid.Native.so": "f8603b0027183fe86a013355f43717b7517ff53b1b976a75520189a94e36bf1c",
+    "_build/fts-candidate-sanitizers-clt21/liblbug.0.dylib": "0484beadd4a7f38af7b5eff0ba2c342e264a9c64c6c70e7bc139e2f3825d24ff",
+    "_build/asan-public-bridge/libaphid_bridge.dylib": "a27f7cbce004822a4a90c38b3aa7286ae99cc92b610b67644ea21526e12aa0f6",
+    "_build/sanitizers-clt21/duckdb/src/libduckdb_static.a": "adf69f924ee8cef723fd802b79f91e8cbdab516347f14b2f603cf566c4ab8315"
+  },
+  "patches": {
+    "native/patches/candidates/float-sort-key-alignment.patch": "cd960b9b8e2d6ee2951924da53b1a96d097fa84e704b8a64aea807fc1defc7e0",
+    "native/patches/candidates/int128-add-carry.patch": "25a0e7380d723a034c903f9cf136f248474c4cf959412ec2378a1d50340b1cba",
+    "native/patches/candidates/int128-negate-overflow.patch": "dc8170526908f1323f397d09dcc824e3d287199847f42252bc6c7044aed2eb6c"
+  },
+  "source_revisions": {
+    "engine": "f150bddf7d01c65e5308384b8a064af1e2347701",
+    "extensions": "89fceca9aa0c3d404984b84697a502ac6a088536"
+  }
+}

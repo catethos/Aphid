@@ -1,0 +1,54 @@
+--- a/src/processor/operator/order_by/order_by_key_encoder.cpp
++++ b/src/processor/operator/order_by/order_by_key_encoder.cpp
+@@ -352,14 +352,17 @@
+ 
+ template<>
+ void OrderByKeyEncoder::encodeData(double data, uint8_t* resultPtr, bool swapBytes) {
+-    memcpy(resultPtr, &data, sizeof(data));
+-    uint64_t* dataBytes = (uint64_t*)resultPtr;
+-    if (swapBytes) {
+-        *dataBytes = BSWAP64(*dataBytes);
+-    }
+-    if (data < (double)0) {
+-        *dataBytes = ~*dataBytes;
+-    } else {
++    uint64_t dataBytes;
++    memcpy(&dataBytes, &data, sizeof(data));
++    if (swapBytes) {
++        dataBytes = BSWAP64(dataBytes);
++    }
++    const bool negative = data < (double)0;
++    if (negative) {
++        dataBytes = ~dataBytes;
++    }
++    memcpy(resultPtr, &dataBytes, sizeof(dataBytes));
++    if (!negative) {
+         resultPtr[0] = flipSign(resultPtr[0]);
+     }
+ }
+@@ -399,14 +402,17 @@
+ 
+ template<>
+ void OrderByKeyEncoder::encodeData(float data, uint8_t* resultPtr, bool swapBytes) {
+-    memcpy(resultPtr, &data, sizeof(data));
+-    uint32_t* dataBytes = (uint32_t*)resultPtr;
+-    if (swapBytes) {
+-        *dataBytes = BSWAP32(*dataBytes);
+-    }
+-    if (data < (float)0) {
+-        *dataBytes = ~*dataBytes;
+-    } else {
++    uint32_t dataBytes;
++    memcpy(&dataBytes, &data, sizeof(data));
++    if (swapBytes) {
++        dataBytes = BSWAP32(dataBytes);
++    }
++    const bool negative = data < (float)0;
++    if (negative) {
++        dataBytes = ~dataBytes;
++    }
++    memcpy(resultPtr, &dataBytes, sizeof(dataBytes));
++    if (!negative) {
+         resultPtr[0] = flipSign(resultPtr[0]);
+     }
+ }

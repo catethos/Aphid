@@ -1,0 +1,13 @@
+{
+  "patches": [
+    "float-sort-key-alignment.patch",
+    "int128-add-carry.patch",
+    "int128-negate-overflow.patch"
+  ],
+  "apply_reverse_roundtrip": "byte-identical",
+  "fresh_asan_source_matches": {
+    "src/processor/operator/order_by/order_by_key_encoder.cpp": "77907469e7e5fa6cac60fe1f35b54190b180b0c4a1b0cc5200209e0df398539d",
+    "src/common/types/int128_t.cpp": "e39519de380e93259aa4f49d8ffb6f88afa878607e8e3ecd9196f3630f3f0202",
+    "src/include/common/types/int128_t.h": "314d76669594b9b41bea1e71ca45b6c0cf1a5e89b5eec5f564997715e86aba57"
+  }
+}

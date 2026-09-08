@@ -60,7 +60,8 @@ def main():
     run(['cmake', '--build', str(output / 'bridge'), '--parallel', '2'])
     run(['cmake', '-S', 'native/tests', '-B', str(output / 'tests'), *common,
          f'-DDuckDB_DIR={output / "duckdb"}'])
-    run(['cmake', '--build', str(output / 'tests'), '--target', 'fixture', 'features', '--parallel', '2'])
+    run(['cmake', '--build', str(output / 'tests'), '--target', 'fixture', 'features', 'int128_arithmetic', '--parallel', '2'])
+    run([str(output / 'tests/int128_arithmetic')], timeout=30)
     fixture = work / 'café fixture.duckdb'
     run([str(output / 'tests/fixture'), str(fixture)], timeout=30)
     run([str(output / 'bridge/lifecycle')], timeout=30)

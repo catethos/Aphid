@@ -1,0 +1,26 @@
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+30 gated stale-cancel/reuse and simultaneous lease contention iterations passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.369}
+441 checked INT128 additions and 21 negations agree with compiler wide-integer arithmetic
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests/int128_arithmetic"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.091}
+string hash is invariant across all byte alignments and lengths 0..80
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests/hash_alignment"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.087}
+ALP float/double conversion boundaries and ordinary values passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests/alp_range"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.09}
+byte-sized grouping key, multiple aggregate states and rows passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests/aggregate_alignment"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.211}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-asan-2kyd3k23/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.083}
+gated concurrent FTS/vector/DuckDB: 100 queries each; joined shutdown passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/bridge/extension_concurrency", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-asan-2kyd3k23/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.722}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: create
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-asan-2kyd3k23/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-asan-2kyd3k23/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.751}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: reopen
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-asan/tests/features", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-asan-2kyd3k23/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-asan-2kyd3k23/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.382}

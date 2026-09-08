@@ -1,0 +1,18 @@
+-- The CXX compiler identification is AppleClang 21.0.0.21000101
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/asan-public-bridge
+[1/6] Building CXX object CMakeFiles/extension_concurrency.dir/tests/extension_concurrency.cpp.o
+[2/6] Building CXX object CMakeFiles/aphid_bridge.dir/bridge.cpp.o
+[3/6] Linking CXX shared library libaphid_bridge.dylib
+[4/6] Linking CXX executable extension_concurrency
+[5/6] Building CXX object CMakeFiles/lifecycle.dir/tests/lifecycle.cpp.o
+[6/6] Linking CXX executable lifecycle

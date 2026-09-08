@@ -1,0 +1,11 @@
+[0/2] Re-checking globbed directories...
+[1/5] Building CXX object src/processor/operator/ddl/CMakeFiles/lbug_processor_operator_ddl.dir/alter.cpp.o
+[2/5] Linking CXX static library src/liblbug.a
+[3/5] Linking CXX shared library src/liblbug.0.20.2.dylib
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/src/libduckdb_static.a', 'src/liblbug.a'
+[4/5] Creating library symlink src/liblbug.0.dylib src/liblbug.dylib
+{"command": ["cmake", "--build", "_build/hardening-normal/ladybug", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 7.267}
+[1/3] Linking CXX executable extension_concurrency
+[2/3] Linking CXX shared library libaphid_bridge.dylib
+[3/3] Linking CXX executable lifecycle
+{"command": ["cmake", "--build", "_build/hardening-normal/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.176}

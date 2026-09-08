@@ -2,6 +2,12 @@
 
 In progress on macOS ARM64, 2026-09-07. This is not a release-support claim.
 
+2026-09-08 checkpoint: [combined lifecycle and real-NIF sanitizer hardening](hardening-2026-09-08.md)
+passes all 99 public tests on independent normal and ASan/UBSan builds. Five
+additional engine patches are now locked. This extends host coverage without
+closing the Zig allocation, TSan mutation/GC, Linux sanitizer or release gates.
+Published artifacts retain the previous engine lock.
+
 ## Full-text search
 
 `test/fts_test.exs` exercises the public query, stream and transaction APIs against

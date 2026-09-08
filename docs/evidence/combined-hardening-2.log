@@ -1,0 +1,412 @@
+==> earmark_parser
+Compiling 3 files (.erl)
+Compiling 32 files (.ex)
+Generated earmark_parser app
+==> protoss
+Compiling 1 file (.ex)
+Generated protoss app
+==> zig_get
+Compiling 1 file (.ex)
+Generated zig_get app
+==> nimble_parsec
+Compiling 4 files (.ex)
+Generated nimble_parsec app
+==> pegasus
+Compiling 11 files (.ex)
+Generated pegasus app
+==> zig_parser
+Compiling 37 files (.ex)
+    warning: incompatible types given to Map.replace!/3:
+
+        Map.replace!(parse(args), :doc_comment, comment)
+
+    the map:
+
+        dynamic(%Zig.Parser.Test{block: %Zig.Parser.Block{}, location: nil})
+
+    does not have all required keys:
+
+        :doc_comment
+
+    therefore this function will always raise
+
+    where "args" was given the type:
+
+        # type: dynamic(non_empty_list(term()))
+        # from: lib/zig.parser/test.ex:16:10
+        parse(args)
+
+    where "comment" was given the type:
+
+        # type: dynamic()
+        # from: lib/zig.parser/test.ex
+        [{:TestDecl, [start, {:doc_comment, comment} | args]} | rest_args]
+
+    type warning found at:
+    │
+ 17 │       |> Map.replace!(:doc_comment, comment)
+    │              ~
+    │
+    └─ lib/zig.parser/test.ex:17:14: Zig.Parser.Test.post_traverse/5
+
+Generated zig_parser app
+==> makeup
+Compiling 15 files (.ex)
+Generated makeup app
+==> makeup_elixir
+Compiling 6 files (.ex)
+Generated makeup_elixir app
+==> makeup_erlang
+Compiling 4 files (.ex)
+Generated makeup_erlang app
+==> ex_doc
+Compiling 27 files (.ex)
+     warning: this clause of defp favicon_path/1 is never used (or it will always fail/warn when invoked)
+     │
+ 153 │   defp favicon_path(%{favicon: nil}), do: nil
+     │        ~
+     │
+     └─ lib/ex_doc/formatter/html/templates.ex:153:8: ExDoc.Formatter.HTML.Templates.favicon_path/1
+
+     warning: the following clause cannot match because the previous clauses already matched all possible values:
+
+         _ ->
+
+     it attempts to match on the result of:
+
+         result
+
+     which has the already matched type:
+
+         dynamic({:docs_v1, term(), term(), term(), term(), term(), term()} or {:error, term()})
+
+     type warning found at:
+     │
+ 124 │       _ ->
+     │         ~
+     │
+     └─ lib/ex_doc/retriever.ex:124:9: ExDoc.Retriever.docs_chunk/1
+
+     warning: this clause of defp logo_path/1 is never used (or it will always fail/warn when invoked)
+     │
+ 156 │   defp logo_path(%{logo: nil}), do: nil
+     │        ~
+     │
+     └─ lib/ex_doc/formatter/html/templates.ex:156:8: ExDoc.Formatter.HTML.Templates.logo_path/1
+
+     warning: the following clause is redundant:
+
+         defp to_var({:<<>>, _, _}, _)
+
+     it has type:
+
+         dynamic({:<<>>, term(), term()}), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+
+     │
+ 569 │   defp to_var({:<<>>, _, _}, _), do: {:binary, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:569:8: ExDoc.Language.Elixir.to_var/2
+
+     warning: the following clause is redundant:
+
+         defp to_var({:{}, _, _}, _)
+
+     it has type:
+
+         dynamic({:{}, term(), term()}), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+
+     │
+ 570 │   defp to_var({:{}, _, _}, _), do: {:tuple, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:570:8: ExDoc.Language.Elixir.to_var/2
+
+     warning: the following clause will never match:
+
+         nil ->
+
+     because it attempts to match on the result of:
+
+         ExDoc.Language.Source.fetch_type!(module_data, name, arity)
+
+     which has type:
+
+         dynamic(not false and not nil)
+
+     type warning found at:
+     │
+ 150 │         nil ->
+     │         ~~~~~~
+     │
+     └─ lib/ex_doc/language/erlang.ex:150: ExDoc.Language.Erlang.type_data/6
+
+     warning: the following clause is redundant:
+
+         defp to_var(float, _) when is_integer(float)
+
+     it has type:
+
+         integer(), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+         {term(), term()}, term()
+         integer(), term()
+
+     │
+ 573 │   defp to_var(float, _) when is_integer(float), do: {:float, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:573:8: ExDoc.Language.Elixir.to_var/2
+
+Generated ex_doc app
+==> aphid
+===> Analyzing applications...
+===> Compiling telemetry
+==> zig_doc
+Compiling 5 files (.ex)
+    warning: the following clause will never match:
+
+        {{:error, reason}, path} ->
+
+    it is expected to match on type:
+
+        dynamic(
+          :error or
+            ({term(), :read, binary() or empty_list() or non_empty_list(term(), term())} and
+               not {{:ok, term()}, :read, binary() or empty_list() or non_empty_list(term(), term())})
+        )
+
+    type warning found at:
+    │
+ 69 │       {{:error, reason}, path} ->
+    │       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/zig.doc/generator.ex:69: Zig.Doc.Generator.modulenode_from_config/3
+
+Generated zig_doc app
+==> zigler
+Compiling 50 files (.ex)
+
+19:09:26.767 [warning] not cross-compiling windows-msvc
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "def render_elixir_spec/1" was previously defined (lib/zig/_nif.ex:373)
+     │
+ 386 │   def render_elixir_spec(nif) do
+     │       ~
+     │
+     └─ lib/zig/_nif.ex:386:7
+
+     warning: unused require EEx
+     │
+ 437 │   require EEx
+     │   ~
+     │
+     └─ lib/zig/_nif.ex:437:3
+
+
+19:09:27.254 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:09:27.266 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:09:27.266 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/build.zig
+
+19:09:27.747 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/build.zig
+
+19:09:27.755 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:09:27.755 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:09:27.755 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/deps/zigler/lib/zig
+
+19:09:36.155 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:09:36.155 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:09:36.155 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/module.zig
+
+19:09:36.205 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/module.zig
+
+19:09:36.205 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:09:36.206 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:09:36.206 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/deps/zigler/lib/zig --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv
+Compiling lib/zig/formatter.ex (it's taking more than 10s)
+
+19:10:07.615 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv
+
+19:10:07.618 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv/lib/Elixir.Zig.Formatter.so
+Generated zigler app
+==> aphid
+Compiling 13 files (.ex)
+
+19:10:07.741 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:07.742 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:07.746 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:07.746 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+19:10:07.746 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:07.746 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/build.zig
+
+19:10:07.795 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+19:10:07.800 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/build.zig
+
+19:10:07.802 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:07.802 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:07.802 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+19:10:07.805 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:07.807 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:07.807 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+19:10:10.205 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:10.206 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:10.206 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+19:10:10.250 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+19:10:10.250 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:10.250 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:10.250 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/aphid/priv
+
+19:10:12.177 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/aphid/priv
+
+19:10:12.178 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+
+19:10:14.600 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:14.600 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:14.600 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/module.zig
+
+19:10:14.656 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/module.zig
+
+19:10:14.656 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+19:10:14.656 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+19:10:14.656 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/aphid/priv
+
+19:10:16.200 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/aphid/priv
+
+19:10:16.202 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-beam/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+Generated aphid app
+
+19:10:17.724 [debug] loaded module at Elixir.Aphid.Proof
+Running ExUnit with seed: 0, max_cases: 16
+
+    warning: comparison between distinct types found:
+
+        boundary == :timeout
+
+    given types:
+
+        :caller_death == :timeout
+
+    where "boundary" was given the type:
+
+        # type: :caller_death
+        # from: test/combined_hardening_test.exs:13:16
+        boundary = :caller_death
+
+    While Elixir can compare across all types, you are comparing across types which are always disjoint, and the result is either always true or always false
+
+    type warning found at:
+    │
+ 33 │           Aphid.query(tx, @long, %{}, timeout: if(boundary == :timeout, do: 250, else: :infinity))
+    │                                                            ~
+    │
+    └─ test/combined_hardening_test.exs:33:60: Aphid.CombinedHardeningTest."test caller_death rolls back indexed mutation with three retained feature cursors"/1
+
+    warning: comparison between distinct types found:
+
+        boundary == :timeout
+
+    given types:
+
+        :shutdown == :timeout
+
+    where "boundary" was given the type:
+
+        # type: :shutdown
+        # from: test/combined_hardening_test.exs:13:16
+        boundary = :shutdown
+
+    While Elixir can compare across all types, you are comparing across types which are always disjoint, and the result is either always true or always false
+
+    type warning found at:
+    │
+ 33 │           Aphid.query(tx, @long, %{}, timeout: if(boundary == :timeout, do: 250, else: :infinity))
+    │                                                            ~
+    │
+    └─ test/combined_hardening_test.exs:33:60: Aphid.CombinedHardeningTest."test shutdown rolls back indexed mutation with three retained feature cursors"/1
+
+    warning: the following clause will never match:
+
+        :caller_death ->
+
+    because it attempts to match on the result of:
+
+        boundary
+
+    which has type:
+
+        :timeout
+
+    type warning found at:
+    │
+ 73 │         :caller_death ->
+    │         ~~~~~~~~~~~~~~~~
+    │
+    └─ test/combined_hardening_test.exs:73: Aphid.CombinedHardeningTest."test timeout rolls back indexed mutation with three retained feature cursors"/1
+
+    warning: the following clause will never match:
+
+        :shutdown ->
+
+    because it attempts to match on the result of:
+
+        boundary
+
+    which has type:
+
+        :timeout
+
+    type warning found at:
+    │
+ 76 │         :shutdown ->
+    │         ~~~~~~~~~~~~
+    │
+    └─ test/combined_hardening_test.exs:76: Aphid.CombinedHardeningTest."test timeout rolls back indexed mutation with three retained feature cursors"/1
+
+...
+Finished in 1.6 seconds (0.00s async, 1.6s sync)
+
+Result: 3 passed
+{"command": ["mix", "test", "test/combined_hardening_test.exs", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 70.832}

@@ -1,0 +1,53 @@
+-- The CXX compiler identification is AppleClang 17.0.0.17000404
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (0.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/source", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/ladybug", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.959}
+[1/12] Building CXX object CMakeFiles/features.dir/features.cpp.o
+[2/12] Building CXX object CMakeFiles/hash_alignment.dir/hash_alignment.cpp.o
+[3/12] Building CXX object CMakeFiles/int128_arithmetic.dir/int128_arithmetic.cpp.o
+[4/12] Building CXX object CMakeFiles/fixture.dir/fixture.cpp.o
+[5/12] Building CXX object CMakeFiles/alp_range.dir/alp_range.cpp.o
+[6/12] Linking CXX executable fixture
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/src/libduckdb_static.a'
+[7/12] Linking CXX executable features
+[8/12] Building CXX object CMakeFiles/aggregate_alignment.dir/aggregate_alignment.cpp.o
+[9/12] Linking CXX executable hash_alignment
+[10/12] Linking CXX executable alp_range
+[11/12] Linking CXX executable int128_arithmetic
+[12/12] Linking CXX executable aggregate_alignment
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests", "--target", "fixture", "int128_arithmetic", "hash_alignment", "alp_range", "aggregate_alignment", "features", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 3.223}
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+30 gated stale-cancel/reuse and simultaneous lease contention iterations passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 3.827}
+441 checked INT128 additions and 21 negations agree with compiler wide-integer arithmetic
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests/int128_arithmetic"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.647}
+string hash is invariant across all byte alignments and lengths 0..80
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests/hash_alignment"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.601}
+ALP float/double conversion boundaries and ordinary values passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests/alp_range"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.604}
+byte-sized grouping key, multiple aggregate states and rows passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests/aggregate_alignment"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.659}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-normal-haa1s2iu/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.875}
+gated concurrent FTS/vector/DuckDB: 100 queries each; joined shutdown passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/bridge/extension_concurrency", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-normal-haa1s2iu/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.793}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: create
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-normal-haa1s2iu/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-normal-haa1s2iu/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.87}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: reopen
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/hardening-normal/tests/features", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-normal-haa1s2iu/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-hardening-normal-haa1s2iu/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.14}

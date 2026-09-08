@@ -60,6 +60,7 @@ defmodule Aphid.NativeLifecycleTest do
     eventually(fn -> Native.closed(db) end)
   end
 
+  @tag timeout: 60_000
   test "repeated stale cancellation cannot affect immediate following queries" do
     db = Native.open("", 1, 2)
     on_exit(fn -> Native.close(db) end)

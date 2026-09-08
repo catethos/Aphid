@@ -5,7 +5,7 @@
     "repository": "https://github.com/LadybugDB/ladybug.git",
     "commit": "f150bddf7d01c65e5308384b8a064af1e2347701",
     "tree": "5ee7aa542480e278321968582bf2538b588c54e2",
-    "patched_diff_sha256": "a653fb6beaa80478556f869e1fad14a4060d25798d8b0e88656c8941991358ae"
+    "patched_diff_sha256": "da2eb083347d666a63aa27db0e4440eb78e70b3278875acf7e64f1b45589e277"
   },
   "extensions": {
     "repository": "https://github.com/LadybugDB/extensions.git",
@@ -109,6 +109,36 @@
       "path": "patches/fts-atomic-create.patch",
       "sha256": "b0c8f418e4880690fb48e632611b2f33c5a4abca082a0df3e140d0a5afaf3eb5",
       "reason": "Wrap CREATE_FTS_INDEX's internal table rewrite in a transaction so a cancelled/late-failing build leaves no leftover internal tables and same-name rebuild succeeds; verified under ASan/UBSan for cancellation capacity, buffer-pool OOM recovery, and injected late-registration failure in memory and persistent modes (docs/evidence/fts-sanitizer-candidate-checks-clt21-1.log)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/float-sort-key-alignment.patch",
+      "sha256": "cd960b9b8e2d6ee2951924da53b1a96d097fa84e704b8a64aea807fc1defc7e0",
+      "reason": "FLOAT/DOUBLE sort keys followed a packed null marker and were mutated through unaligned integer pointers. Transform aligned local bits and memcpy to byte storage; ascending/descending public regressions pass under fatal UBSan. See docs/evidence/hardening-2026-09-08.md."
+    },
+    {
+      "source": "engine",
+      "path": "patches/int128-add-carry.patch",
+      "sha256": "25a0e7380d723a034c903f9cf136f248474c4cf959412ec2378a1d50340b1cba",
+      "reason": "INT128 addition could overflow an intermediate high-word sum for representable results; group negative RHS with carry first. Checked against compiler 128-bit arithmetic at boundaries. See docs/evidence/hardening-2026-09-08.md."
+    },
+    {
+      "source": "engine",
+      "path": "patches/int128-negate-overflow.patch",
+      "sha256": "dc8170526908f1323f397d09dcc824e3d287199847f42252bc6c7044aed2eb6c",
+      "reason": "INT128 negation overflowed the signed high-word intermediate near the minimum value; use complement plus carry, preserving the minimum-value overflow rejection. See docs/evidence/hardening-2026-09-08.md."
+    },
+    {
+      "source": "engine",
+      "path": "patches/alter-default-result-set.patch",
+      "sha256": "441b40ee9e877e458a0a43adb44a8c475d26c97e2788a42fb284d7a01886234e",
+      "reason": "ALTER ADD defaults bound a reference through a null ResultSet pointer. Supply an empty ResultSet when no input exists, matching other default-evaluator initialization; explicit and null default public regression passes. See docs/evidence/hardening-2026-09-08.md."
+    },
+    {
+      "source": "engine",
+      "path": "patches/path-probe-id-alignment.patch",
+      "sha256": "77d76d521abdf19a3cd8dca0763717e827af732ea047212e911b40d72d5ef470",
+      "reason": "PathPropertyProbe read an internalID_t through a misaligned packed hash-join tuple. Copy the identifier into an aligned local before comparison; existing multi-edge graph value regression passes under fatal UBSan. See docs/evidence/hardening-2026-09-08.md."
     }
   ],
   "mix_lock_sha256": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a",

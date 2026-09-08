@@ -1,0 +1,62 @@
+{
+  "lock_sha256": "09b8618810c5788237ebec1c8164c9322d0d65f4d312c41e4908687394647aba",
+  "tracked_source_files": 4387,
+  "builds": {
+    "hardening-asan": {
+      "sources_match_lock": true,
+      "compile_commands": 1157,
+      "asan_ubsan_commands": 1157,
+      "sha256": {
+        "_build/hardening-asan/ladybug/src/liblbug.0.20.2.dylib": "33c0efb9b6bef02bf03596e976a2d34a6176a8b4081b12c119c7aefc5dbba73e",
+        "_build/hardening-asan/bridge/libaphid_bridge.dylib": "e83633ae8e44aa41577dde9e4a60032de2d18016b2f1e740b943a5a8c2454319"
+      }
+    },
+    "hardening-normal": {
+      "sources_match_lock": true,
+      "compile_commands": 1157,
+      "asan_ubsan_commands": 0,
+      "sha256": {
+        "_build/hardening-normal/ladybug/src/liblbug.0.20.2.dylib": "20719cc7d4ad51635ea3eaec848a40db7063f067df635224b5909b66302af604",
+        "_build/hardening-normal/bridge/libaphid_bridge.dylib": "1c4e1f5233e7d5a74c5590405906471a0a2f8dcca932464a65271f7fb1cd730e"
+      }
+    }
+  },
+  "asan_public_suite": {
+    "tests": 99,
+    "log_sha256": "913bdd69f3eea4c4439d4bc158eff6cdd0af87e93b8cf020bb7b2fdd21f324b2",
+    "diagnostics": false
+  },
+  "patches": [
+    {
+      "path": "patches/float-sort-key-alignment.patch",
+      "sha256": "cd960b9b8e2d6ee2951924da53b1a96d097fa84e704b8a64aea807fc1defc7e0"
+    },
+    {
+      "path": "patches/int128-add-carry.patch",
+      "sha256": "25a0e7380d723a034c903f9cf136f248474c4cf959412ec2378a1d50340b1cba"
+    },
+    {
+      "path": "patches/int128-negate-overflow.patch",
+      "sha256": "dc8170526908f1323f397d09dcc824e3d287199847f42252bc6c7044aed2eb6c"
+    },
+    {
+      "path": "patches/alter-default-result-set.patch",
+      "sha256": "441b40ee9e877e458a0a43adb44a8c475d26c97e2788a42fb284d7a01886234e"
+    },
+    {
+      "path": "patches/path-probe-id-alignment.patch",
+      "sha256": "77d76d521abdf19a3cd8dca0763717e827af732ea047212e911b40d72d5ef470"
+    }
+  ],
+  "promoted_source_nif": {
+    "path": "_build/hardening-beam/lib/aphid/priv/lib/Elixir.Aphid.Native.so",
+    "sha256": "e208c723eb461aeb79b2fb4ea50afa4e8cebfca66d5e28e74bf462746c9ac0ed"
+  },
+  "final_checks": {
+    "python_syntax": "passed",
+    "all_patch_checksums": "passed",
+    "engine_and_extension_locked_diffs": "passed",
+    "normal_promoted_tests": 99,
+    "asan_native_promoted": "passed"
+  }
+}

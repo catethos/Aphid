@@ -1,0 +1,2 @@
+usage: linux_ci_checks.py [-h] --destination DESTINATION
+linux_ci_checks.py: error: the following arguments are required: --destination
