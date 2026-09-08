@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       preflight_only:
-        description: Check isolation and runtime prerequisites only; no native qualification
+        description: Check isolation and small NIF relocation only; no engine qualification
         type: boolean
         default: false
       retain_validation:
@@ -67,6 +67,11 @@ jobs:
           work.mkdir()
           probe(work, [])
           PY
+      - name: Check small NIF relocation without an engine build
+        if: ${{ inputs.preflight_only }}
+        env:
+          APHID_TARGET: ${{ matrix.target }}
+        run: python3 -u scripts/linux_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-preflight" --toolchain-only
       - name: Build private locked sources and run native and BEAM suites
         if: ${{ !inputs.preflight_only }}
         env:

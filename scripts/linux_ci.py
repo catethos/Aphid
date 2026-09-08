@@ -15,6 +15,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--target', choices=['x86_64-linux-gnu', 'aarch64-linux-gnu'], required=True)
     parser.add_argument('--work', type=Path, required=True)
+    parser.add_argument('--toolchain-only', action='store_true', help='Check the small NIF and ELF relocation without building the engine')
     args = parser.parse_args()
     target_recipe(args.target)  # Reject a foreign host before writing or fetching.
     work = args.work.resolve()
@@ -47,6 +48,9 @@ def main():
     run([sys.executable, 'scripts/proof.py', '--target', args.target], cwd=preflight,
         env=dict(os.environ, ZIGLER_STAGING_ROOT=str(preflight / 'staging'),
                  ZIG_EXECUTABLE_PATH=shutil.which('zig')), timeout=1200)
+    if args.toolchain_only:
+        print('Small NIF toolchain/ELF probe only; no engine build or distribution qualification.')
+        return
     for step in ['fetch', 'openssl', 'engine']:
         run([sys.executable, 'scripts/build.py', step, '--target', args.target,
              '--source-root', str(source), '--output', str(output), '--jobs', '2'], timeout=18000)

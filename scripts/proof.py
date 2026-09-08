@@ -59,6 +59,19 @@ def main():
     artifacts.mkdir(parents=True, exist_ok=True)
     artifact = artifacts / library.name
     shutil.copy2(library, artifact)
+    if args.target and args.target.endswith('linux-gnu'):
+        # Exercise the same ELF mutation before an expensive engine build.
+        for phase in ['original', 'relocated']:
+            run(['readelf', '--program-headers', '--dynamic', str(artifact)], timeout=30)
+            for scope in [[], ['--undefined-only']]:
+                symbols = subprocess.check_output(['nm', '-D', *scope, str(artifact)], text=True)
+                markers = [line for line in symbols.splitlines()
+                           if any(name in line for name in ['__asan_', '__ubsan_', '__tsan_'])]
+                print(json.dumps({'elf_phase': phase, 'symbol_scope': scope or ['all'],
+                                  'sanitizer_symbols': markers}), flush=True)
+            if phase == 'original':
+                shutil.copy2(artifact, artifact.with_suffix('.original.so'))
+                run(['patchelf', '--set-rpath', '$ORIGIN', str(artifact)], timeout=30)
     digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
     (artifacts / "sha256.json").write_text(json.dumps({artifact.name: digest}, indent=2) + "\n")
 
