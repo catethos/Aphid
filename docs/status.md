@@ -1,6 +1,23 @@
 # Implementation status
 
-Latest scope: [small review of the thirteen draft assets](evidence/small-release-review-1.md).
+Latest scope: [authorized experimental publication](evidence/public-release-1.md).
+Release [v0.1.0-dev](https://github.com/catethos/Aphid/releases/tag/v0.1.0-dev)
+(ID 384589981) is public with `draft=false`, `prerelease=true`, and is not latest
+stable. All thirteen unchanged assets passed anonymous public streaming SHA256
+and size verification. The exact reviewed body supplies the Zig MIT notice and
+retains the supplemental-notice instructions. Signed tag and native bytes are unchanged.
+
+Current handoff: prepare the final source package with the Zig notice and reviewed
+public catalog URLs, then qualify that exact package on native Linux x86_64/ARM64
+and macOS ARM64 against the public endpoints. Catalog URLs remain disabled in
+this publication-only checkpoint. Public download verification does not establish
+package-default installation or release support. No target is release-supported;
+no implementation stage is complete. Hex publication remains excluded.
+
+Earlier checkpoints below are historical; their publication holds and proposed
+next actions do not supersede the current publication evidence and handoff.
+
+Previous scope: [small review of the thirteen draft assets](evidence/small-release-review-1.md).
 The parser packages are not bundled; their missing full notices are not a
 demonstrated blocker for this native draft. One concrete notice fix is prepared
 in the proposed public body: include Zig’s existing MIT notice for macOS users.
@@ -57,7 +74,7 @@ No target is release-supported. The isolated candidate NIF load commands now dec
 macOS 13.3 (normal development NIFs remain 26.6); 13.3 is not a tested whole-bundle minimum. Stage 00's small resource destructor performs
 one atomic decrement; it does not prove heavy database retirement.
 
-## Concrete handoff from this continuation
+## Historical handoff from earlier continuation
 
 [Combined package qualification](evidence/combined-installation-2.md) is the current handoff;
 [source inputs/private routing](evidence/source-inputs.md) remains valid for the prior package;

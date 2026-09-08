@@ -1,0 +1,30 @@
+{
+  "catalog_urls_enabled": false,
+  "files": [
+    {
+      "path": "native/local-bundle.json",
+      "sha256": "b57adb61eba623025de97a8e6e8b4c0f7e3137ad2f1da8995e1d3a86ff9d24a4",
+      "unchanged": true
+    },
+    {
+      "path": "native/linux-bundles.json",
+      "sha256": "15a3aca0e5b9548da2be270c49e62ab9e734e94d25b72e813a5a0dc7579a9f66",
+      "unchanged": true
+    },
+    {
+      "path": "native/lock.json",
+      "sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+      "unchanged": true
+    },
+    {
+      "path": "docs/releases/v0.1.0-dev-assets.json",
+      "sha256": "2cdb9807e8e3c5e90824c6fb9c54ddc20328d14301a49fc360c269314af84c55",
+      "unchanged": true
+    },
+    {
+      "path": "docs/releases/v0.1.0-dev-public-body.md",
+      "sha256": "be0a8afc33b553c423f78d6576fedc8205645b2e9d0c7e847267f221bcea24ae",
+      "unchanged": true
+    }
+  ]
+}

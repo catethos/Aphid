@@ -1,0 +1,115 @@
+{
+  "source_commit": "060c5622cc6eb8a4e3acd983d149d117d5c71546",
+  "body_sha256": "be0a8afc33b553c423f78d6576fedc8205645b2e9d0c7e847267f221bcea24ae",
+  "body_bytes": 4813,
+  "release_id": 384589981,
+  "fixed_tag_commit": "750dc79ec3607893fe53ba84c2cfe45158c49bc3",
+  "asset_count": 13,
+  "assets": [
+    {
+      "id": 550207383,
+      "name": "aarch64-linux-gnu-elf-audit.json",
+      "bytes": 1243400,
+      "sha256": "647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+      "github_digest": "sha256:647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+      "match": true
+    },
+    {
+      "id": 550207386,
+      "name": "aarch64-linux-gnu-identity.json",
+      "bytes": 1410,
+      "sha256": "5e00e063aa7ddb131ff050f267a840d3672d2e74cd26b2ee05068df3716fc6a2",
+      "github_digest": "sha256:5e00e063aa7ddb131ff050f267a840d3672d2e74cd26b2ee05068df3716fc6a2",
+      "match": true
+    },
+    {
+      "id": 550208567,
+      "name": "aarch64-macos-audit.json",
+      "bytes": 27708,
+      "sha256": "6dda9c6cc0118fd9e57d62a57d3bd2c7e41072ed9c930491999583a667355fa7",
+      "github_digest": "sha256:6dda9c6cc0118fd9e57d62a57d3bd2c7e41072ed9c930491999583a667355fa7",
+      "match": true
+    },
+    {
+      "id": 550208563,
+      "name": "aarch64-macos-identity.json",
+      "bytes": 1426,
+      "sha256": "b57adb61eba623025de97a8e6e8b4c0f7e3137ad2f1da8995e1d3a86ff9d24a4",
+      "github_digest": "sha256:b57adb61eba623025de97a8e6e8b4c0f7e3137ad2f1da8995e1d3a86ff9d24a4",
+      "match": true
+    },
+    {
+      "id": 550207394,
+      "name": "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz",
+      "bytes": 46275962,
+      "sha256": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+      "github_digest": "sha256:235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+      "match": true
+    },
+    {
+      "id": 550207395,
+      "name": "aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz",
+      "bytes": 49965445,
+      "sha256": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+      "github_digest": "sha256:fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+      "match": true
+    },
+    {
+      "id": 550208566,
+      "name": "runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "bytes": 33608999,
+      "sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+      "github_digest": "sha256:3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+      "match": true
+    },
+    {
+      "id": 550207388,
+      "name": "SHA256SUMS",
+      "bytes": 776,
+      "sha256": "470c877e7c9048abababcf1076eeeef40138745f4a6192080356c6fcd96b74ce",
+      "github_digest": "sha256:470c877e7c9048abababcf1076eeeef40138745f4a6192080356c6fcd96b74ce",
+      "match": true
+    },
+    {
+      "id": 550208564,
+      "name": "SHA256SUMS-macos",
+      "bytes": 307,
+      "sha256": "e6bd3f83b12e0e0a6a556261b7412386b0c2b8e88f7c704fa941d9a5aa1c6ef2",
+      "github_digest": "sha256:e6bd3f83b12e0e0a6a556261b7412386b0c2b8e88f7c704fa941d9a5aa1c6ef2",
+      "match": true
+    },
+    {
+      "id": 550207387,
+      "name": "THIRD_PARTY.md",
+      "bytes": 4624,
+      "sha256": "58a0d518a8ec5a1021dfef10380fc08c1eed9b70b54a8f2de18b075f4bbb23ab",
+      "github_digest": "sha256:58a0d518a8ec5a1021dfef10380fc08c1eed9b70b54a8f2de18b075f4bbb23ab",
+      "match": true
+    },
+    {
+      "id": 550207385,
+      "name": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 21862,
+      "sha256": "08cc1d20ccb4808537545220152d6aff97701e2c3b0b8597ab2dadaa82a789d1",
+      "github_digest": "sha256:08cc1d20ccb4808537545220152d6aff97701e2c3b0b8597ab2dadaa82a789d1",
+      "match": true
+    },
+    {
+      "id": 550207396,
+      "name": "x86_64-linux-gnu-elf-audit.json",
+      "bytes": 1252366,
+      "sha256": "c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014",
+      "github_digest": "sha256:c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014",
+      "match": true
+    },
+    {
+      "id": 550207397,
+      "name": "x86_64-linux-gnu-identity.json",
+      "bytes": 1408,
+      "sha256": "5c4643108438c42eb24d9b76f7815b96479939d3be1fc59cd7dc779fb6bc5cb7",
+      "github_digest": "sha256:5c4643108438c42eb24d9b76f7815b96479939d3be1fc59cd7dc779fb6bc5cb7",
+      "match": true
+    }
+  ],
+  "passed": true
+}

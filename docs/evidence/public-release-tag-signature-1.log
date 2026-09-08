@@ -1,0 +1,6 @@
+gpg: Signature made Tue Sep  8 17:17:24 2026 +08
+gpg:                using RSA key F9C8C4619FACD22878C2B41BDF27047769301EAB
+gpg: WARNING: server 'keyboxd' is older than us (2.5.21 < 2.5.22)
+gpg: Note: Outdated servers may lack important security fixes.
+gpg: Note: Use the command "gpgconf --kill all" to restart them.
+gpg: Good signature from "Caleb Foong <cloverethos@gmail.com>" [ultimate]

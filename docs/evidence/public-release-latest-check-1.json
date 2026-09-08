@@ -1,0 +1,11 @@
+{
+  "url": "https://api.github.com/repos/catethos/Aphid/releases/latest",
+  "authentication": "none",
+  "http_status": 404,
+  "response": {
+    "message": "Not Found",
+    "documentation_url": "https://docs.github.com/rest/releases/releases#get-the-latest-release",
+    "status": "404"
+  },
+  "published_release_is_latest_stable": false
+}
