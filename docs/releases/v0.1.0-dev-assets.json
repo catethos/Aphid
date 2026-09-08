@@ -1,0 +1,74 @@
+{
+  "tag": "v0.1.0-dev",
+  "state": "proposed private draft; creation not authorized",
+  "native_qualification": 34193449987,
+  "source_qualification": 34205212486,
+  "source_package_sha256": "11ca5ca447a7a93ee6d8e2d79758f3ed67d9ce04d20947a08e82598851152507",
+  "assets": {
+    "SHA256SUMS": {
+      "path": "artifacts/linux-release-review-15/SHA256SUMS",
+      "sha256": "470c877e7c9048abababcf1076eeeef40138745f4a6192080356c6fcd96b74ce",
+      "bytes": 776
+    },
+    "THIRD_PARTY.md": {
+      "path": "artifacts/linux-release-review-15/THIRD_PARTY.md",
+      "sha256": "58a0d518a8ec5a1021dfef10380fc08c1eed9b70b54a8f2de18b075f4bbb23ab",
+      "bytes": 4624
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "path": "artifacts/linux-release-review-15/THIRD_PARTY_NOTICES.txt",
+      "sha256": "08cc1d20ccb4808537545220152d6aff97701e2c3b0b8597ab2dadaa82a789d1",
+      "bytes": 21862
+    },
+    "aarch64-linux-gnu-elf-audit.json": {
+      "path": "artifacts/linux-release-review-15/aarch64-linux-gnu-elf-audit.json",
+      "sha256": "647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+      "bytes": 1243400
+    },
+    "aarch64-linux-gnu-identity.json": {
+      "path": "artifacts/linux-release-review-15/aarch64-linux-gnu-identity.json",
+      "sha256": "5e00e063aa7ddb131ff050f267a840d3672d2e74cd26b2ee05068df3716fc6a2",
+      "bytes": 1410
+    },
+    "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz": {
+      "path": "artifacts/linux-release-review-15/aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz",
+      "sha256": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+      "bytes": 46275962
+    },
+    "aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz": {
+      "path": "artifacts/linux-release-review-15/aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz",
+      "sha256": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+      "bytes": 49965445
+    },
+    "x86_64-linux-gnu-elf-audit.json": {
+      "path": "artifacts/linux-release-review-15/x86_64-linux-gnu-elf-audit.json",
+      "sha256": "c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014",
+      "bytes": 1252366
+    },
+    "x86_64-linux-gnu-identity.json": {
+      "path": "artifacts/linux-release-review-15/x86_64-linux-gnu-identity.json",
+      "sha256": "5c4643108438c42eb24d9b76f7815b96479939d3be1fc59cd7dc779fb6bc5cb7",
+      "bytes": 1408
+    },
+    "SHA256SUMS-macos": {
+      "path": "artifacts/macos-release-review-1/SHA256SUMS-macos",
+      "sha256": "e6bd3f83b12e0e0a6a556261b7412386b0c2b8e88f7c704fa941d9a5aa1c6ef2",
+      "bytes": 307
+    },
+    "aarch64-macos-audit.json": {
+      "path": "artifacts/macos-release-review-1/aarch64-macos-audit.json",
+      "sha256": "6dda9c6cc0118fd9e57d62a57d3bd2c7e41072ed9c930491999583a667355fa7",
+      "bytes": 27708
+    },
+    "aarch64-macos-identity.json": {
+      "path": "artifacts/macos-release-review-1/aarch64-macos-identity.json",
+      "sha256": "b57adb61eba623025de97a8e6e8b4c0f7e3137ad2f1da8995e1d3a86ff9d24a4",
+      "bytes": 1426
+    },
+    "runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz": {
+      "path": "artifacts/macos-release-review-1/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+      "bytes": 33608999
+    }
+  }
+}

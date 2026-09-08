@@ -1,0 +1,9 @@
+{
+  "tag": "v0.1.0-dev",
+  "assets": {
+    "aarch64-macos-audit.json": "6dda9c6cc0118fd9e57d62a57d3bd2c7e41072ed9c930491999583a667355fa7",
+    "aarch64-macos-identity.json": "b57adb61eba623025de97a8e6e8b4c0f7e3137ad2f1da8995e1d3a86ff9d24a4",
+    "runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034"
+  },
+  "source_package_sha256": "11ca5ca447a7a93ee6d8e2d79758f3ed67d9ce04d20947a08e82598851152507"
+}

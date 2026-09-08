@@ -1,0 +1,3 @@
+Expected macOS review rejection: input record differs
+Expected macOS review rejection: archive differs
+Both altered-input checks passed without staging assets.

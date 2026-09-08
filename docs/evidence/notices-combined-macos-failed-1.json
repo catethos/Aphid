@@ -1,0 +1,8 @@
+{
+  "failed_attempt": "/private/tmp/aphid-notices-combined-consumer-1",
+  "archive": "artifacts/notices-combined-macos-failed-1.tar.gz",
+  "sha256": "af6303e564efc5135b3c508858239f25c0205a150d0278102dbab6886e0c4c14",
+  "bytes": 86667566,
+  "verified_members": 1330,
+  "raw_tree_removed_after_complete_verification": true
+}

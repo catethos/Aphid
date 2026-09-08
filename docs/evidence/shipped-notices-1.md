@@ -76,3 +76,85 @@ installed-notice mutations (missing/corrupt supplement and existing archive
 notice), reordered receipt/repeat installation and the original 23 installer
 rejections plus native loader failures pass locally. Tests restore original
 receipt, notice and native hashes. Final source qualification follows separately.
+
+## Final qualification and reviewable draft
+
+[Run 34205212486](https://github.com/catethos/Aphid/actions/runs/34205212486)
+at signed source `06d0a99dfc4efd8c0d3171262b2a886382b87704` passes both native
+Linux architectures. Each job passes the fresh 92-test consumer, original 23
+installer rejections, four notice fixtures, four installed-notice mutations,
+reordered/repeat receipt checks, loader failures, the relocated 92-test Mix
+release and embedded startup/restart/reopen/failure checks. Both releases retain
+the supplement's exact hash. No engine, bridge or NIF was rebuilt, and no native
+or bundled-ERTS archive was uploaded. Passing source/inputs/log retention is seven
+days; exact metadata is in `notices-linux-artifacts-2.json`.
+
+The retained source package is
+`artifacts/notices-source-linux-2/aphid-current-consumer/aphid-0.1.0-dev-combined.tar`,
+110,592 bytes, SHA256
+`11ca5ca447a7a93ee6d8e2d79758f3ed67d9ce04d20947a08e82598851152507`.
+Both Linux jobs record that identity. The exact downloaded bytes pass the fresh
+macOS consumer in `notices-combined-macos-2.log`: 92 tests, normal locked Hex
+acquisition, empty caches, compiler/development-read denial, unchanged native
+hashes and all 68 installed license hashes (67 original plus the supplement).
+The latest macOS proof is a consumer proof; a new macOS bundled-ERTS release
+was not assembled in this continuation. Earlier embedded evidence retains its
+original source/artifact scope.
+
+The first exact-source macOS attempt again failed from disk exhaustion while
+redundant Linux staging ran concurrently. Its 1,330 members are losslessly
+preserved and checked in `artifacts/notices-combined-macos-failed-1.tar.gz`,
+SHA256 `af6303e564efc5135b3c508858239f25c0205a150d0278102dbab6886e0c4c14`.
+After cleanup limited to this task's completed copies and archived failure trees,
+the serial retry passed. No source fix was required for that storage failure.
+Every cleanup and archive identity is retained in new evidence files.
+
+The Linux verifier now includes the source supplement in its tested-source check
+and adds `THIRD_PARTY_NOTICES.txt` and `THIRD_PARTY.md` to its nine staged assets.
+Actual asset review passes in `notices-linux-release-review-2.log`; the complete
+current set is `artifacts/linux-release-review-15/`. Review 14 passed earlier,
+then its redundant native archive copies were removed for disk space; their
+original bytes remain in review 11. Review 15 is the complete retained set.
+
+The local macOS helper verifies the independently pinned input/log record,
+identical Linux/macOS source-package hash, current executable/notices/catalog
+content, native lock/source identities and installed native/notice hashes before
+staging the original archive, identity and otool audit plus a distinct checksum
+file. `artifacts/macos-release-review-1/` passes actual verification; changed
+input-record and archive fixtures fail before staging. The macOS review record
+is `docs/releases/v0.1.0-dev-macos.json`. The helper only stages local files;
+it does not upload to Actions, create a release or attach assets.
+
+The complete thirteen-asset proposal and hashes are in
+`docs/releases/v0.1.0-dev-proposal.md` and `docs/releases/v0.1.0-dev-assets.json`.
+`notices-final-checks-1.json` rechecks both checksum groups, all assets, the four
+original requested archives and unchanged native lock. Python syntax, Elixir
+formatting, actionlint and fourteen release-verifier rejection checks pass;
+two additional macOS review rejections pass. The shared source verifier checks
+executable code, the notice text and both catalogs on Linux and macOS.
+
+The tested source archive remains immutable. Later documentation and local
+release-review helper edits do not retroactively become part of its bytes.
+The tag may include those reviewed documentation/helper changes; its executable
+and notice bytes still must match the pinned consumer evidence. The source
+package for eventual public/Hex installation remains a future artifact after
+URL activation and final review, requiring actual endpoint qualification.
+
+## Next concrete action and remaining gates
+
+The local preparation is ready for a draft-only authorization decision:
+create the signed `v0.1.0-dev` tag at the final preparation commit named in the
+handoff; dispatch the Linux workflow with native run `34193449987`, consumer run
+`34205212486` and `reviewed=true`; attach the four verified macOS files locally
+to the same private prerelease without overwriting assets. This is a thirteen-file
+private review proposal, not authorization to publish publicly, advertise support,
+contact maintainers or publish Hex. No tag/release has been created in this work.
+
+The known notice omission from installed contents is addressed. Full
+Pegasus/ZigParser notices, final generated/linked/modified-fork attribution,
+NimbleParsec coverage, production ERTS/static provenance, minimum-system/CPU,
+other OTP/binutils, cross-build, source installation and remaining plan gates
+are still open. The private draft can be reviewed with those limits explicit;
+it supplies no public-redistribution clearance. Public publication needs a
+separate explicit decision. Only after authorized public delivery should default
+URLs be enabled and the final exact source package proved on all three targets.

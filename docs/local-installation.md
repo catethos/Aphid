@@ -254,3 +254,13 @@ unset installation inputs or `APHID_INSTALL=precompiled` alone fail `[missing]`.
 Explicit archive/URL overrides still require an independent caller-supplied pin.
 See [delivery preparation](evidence/release-preparation-1.md) for proposed paths,
 checks and the authorization/public-delivery gates. No source fallback occurs.
+
+## Installed supplemental notices
+
+Current source packages include `THIRD_PARTY_NOTICES.txt`. The adapter installs
+it as `priv/licenses/aphid-supplemental.txt`, preserving the archive's original
+license tree and checking all license hashes on repeat installation. Missing
+source notice content is an actionable failure; retain the full source package.
+The same file survives relocated Linux Mix releases. See
+[notice delivery evidence](evidence/shipped-notices-1.md) for exact identities,
+checks and unresolved attribution. Native archive hashes have not changed.

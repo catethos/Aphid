@@ -1,0 +1,8 @@
+{
+  "source_package": "artifacts/notices-source-linux-2/aphid-current-consumer/aphid-0.1.0-dev-combined.tar",
+  "sha256": "11ca5ca447a7a93ee6d8e2d79758f3ed67d9ce04d20947a08e82598851152507",
+  "bytes": 110592,
+  "both_linux_jobs_match": true,
+  "four_92_test_suites_pass": true,
+  "both_relocated_releases_preserve_notices": true
+}

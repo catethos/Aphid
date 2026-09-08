@@ -50,4 +50,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
         run: |
-          gh release create "$TAG" "$RUNNER_TEMP/release/"* --repo "$GITHUB_REPOSITORY" --verify-tag --draft --prerelease --title "Aphid $TAG — Linux review draft" --notes-file "docs/releases/$TAG.md"
+          gh release create "$TAG" "$RUNNER_TEMP/release/"* --repo "$GITHUB_REPOSITORY" --verify-tag --draft --prerelease --title "Aphid $TAG — native review draft" --notes-file "docs/releases/$TAG.md"

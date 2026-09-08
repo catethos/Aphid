@@ -1,5 +1,13 @@
 # Release preparation checklist — release publication not authorized
 
+Current continuation: [installed notices and draft proposal](evidence/shipped-notices-1.md).
+Known supplemental notices now ship into installed priv and Linux Mix releases.
+One exact updated source archive passes 92 tests on all three targets. The
+thirteen-asset private-draft proposal is locally verified and awaits separate
+explicit authorization. Defaults/public delivery, final attribution and all
+previously open support/plan gates remain open. Earlier checkpoints below are
+historical and do not supersede this handoff.
+
 Current handoff: [default delivery and shipped-content review](evidence/release-preparation-1.md).
 Default selection is prepared but disabled until authorized delivery; the native
 bytes are unchanged. Refreshed consumer-to-release verification passes locally.

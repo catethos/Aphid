@@ -1,5 +1,13 @@
 # GitHub release preparation
 
+Current continuation: [installed notices and draft proposal](evidence/shipped-notices-1.md).
+Known supplemental notices now ship into installed priv and Linux Mix releases.
+One exact updated source archive passes 92 tests on all three targets. The
+thirteen-asset private-draft proposal is locally verified and awaits separate
+explicit authorization. Defaults/public delivery, final attribution and all
+previously open support/plan gates remain open. Earlier checkpoints below are
+historical and do not supersede this handoff.
+
 Current handoff: [default delivery and shipped-content review](evidence/release-preparation-1.md).
 Default selection is prepared but disabled until authorized delivery; the native
 bytes are unchanged. Refreshed consumer-to-release verification passes locally.
@@ -143,3 +151,12 @@ checks the original native qualification separately. The exact seven assets pass
 local staging in `artifacts/linux-release-review-13/`, unchanged from review 11.
 See [current evidence](evidence/release-preparation-1.md). No workflow dispatch
 that creates a release is authorized, and notices/macOS delivery decisions remain.
+
+Current prepared dispatch inputs are native qualification `34193449987` and
+consumer qualification `34205212486`; the current version-specific record replaces
+the earlier consumer pin. The workflow now stages nine Linux/notice assets and
+creates a private draft only after separate authorization. The complete proposed
+scope adds four locally verified macOS assets, for thirteen total; no macOS
+Actions upload has occurred. The local helper and exact attachment scope are
+in [the proposal](releases/v0.1.0-dev-proposal.md). Do not dispatch or attach under
+the existing source-push/validation-retention approval alone.

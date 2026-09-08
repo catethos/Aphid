@@ -1,0 +1,12 @@
+{
+  "original_artifacts_unchanged": {
+    "artifacts/aphid-0.1.0-dev-combined-linux-2.tar": "b85967b047662ccdc66851d246a9a7301fe8c797225d7e479948653838dc57df",
+    "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+    "artifacts/linux-release-review-11/aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+    "artifacts/linux-release-review-11/aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af"
+  },
+  "native_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+  "draft_asset_manifest_sha256": "2cdb9807e8e3c5e90824c6fb9c54ddc20328d14301a49fc360c269314af84c55",
+  "verified_draft_assets": 13,
+  "verified_checksum_groups": 2
+}
