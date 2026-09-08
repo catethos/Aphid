@@ -53,7 +53,7 @@ def main():
         raise RuntimeError('Bundle output must be separate from candidate and native input trees')
     work.mkdir()
     bundle = work / 'bundle'
-    version = '0.1.1-dev'
+    version = '0.1.2-dev'
     app = project / '_build/test/lib/aphid'
     inputs = json.loads((native / 'inputs.json').read_text())
     lock = json.loads((ROOT / 'native/lock.json').read_text())

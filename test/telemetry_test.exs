@@ -23,7 +23,7 @@ defmodule Aphid.TelemetryTest do
              :lock_sha256
            ]
 
-    assert identity.extensions == ["duckdb", "fts", "vector"]
+    assert identity.extensions == ["algo", "duckdb", "fts", "vector"]
     assert byte_size(identity.lock_sha256) == 64
     flush_events()
 
@@ -47,7 +47,9 @@ defmodule Aphid.TelemetryTest do
           fn _ ->
             send(parent, :holding)
             Process.sleep(:infinity)
-          end, timeout: 200)
+          end,
+          timeout: 200
+        )
       end)
 
     assert_receive :holding

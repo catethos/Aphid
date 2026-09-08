@@ -87,7 +87,7 @@ end
 Code.require_file(System.fetch_env!("APHID_ADAPTER"))
 defmodule DefaultHttpsProject do
   use Mix.Project
-  def project, do: [app: :aphid, version: "0.1.1-dev"]
+  def project, do: [app: :aphid, version: "0.1.2-dev"]
 end
 for key <- ~w(APHID_INSTALL APHID_BUNDLE_ARCHIVE APHID_BUNDLE_URL APHID_BUNDLE_SHA256) do
   System.delete_env(key)

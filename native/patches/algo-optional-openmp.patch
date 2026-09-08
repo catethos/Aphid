@@ -1,0 +1,28 @@
+diff --git a/algo/CMakeLists.txt b/algo/CMakeLists.txt
+index ee562ce..6d55c4b 100644
+--- a/algo/CMakeLists.txt
++++ b/algo/CMakeLists.txt
+@@ -19,8 +19,8 @@ if (APPLE AND EXISTS "/opt/homebrew/opt/apache-arrow")
+ endif ()
+ if (ICEBUG_ENABLED)
+     find_package(Arrow REQUIRED)
++    find_package(OpenMP REQUIRED)
+ endif ()
+-find_package(OpenMP REQUIRED)
+ 
+ include_directories(
+         ${PROJECT_SOURCE_DIR}/src/include
+diff --git a/algo/src/function/CMakeLists.txt b/algo/src/function/CMakeLists.txt
+index 7ce7bd8..0a32422 100644
+--- a/algo/src/function/CMakeLists.txt
++++ b/algo/src/function/CMakeLists.txt
+@@ -26,9 +26,6 @@ if (ICEBUG_ENABLED)
+     # ICEBUG_ENABLED is read by gds_page_rank.cpp via #ifdef to skip its body when icebug is off
+     # (defensive: source isn't compiled in that case, but matches the header-side guard).
+     target_compile_definitions(lbug_algo_function PRIVATE ICEBUG_ENABLED)
+-else ()
+-    # Other sources still use <omp.h> for parallel regions, so keep the OpenMP link — just drop Arrow.
+-    target_link_libraries(lbug_algo_function PRIVATE OpenMP::OpenMP_CXX)
+ endif ()
+ 
+ if (WIN32)

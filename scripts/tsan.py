@@ -39,7 +39,7 @@ run(["cmake", "-S", str(ROOT / "native/upstream/duckdb"), "-B", str(out / "duckd
      "-DOVERRIDE_GIT_DESCRIBE=v1.4.4-0-g6ddac802ff"])
 run(["cmake", "-S", str(source), "-B", str(out / "ladybug"), *common,
      "-DBUILD_SHELL=OFF", "-DBUILD_TESTS=OFF", "-DBUILD_SINGLE_FILE_HEADER=OFF",
-     "-DEXTENSION_STATIC_LINK_LIST=fts;vector;duckdb", "-DBUILD_SHARED_LBUG=ON",
+     "-DEXTENSION_STATIC_LINK_LIST=fts;vector;duckdb;algo", "-DICEBUG_ENABLED=OFF", "-DBUILD_SHARED_LBUG=ON",
      "-DBUILD_STATIC_LBUG=ON", f"-DDuckDB_DIR={out / 'duckdb'}",
      f"-DOPENSSL_ROOT_DIR={install}", "-DOPENSSL_USE_STATIC_LIBS=ON",
      f"-DOPENSSL_SSL_LIBRARY={install / 'lib/libssl.a'}",

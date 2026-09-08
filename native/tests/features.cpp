@@ -28,7 +28,7 @@ static int check_features(int argc, const char** argv) {
         config.throwOnWalReplayFailure = true;
         Database database{argv[2], config};
         Connection connection{&database};
-        expect(connection, "CALL SHOW_LOADED_EXTENSIONS() RETURN count(*)", 3);
+        expect(connection, "CALL SHOW_LOADED_EXTENSIONS() RETURN count(*)", 4);
         if (std::string(argv[1]) == "create") {
             query(connection, "CREATE NODE TABLE Document(id INT64, title STRING, body STRING, vec FLOAT[3], PRIMARY KEY(id))");
             query(connection, "CREATE (:Document {id: 1, title: 'orchard', body: 'aphid nectar café', vec: [1.0,0.0,0.0]})");

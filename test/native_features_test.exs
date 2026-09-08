@@ -20,7 +20,7 @@ defmodule Aphid.NativeFeaturesTest do
       File.rm_rf!(root)
     end)
 
-    assert %Result{rows: [[3]]} = query(db, "CALL SHOW_LOADED_EXTENSIONS() RETURN count(*)")
+    assert %Result{rows: [[4]]} = query(db, "CALL SHOW_LOADED_EXTENSIONS() RETURN count(*)")
     query(db, "CREATE NODE TABLE Document(id INT64, body STRING, vec FLOAT[3], PRIMARY KEY(id))")
 
     for {id, text, vector} <- [

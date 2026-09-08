@@ -73,7 +73,7 @@ jobs:
           import hashlib, json, os, subprocess, sys
           from pathlib import Path
           root = Path(os.environ['RUNNER_TEMP'])
-          packages = list((root / 'qualified-source').rglob('aphid-0.1.1-dev-combined.tar'))
+          packages = list((root / 'qualified-source').rglob('aphid-0.1.2-dev-combined.tar'))
           assert len(packages) == 1, 'Expected one exact qualified package'
           package = packages[0]
           assert hashlib.sha256(package.read_bytes()).hexdigest() == os.environ['SOURCE_SHA256'], 'Source pin mismatch'

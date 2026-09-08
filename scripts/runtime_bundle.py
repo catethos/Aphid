@@ -150,7 +150,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix='aphid-runtime-') as temp:
         temp = Path(temp)
         bundle = temp / 'staging'
-        lib = bundle / 'lib/aphid-0.1.1-dev/priv/lib'
+        lib = bundle / 'lib/aphid-0.1.2-dev/priv/lib'
         lib.mkdir(parents=True)
         shutil.copytree(args.app_build / 'ebin', lib.parent.parent / 'ebin')
         shutil.copytree(ROOT / '_build/test/lib/telemetry/ebin', bundle / 'lib/telemetry/ebin')

@@ -7,7 +7,7 @@ defmodule Aphid.MixProject do
     [
       app: :aphid,
       compilers: [:aphid_bundle] ++ Mix.compilers(),
-      version: "0.1.1-dev",
+      version: "0.1.2-dev",
       elixir: "~> 1.20",
       source_url: "https://github.com/catethos/Aphid",
       deps: [{:zigler, "== 0.16.0", runtime: false}, {:telemetry, "~> 1.3"}],

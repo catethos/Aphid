@@ -29,7 +29,7 @@ def main():
     work = args.destination.resolve()
     work.mkdir()
     # Small hostile fixtures, not replacement runtime candidates. All are retained.
-    prefix = 'lib/aphid-0.1.1-dev/priv/lib/'
+    prefix = 'lib/aphid-0.1.2-dev/priv/lib/'
     suffix = '.so' if linux else '.dylib'
     closure = ['Elixir.Aphid.Native.so', 'Elixir.Aphid.Proof.so', 'libaphid_bridge' + suffix, 'liblbug' + suffix]
     header = b'\xcf\xfa\xed\xfe\x0c\0\0\x01'
@@ -95,7 +95,7 @@ Mix.start()
 Code.require_file(System.fetch_env!("ADAPTER"))
 defmodule FailureProject do
   use Mix.Project
-  def project, do: [app: :aphid, version: "0.1.1-dev"]
+  def project, do: [app: :aphid, version: "0.1.2-dev"]
 end
 try do
   Mix.Tasks.Compile.AphidBundle.run([])

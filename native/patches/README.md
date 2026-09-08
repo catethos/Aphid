@@ -64,3 +64,13 @@ validation of every patch, a from-scratch normal-engine rebuild with the
 shared extension archives removed first (so no sanitizer-flavored object could
 be silently reused), and the full Elixir suite plus FTS persistence,
 cancellation and OOM recovery against that rebuilt engine.
+
+## Standard ALGO build
+
+`algo-optional-openmp.patch` applies to the locked extensions revision. With
+`ICEBUG_ENABLED=OFF`, none of the compiled standard algorithm sources use OpenMP.
+Upstream nevertheless requires it at configure time and links its target to the
+function objects. The patch scopes both requirements to icebug builds, avoiding
+an unnecessary compiler/runtime dependency. It does not change algorithm code.
+The patch checksum and complete patched extension diff are pinned in `../lock.json`.
+Verify with the source engine build and `test/algo_test.exs`.

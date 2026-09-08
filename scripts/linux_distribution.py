@@ -36,7 +36,7 @@ def main():
         shutil.copy2(original, destination)
     # This is an isolated validation package, not a new production catalog entry.
     (source / 'native/linux-bundles.json').write_text(json.dumps({args.target: identity}, indent=2) + '\n')
-    package = work / 'aphid-0.1.1-dev-linux-validation.tar'
+    package = work / 'aphid-0.1.2-dev-linux-validation.tar'
     run(['mix', 'hex.build', '--output', str(package)], cwd=source,
         env=dict(os.environ, APHID_INSTALL='source'), timeout=120)
     package_identity = {'source_package': package.name, 'sha256': sha(package),

@@ -60,7 +60,7 @@ will fail. Never weaken checks to make a mismatched bundle load.
    ordinary code changes. Keep the published `v0.1.0-dev` tag and assets fixed.
 3. **Prepare the native target matrix.** Build or reuse compatible native bytes
    according to the table above. Include the full NIF/bridge/engine closure,
-   required FTS/vector/DuckDB functionality and all applicable notices. Record
+   required ALGO/FTS/vector/DuckDB functionality and all applicable notices. Record
    archive hashes, native-input hashes, runtime versions and system requirements.
 4. **Qualify the candidate.** Test on the actual included architectures, with
    fresh installation caches, checksum verification, no native compilation in

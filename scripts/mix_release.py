@@ -175,7 +175,7 @@ IO.puts("Linux release guards verified: no network routes, hidden build/host run
         tar.extractall(extracted, filter='data')
     relocated = work / 'relocated café release'
     extracted.rename(relocated)
-    native = relocated / 'lib/aphid-0.1.1-dev/priv'
+    native = relocated / 'lib/aphid-0.1.2-dev/priv'
     assert {p.name: sha(p) for p in (native / 'lib').iterdir()} == identity['native_files']
     assert sha(native / 'licenses/aphid-supplemental.txt') == sha(ROOT / 'THIRD_PARTY_NOTICES.txt')
     print('Relocated source-package notice supplement:', sha(native / 'licenses/aphid-supplemental.txt'), flush=True)

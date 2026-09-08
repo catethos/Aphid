@@ -452,7 +452,7 @@ defmodule Aphid.Database do
   defp startup_info(db) do
     with {:ok, %Result{rows: rows}} <- startup_query(db, "CALL SHOW_LOADED_EXTENSIONS() RETURN *"),
          extensions = Enum.map(rows, fn [name, _, _] -> String.downcase(name) end),
-         true <- Enum.all?(["fts", "vector", "duckdb"], &(&1 in extensions)),
+         true <- Enum.all?(["fts", "vector", "duckdb", "algo"], &(&1 in extensions)),
          {:ok, %Result{rows: [[version]]}} <-
            startup_query(db, "CALL DB_VERSION() RETURN version") do
       {:ok, %{engine_version: version, extensions: Enum.sort(extensions)}}

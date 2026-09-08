@@ -235,7 +235,7 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
     assert not (work / 'compiler-invocations').exists()
     assert not list((work / 'zig-cache').iterdir())
     installed = project / '_build/prod/lib/aphid/priv/lib'
-    expected = bundle / 'lib/aphid-0.1.1-dev/priv/lib'
+    expected = bundle / 'lib/aphid-0.1.2-dev/priv/lib'
     assert {p.name: sha(p) for p in installed.iterdir()} == {p.name: sha(p) for p in expected.iterdir()}
     notices = installed.parent / 'licenses/aphid-supplemental.txt'
     assert sha(notices) == sha(package / 'THIRD_PARTY_NOTICES.txt')

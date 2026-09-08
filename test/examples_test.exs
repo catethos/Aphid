@@ -21,6 +21,10 @@ defmodule Aphid.ExamplesTest do
     Code.eval_file(Path.expand("../examples/vector.exs", __DIR__))
   end
 
+  test "documented graph algorithm example executes" do
+    Code.eval_file(Path.expand("../examples/algo.exs", __DIR__))
+  end
+
   test "documented DuckDB example executes" do
     Code.eval_file(Path.expand("../examples/duckdb.exs", __DIR__))
   end

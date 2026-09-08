@@ -1,7 +1,8 @@
 alias Aphid.{Result, Value}
 
 {:ok, db} = Aphid.start_link(path: :memory)
-{:ok, %{extensions: ["duckdb", "fts", "vector"]}} = Aphid.info(db)
+{:ok, %{extensions: ["algo", "duckdb", "fts", "vector"]}} = Aphid.info(db)
+
 {:ok, %Result{columns: [{"answer", :int64}], rows: [[42]]}} =
   Aphid.query(db, "RETURN $n AS answer", %{"n" => 42})
 

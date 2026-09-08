@@ -52,7 +52,7 @@ jobs:
           retention-days: 7
           if-no-files-found: error
           path: |
-            ${{ runner.temp }}/aphid-current-consumer/aphid-0.1.1-dev-combined.tar
+            ${{ runner.temp }}/aphid-current-consumer/aphid-0.1.2-dev-combined.tar
             ${{ runner.temp }}/aphid-current-consumer/fresh/inputs.json
             ${{ runner.temp }}/current-consumer.log
 # Native bundles and bundled-ERTS release archives are not uploaded by this workflow.

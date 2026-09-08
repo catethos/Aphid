@@ -1,8 +1,66 @@
-# Indexed search and DuckDB
+# Graph algorithms, indexed search and DuckDB
 
-All three extensions are bundled into the engine and checked at database startup.
+Source builds bundle `algo`, `fts`, `vector`, and `duckdb` into the engine and check
+all four at database startup. The published archives through `0.1.1-dev` still contain
+only FTS/vector/DuckDB; ALGO requires the updated source build until new platform
+bundles are released.
 `Aphid.info/1` reports the observed registration and engine version. Queries use
 the engine's Cypher procedures directly; Aphid does not emulate indexed search.
+
+## Graph algorithms
+
+ALGO is statically linked and registered automatically. Use `Aphid.query/3`;
+no `INSTALL ALGO` or `LOAD EXTENSION ALGO` is needed.
+
+The bundled procedures are `PAGE_RANK` (`PR`),
+`STRONGLY_CONNECTED_COMPONENTS` (`SCC`),
+`STRONGLY_CONNECTED_COMPONENTS_KOSARAJU` (`SCC_KO`),
+`WEAKLY_CONNECTED_COMPONENTS` (`WCC`), `K_CORE_DECOMPOSITION` (`KCORE`),
+`LOUVAIN`, and `SPANNING_FOREST` (`SF`).
+
+Create and populate ordinary graph tables, then project the tables for the
+algorithm. For existing `Person` nodes and `Knows` relationships:
+
+```elixir
+{:ok, _} = Aphid.query(db, "CALL PROJECT_GRAPH('social', ['Person'], ['Knows'])")
+{:ok, result} = Aphid.query(db, """
+CALL PAGE_RANK('social')
+RETURN node.id, rank
+ORDER BY rank DESC, node.id
+""")
+{:ok, _} = Aphid.query(db, "CALL DROP_PROJECTED_GRAPH('social')")
+```
+
+See [the complete executable example](../examples/algo.exs).
+`test/algo_test.exs` checks PageRank symmetry and relative ranking, connected
+component membership, projection removal, and failure of excluded GDS functions.
+The remaining bundled algorithms are not individually qualified by that test.
+The macOS ARM64 source build passed all 101 tests and native create/reopen
+checks on 2026-09-09. Linux, sanitizer, and new packaged-runtime qualification
+for ALGO remain pending.
+
+Builds explicitly set `ICEBUG_ENABLED=OFF`. Icebug-backed `GDS_PAGE_RANK`,
+`GDS_NODE2VEC`, `GDS_LOUVAIN`, `GDS_LEIDEN`, and `GDS_PPR` are excluded.
+The pinned `algo-optional-openmp.patch` removes an unused OpenMP requirement
+from this standard-algorithm build; icebug, Arrow, and OpenMP are not added to
+the runtime bundle. Enabling icebug later requires separately locking, packaging,
+and testing those dependencies.
+
+For an existing development checkout with the locked sources and OpenSSL already
+built, rebuild locally from the `zig_library` directory:
+
+```sh
+python3 scripts/build.py configure
+python3 scripts/build.py engine
+APHID_INSTALL=source MIX_ENV=test mix compile
+APHID_INSTALL=source MIX_ENV=test mix test test/algo_test.exs test/examples_test.exs
+```
+
+Use a source build path without an installed precompiled bundle. Source builds
+require the pinned toolchain and native prerequisites; these commands are not a
+fresh-machine installer. Distribution requires new native archives and catalog
+checksums for every included target; see [publishing updates](publishing-updates.md).
+Existing published archives cannot satisfy the new four-extension startup check.
 
 ## Index maintenance
 

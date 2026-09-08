@@ -12,11 +12,12 @@
     "commit": "89fceca9aa0c3d404984b84697a502ac6a088536",
     "tree": "9ea717e16688b237e6507a027ab92ee751c220f4",
     "required": [
+      "algo",
       "fts",
       "vector",
       "duckdb"
     ],
-    "patched_diff_sha256": "78bbc2ec29eb3bf6d687025604817540300de1f4d3d1a16d99768429b3e734c7"
+    "patched_diff_sha256": "3cc90fe1dd2bb62683a6d8e29dac1ec6a82dffc35d94e12fb737ff47296fb135"
   },
   "duckdb": {
     "version": "1.4.4",
@@ -139,6 +140,12 @@
       "path": "patches/path-probe-id-alignment.patch",
       "sha256": "77d76d521abdf19a3cd8dca0763717e827af732ea047212e911b40d72d5ef470",
       "reason": "PathPropertyProbe read an internalID_t through a misaligned packed hash-join tuple. Copy the identifier into an aligned local before comparison; existing multi-edge graph value regression passes under fatal UBSan. See docs/evidence/hardening-2026-09-08.md."
+    },
+    {
+      "source": "extensions",
+      "path": "patches/algo-optional-openmp.patch",
+      "sha256": "76a6f6f089ee8c92997eac2f40748212385a7de3b94bb0f5630d381662604809",
+      "reason": "Require OpenMP only for icebug-backed GDS functions; standard algo sources do not use OpenMP and build without the additional runtime dependency."
     }
   ],
   "mix_lock_sha256": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a",

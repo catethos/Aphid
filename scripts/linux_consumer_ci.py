@@ -41,7 +41,7 @@ def main():
     archive = packaged / pin['archive']
     if sha(archive) != pin['sha256']:
         raise RuntimeError('Retained native archive checksum mismatch')
-    package = work / 'aphid-0.1.1-dev-combined.tar'
+    package = work / 'aphid-0.1.2-dev-combined.tar'
     run(['mix', 'hex.build', '--output', str(package)], env=dict(os.environ, APHID_INSTALL='source'), timeout=120)
     print(json.dumps({'source_package_sha256': sha(package), 'native_archive_sha256': pin['sha256'],
                       'native_qualification': qualification}), flush=True)

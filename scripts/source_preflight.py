@@ -57,7 +57,7 @@ def inspect_package(path, expected):
         'toolchain_record': lock['toolchain'],
         'recipe_still_to_prove': ['Fetch and verify locked sources in a new private source tree',
             'Apply checksum-pinned engine/extension patches',
-            'Build OpenSSL, DuckDB core_functions/parquet, Ladybug FTS/vector/DuckDB, bridge, then Zigler NIFs',
+            'Build OpenSSL, DuckDB core_functions/parquet, Ladybug ALGO/FTS/vector/DuckDB, bridge, then Zigler NIFs',
             'Keep extension source/output trees isolated; a new output directory alone is insufficient',
             'Connect explicit Mix source selection to that package-contained build route',
             'Relocate/sign/audit full closure and run fresh consumer tests under watchdogs'],

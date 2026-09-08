@@ -6,7 +6,7 @@ defmodule AphidTest do
   test "supervised public queries return typed results and close deterministically" do
     db = start_supervised!({Aphid, path: :memory, name: AphidTest.Database})
 
-    assert {:ok, %{engine_version: "0.20.2", extensions: ["duckdb", "fts", "vector"]}} =
+    assert {:ok, %{engine_version: "0.20.2", extensions: ["algo", "duckdb", "fts", "vector"]}} =
              Aphid.info(db)
 
     assert {:ok, %Result{columns: [{"n", :int64}], rows: [[42]]}} =
