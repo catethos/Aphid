@@ -97,7 +97,9 @@ def main():
     for path in native_files:
         run(['readelf', '--file-header', '--dynamic', '--notes', '--version-info', str(path)], timeout=30)
     run(['mix', 'test', '--no-compile', '--seed', '0'], cwd=candidate, env=env, timeout=300)
-    print('Native Linux source qualification passed; precompiled consumer, relocation, minimum-system and cross-build gates remain open.')
+    print('Native Linux source qualification passed; starting local distribution checks.')
+    run([sys.executable, 'scripts/linux_distribution.py', '--target', args.target,
+         '--build-work', str(work), '--work', str(work.with_name(work.name + '-distribution'))], timeout=3000)
 
 
 if __name__ == '__main__':

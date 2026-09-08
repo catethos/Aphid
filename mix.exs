@@ -25,6 +25,7 @@ defmodule Aphid.MixProject do
           "docs/*.md",
           "native/lock.json",
           "native/local-bundle.json",
+          "native/linux-bundles.json",
           "native/aphid_nif.zig",
           "native/bridge.h",
           "native/bridge.cpp",

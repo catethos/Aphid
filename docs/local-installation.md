@@ -203,3 +203,17 @@ first invalid self-signed test-certificate attempt is retained. No native archiv
 was uploaded. There is no usable Aphid GitHub release download URL yet, no default
 network selection, and no Linux artifact identity accepted by this adapter.
 See [HTTPS evidence](evidence/https-bundle.md).
+
+The local source package also passes a fresh consumer using normal Hex dependency
+acquisition with the reviewed lockfile, without dependency-source path overrides.
+External networking is allowed only for that acquisition phase; native compilers
+and development-project reads stay denied, and compilation/runtime revert to
+loopback-only networking. All 13 Hex archives match the lock and 92 tests pass.
+See [normal Hex dependency evidence](evidence/normal-hex-consumer.md). This does
+not publish Aphid to Hex or establish an available GitHub native release.
+
+With no artifact inputs and no `APHID_INSTALL` setting, the current development
+version now reports `[missing]` instead of selecting a source build. Set
+`APHID_INSTALL=source` deliberately when following the source prerequisites.
+[Selection checks](evidence/explicit-selection-1.log) exercise the actual compiler
+task and verify rejection occurs before either native module loads.

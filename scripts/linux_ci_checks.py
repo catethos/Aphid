@@ -9,6 +9,7 @@ import shutil
 import sys
 from unittest.mock import patch
 import linux_ci
+from linux_bundle import elf_header
 
 
 def main():
@@ -17,6 +18,24 @@ def main():
     args = parser.parse_args()
     work = args.destination.resolve()
     work.mkdir()
+    header_file = work / 'header.elf'
+    for target, machine in [('x86_64-linux-gnu', 62), ('aarch64-linux-gnu', 183)]:
+        valid = bytearray(20)
+        valid[:7] = b'\x7fELF\x02\x01\x01'
+        valid[16:18] = (3).to_bytes(2, 'little')
+        valid[18:20] = machine.to_bytes(2, 'little')
+        header_file.write_bytes(valid)
+        elf_header(header_file, target, library=True)
+        for offset, value in [(0, 0), (4, 1), (5, 2), (16, 1), (18, 0)]:
+            invalid = valid.copy()
+            invalid[offset] = value
+            header_file.write_bytes(invalid)
+            try:
+                elf_header(header_file, target, library=True)
+            except RuntimeError:
+                pass
+            else:
+                raise AssertionError((target, offset))
     records = []
     for target, machine in [('x86_64-linux-gnu', 'x86_64'), ('aarch64-linux-gnu', 'aarch64')]:
         project = work / target
@@ -45,8 +64,9 @@ def main():
         assert (candidate / '_build/native').is_symlink()
         assert not (project / '_build/native').exists()
         assert all('-Dcpu=baseline' in (candidate / 'lib/aphid' / name).read_text() for name in ['native.ex', 'proof.ex'])
-        assert commands[-1]['command'] == ['mix', 'test', '--no-compile', '--seed', '0']
-        assert commands[-1]['timeout'] == 300
+        assert commands[-2]['command'] == ['mix', 'test', '--no-compile', '--seed', '0']
+        assert commands[-2]['timeout'] == 300
+        assert commands[-1]['command'][1] == 'scripts/linux_distribution.py'
         assert any(c['command'][0].endswith('/bridge/extension_concurrency') for c in commands)
         records.append({'target': target, 'commands': commands})
     (work / 'commands.json').write_text(json.dumps(records, indent=2) + '\n')

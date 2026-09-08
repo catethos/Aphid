@@ -17,8 +17,8 @@ Updated 2026-09-08. Library name: **Aphid**. Folder: `zig_library/`.
 
 | Required target | State |
 |---|---|
-| Linux x86_64 glibc | Blocked; user confirms no x86_64 Linux runner available |
-| Linux ARM64 glibc | Untested; no Linux cross-build or ARM64 runner established |
+| Linux x86_64 glibc | Native GitHub runner: locked engine/native tests pass; BEAM retry in progress |
+| Linux ARM64 glibc | Native GitHub runner: locked engine/native tests pass; BEAM retry in progress; cross-build unproved |
 | macOS ARM64 | Host runtime passed: explicit-target bundle and fresh local Mix consumer pass 92 tests on 26.6; local bundle adapter passes; Mix release passes embedded startup and restart; minimum OS/CPU and network delivery remain |
 
 No target is release-supported. The isolated candidate NIF load commands now declare
@@ -96,3 +96,19 @@ qualification workflow for native x86_64 and ARM64. It has been linted and its
 routing checked locally, but no Linux job has run. The public repository is `catethos/Aphid`, with `zig_library` as its root;
 the initial source is pushed and Linux qualification run 34181241317 is in progress; release creation and compiler-free Linux installation remain open.
 See [GitHub preparation](github-release.md). No stage or target is closed.
+
+Source commit `253dff3` is now pushed with explicit approval. Its HTTPS adapter
+passes real loopback TLS delivery, installer failures and 92 fresh-consumer tests.
+A subsequent local Hex archive passes ordinary Hex dependency acquisition with
+a reviewed lockfile (13 checksum-matching downloads), followed by compiler-denied,
+development-read-denied compilation and 92 tests. See
+[normal dependency evidence](evidence/normal-hex-consumer.md). Aphid/native binary
+publication, actual GitHub delivery and default precompiled selection remain open.
+
+Current Linux checkpoint: both jobs in run 34181241317 passed locked native builds
+and feature checks, then failed on the same staging-directory harness error.
+Fix `3edd9ba` is pushed; run 34184718955 retries both targets with an early
+toolchain preflight. See [retained first-run evidence](evidence/linux-first-run.md).
+Source changes and CI iterations are approved; binary uploads, GitHub releases
+and Hex publication remain excluded. Earlier no-runner statements above describe
+historical checkpoints, not current runner availability.

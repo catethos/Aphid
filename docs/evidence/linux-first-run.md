@@ -28,6 +28,10 @@ NIF compilation succeeds; no binary upload is added.
 [Local orchestration checks](linux-staging-fix-2.log) require the staging directory
 to exist before commands receive it. Both architecture routes and workflow lint
 pass. These checks capture commands and do not substitute for rerunning Linux.
-The ARM64 outcome is still pending at this checkpoint. CPU/glibc floors,
+The [ARM64 log](linux-aarch64-run-1.log) confirms the same outcome: locked native build and lifecycle/concurrent-extension/create/reopen checks pass, then Mix fails on the missing staging parent. Neither architecture reached BEAM qualification.
+
+Fix commit `3edd9ba99e3350b98bfa327c0c7f3f6b9b878842` is pushed under the user's approval for source changes and CI iterations.
+[Run 34184718955](https://github.com/catethos/Aphid/actions/runs/34184718955)
+retries both architectures with the small toolchain preflight first. CPU/glibc floors,
 compiler-free Linux consumers, relocatable bundles, source installs, cross-build
 and final notice/release gates remain open. No stage is marked complete.

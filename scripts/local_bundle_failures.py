@@ -6,6 +6,7 @@ import io
 import json
 import os
 from pathlib import Path
+import platform
 import shutil
 import tarfile
 from proof import ROOT, run
@@ -19,21 +20,33 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--consumer', type=Path, required=True)
+    parser.add_argument('--package-source', type=Path, default=ROOT)
     args = parser.parse_args()
+    source = args.package_source.resolve()
+    linux = platform.system() == 'Linux'
+    target = platform.machine() + '-linux-gnu' if linux else 'aarch64-macos'
+    nif_target = target if linux else 'aarch64-macos.13.3-none'
     work = args.destination.resolve()
     work.mkdir()
     # Small hostile fixtures, not replacement runtime candidates. All are retained.
     prefix = 'lib/aphid-0.1.0-dev/priv/lib/'
-    closure = ['Elixir.Aphid.Native.so', 'Elixir.Aphid.Proof.so', 'libaphid_bridge.dylib', 'liblbug.dylib']
-    base = {prefix + n: b'\xcf\xfa\xed\xfe\x0c\0\0\x01' + b'fixture' for n in closure}
-    base['candidate.json'] = json.dumps({'flags': ['-Dtarget=aarch64-macos.13.3-none', '-Dcpu=baseline']}).encode()
-    lock = sha((ROOT / 'native/lock.json').read_bytes())
+    suffix = '.so' if linux else '.dylib'
+    closure = ['Elixir.Aphid.Native.so', 'Elixir.Aphid.Proof.so', 'libaphid_bridge' + suffix, 'liblbug' + suffix]
+    header = b'\xcf\xfa\xed\xfe\x0c\0\0\x01'
+    wrong_arch = b'\xcf\xfa\xed\xfe\x07\0\0\x01'
+    if linux:
+        machine, other = (62, 183) if platform.machine() == 'x86_64' else (183, 62)
+        header = b'\x7fELF\x02\x01\x01' + bytes(9) + b'\x03\0' + machine.to_bytes(2, 'little')
+        wrong_arch = header[:18] + other.to_bytes(2, 'little')
+    base = {prefix + n: header + b'fixture' for n in closure}
+    base['candidate.json'] = json.dumps({'flags': ['-Dtarget=' + nif_target, '-Dcpu=baseline']}).encode()
+    lock = sha((source / 'native/lock.json').read_bytes())
 
     def archive(name, change=None, extra=None, manifest_change=None):
         files = dict(base)
         if change:
             change(files)
-        manifest = {'target': 'aarch64-macos', 'native_lock_sha256': lock,
+        manifest = {'target': target, 'native_lock_sha256': lock,
                     'files': {n: sha(b) for n, b in files.items()}}
         if manifest_change:
             manifest_change(manifest)
@@ -53,11 +66,11 @@ def main():
         ('missing', work / 'absent.tar.gz', 'missing', {}),
         ('missing-pin', healthy_schema, 'corrupt', {'APHID_BUNDLE_SHA256': ''}),
         ('checksum', healthy_schema, 'corrupt', {'APHID_BUNDLE_SHA256': '0' * 64}),
-        ('target', archive('target', manifest_change=lambda m: m.update(target='x86_64-linux-gnu')), 'unsupported-target', {}),
+        ('target', archive('target', manifest_change=lambda m: m.update(target='aarch64-macos' if linux else 'x86_64-linux-gnu')), 'unsupported-target', {}),
         ('engine', archive('engine', manifest_change=lambda m: m.update(native_lock_sha256='0' * 64)), 'incompatible-engine', {}),
         ('manifest', archive('manifest', manifest_change=lambda m: m['files'].update(unknown='0' * 64)), 'corrupt', {}),
-        ('missing-sidecar', archive('missing-sidecar', change=lambda f: f.pop(prefix + 'liblbug.dylib')), 'missing', {}),
-        ('architecture', archive('architecture', change=lambda f: f.update({prefix + closure[0]: b'\xcf\xfa\xed\xfe\x07\0\0\x01'})), 'wrong-architecture', {}),
+        ('missing-sidecar', archive('missing-sidecar', change=lambda f: f.pop(prefix + 'liblbug' + suffix)), 'missing', {}),
+        ('architecture', archive('architecture', change=lambda f: f.update({prefix + closure[0]: wrong_arch})), 'wrong-architecture', {}),
         ('unloadable-header', archive('unloadable-header', change=lambda f: f.update({prefix + closure[0]: b'not a library'})), 'unloadable', {}),
         ('native-fingerprint', healthy_schema, 'incompatible-engine', {}),
         ('lost-selection', healthy_schema, 'selection', {'APHID_INSTALL': None, 'APHID_BUNDLE_ARCHIVE': None, 'APHID_BUNDLE_SHA256': None}),
@@ -98,7 +111,7 @@ end
     for name, path, expected, overrides in cases:
         env = dict(os.environ, APHID_INSTALL='precompiled', APHID_BUNDLE_ARCHIVE=str(path),
                    APHID_BUNDLE_SHA256=sha(path.read_bytes()) if path.exists() else '0' * 64,
-                   MIX_BUILD_PATH=str(work / ('build-' + name)), ADAPTER=str(ROOT / 'mix/aphid_bundle.exs'),
+                   MIX_BUILD_PATH=str(work / ('build-' + name)), ADAPTER=str(source / 'mix/aphid_bundle.exs'),
                    EXPECTED=expected, ERL_FLAGS='+S 1:1 +SDcpu 1:1')
         env.update(overrides)
         env = {k: v for k, v in env.items() if v is not None}
@@ -126,16 +139,25 @@ end
     for kind in ['missing', 'corrupt', 'unloadable']:
         app = work / ('load-' + kind) / 'aphid'
         shutil.copytree(original, app)
-        engine = app / 'priv/lib/liblbug.dylib'
+        engine = app / ('priv/lib/liblbug' + suffix)
         if kind == 'missing':
             engine.unlink()
         elif kind == 'corrupt':
             engine.write_bytes(b'corrupt')
         command = ['elixir', '-pa', str(app / 'ebin'), str(probe)]
         if kind == 'unloadable':
-            profile = work / 'unloadable.sb'
-            profile.write_text('(version 1)(allow default)(deny file-map-executable (subpath "' + str(app / 'priv/lib') + '"))')
-            command = ['/usr/bin/sandbox-exec', '-f', str(profile), *command]
+            if linux:
+                # Private mount only: hashes remain readable, dlopen must reject noexec.
+                command = ['sudo', '-E', 'unshare', '--mount', '--fork', '--propagation', 'private',
+                           'sh', '-c', 'mount --bind "$1" "$1" && mount -o remount,bind,noexec "$1" && shift && exec "$@"',
+                           'noexec-proof', str(app / 'priv/lib'), '/usr/bin/setpriv',
+                           '--reuid', str(os.getuid()), '--regid', str(os.getgid()), '--clear-groups',
+                           '--no-new-privs', '--', '/usr/bin/env', 'PATH=' + os.environ['PATH'],
+                           shutil.which('elixir'), *command[1:]]
+            else:
+                profile = work / 'unloadable.sb'
+                profile.write_text('(version 1)(allow default)(deny file-map-executable (subpath "' + str(app / 'priv/lib') + '"))')
+                command = ['/usr/bin/sandbox-exec', '-f', str(profile), *command]
         print('REAL LOADER', kind, flush=True)
         run(command, cwd=work, env=dict(os.environ, ERL_FLAGS='+S 1:1 +SDcpu 1:1'), timeout=30)
     print('real Mix adapter rejection cases and loader processes passed', flush=True)

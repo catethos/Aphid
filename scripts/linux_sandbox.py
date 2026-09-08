@@ -1,0 +1,60 @@
+"""Private CI mount/network namespace; never changes the host toolchain."""
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+from proof import ROOT, run
+
+
+def sandbox(work, hidden, env=None):
+    work = work.resolve()
+    hidden = [ROOT.resolve(), *[Path(p).resolve() for p in hidden]]
+    if any(work == p or p in work.parents for p in hidden):
+        raise ValueError('Consumer workspace must be outside hidden build trees')
+    compiler = re.compile(r'(^|-)(zig|clang\+*|cc|c\+\+|gcc|g\+\+|ld|as|cmake|ninja|make)(-[0-9.]+)?$')
+    masks = {p.resolve() for directory in os.environ['PATH'].split(':')
+             if Path(directory).is_dir() for p in Path(directory).iterdir()
+             if compiler.search(p.name) and p.is_file()}
+    command = ['sudo', '-E', 'bwrap', '--die-with-parent', '--unshare-pid', '--unshare-net',
+               '--ro-bind', '/', '/', '--dev', '/dev', '--proc', '/proc',
+               '--bind', str(work), str(work)]
+    for path in hidden:
+        command += ['--tmpfs', str(path)]
+    for path in sorted(masks):
+        if not any(path == p or p in path.parents for p in hidden):
+            command += ['--ro-bind', '/dev/null', str(path)]
+    command += ['--cap-add', 'CAP_SETUID', '--cap-add', 'CAP_SETGID', '--cap-add', 'CAP_SETPCAP']
+    for key, value in (env or os.environ).items():
+        if key in ['PATH', 'HOME', 'TMPDIR', 'ERL_FLAGS'] or key.startswith(('APHID_', 'MIX_', 'HEX_', 'ZIG')):
+            command += ['--setenv', key, value]
+    command += ['--', '/usr/bin/setpriv', '--reuid', str(os.getuid()), '--regid', str(os.getgid()),
+                '--clear-groups', '--bounding-set=-all', '--no-new-privs', '--']
+    (work / 'isolation.json').write_text(json.dumps({'hidden': list(map(str, hidden)),
+        'masked_compilers': list(map(str, sorted(masks))), 'uid': os.getuid(),
+        'network': 'new namespace'}, indent=2) + '\n')
+    return command
+
+
+def probe(work, hidden):
+    command = sandbox(work, hidden)
+    check = work / 'isolation-check.py'
+    check.write_text('''import json, os, pathlib, socket
+record = json.loads(pathlib.Path(__file__).with_name('isolation.json').read_text())
+assert os.getuid() == record['uid'] != 0
+status = pathlib.Path('/proc/self/status').read_text()
+assert 'CapEff:\t0000000000000000' in status
+for path in record['hidden']:
+    assert not list(pathlib.Path(path).iterdir()), path
+for path in record['masked_compilers']:
+    assert not os.access(path, os.X_OK), path
+try:
+    socket.create_connection(('192.0.2.1', 443), timeout=2)
+except OSError:
+    pass
+else:
+    raise AssertionError('external networking is available')
+print('Linux namespace probe passed: build trees hidden, compiler paths masked, external network unavailable')
+''')
+    run([*command, shutil.which('python3'), str(check)], cwd=work, timeout=30)
+    return command

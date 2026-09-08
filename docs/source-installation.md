@@ -95,3 +95,7 @@ Native Linux source recipes and CI qualification are now prepared separately; se
 and private source/output trees. They have not established Linux build or install
 support, and the local precompiled adapter still accepts only its reviewed macOS
 identity.
+
+All source-mode Mix invocations must set `APHID_INSTALL=source` explicitly.
+Missing release configuration never selects a compiler automatically. The Stage 00
+source proof and Linux qualification entry points set this selection themselves.

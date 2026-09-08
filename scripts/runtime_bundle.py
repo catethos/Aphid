@@ -36,10 +36,11 @@ def extract(archive, digest, destination):
         destination.mkdir()
         source.extractall(destination, filter="data")
     manifest = json.loads((destination / 'manifest.json').read_text())
-    if manifest['target'] != 'aarch64-macos' or platform.system() != 'Darwin':
+    targets = {('Darwin', 'arm64'): 'aarch64-macos',
+               ('Linux', 'x86_64'): 'x86_64-linux-gnu',
+               ('Linux', 'aarch64'): 'aarch64-linux-gnu'}
+    if manifest['target'] != targets.get((platform.system(), platform.machine())):
         raise ValueError('unsupported target')
-    if platform.machine() != 'arm64':
-        raise ValueError('wrong architecture')
     if manifest['native_lock_sha256'] != sha(ROOT / 'native/lock.json'):
         raise ValueError('incompatible engine: native lock mismatch')
     actual = {str(p.relative_to(destination)): sha(p) for p in destination.rglob('*')

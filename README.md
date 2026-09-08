@@ -132,6 +132,7 @@ tested host is macOS 26.6 ARM64. All Mix dependencies are in `mix.lock`;
 native revisions are in `native/lock.json`.
 
 ```sh
+export APHID_INSTALL=source
 python3 scripts/build.py fetch
 python3 scripts/build.py proof
 python3 scripts/build.py openssl --jobs 3
@@ -154,7 +155,9 @@ embedded start/restart/shutdown/reopen with bundled ERTS.
 Network delivery, source installation and the platform matrix
 remain open. Bundled ERTS declares macOS 15.0; no release support is claimed.
 
-Source builds are explicit. No release artifacts are downloaded or published.
+Source builds require `APHID_INSTALL=source`. With no selection, this development
+version reports a missing bundle instead of starting a compiler. Select a pinned
+archive or HTTPS URL for precompiled mode; no default release download exists.
 The engine build is not yet an installation/support claim for any target.
 
 The [value contract](docs/types.md) describes the full query/transaction/stream API.

@@ -9,7 +9,12 @@ defmodule Mix.Tasks.Compile.AphidBundle do
 
     case {System.get_env("APHID_INSTALL"), archive, digest, url} do
       {nil, nil, nil, nil} ->
-        source()
+        reject_existing_bundle()
+
+        fail(
+          "missing",
+          "this development version has no default release bundle; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites"
+        )
 
       {"source", nil, nil, nil} ->
         source()
@@ -83,7 +88,40 @@ defmodule Mix.Tasks.Compile.AphidBundle do
   defp install_bytes(bytes, digest, destination) do
     validate_digest(digest)
 
-    identity = File.read!(Path.expand("../native/local-bundle.json", __DIR__)) |> JSON.decode!()
+    architecture = List.to_string(:erlang.system_info(:system_architecture))
+    linux? = :os.type() == {:unix, :linux}
+
+    host_target =
+      cond do
+        :os.type() == {:unix, :darwin} ->
+          "aarch64-macos"
+
+        linux? and String.starts_with?(architecture, "x86_64") ->
+          "x86_64-linux-gnu"
+
+        linux? and String.starts_with?(architecture, "aarch64") ->
+          "aarch64-linux-gnu"
+
+        true ->
+          fail(
+            "unsupported-target",
+            "no reviewed bundle for this operating system or BEAM architecture"
+          )
+      end
+
+    identity =
+      if linux? do
+        catalog =
+          File.read!(Path.expand("../native/linux-bundles.json", __DIR__)) |> JSON.decode!()
+
+        catalog[host_target] ||
+          fail(
+            "unsupported-target",
+            "no reviewed #{host_target} bundle is pinned in this source package"
+          )
+      else
+        File.read!(Path.expand("../native/local-bundle.json", __DIR__)) |> JSON.decode!()
+      end
 
     Enum.each(identity["native_sources"], fn {name, expected} ->
       unless sha(File.read!(Path.expand("../native/" <> name, __DIR__))) == expected,
@@ -131,18 +169,14 @@ defmodule Mix.Tasks.Compile.AphidBundle do
 
     manifest = json(files, "manifest.json")
 
-    unless manifest["target"] == "aarch64-macos" and :os.type() == {:unix, :darwin},
-      do:
-        fail(
-          "unsupported-target",
-          "this local adapter accepts only aarch64-macos bundles on macOS"
-        )
+    supported = if linux?, do: ["x86_64-linux-gnu", "aarch64-linux-gnu"], else: ["aarch64-macos"]
 
-    unless String.starts_with?(
-             List.to_string(:erlang.system_info(:system_architecture)),
-             "aarch64"
-           ),
-           do: fail("wrong-architecture", "use an ARM64 BEAM and ARM64 artifact")
+    unless manifest["target"] in supported,
+      do: fail("unsupported-target", "the artifact does not match this operating system")
+
+    unless manifest["target"] == host_target and
+             (linux? or String.starts_with?(architecture, "aarch64")),
+           do: fail("wrong-architecture", "use a bundle matching the BEAM architecture")
 
     unless manifest["native_lock_sha256"] == identity["native_lock_sha256"] and
              manifest["native_lock_sha256"] ==
@@ -160,19 +194,29 @@ defmodule Mix.Tasks.Compile.AphidBundle do
     candidate = json(files, "candidate.json")
 
     unless is_list(candidate["flags"]) and
-             "-Dtarget=aarch64-macos.13.3-none" in candidate["flags"] and
+             "-Dtarget=#{identity["target"]}" in candidate["flags"] and
              "-Dcpu=baseline" in candidate["flags"],
-           do: fail("unsupported-target", "expected the explicit macOS 13.3 / baseline candidate")
+           do:
+             fail(
+               "unsupported-target",
+               "expected the reviewed explicit target and baseline CPU flags"
+             )
 
-    unless :erlang.system_info(:version) == ~c"17.0.4" and System.version() == "1.20.0",
-      do:
-        fail(
-          "unsupported-target",
-          "local validation currently requires Elixir 1.20.0 / ERTS 17.0.4 (OTP 29.0.4); other runtime gates remain open"
-        )
+    unless List.to_string(:erlang.system_info(:version)) == identity["erts"] and
+             System.version() == identity["elixir"] and
+             List.to_string(:erlang.system_info(:nif_version)) == identity["nif_api"],
+           do:
+             fail(
+               "unsupported-target",
+               "use Elixir #{identity["elixir"]}, ERTS #{identity["erts"]} and NIF API #{identity["nif_api"]}; other runtime gates remain open"
+             )
 
-    prefix = "lib/aphid-0.1.0-dev/priv/lib/"
-    closure = ~w(Elixir.Aphid.Native.so Elixir.Aphid.Proof.so libaphid_bridge.dylib liblbug.dylib)
+    prefix = "lib/aphid-#{identity["package_version"]}/priv/lib/"
+
+    closure =
+      if linux?,
+        do: ~w(Elixir.Aphid.Native.so Elixir.Aphid.Proof.so libaphid_bridge.so liblbug.so),
+        else: ~w(Elixir.Aphid.Native.so Elixir.Aphid.Proof.so libaphid_bridge.dylib liblbug.dylib)
 
     native =
       Map.new(closure, fn name ->
@@ -180,15 +224,24 @@ defmodule Mix.Tasks.Compile.AphidBundle do
           files[prefix <> name] ||
             fail("missing", "bundle lacks #{name}; obtain the complete 0.1.0-dev bundle")
 
-        case bytes do
-          <<0xCF, 0xFA, 0xED, 0xFE, 0x0C, 0, 0, 1, _::binary>> ->
+        case {linux?, bytes} do
+          {false, <<0xCF, 0xFA, 0xED, 0xFE, 0x0C, 0, 0, 1, _::binary>>} ->
             :ok
 
-          <<0xCF, 0xFA, 0xED, 0xFE, _::binary>> ->
+          {false, <<0xCF, 0xFA, 0xED, 0xFE, _::binary>>} ->
             fail("wrong-architecture", "#{name} is not ARM64")
 
+          {true, <<0x7F, "ELF", 2, 1, 1, _::binary-size(9), 3, 0, machine::little-16, _::binary>>} ->
+            expected = if host_target == "x86_64-linux-gnu", do: 62, else: 183
+
+            unless machine == expected,
+              do: fail("wrong-architecture", "#{name} has the wrong ELF machine architecture")
+
           _ ->
-            fail("unloadable", "#{name} is not a Mach-O library; obtain a valid native bundle")
+            fail(
+              "unloadable",
+              "#{name} is not a native shared library for this target; obtain a valid bundle"
+            )
         end
 
         {name, bytes}
@@ -270,15 +323,18 @@ defmodule Mix.Tasks.Compile.AphidBundle do
   end
 
   defp source do
+    reject_existing_bundle()
+    System.delete_env("APHID_BUNDLE_RECEIPT")
+    {:noop, []}
+  end
+
+  defp reject_existing_bundle do
     if File.exists?(Path.join([Mix.Project.app_path(), "priv", "aphid-bundle.json"])),
       do:
         fail(
           "selection",
           "this build contains a local bundle; keep its archive/checksum selection or use an empty source build path"
         )
-
-    System.delete_env("APHID_BUNDLE_RECEIPT")
-    {:noop, []}
   end
 
   defp safe?(name),

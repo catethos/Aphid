@@ -31,6 +31,22 @@ for {mode, archive, url} <- [
   end
 end
 
+for key <- ~w(APHID_INSTALL APHID_BUNDLE_ARCHIVE APHID_BUNDLE_URL APHID_BUNDLE_SHA256) do
+  System.delete_env(key)
+end
+
+try do
+  Mix.Tasks.Compile.AphidBundle.run([])
+  raise "implicit source mode accepted"
+rescue
+  error in Mix.Error ->
+    true = String.contains?(error.message, "[missing]")
+    true = String.contains?(error.message, "APHID_INSTALL=source")
+    IO.puts(error.message)
+end
+
+System.put_env("APHID_INSTALL", "source")
+{:noop, []} = Mix.Tasks.Compile.AphidBundle.run([])
 false = Code.ensure_loaded?(Aphid.Native)
 false = Code.ensure_loaded?(Aphid.Proof)
 IO.puts("HTTPS selection conflicts rejected before native module load")

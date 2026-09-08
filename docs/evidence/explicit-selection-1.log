@@ -1,0 +1,6 @@
+Aphid artifact [selection]: set only one of APHID_BUNDLE_ARCHIVE and APHID_BUNDLE_URL. No source fallback.
+Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs. No source fallback.
+Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs. No source fallback.
+Aphid artifact [missing]: this development version has no default release bundle; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites. No source fallback.
+HTTPS selection conflicts rejected before native module load
+{"command": ["elixir", "scripts/https_selection_checks.exs"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.43}

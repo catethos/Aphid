@@ -34,7 +34,7 @@ jobs:
       - name: Install build prerequisites
         run: |
           sudo apt-get update
-          sudo apt-get install --yes build-essential cmake ninja-build perl binutils
+          sudo apt-get install --yes build-essential cmake ninja-build perl binutils patchelf bubblewrap
       - name: Install checksum-pinned Zig in job directory
         env:
           ZIG_ARCH: ${{ matrix.zig_arch }}
@@ -47,6 +47,17 @@ jobs:
           echo "$RUNNER_TEMP/zig" >> "$GITHUB_PATH"
       - name: Check routing without compiling
         run: python3 scripts/source_routing_checks.py --destination "$RUNNER_TEMP/routing"
+      - name: Verify consumer isolation before building
+        run: |
+          python3 - <<'PY'
+          import os, sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          from linux_sandbox import probe
+          work = Path(os.environ['RUNNER_TEMP']) / 'isolation-probe'
+          work.mkdir()
+          probe(work, [])
+          PY
       - name: Build private locked sources and run native and BEAM suites
         env:
           APHID_TARGET: ${{ matrix.target }}

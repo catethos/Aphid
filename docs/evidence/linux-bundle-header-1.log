@@ -1,0 +1,2 @@
+ELF header fixtures: both architectures accepted; magic/class/endian/type/architecture mutations rejected.
+Synthetic header checks only; no Linux bundle was built or executed.
