@@ -17,8 +17,8 @@ Updated 2026-09-08. Library name: **Aphid**. Folder: `zig_library/`.
 
 | Required target | State |
 |---|---|
-| Linux x86_64 glibc | Native GitHub runner: locked engine/native tests pass; BEAM retry in progress |
-| Linux ARM64 glibc | Native GitHub runner: locked engine/native tests pass; BEAM retry in progress; cross-build unproved |
+| Linux x86_64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; bundle retry pending |
+| Linux ARM64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; bundle retry pending; cross-build unproved |
 | macOS ARM64 | Host runtime passed: explicit-target bundle and fresh local Mix consumer pass 92 tests on 26.6; local bundle adapter passes; Mix release passes embedded startup and restart; minimum OS/CPU and network delivery remain |
 
 No target is release-supported. The isolated candidate NIF load commands now declare
@@ -112,3 +112,12 @@ toolchain preflight. See [retained first-run evidence](evidence/linux-first-run.
 Source changes and CI iterations are approved; binary uploads, GitHub releases
 and Hex publication remain excluded. Earlier no-runner statements above describe
 historical checkpoints, not current runner availability.
+
+Run 34184718955 now passes native and all 92 BEAM tests on both Linux
+architectures. ELF audits show GLIBC 2.38 and GLIBCXX 3.4.32 requirements;
+execution was Ubuntu 24.04 / glibc 2.39, not an older-system proof. The draft
+packager omitted the standard glibc loader; runs 34185853596 and 34187051003
+were cancelled after this was detected. Their logs are retained. See the
+[loader correction](evidence/linux-loader-allowlist-fix.md). Passing CI artifact
+retention for seven days is explicitly approved; GitHub releases and Hex
+publication remain excluded. No Linux catalog identity is promoted yet.

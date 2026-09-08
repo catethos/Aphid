@@ -1,0 +1,110 @@
+{
+  "target": "aarch64-linux-gnu",
+  "run": 34184718955,
+  "job": 101930633593,
+  "source_commit": "3edd9ba99e3350b98bfa327c0c7f3f6b9b878842",
+  "scope": "unrelocated source build; no runtime archive retained",
+  "native_files": {
+    "Elixir.Aphid.Native.so": "c27f78715466210a56c99a230ee5708ab512063c828b1b81d667a0771d6dde3f",
+    "Elixir.Aphid.Proof.so": "6f9d2bf6218443ee3502001571476640f70a55043608fcc8d9c15c0ec23c1c14",
+    "libaphid_bridge.so": "793b78439444866c5f01f4ce84f2cf9af226c82c8277013631c2008e44f073fe",
+    "liblbug.so": "e5f311961e6b6220edab977ab526c7d45ce81d45adc25a043912951383b17452"
+  },
+  "dynamic_requirements": {
+    "Elixir.Aphid.Native.so": {
+      "needed": [
+        "libaphid_bridge.so",
+        "libc.so.6",
+        "libpthread.so.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17",
+        "GLIBC_2.25",
+        "GLIBC_2.27",
+        "GLIBC_2.28"
+      ]
+    },
+    "Elixir.Aphid.Proof.so": {
+      "needed": [
+        "libc.so.6",
+        "libpthread.so.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.17",
+        "GLIBC_2.25",
+        "GLIBC_2.27",
+        "GLIBC_2.28"
+      ]
+    },
+    "libaphid_bridge.so": {
+      "needed": [
+        "liblbug.so.0",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.26",
+        "GLIBCXX_3.4.29",
+        "GLIBCXX_3.4.30",
+        "GLIBCXX_3.4.31",
+        "GLIBC_2.17",
+        "GLIBC_2.32"
+      ]
+    },
+    "liblbug.so": {
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.11",
+        "CXXABI_1.3.13",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "CXXABI_1.3.8",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.19",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.26",
+        "GLIBCXX_3.4.29",
+        "GLIBCXX_3.4.30",
+        "GLIBCXX_3.4.31",
+        "GLIBCXX_3.4.32",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.17",
+        "GLIBC_2.23",
+        "GLIBC_2.25",
+        "GLIBC_2.29",
+        "GLIBC_2.32",
+        "GLIBC_2.33",
+        "GLIBC_2.34",
+        "GLIBC_2.38"
+      ]
+    }
+  },
+  "checks": "native lifecycle, concurrent extensions, feature create/reopen and 92 BEAM tests passed"
+}

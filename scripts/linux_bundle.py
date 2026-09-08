@@ -17,6 +17,8 @@ SYSTEM_LIBRARIES = {
     'libc.so.6', 'libm.so.6', 'libdl.so.2', 'libpthread.so.0', 'librt.so.1',
     'libstdc++.so.6', 'libgcc_s.so.1', 'libatomic.so.1',
 }
+SYSTEM_LOADERS = {'x86_64-linux-gnu': 'ld-linux-x86-64.so.2',
+                  'aarch64-linux-gnu': 'ld-linux-aarch64.so.1'}
 
 
 def sha(path):
@@ -93,7 +95,7 @@ def main():
         for dependency in needed:
             if dependency in aliases:
                 run(['patchelf', '--replace-needed', dependency, aliases[dependency], str(path)], timeout=30)
-            elif dependency not in SYSTEM_LIBRARIES:
+            elif dependency not in SYSTEM_LIBRARIES and dependency != SYSTEM_LOADERS[args.target]:
                 raise RuntimeError(f'Unbundled dependency: {path.name}: {dependency}')
         relative = os.path.relpath(lib, path.parent)
         rpath = '$ORIGIN' if relative == '.' else '$ORIGIN/' + relative

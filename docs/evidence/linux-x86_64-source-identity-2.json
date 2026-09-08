@@ -1,0 +1,138 @@
+{
+  "target": "x86_64-linux-gnu",
+  "run": 34184718955,
+  "job": 101930633551,
+  "source_commit": "3edd9ba99e3350b98bfa327c0c7f3f6b9b878842",
+  "scope": "unrelocated source build; no runtime archive retained",
+  "native_files": {
+    "Elixir.Aphid.Native.so": "4bcbcf17f7a9a15cbe26ec47758c116d17a02980a3879b441d729b58a03b1ccc",
+    "Elixir.Aphid.Proof.so": "f0bedd68e0c7fcd2115b5788a94ca0fd7a2b66b20aecb4b0789cba6382d42c94",
+    "libaphid_bridge.so": "1deae5dcf702a5d57a5f3753cde5c68593e336e8d07e26e6facad5aab2a0a578",
+    "liblbug.so": "e336b3972e8f256a5cfa645a252282540d86825f93a84ed26b44e26b1789a1fb"
+  },
+  "dynamic_requirements": {
+    "Elixir.Aphid.Native.so": {
+      "needed": [
+        "libaphid_bridge.so",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libpthread.so.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.10",
+        "GLIBC_2.14",
+        "GLIBC_2.17",
+        "GLIBC_2.2.5",
+        "GLIBC_2.25",
+        "GLIBC_2.27",
+        "GLIBC_2.28",
+        "GLIBC_2.3",
+        "GLIBC_2.4",
+        "GLIBC_2.6",
+        "GLIBC_2.9"
+      ]
+    },
+    "Elixir.Aphid.Proof.so": {
+      "needed": [
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libpthread.so.0"
+      ],
+      "symbol_versions": [
+        "GLIBC_2.10",
+        "GLIBC_2.14",
+        "GLIBC_2.17",
+        "GLIBC_2.2.5",
+        "GLIBC_2.25",
+        "GLIBC_2.27",
+        "GLIBC_2.28",
+        "GLIBC_2.3",
+        "GLIBC_2.4",
+        "GLIBC_2.6",
+        "GLIBC_2.9"
+      ]
+    },
+    "libaphid_bridge.so": {
+      "needed": [
+        "liblbug.so.0",
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.26",
+        "GLIBCXX_3.4.29",
+        "GLIBCXX_3.4.30",
+        "GLIBCXX_3.4.31",
+        "GLIBC_2.14",
+        "GLIBC_2.2.5",
+        "GLIBC_2.32",
+        "GLIBC_2.4"
+      ]
+    },
+    "liblbug.so": {
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "symbol_versions": [
+        "CXXABI_1.3",
+        "CXXABI_1.3.11",
+        "CXXABI_1.3.13",
+        "CXXABI_1.3.2",
+        "CXXABI_1.3.3",
+        "CXXABI_1.3.5",
+        "CXXABI_1.3.7",
+        "CXXABI_1.3.8",
+        "CXXABI_1.3.9",
+        "GLIBCXX_3.4",
+        "GLIBCXX_3.4.11",
+        "GLIBCXX_3.4.14",
+        "GLIBCXX_3.4.15",
+        "GLIBCXX_3.4.17",
+        "GLIBCXX_3.4.18",
+        "GLIBCXX_3.4.19",
+        "GLIBCXX_3.4.20",
+        "GLIBCXX_3.4.21",
+        "GLIBCXX_3.4.22",
+        "GLIBCXX_3.4.26",
+        "GLIBCXX_3.4.29",
+        "GLIBCXX_3.4.30",
+        "GLIBCXX_3.4.31",
+        "GLIBCXX_3.4.32",
+        "GLIBCXX_3.4.9",
+        "GLIBC_2.10",
+        "GLIBC_2.12",
+        "GLIBC_2.14",
+        "GLIBC_2.15",
+        "GLIBC_2.17",
+        "GLIBC_2.2.5",
+        "GLIBC_2.23",
+        "GLIBC_2.25",
+        "GLIBC_2.29",
+        "GLIBC_2.3",
+        "GLIBC_2.3.2",
+        "GLIBC_2.3.4",
+        "GLIBC_2.32",
+        "GLIBC_2.33",
+        "GLIBC_2.34",
+        "GLIBC_2.38",
+        "GLIBC_2.4",
+        "GLIBC_2.6",
+        "GLIBC_2.7"
+      ]
+    }
+  },
+  "checks": "native lifecycle, concurrent extensions, feature create/reopen and 92 BEAM tests passed"
+}

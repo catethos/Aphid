@@ -81,6 +81,7 @@ upload-artifact v4.6.2 action (`ea165f8d65b6e75b540449e92b4886f43607fa02`).
 Retention is seven days. The allowlist contains the runtime archive and identity,
 ELF audit, local Hex source archive and identity, consumer input hashes and the
 qualification log. It does not retain build caches or upstream extension archives.
-Approval to enable this binary upload is pending; current jobs do not upload.
+The owner approved passing CI artifact retention on 2026-09-08. The next
+qualification enables this option; earlier runs remain without uploads.
 Actions retention is for qualification review, not production GitHub release
 delivery. GitHub release creation and Hex publication remain excluded.
