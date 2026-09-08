@@ -1,12 +1,12 @@
-# Release preparation checklist — binary publication not authorized
+# Release preparation checklist — release publication not authorized
 
 No target is release-supported and no stage is closed. The local runtime
 validation archives are test bundles, not Hex packages or release candidates.
 
 | Required target | Build / runtime evidence | Remaining blocker |
 |---|---|---|
-| Linux x86_64 glibc | Native GitHub runner: locked engine and native checks pass; BEAM/distribution retries running | Prove compiler-free bundle and declared glibc/CPU baseline |
-| Linux ARM64 glibc | Native GitHub runner: locked engine and native checks pass; BEAM/distribution retries running | Cross-build on x86_64 Linux, then execute that exact artifact on native ARM64 Linux |
+| Linux x86_64 glibc | Native GitHub runner: locked native/NIF builds and 92 BEAM tests pass; bundle qualification pending | Prove compiler-free bundle and declared glibc/CPU baseline |
+| Linux ARM64 glibc | Native GitHub runner: locked native/NIF builds and 92 BEAM tests pass; bundle qualification pending | Cross-build on x86_64 Linux, then execute that exact artifact on native ARM64 Linux |
 | macOS ARM64 | Host-only extracted runtime validation; see Stage 08 evidence | Explicit-target candidate declares 13.3; local checksum/sidecar adapter and fresh consumer pass; embedded-mode Mix release passes; actual minimum OS/CPU and network delivery remain |
 
 ## Historical local-host inventory
@@ -27,8 +27,8 @@ runtime. Record virtualization/emulation explicitly; x86_64 emulation on this
 Mac cannot fulfill the required x86_64 Linux build-host proof.
 
 The native GitHub qualification workflow has now run on both architectures.
-Both initial native builds passed; the first BEAM attempt hit a retained staging
-error. Fix and distribution retries are running. Local Linux provisioning and
+Both native/NIF builds and 92 BEAM tests passed in run 34184718955 after the
+retained first-attempt staging error. Full bundle qualification is running. Local Linux provisioning and
 emulation remain excluded.
 See [CI preparation](evidence/linux-ci-preparation.md). Qualification must build locked OpenSSL/DuckDB/engine inputs
 for the target, separate host generators from target binaries, and remove
@@ -72,7 +72,8 @@ there is no measured Linux peak-memory/build-space budget yet.
   validation bundles; this is not a completed release legal inventory.
 - Prepare a local versioned package, complete manifests and checksums, support
   matrix and reproducible consumer instructions. Obtain separate explicit
-  authorization before publishing or uploading anything.
+  authorization before GitHub release creation or Hex publication. Seven-day
+  Actions retention of passing Linux validation artifacts is already approved.
 
 ## Latest local distribution evidence
 

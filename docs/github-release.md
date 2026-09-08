@@ -1,87 +1,83 @@
 # GitHub release preparation
 
-The repository is `git@github.com:catethos/Aphid.git`
-([GitHub](https://github.com/catethos/Aphid)), with this `zig_library` directory
-as its root. The prepared workflow is `.github/workflows/linux-native.yml`.
-The remote was verified as an empty public repository with default branch `main`.
-A local `main` repository and `origin` remote are configured. The package links
-to this repository; its version remains `0.1.0-dev`. The user approved the source
-push and Linux qualification jobs. Initial commit `5d771bfb37df091c644ac18604d750135ee53e16`
-is pushed; [run 34181241317](https://github.com/catethos/Aphid/actions/runs/34181241317)
-is the first actual Linux qualification attempt. Binary uploads, GitHub releases
-and Hex publication remain unauthorized.
+The public repository is [catethos/Aphid](https://github.com/catethos/Aphid),
+with `zig_library` as its root and `git@github.com:catethos/Aphid.git` as its
+remote. The package version remains `0.1.0-dev`. The owner has authorized source
+pushes, Linux CI iterations, and seven-day retention of passing Linux validation
+artifacts in GitHub Actions. **GitHub release creation and Hex publication remain
+excluded.** No target is release-supported and no stage is marked complete.
 
-The workflow is manual and has read-only repository permissions. It uses native
-`ubuntu-24.04` x86_64 and `ubuntu-24.04-arm` runners, pinned action revisions,
-Elixir 1.20.0, OTP 29.0.4, and SHA256-pinned Zig 0.16.0 archives. Runner labels are
-listed in the [GitHub runner reference](https://docs.github.com/en/actions/reference/runners/github-hosted-runners).
-Both native runner types and pinned BEAM downloads have executed successfully. OS packages come from the runner's apt repositories; compiler and system
-versions are recorded, not yet a reproducible pinned system toolchain.
+## Current qualification
 
-Each job starts without Aphid/dependency build caches and uses a fresh private
-source/output pair. It retrieves locked sources, builds static OpenSSL/DuckDB and
-the engine with FTS/vector/DuckDB, builds the bridge, and runs native lifecycle,
-concurrent extension, create/reopen feature tests and the BEAM suite under
-`scripts/proof.py` watchdogs. The candidate NIFs use explicit target and baseline
-CPU flags. No upstream extension archive is shared between jobs. These are source
-qualification jobs, not compiler-free consumer or release jobs. No artifacts are
-uploaded; GitHub retains job logs under the repository's retention policy.
+[Run 34184718955](https://github.com/catethos/Aphid/actions/runs/34184718955),
+source `3edd9ba99e3350b98bfa327c0c7f3f6b9b878842`, passed locked native builds,
+NIF compilation and all 92 BEAM tests on both native Linux architectures.
+This established source qualification, not compiler-free bundle installation.
+The source ELF requirements include GLIBC 2.38 and GLIBCXX 3.4.32; execution was
+on Ubuntu 24.04 with glibc 2.39. Older-system and CPU-floor execution remain open.
 
-The Linux C/C++ recipes request x86-64/generic or ARMv8-A and build OpenSSL with
-PIC and an explicit `lib` install directory. The host must match the target.
-macOS cannot substitute for Linux. Neither an instruction-floor claim nor a
-glibc minimum follows from these flags. Native ARM64 qualification does not
-fulfil the plan's x86_64-to-ARM64 cross-build gate.
+[Run 34188940428](https://github.com/catethos/Aphid/actions/runs/34188940428),
+source `d34ea305346442e6fee5b73b403a91e338d501fb`, is the current full bundle
+qualification. Both early isolation and UTF-8 runtime checks passed; later
+build, relocation, installer and consumer outcomes are pending. Earlier attempts
+and their cancellations remain in the evidence logs. See the
+[loader correction](evidence/linux-loader-allowlist-fix.md) and
+[locale preflight](evidence/linux-locale-preflight.md).
+
+The manual `.github/workflows/linux-native.yml` has read-only repository
+permissions. It uses native `ubuntu-24.04` and `ubuntu-24.04-arm` runners,
+pinned action revisions, Elixir 1.20.0, OTP 29.0.4 and checksum-pinned Zig 0.16.0.
+System package/compiler versions are recorded; the system toolchain is not yet
+reproducibly pinned. No local Linux provisioning or emulation is used.
+
+Each full job starts with fresh private source/output trees and no application
+or dependency build caches. No upstream extension archive is shared between
+builds. Watchdogs cover the native lifecycle, concurrent extensions,
+FTS/vector/DuckDB create/reopen tests and BEAM suite. The distribution steps then
+package the complete ELF closure, relocate it, run offline tests, build a local
+Hex source archive, and test a fresh compiler-free consumer plus real installer
+and loader failures. The consumer hides development/build trees and masks native
+compilers; only dependency acquisition has external networking. Compilation and
+runtime use a separate network namespace.
+
+The public Linux identity catalog remains empty until exact passing bundles are
+reviewed. CI injects its identity only into an isolated validation source package.
+See [distribution preparation](evidence/linux-distribution-preparation.md).
+
+## Approved artifact retention
+
+The `retain_validation` input defaults to false. When explicitly enabled, it
+uploads only after the complete job succeeds, using pinned official
+`actions/upload-artifact` v4.6.2. Retention is seven days. The allowlist contains
+the runtime archive and identity, ELF audit, local Hex source archive and identity,
+consumer input hashes and qualification log. It excludes build caches and
+upstream extension archives. The owner approved this scope on 2026-09-08;
+the current full run enables it. A preflight-only run cannot upload artifacts.
+
+Actions retention is for qualification review. It does not provide production
+GitHub release delivery. Retrieve passing artifacts before expiry, verify the
+inner archive against its independent identity and record run, commit and target
+provenance. The outer Actions artifact digest is not the runtime archive SHA256.
 
 ## Before release creation and Hex publication
 
-1. Follow the authorized Linux qualification jobs on actual runners. Investigate retained failures before changing pins. No
-   local Linux provisioning or emulation is part of this recipe.
-2. Use passing builds to package and relocate the entire ELF closure. Inspect
-   ELF architecture, NIF metadata, rpaths, GLIBC/GLIBCXX requirements, exported
-   symbols and external libraries. Retain exact binaries and source/toolchain
-   hashes. Capture a real linker map and complete final notice review.
-3. Add those reviewed identities to the bundle installer; it currently accepts
-   only the original macOS candidate. Prove installer failures and a fresh
-   compiler-free Linux consumer on both architectures, with development reads
-   and compiler execution denied. Zigler 0.16.0 uses `objcopy` on Linux and
-   `otool` on macOS, so compiler-free does not mean zero installer prerequisites.
-4. Prove HTTPS delivery from the actual repository, trusted package-pinned
-   checksums, default precompiled selection without source fallback, offline
-   runtime and relocated Mix releases. Run the same artifact on each declared
-   minimum system and proposed OTP version. The existing macOS 92-test proof
-   does not replace these gates.
-5. Only then wire release creation to the passing artifact matrix, create a
-   versioned Hex package with the reviewed repository URL and checksums, and
-   verify its exact contents in a fresh consumer. The release workflow must use
-   narrowly scoped `contents: write` only for its creation job; Hex credentials
-   belong only in the separately authorized publication job. There is currently
-   no release-creation or Hex-publication workflow.
+1. Review the passing ELF closure, exact hashes, loader paths, symbols, runtime
+   requirements and notices. Capture a linker map and resolve final attribution.
+2. Promote only reviewed bundle identities into the installer and prove a fresh
+   consumer of that exact source package. Zigler 0.16.0 requires `objcopy` on
+   Linux and `otool` on macOS; compiler-free still has installer prerequisites.
+3. Prove HTTPS delivery from the actual repository, package-pinned checksums,
+   default precompiled selection, offline runtime and relocated Linux Mix releases.
+   Execute the same artifacts on every declared minimum system and OTP version.
+4. Preserve the plan's separate x86_64-to-ARM64 cross-build gate: a native ARM64
+   build does not prove it. Linux musl, Windows and macOS x86_64 remain outside
+   the initial matrix. Source-consumer and outstanding behavioural gates remain.
+5. Prepare release creation around the reviewed immutable artifact matrix, with
+   `contents: write` confined to the creation job. Keep Hex publication separate.
+   There is currently no release-creation or Hex-publication workflow. Actual
+   creation/publication still requires authorization.
 
-Linux musl, Windows and macOS x86_64 remain outside the initial matrix. Source
-consumer qualification, minimum systems, cross-building, outstanding behavioural
-and attribution gates remain open. Preparing this workflow does not make Aphid
-ready to publish or establish release support.
-
-## Current iteration
-
-Source commit `adc394f8564fbbdd7b96db4b2c537e2450b1d0f9` is pushed under the
-user's approval for source changes and CI iterations.
-[Run 34185853596](https://github.com/catethos/Aphid/actions/runs/34185853596)
-adds job-local packaging, offline relocation, pinned-source-package consumers
-and real installer/loader failures. Both early isolation probes passed on the
-actual runners; later build/distribution outcomes remain pending.
-No binary upload or release creation step was added. The public Linux identity
-catalog stays empty; CI only injects its build identity into an isolated local
-validation package. See [details and boundaries](evidence/linux-distribution-preparation.md).
-
-A prepared `retain_validation` input defaults to false. When explicitly enabled,
-it uploads only after the complete job succeeds, using the pinned official
-upload-artifact v4.6.2 action (`ea165f8d65b6e75b540449e92b4886f43607fa02`).
-Retention is seven days. The allowlist contains the runtime archive and identity,
-ELF audit, local Hex source archive and identity, consumer input hashes and the
-qualification log. It does not retain build caches or upstream extension archives.
-The owner approved passing CI artifact retention on 2026-09-08. The next
-qualification enables this option; earlier runs remain without uploads.
-Actions retention is for qualification review, not production GitHub release
-delivery. GitHub release creation and Hex publication remain excluded.
+The original macOS runtime archive remains unchanged, SHA256
+`3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034`.
+Its Mach-O declarations are 13.3; actual execution is macOS 26.6 only. DuckDB stays
+pinned to 1.4.4. Preparing these workflows does not establish release support.
