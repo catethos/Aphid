@@ -1,0 +1,310 @@
+using exact local Hex source package: 9faa9af3eb1c826446b0bf9473e94632e4fbb9fcb6bfc9d85bae1a90862f2448
+fresh caches; pinned source dependencies: [{"name": "earmark_parser", "version": "1.4.46", "sha256": "9c44636e8a1c68c62f526b2dcd85d941dbbcee7ab82cf64ba06ce28bef8e89f5"}, {"name": "ex_doc", "version": "0.39.1", "sha256": "8abf0ed3e3ca87c0847dfc4168ceab5bedfe881692f1b7c45f4a11b232806865"}, {"name": "makeup", "version": "1.2.2", "sha256": "9a1a24e5b343b8ae16abea0822c10a6f75da27af7fa802ada5251f7579bfccfa"}, {"name": "makeup_elixir", "version": "1.0.1", "sha256": "7284900d412a3e5cfd97fdaed4f5ed389b8f2b4cb49efc0eb3bd10e2febf9507"}, {"name": "makeup_erlang", "version": "1.1.0", "sha256": "1cd6780fb1dd1a03979abaed0fe82712b0625118fd5257d3ebbf73f960c73c3c"}, {"name": "nimble_parsec", "version": "1.4.2", "sha256": "4b21398942dda052b403bbe1da991ccd03a053668d147d53fb8c4e0efe09c973"}, {"name": "pegasus", "version": "0.2.6", "sha256": "0ac159f0ccab7967cf90208327cc8a35788874814c8d78e19d47104d3fc049b9"}, {"name": "protoss", "version": "1.1.0", "sha256": "c2f874383dd047fcfdf467b814dd33a208a4d24a467aef90d86185b41a0752ad"}, {"name": "telemetry", "version": "1.4.2", "sha256": "928f6495066506077862c0d1646609eed891a4326bee3126ba54b60af61febb1"}, {"name": "zig_doc", "version": "0.7.0", "sha256": "28b57b0bc12f241fc855b6514fe5198f3067fbab2555a3e3a83f6f9ed4699f4c"}, {"name": "zig_get", "version": "0.16.0", "sha256": "2841127cf2005da74fb28d3cc68397a393d3d71df5f45752b974345e696beb01"}, {"name": "zig_parser", "version": "0.7.0", "sha256": "fd0b2fc343820a202787a78a40feae372386b4303717b099223d5f5c5f21f0bb"}, {"name": "zigler", "version": "0.16.0", "sha256": "867ce49289568a7fabff400cb9f1636a429defcd488f3302a82c4b51b2bc7741"}]
+Resolving Hex dependencies...
+Resolution completed in 0.024s
+Unchanged:
+  earmark_parser 1.4.46
+  ex_doc 0.39.1
+  makeup 1.2.2
+  makeup_elixir 1.0.1
+  makeup_erlang 1.1.0
+  nimble_parsec 1.4.2
+  pegasus 0.2.6
+  protoss 1.1.0
+  telemetry 1.4.2
+  zig_doc 0.7.0
+  zig_get 0.16.0
+  zig_parser 0.7.0
+  zigler 0.16.0
+* Getting zigler (Hex package)
+* Getting telemetry (Hex package)
+* creating /private/tmp/aphid-011-final-macos-2/mix-home/elixir/1-20-otp-29/rebar3
+* Getting protoss (Hex package)
+* Getting zig_doc (Hex package)
+* Getting zig_get (Hex package)
+* Getting zig_parser (Hex package)
+* Getting pegasus (Hex package)
+* Getting nimble_parsec (Hex package)
+* Getting ex_doc (Hex package)
+* Getting earmark_parser (Hex package)
+* Getting makeup_elixir (Hex package)
+* Getting makeup_erlang (Hex package)
+* Getting makeup (Hex package)
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-011-final-macos-2/acquisition.sb", "mix", "deps.get", "--check-locked"], "cwd": "/private/tmp/aphid-011-final-macos-2/consumer", "exit": 0, "seconds": 3.307}
+Normal Hex acquisition verified: 13 locked archives; dependency acquisition complete
+==> earmark_parser
+Compiling 2 files (.xrl)
+Compiling 1 file (.yrl)
+Compiling 3 files (.erl)
+Compiling 32 files (.ex)
+Generated earmark_parser app
+==> protoss
+Compiling 1 file (.ex)
+Generated protoss app
+==> zig_get
+Compiling 1 file (.ex)
+Generated zig_get app
+==> nimble_parsec
+Compiling 4 files (.ex)
+Generated nimble_parsec app
+==> pegasus
+Compiling 11 files (.ex)
+Generated pegasus app
+==> zig_parser
+Compiling 37 files (.ex)
+    warning: incompatible types given to Map.replace!/3:
+
+        Map.replace!(parse(args), :doc_comment, comment)
+
+    the map:
+
+        dynamic(%Zig.Parser.Test{block: %Zig.Parser.Block{}, location: nil})
+
+    does not have all required keys:
+
+        :doc_comment
+
+    therefore this function will always raise
+
+    where "args" was given the type:
+
+        # type: dynamic(non_empty_list(term()))
+        # from: lib/zig.parser/test.ex:16:10
+        parse(args)
+
+    where "comment" was given the type:
+
+        # type: dynamic()
+        # from: lib/zig.parser/test.ex
+        [{:TestDecl, [start, {:doc_comment, comment} | args]} | rest_args]
+
+    type warning found at:
+    │
+ 17 │       |> Map.replace!(:doc_comment, comment)
+    │              ~
+    │
+    └─ lib/zig.parser/test.ex:17:14: Zig.Parser.Test.post_traverse/5
+
+Generated zig_parser app
+==> makeup
+Compiling 15 files (.ex)
+Generated makeup app
+==> makeup_elixir
+Compiling 6 files (.ex)
+Generated makeup_elixir app
+==> makeup_erlang
+Compiling 4 files (.ex)
+Generated makeup_erlang app
+==> ex_doc
+Compiling 27 files (.ex)
+     warning: this clause of defp favicon_path/1 is never used (or it will always fail/warn when invoked)
+     │
+ 153 │   defp favicon_path(%{favicon: nil}), do: nil
+     │        ~
+     │
+     └─ lib/ex_doc/formatter/html/templates.ex:153:8: ExDoc.Formatter.HTML.Templates.favicon_path/1
+
+     warning: this clause of defp logo_path/1 is never used (or it will always fail/warn when invoked)
+     │
+ 156 │   defp logo_path(%{logo: nil}), do: nil
+     │        ~
+     │
+     └─ lib/ex_doc/formatter/html/templates.ex:156:8: ExDoc.Formatter.HTML.Templates.logo_path/1
+
+     warning: the following clause cannot match because the previous clauses already matched all possible values:
+
+         _ ->
+
+     it attempts to match on the result of:
+
+         result
+
+     which has the already matched type:
+
+         dynamic({:docs_v1, term(), term(), term(), term(), term(), term()} or {:error, term()})
+
+     type warning found at:
+     │
+ 124 │       _ ->
+     │         ~
+     │
+     └─ lib/ex_doc/retriever.ex:124:9: ExDoc.Retriever.docs_chunk/1
+
+     warning: the following clause is redundant:
+
+         defp to_var({:<<>>, _, _}, _)
+
+     it has type:
+
+         dynamic({:<<>>, term(), term()}), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+
+     │
+ 569 │   defp to_var({:<<>>, _, _}, _), do: {:binary, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:569:8: ExDoc.Language.Elixir.to_var/2
+
+     warning: the following clause will never match:
+
+         nil ->
+
+     because it attempts to match on the result of:
+
+         ExDoc.Language.Source.fetch_type!(module_data, name, arity)
+
+     which has type:
+
+         dynamic(not false and not nil)
+
+     type warning found at:
+     │
+ 150 │         nil ->
+     │         ~~~~~~
+     │
+     └─ lib/ex_doc/language/erlang.ex:150: ExDoc.Language.Erlang.type_data/6
+
+     warning: the following clause is redundant:
+
+         defp to_var({:{}, _, _}, _)
+
+     it has type:
+
+         dynamic({:{}, term(), term()}), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+
+     │
+ 570 │   defp to_var({:{}, _, _}, _), do: {:tuple, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:570:8: ExDoc.Language.Elixir.to_var/2
+
+     warning: the following clause is redundant:
+
+         defp to_var(float, _) when is_integer(float)
+
+     it has type:
+
+         integer(), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+         {term(), term()}, term()
+         integer(), term()
+
+     │
+ 573 │   defp to_var(float, _) when is_integer(float), do: {:float, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:573:8: ExDoc.Language.Elixir.to_var/2
+
+Generated ex_doc app
+==> aphid_consumer
+===> Analyzing applications...
+===> Compiling telemetry
+==> zig_doc
+Compiling 5 files (.ex)
+    warning: the following clause will never match:
+
+        {{:error, reason}, path} ->
+
+    it is expected to match on type:
+
+        dynamic(
+          :error or
+            ({term(), :read, binary() or empty_list() or non_empty_list(term(), term())} and
+               not {{:ok, term()}, :read, binary() or empty_list() or non_empty_list(term(), term())})
+        )
+
+    type warning found at:
+    │
+ 69 │       {{:error, reason}, path} ->
+    │       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/zig.doc/generator.ex:69: Zig.Doc.Generator.modulenode_from_config/3
+
+Generated zig_doc app
+==> zigler
+Compiling 50 files (.ex)
+
+23:12:26.600 [warning] not cross-compiling windows-msvc
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "def render_elixir_spec/1" was previously defined (lib/zig/_nif.ex:373)
+     │
+ 386 │   def render_elixir_spec(nif) do
+     │       ~
+     │
+     └─ lib/zig/_nif.ex:386:7
+
+
+23:12:28.274 [debug] creating staging directory /private/tmp/aphid-011-final-macos-2/staging/Elixir.Zig.Formatter
+
+23:12:28.279 [info] searching for zig in /private/tmp/aphid-011-final-macos-2/home/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+     warning: unused require EEx
+     │
+ 437 │   require EEx
+     │   ~
+     │
+     └─ lib/zig/_nif.ex:437:3
+
+warning: Zig.Formatter not active (%CompileError{file: nil, line: nil, description: "zig executable not found"}).  If you need Formatter function, and zig is not available, Please run `mix zig.get` to install it.
+  lib/zig/formatter.ex:46: (file)
+  (elixir 1.20.0) src/elixir_compiler.erl:102: :elixir_compiler.dispatch/4
+  (elixir 1.20.0) src/elixir_compiler.erl:76: :elixir_compiler.compile/4
+  (elixir 1.20.0) src/elixir_compiler.erl:42: :elixir_compiler.optimize_defmodule/2
+  (elixir 1.20.0) src/elixir_lexical.erl:18: :elixir_lexical.run/3
+  (elixir 1.20.0) src/elixir_compiler.erl:21: :elixir_compiler.quoted/3
+
+Generated zigler app
+==> aphid
+Aphid local bundle verified and installed: SHA256 d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637
+Compiling 13 files (.ex)
+
+23:12:30.163 [debug] skipping compile step for precompiled module Elixir.Aphid.Proof, at /private/tmp/aphid-011-final-macos-2/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+
+23:12:30.164 [debug] destination library path: /private/tmp/aphid-011-final-macos-2/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+
+23:12:30.347 [debug] skipping compile step for precompiled module Elixir.Aphid.Native, at /private/tmp/aphid-011-final-macos-2/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+
+23:12:30.347 [debug] destination library path: /private/tmp/aphid-011-final-macos-2/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+Generated aphid app
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-011-final-macos-2/install.sb", "mix", "deps.compile"], "cwd": "/private/tmp/aphid-011-final-macos-2/consumer", "exit": 0, "seconds": 29.694}
+==> aphid
+Aphid local bundle verified and installed: SHA256 d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637
+==> aphid_consumer
+Generated aphid_consumer app
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-011-final-macos-2/install.sb", "mix", "compile"], "cwd": "/private/tmp/aphid-011-final-macos-2/consumer", "exit": 0, "seconds": 4.721}
+runtime identity: {"1.20.0", ~c"29", ~c"2.18"}
+Running ExUnit with seed: 0, max_cases: 2
+
+...................Aphid basic example passed
+.Aphid transaction example passed
+.Aphid stream example passed
+.Aphid FTS example passed
+.Aphid vector example passed
+.Aphid DuckDB example passed
+.............stale-cancel race: 30 iterations; maximum cancel-to-idle 101001 us
+........heartbeat: 31 samples; maximum gap 6 ms
+.
+23:12:51.955 [error] Aphid artifact [unloadable]: /private/tmp/aphid-011-final-macos-2/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Native: {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}; use the matching complete bundle and runtime. No source fallback.
+
+23:12:51.959 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.....................................................
+Finished in 18.3 seconds (1.5s on load, 0.00s async, 16.8s sync)
+
+Result: 99 passed
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-011-final-macos-2/install.sb", "mix", "run", "--no-compile", "check.exs"], "cwd": "/private/tmp/aphid-011-final-macos-2/consumer", "exit": 0, "seconds": 19.014}
+Installed license hashes, including source-package supplement: a9380f27e98b9ee7180560a31c99994cdfcbb2b8efae4b526e5225b14c56e992
+fresh Mix consumer passed; native files unchanged; no native compiler invocation
+{"command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "-u", "scripts/precompiled_consumer.py", "--archive", "artifacts/aphid-0.1.1-dev-aarch64-macos.tar.gz", "--sha256", "d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637", "--package", "artifacts/release-011-combined/aphid-current-consumer/aphid-0.1.1-dev-combined.tar", "--package-sha256", "9faa9af3eb1c826446b0bf9473e94632e4fbb9fcb6bfc9d85bae1a90862f2448", "--destination", "/private/tmp/aphid-011-final-macos-2", "--hex-dependencies"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 58.192}

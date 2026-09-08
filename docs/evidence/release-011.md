@@ -66,9 +66,26 @@ package. A final combined-catalog source package must be qualified separately.
 
 ## Remaining release steps
 
-Qualify one final combined source package on all three targets; stage and
-publish immutable versioned native assets; verify anonymous downloads; freeze,
-dry-run and publish the exact Hex package, then verify registry installation.
+The [final Linux consumer run](https://github.com/catethos/Aphid/actions/runs/34242496036)
+passed on both architectures, including 99 fresh-consumer and 99 relocated
+bundled-ERTS tests per target. [macOS run 2](release-011-final-macos-consumer-2.log)
+passes 99 tests on the exact retained archive. Its SHA256 is
+`9faa9af3eb1c826446b0bf9473e94632e4fbb9fcb6bfc9d85bae1a90862f2448`.
+[Linux](release-011-linux-staging.log) and [macOS](release-011-macos-staging.log)
+asset staging pass their source, runtime, notice and consumer identity checks.
+
+The locally built archive `605247b8…` has byte-identical compressed source
+contents and semantically identical metadata; only top-level metadata term
+ordering differs. [Comparison](release-011-archive-equivalence.json). It is not
+the chosen publication archive. To preserve the exact qualified outer bytes,
+publication uses `Hex.API.Release.publish` with the retained tarball and
+`replace=false`, the same [Hex 2.4.2 publishing API](https://github.com/hexpm/hex/blob/v2.4.2/lib/hex/api/release.ex)
+and normal credential/OTP retry flow used by the CLI. The frozen-source
+[package-only dry run](release-011-hex-dry-run-2.log) passes after installing
+locked publisher dependencies; the first dry run lacked those dependencies.
+
+Publish immutable versioned native assets; verify anonymous downloads; publish
+the exact qualified Hex package, then verify registry installation.
 If Hex requires private 2FA, the owner must enter it directly in the terminal.
 No code or credential should enter chat or evidence logs.
 

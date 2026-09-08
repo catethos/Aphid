@@ -1,0 +1,6 @@
+Unchecked dependencies for environment dev:
+* zigler (Hex package)
+  the dependency is not available, run "mix deps.get"
+* telemetry (Hex package)
+  the dependency is not available, run "mix deps.get"
+** (Mix) Can't continue due to errors on dependencies

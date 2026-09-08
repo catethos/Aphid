@@ -1,0 +1,10 @@
+{
+  "local_archive_sha256": "605247b8548463427759d0423473ca441e0d47aee187c1be2b06792f0ac04e36",
+  "qualified_archive_sha256": "9faa9af3eb1c826446b0bf9473e94632e4fbb9fcb6bfc9d85bae1a90862f2448",
+  "identical_contents_tar_gz_sha256": "0c7d48bfcc47a14ea38ad3643dd517f5c5d89546b1a3b1754f967b9c68179cdc",
+  "outer_differences": [
+    "metadata.config",
+    "CHECKSUM"
+  ],
+  "published_candidate": "Linux-retained archive; subsequently passed 99 tests on macOS"
+}
