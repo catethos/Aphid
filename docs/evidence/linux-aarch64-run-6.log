@@ -1,0 +1,435 @@
+﻿2026-09-08T04:54:33.4189638Z Current runner version: '2.337.0'
+2026-09-08T04:54:33.4222123Z ##[group]Runner Image Provisioner
+2026-09-08T04:54:33.4223110Z Hosted Compute Agent
+2026-09-08T04:54:33.4223927Z Version: 20260828.587
+2026-09-08T04:54:33.4224585Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-08T04:54:33.4225283Z Build Date: 2026-08-28T16:44:25Z
+2026-09-08T04:54:33.4226146Z Worker ID: {dc1015db-ce96-4ced-87ea-f3c2253254d4}
+2026-09-08T04:54:33.4226876Z Azure Region: westus3
+2026-09-08T04:54:33.4227511Z ##[endgroup]
+2026-09-08T04:54:33.4229648Z ##[group]Operating System
+2026-09-08T04:54:33.4230295Z Ubuntu
+2026-09-08T04:54:33.4231309Z 24.04.4
+2026-09-08T04:54:33.4231840Z LTS
+2026-09-08T04:54:33.4232466Z ##[endgroup]
+2026-09-08T04:54:33.4233051Z ##[group]Runner Image
+2026-09-08T04:54:33.4233665Z Image: ubuntu-24.04-arm
+2026-09-08T04:54:33.4234485Z Version: 20260831.111.1
+2026-09-08T04:54:33.4235898Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24-arm64/20260831.111/images/ubuntu/Ubuntu2404-Arm64-Readme.md
+2026-09-08T04:54:33.4237670Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24-arm64%2F20260831.111
+2026-09-08T04:54:33.4238635Z ##[endgroup]
+2026-09-08T04:54:33.4239868Z ##[group]GITHUB_TOKEN Permissions
+2026-09-08T04:54:33.4243109Z Contents: read
+2026-09-08T04:54:33.4244472Z Metadata: read
+2026-09-08T04:54:33.4245009Z ##[endgroup]
+2026-09-08T04:54:33.4248340Z Secret source: Actions
+2026-09-08T04:54:33.4249836Z Prepare workflow directory
+2026-09-08T04:54:33.4655494Z Prepare all required actions
+2026-09-08T04:54:33.4708005Z Getting action download info
+2026-09-08T04:54:33.7862950Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-09-08T04:54:34.0868578Z Download action repository 'actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1' (SHA:ece7cb06caefa5fff74198d8649806c4678c61a1)
+2026-09-08T04:54:34.1909469Z Download action repository 'erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124' (SHA:54075bcc5e249e4758d363f27d099f55d843f124)
+2026-09-08T04:54:34.8094104Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-08T04:54:35.0200717Z Complete job name: aarch64-linux-gnu (preflight)
+2026-09-08T04:54:35.1138823Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-09-08T04:54:35.1140645Z with:
+2026-09-08T04:54:35.1141636Z   persist-credentials: false
+2026-09-08T04:54:35.1142572Z   repository: catethos/Aphid
+2026-09-08T04:54:35.1147183Z   token: ***
+2026-09-08T04:54:35.1147825Z   ssh-strict: true
+2026-09-08T04:54:35.1148634Z   ssh-user: git
+2026-09-08T04:54:35.1149259Z   clean: true
+2026-09-08T04:54:35.1149970Z   sparse-checkout-cone-mode: true
+2026-09-08T04:54:35.1150773Z   fetch-depth: 1
+2026-09-08T04:54:35.1151648Z   fetch-tags: false
+2026-09-08T04:54:35.1152421Z   show-progress: true
+2026-09-08T04:54:35.1153118Z   lfs: false
+2026-09-08T04:54:35.1153750Z   submodules: false
+2026-09-08T04:54:35.1154881Z   set-safe-directory: true
+2026-09-08T04:54:35.1155640Z   allow-unsafe-pr-checkout: false
+2026-09-08T04:54:35.1157019Z ##[endgroup]
+2026-09-08T04:54:35.2050045Z Syncing repository: catethos/Aphid
+2026-09-08T04:54:35.2053016Z ##[group]Getting Git version info
+2026-09-08T04:54:35.2054440Z Working directory is '/home/runner/work/Aphid/Aphid'
+2026-09-08T04:54:35.2055897Z [command]/usr/bin/git version
+2026-09-08T04:54:35.2115152Z git version 2.55.0
+2026-09-08T04:54:35.2146293Z ##[endgroup]
+2026-09-08T04:54:35.2154741Z Temporarily overriding HOME='/home/runner/work/_temp/132ffb9c-a31a-40ea-97b1-bbbefb40b925' before making global git config changes
+2026-09-08T04:54:35.2157003Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T04:54:35.2158957Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+2026-09-08T04:54:35.2190362Z Deleting the contents of '/home/runner/work/Aphid/Aphid'
+2026-09-08T04:54:35.2195586Z ##[group]Determining repository object format
+2026-09-08T04:54:35.2197309Z ##[endgroup]
+2026-09-08T04:54:35.2198584Z ##[group]Initializing the repository
+2026-09-08T04:54:35.2202199Z [command]/usr/bin/git init /home/runner/work/Aphid/Aphid
+2026-09-08T04:54:35.2293117Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-08T04:54:35.2294602Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-08T04:54:35.2295756Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-08T04:54:35.2296893Z hint: call:
+2026-09-08T04:54:35.2297571Z hint:
+2026-09-08T04:54:35.2298401Z hint: 	git config --global init.defaultBranch <name>
+2026-09-08T04:54:35.2299198Z hint:
+2026-09-08T04:54:35.2299963Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-08T04:54:35.2301458Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-08T04:54:35.2302482Z hint:
+2026-09-08T04:54:35.2303221Z hint: 	git branch -m <name>
+2026-09-08T04:54:35.2303904Z hint:
+2026-09-08T04:54:35.2304778Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-08T04:54:35.2306162Z Initialized empty Git repository in /home/runner/work/Aphid/Aphid/.git/
+2026-09-08T04:54:35.2308522Z [command]/usr/bin/git remote add origin https://github.com/catethos/Aphid
+2026-09-08T04:54:35.2335393Z ##[endgroup]
+2026-09-08T04:54:35.2336651Z ##[group]Disabling automatic garbage collection
+2026-09-08T04:54:35.2338335Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-08T04:54:35.2381618Z ##[endgroup]
+2026-09-08T04:54:35.2383044Z ##[group]Setting up auth
+2026-09-08T04:54:35.2384087Z Removing SSH command configuration
+2026-09-08T04:54:35.2385210Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T04:54:35.2409633Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T04:54:35.2712782Z Removing HTTP extra header
+2026-09-08T04:54:35.2717338Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T04:54:35.2749108Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T04:54:35.2946293Z Removing includeIf entries pointing to credentials config files
+2026-09-08T04:54:35.2953287Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T04:54:35.2988450Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T04:54:35.3190304Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-08T04:54:35.3229644Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:35.3257780Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:35.3287558Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:35.3318095Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:35.3347732Z ##[endgroup]
+2026-09-08T04:54:35.3349224Z ##[group]Fetching the repository
+2026-09-08T04:54:35.3356061Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d10c1a457bff6159ad0a8ed51e395eee8431d0e0:refs/remotes/origin/main
+2026-09-08T04:54:36.6661742Z From https://github.com/catethos/Aphid
+2026-09-08T04:54:36.6664080Z  * [new ref]         d10c1a457bff6159ad0a8ed51e395eee8431d0e0 -> origin/main
+2026-09-08T04:54:36.6674714Z [command]/usr/bin/git branch --list --remote origin/main
+2026-09-08T04:54:36.6703723Z   origin/main
+2026-09-08T04:54:36.6711924Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-09-08T04:54:36.6735638Z d10c1a457bff6159ad0a8ed51e395eee8431d0e0
+2026-09-08T04:54:36.6739628Z ##[endgroup]
+2026-09-08T04:54:36.6741284Z ##[group]Determining the checkout info
+2026-09-08T04:54:36.6743138Z ##[endgroup]
+2026-09-08T04:54:36.6744884Z [command]/usr/bin/git sparse-checkout disable
+2026-09-08T04:54:36.6788782Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-08T04:54:36.6818302Z ##[group]Checking out the ref
+2026-09-08T04:54:36.6821890Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-08T04:54:36.7798457Z Switched to a new branch 'main'
+2026-09-08T04:54:36.7800159Z branch 'main' set up to track 'origin/main'.
+2026-09-08T04:54:36.7812361Z ##[endgroup]
+2026-09-08T04:54:36.7850395Z [command]/usr/bin/git log -1 --format=%H
+2026-09-08T04:54:36.7878032Z d10c1a457bff6159ad0a8ed51e395eee8431d0e0
+2026-09-08T04:54:36.7889896Z ##[group]Removing auth
+2026-09-08T04:54:36.7891272Z Removing SSH command configuration
+2026-09-08T04:54:36.7895020Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T04:54:36.7935376Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T04:54:36.8188611Z Removing HTTP extra header
+2026-09-08T04:54:36.8192074Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T04:54:36.8232457Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T04:54:36.8478596Z Removing includeIf entries pointing to credentials config files
+2026-09-08T04:54:36.8481928Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T04:54:36.8508921Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+2026-09-08T04:54:36.8511391Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+2026-09-08T04:54:36.8513111Z includeif.gitdir:/github/workspace/.git.path
+2026-09-08T04:54:36.8514567Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T04:54:36.8520341Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+2026-09-08T04:54:36.8550266Z /home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8564330Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8602722Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+2026-09-08T04:54:36.8630745Z /home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8641724Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8682168Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-08T04:54:36.8710637Z /github/runner_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8723591Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8763008Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T04:54:36.8789694Z /github/runner_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8799520Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config
+2026-09-08T04:54:36.8842889Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T04:54:36.9056852Z Removing credentials config '/home/runner/work/_temp/git-credentials-9ebbff10-c387-4ddd-9f4e-3984cccf23e4.config'
+2026-09-08T04:54:36.9064007Z ##[endgroup]
+2026-09-08T04:54:36.9396010Z ##[group]Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+2026-09-08T04:54:36.9397428Z with:
+2026-09-08T04:54:36.9398297Z   python-version: 3.14
+2026-09-08T04:54:36.9399090Z   check-latest: false
+2026-09-08T04:54:36.9406559Z   token: ***
+2026-09-08T04:54:36.9407404Z   update-environment: true
+2026-09-08T04:54:36.9408247Z   allow-prereleases: false
+2026-09-08T04:54:36.9409158Z   freethreaded: false
+2026-09-08T04:54:36.9409921Z ##[endgroup]
+2026-09-08T04:54:37.0507381Z ##[group]Installed versions
+2026-09-08T04:54:37.0584787Z Successfully set up CPython (3.14.7)
+2026-09-08T04:54:37.0586613Z ##[endgroup]
+2026-09-08T04:54:37.0833534Z ##[group]Run erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+2026-09-08T04:54:37.0834778Z with:
+2026-09-08T04:54:37.0835575Z   otp-version: 29.0.4
+2026-09-08T04:54:37.0836338Z   elixir-version: 1.20.0
+2026-09-08T04:54:37.0843703Z   github-token: ***
+2026-09-08T04:54:37.0844493Z   otp-architecture: 64
+2026-09-08T04:54:37.0845245Z   install-hex: true
+2026-09-08T04:54:37.0846034Z   install-rebar: true
+2026-09-08T04:54:37.0846835Z   version-type: loose
+2026-09-08T04:54:37.0847697Z   disable_problem_matchers: false
+2026-09-08T04:54:37.0848643Z   hexpm-mirrors: https://builds.hex.pm
+
+2026-09-08T04:54:37.0849508Z env:
+2026-09-08T04:54:37.0850410Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:37.0851988Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T04:54:37.0853397Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:37.0854706Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:37.0855967Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:37.0857185Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T04:54:37.0858251Z ##[endgroup]
+2026-09-08T04:54:37.2999888Z ##[group]Installing Erlang/OTP OTP-29.0.4 - built on arm64/ubuntu-24.04
+2026-09-08T04:54:39.7317538Z [command]/usr/bin/tar zx --strip-components=1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/2a80a9f1-476a-4a2f-8eb1-aa42b4436ec0 -f /home/runner/work/_temp/4fa32160-5fd1-4714-97ae-0ac0b5a68986
+2026-09-08T04:54:41.9820841Z [command]/home/runner/work/_temp/.setup-beam/otp/Install -minimal /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T04:54:42.0086401Z Installed Erlang/OTP version
+2026-09-08T04:54:42.0104102Z [command]/home/runner/work/_temp/.setup-beam/otp/bin/erl -version
+2026-09-08T04:54:42.0200058Z Erlang (SMP,ASYNC_THREADS) (BEAM) emulator version 17.0.4
+2026-09-08T04:54:42.0228494Z ##[endgroup]
+2026-09-08T04:54:42.0229489Z [command]/home/runner/work/_temp/.setup-beam/otp/bin/erl -noshell -eval io:format(erlang:system_info(otp_release)), halt().
+2026-09-08T04:54:42.2280291Z 29::debug::Was not able to coerce latest with semver
+2026-09-08T04:54:42.2294731Z Using Elixir 1.20.0 (built for Erlang/OTP 29)
+2026-09-08T04:54:42.2295749Z ##[group]Installing Elixir v1.20.0-otp-29
+2026-09-08T04:54:43.0717336Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/a34279cb-bd9d-469e-b4e5-74d7ddad98db
+2026-09-08T04:54:43.3828617Z Installed Elixir version
+2026-09-08T04:54:43.3844458Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/elixir -v
+2026-09-08T04:54:43.5680807Z Erlang/OTP 29 [erts-17.0.4] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit]
+2026-09-08T04:54:43.5681411Z 
+2026-09-08T04:54:43.5722562Z Elixir 1.20.0 (compiled with Erlang/OTP 29)
+2026-09-08T04:54:43.5764154Z ##[endgroup]
+2026-09-08T04:54:43.5764716Z ##[group]Running mix local.rebar,--force
+2026-09-08T04:54:43.5772902Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/mix local.rebar --force
+2026-09-08T04:54:44.3928336Z * creating /home/runner/.mix/elixir/1-20-otp-29/rebar3
+2026-09-08T04:54:44.3981695Z ##[endgroup]
+2026-09-08T04:54:44.3982319Z ##[group]Running mix local.hex,--force
+2026-09-08T04:54:44.3998090Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/mix local.hex --force
+2026-09-08T04:54:45.1904328Z * creating /home/runner/.mix/archives/hex-2.5.1
+2026-09-08T04:54:45.1969940Z ##[endgroup]
+2026-09-08T04:54:45.2112450Z ##[group]Run sudo apt-get update
+2026-09-08T04:54:45.2113127Z [36;1msudo apt-get update[0m
+2026-09-08T04:54:45.2113627Z [36;1msudo apt-get install --yes build-essential cmake ninja-build perl binutils patchelf bubblewrap[0m
+2026-09-08T04:54:45.2213880Z shell: /usr/bin/bash -e {0}
+2026-09-08T04:54:45.2214419Z env:
+2026-09-08T04:54:45.2214761Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:45.2215213Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T04:54:45.2215714Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:45.2216118Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:45.2216553Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:54:45.2216985Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T04:54:45.2217392Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T04:54:45.2217967Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T04:54:45.2218353Z ##[endgroup]
+2026-09-08T04:54:45.3812633Z Get:1 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-09-08T04:54:45.4352896Z Get:2 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [394 kB]
+2026-09-08T04:54:45.4469834Z Get:3 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [441 kB]
+2026-09-08T04:54:45.9455894Z Hit:4 http://ports.ubuntu.com/ubuntu-ports noble InRelease
+2026-09-08T04:54:46.1079942Z Get:5 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+2026-09-08T04:54:46.8076911Z Get:6 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+2026-09-08T04:54:47.1428543Z Get:7 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+2026-09-08T04:54:47.3687108Z Get:8 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1318 kB]
+2026-09-08T04:54:48.0992844Z Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/main Translation-en [292 kB]
+2026-09-08T04:54:48.3156200Z Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Components [178 kB]
+2026-09-08T04:54:48.4972013Z Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [1731 kB]
+2026-09-08T04:54:48.9113329Z Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe Translation-en [339 kB]
+2026-09-08T04:54:49.0935710Z Get:13 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Components [387 kB]
+2026-09-08T04:54:49.2785674Z Get:14 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [2320 kB]
+2026-09-08T04:54:49.6314589Z Get:15 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted Translation-en [352 kB]
+2026-09-08T04:54:49.8043642Z Get:16 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Components [3576 B]
+2026-09-08T04:54:49.9673204Z Get:17 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Components [12.6 kB]
+2026-09-08T04:54:50.3324715Z Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1065 kB]
+2026-09-08T04:54:50.5274863Z Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/main Translation-en [212 kB]
+2026-09-08T04:54:50.6954772Z Get:20 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Components [43.3 kB]
+2026-09-08T04:54:50.8587684Z Get:21 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1280 kB]
+2026-09-08T04:54:51.0602372Z Get:22 http://ports.ubuntu.com/ubuntu-ports noble-security/universe Translation-en [241 kB]
+2026-09-08T04:54:51.2290990Z Get:23 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Components [76.2 kB]
+2026-09-08T04:54:51.3928532Z Get:24 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [2210 kB]
+2026-09-08T04:54:51.6228130Z Get:25 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted Translation-en [334 kB]
+2026-09-08T04:54:55.1720997Z Fetched 13.6 MB in 6s (2152 kB/s)
+2026-09-08T04:54:56.1082918Z Reading package lists...
+2026-09-08T04:54:56.1384330Z Reading package lists...
+2026-09-08T04:54:56.3953491Z Building dependency tree...
+2026-09-08T04:54:56.3961627Z Reading state information...
+2026-09-08T04:54:56.6369632Z perl is already the newest version (5.38.2-3.2ubuntu0.4).
+2026-09-08T04:54:56.6370386Z perl set to manually installed.
+2026-09-08T04:54:56.6370856Z binutils is already the newest version (2.42-4ubuntu2.10).
+2026-09-08T04:54:56.6371667Z patchelf is already the newest version (0.18.0-1.1build1).
+2026-09-08T04:54:56.6372073Z Suggested packages:
+2026-09-08T04:54:56.6372362Z   cmake-doc cmake-format elpa-cmake-mode
+2026-09-08T04:54:56.6568833Z The following NEW packages will be installed:
+2026-09-08T04:54:56.6574862Z   bubblewrap build-essential cmake cmake-data libjsoncpp25 librhash0
+2026-09-08T04:54:56.6575489Z   ninja-build
+2026-09-08T04:54:57.1288527Z 0 upgraded, 7 newly installed, 0 to remove and 43 not upgraded.
+2026-09-08T04:54:57.1289433Z Need to get 12.8 MB of archives.
+2026-09-08T04:54:57.1289866Z After this operation, 45.5 MB of additional disk space will be used.
+2026-09-08T04:54:57.1290563Z Get:1 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 bubblewrap arm64 0.9.0-1ubuntu0.1 [49.7 kB]
+2026-09-08T04:54:57.6278633Z Get:2 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 build-essential arm64 12.10ubuntu1 [4932 B]
+2026-09-08T04:54:57.7910892Z Get:3 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libjsoncpp25 arm64 1.9.5-6build1 [78.2 kB]
+2026-09-08T04:54:58.1208702Z Get:4 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 librhash0 arm64 1.4.3-3build1 [126 kB]
+2026-09-08T04:54:58.4622351Z Get:5 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 cmake-data all 3.28.3-1build7 [2155 kB]
+2026-09-08T04:54:59.4611396Z Get:6 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 cmake arm64 3.28.3-1build7 [10.3 MB]
+2026-09-08T04:55:00.3075301Z Get:7 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 ninja-build arm64 1.11.1-2 [125 kB]
+2026-09-08T04:55:00.5670663Z Fetched 12.8 MB in 4s (3528 kB/s)
+2026-09-08T04:55:00.5876704Z Selecting previously unselected package bubblewrap.
+2026-09-08T04:55:00.6034489Z (Reading database ... 
+2026-09-08T04:55:00.6035129Z (Reading database ... 5%
+2026-09-08T04:55:00.6035431Z (Reading database ... 10%
+2026-09-08T04:55:00.6035709Z (Reading database ... 15%
+2026-09-08T04:55:00.6036087Z (Reading database ... 20%
+2026-09-08T04:55:00.6036677Z (Reading database ... 25%
+2026-09-08T04:55:00.6037075Z (Reading database ... 30%
+2026-09-08T04:55:00.6037358Z (Reading database ... 35%
+2026-09-08T04:55:00.6037645Z (Reading database ... 40%
+2026-09-08T04:55:00.6037962Z (Reading database ... 45%
+2026-09-08T04:55:00.6038237Z (Reading database ... 50%
+2026-09-08T04:55:00.6137702Z (Reading database ... 55%
+2026-09-08T04:55:00.7304462Z (Reading database ... 60%
+2026-09-08T04:55:00.9360655Z (Reading database ... 65%
+2026-09-08T04:55:01.0440385Z (Reading database ... 70%
+2026-09-08T04:55:01.0755517Z (Reading database ... 75%
+2026-09-08T04:55:01.1719516Z (Reading database ... 80%
+2026-09-08T04:55:01.2965065Z (Reading database ... 85%
+2026-09-08T04:55:01.4298447Z (Reading database ... 90%
+2026-09-08T04:55:01.5514419Z (Reading database ... 95%
+2026-09-08T04:55:01.5514886Z (Reading database ... 100%
+2026-09-08T04:55:01.5515560Z (Reading database ... 200999 files and directories currently installed.)
+2026-09-08T04:55:01.5560221Z Preparing to unpack .../0-bubblewrap_0.9.0-1ubuntu0.1_arm64.deb ...
+2026-09-08T04:55:01.5632637Z Unpacking bubblewrap (0.9.0-1ubuntu0.1) ...
+2026-09-08T04:55:01.5909336Z Selecting previously unselected package build-essential.
+2026-09-08T04:55:01.6084357Z Preparing to unpack .../1-build-essential_12.10ubuntu1_arm64.deb ...
+2026-09-08T04:55:01.6100827Z Unpacking build-essential (12.10ubuntu1) ...
+2026-09-08T04:55:01.6338257Z Selecting previously unselected package libjsoncpp25:arm64.
+2026-09-08T04:55:01.6520350Z Preparing to unpack .../2-libjsoncpp25_1.9.5-6build1_arm64.deb ...
+2026-09-08T04:55:01.6547786Z Unpacking libjsoncpp25:arm64 (1.9.5-6build1) ...
+2026-09-08T04:55:01.6797434Z Selecting previously unselected package librhash0:arm64.
+2026-09-08T04:55:01.6978542Z Preparing to unpack .../3-librhash0_1.4.3-3build1_arm64.deb ...
+2026-09-08T04:55:01.6993773Z Unpacking librhash0:arm64 (1.4.3-3build1) ...
+2026-09-08T04:55:01.7254190Z Selecting previously unselected package cmake-data.
+2026-09-08T04:55:01.7426264Z Preparing to unpack .../4-cmake-data_3.28.3-1build7_all.deb ...
+2026-09-08T04:55:01.7502174Z Unpacking cmake-data (3.28.3-1build7) ...
+2026-09-08T04:55:02.0530043Z Selecting previously unselected package cmake.
+2026-09-08T04:55:02.0729919Z Preparing to unpack .../5-cmake_3.28.3-1build7_arm64.deb ...
+2026-09-08T04:55:02.0744724Z Unpacking cmake (3.28.3-1build7) ...
+2026-09-08T04:55:02.2488422Z Selecting previously unselected package ninja-build.
+2026-09-08T04:55:02.2670043Z Preparing to unpack .../6-ninja-build_1.11.1-2_arm64.deb ...
+2026-09-08T04:55:02.2684539Z Unpacking ninja-build (1.11.1-2) ...
+2026-09-08T04:55:02.3138725Z Setting up bubblewrap (0.9.0-1ubuntu0.1) ...
+2026-09-08T04:55:02.3196697Z Setting up ninja-build (1.11.1-2) ...
+2026-09-08T04:55:02.3225319Z Setting up libjsoncpp25:arm64 (1.9.5-6build1) ...
+2026-09-08T04:55:02.3262401Z Setting up librhash0:arm64 (1.4.3-3build1) ...
+2026-09-08T04:55:02.3294651Z Setting up build-essential (12.10ubuntu1) ...
+2026-09-08T04:55:02.3323302Z Setting up cmake-data (3.28.3-1build7) ...
+2026-09-08T04:55:02.3400990Z Setting up cmake (3.28.3-1build7) ...
+2026-09-08T04:55:02.3446903Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-09-08T04:55:02.3476283Z Not building database; man-db/auto-update is not 'true'.
+2026-09-08T04:55:02.3499100Z Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+2026-09-08T04:55:04.5704505Z 
+2026-09-08T04:55:04.5705267Z Running kernel seems to be up-to-date.
+2026-09-08T04:55:04.5705803Z 
+2026-09-08T04:55:04.5706076Z No services need to be restarted.
+2026-09-08T04:55:04.5706288Z 
+2026-09-08T04:55:04.5706460Z No containers need to be restarted.
+2026-09-08T04:55:04.5706681Z 
+2026-09-08T04:55:04.5706916Z No user sessions are running outdated binaries.
+2026-09-08T04:55:04.5707142Z 
+2026-09-08T04:55:04.5707372Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-09-08T04:55:05.8128754Z ##[group]Run curl --fail --location --retry 3 --output "$RUNNER_TEMP/zig.tar.xz" "https://ziglang.org/download/0.16.0/zig-${ZIG_ARCH}-0.16.0.tar.xz"
+2026-09-08T04:55:05.8129984Z [36;1mcurl --fail --location --retry 3 --output "$RUNNER_TEMP/zig.tar.xz" "https://ziglang.org/download/0.16.0/zig-${ZIG_ARCH}-0.16.0.tar.xz"[0m
+2026-09-08T04:55:05.8130714Z [36;1mecho "$ZIG_SHA256  $RUNNER_TEMP/zig.tar.xz" | sha256sum --check --strict[0m
+2026-09-08T04:55:05.8131400Z [36;1mmkdir "$RUNNER_TEMP/zig"[0m
+2026-09-08T04:55:05.8131892Z [36;1mtar -xJf "$RUNNER_TEMP/zig.tar.xz" -C "$RUNNER_TEMP/zig" --strip-components=1[0m
+2026-09-08T04:55:05.8132347Z [36;1mecho "$RUNNER_TEMP/zig" >> "$GITHUB_PATH"[0m
+2026-09-08T04:55:05.8168701Z shell: /usr/bin/bash -e {0}
+2026-09-08T04:55:05.8169171Z env:
+2026-09-08T04:55:05.8169463Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:05.8169911Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T04:55:05.8170500Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:05.8170898Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:05.8171581Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:05.8171985Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T04:55:05.8172419Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T04:55:05.8172894Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T04:55:05.8173253Z   ZIG_ARCH: aarch64-linux
+2026-09-08T04:55:05.8173683Z   ZIG_SHA256: ea4b09bfb22ec6f6c6ceac57ab63efb6b46e17ab08d21f69f3a48b38e1534f17
+2026-09-08T04:55:05.8174096Z ##[endgroup]
+2026-09-08T04:55:05.8284407Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-09-08T04:55:05.8285115Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-09-08T04:55:06.6490823Z 
+2026-09-08T04:55:06.6491977Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-09-08T04:55:07.5886541Z   0 48.8M    0 48890    0     0  59564      0  0:14:19 --:--:--  0:14:19 59549
+2026-09-08T04:55:08.5728086Z   1 48.8M    1  687k    0     0   390k      0  0:02:07  0:00:01  0:02:06  390k
+2026-09-08T04:55:09.6550526Z  14 48.8M   14 7311k    0     0  2664k      0  0:00:18  0:00:02  0:00:16 2663k
+2026-09-08T04:55:10.6292235Z  53 48.8M   53 26.1M    0     0  6986k      0  0:00:07  0:00:03  0:00:04 6986k
+2026-09-08T04:55:10.8093632Z  91 48.8M   91 44.8M    0     0  9574k      0  0:00:05  0:00:04  0:00:01 9574k
+2026-09-08T04:55:10.8094392Z 100 48.8M  100 48.8M    0     0   9.8M      0  0:00:04  0:00:04 --:--:-- 11.7M
+2026-09-08T04:55:10.8459636Z /home/runner/work/_temp/zig.tar.xz: OK
+2026-09-08T04:55:13.5577528Z ##[group]Run python3 scripts/source_routing_checks.py --destination "$RUNNER_TEMP/routing"
+2026-09-08T04:55:13.5578255Z [36;1mpython3 scripts/source_routing_checks.py --destination "$RUNNER_TEMP/routing"[0m
+2026-09-08T04:55:13.5612866Z shell: /usr/bin/bash -e {0}
+2026-09-08T04:55:13.5613274Z env:
+2026-09-08T04:55:13.5613553Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:13.5613993Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T04:55:13.5614477Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:13.5614914Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:13.5615357Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:13.5615766Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T04:55:13.5616169Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T04:55:13.5616708Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T04:55:13.5617075Z ##[endgroup]
+2026-09-08T04:55:14.7099608Z 9 ownership/configuration rejections; fetch/OpenSSL/CMake/bridge routes use private paths
+2026-09-08T04:55:14.7100372Z Commands were captured, not executed; native source compilation remains unproved
+2026-09-08T04:55:14.7438979Z ##[group]Run python3 - <<'PY'
+2026-09-08T04:55:14.7439306Z [36;1mpython3 - <<'PY'[0m
+2026-09-08T04:55:14.7439509Z [36;1mimport os, sys[0m
+2026-09-08T04:55:14.7439717Z [36;1mfrom pathlib import Path[0m
+2026-09-08T04:55:14.7439956Z [36;1msys.path.insert(0, 'scripts')[0m
+2026-09-08T04:55:14.7440206Z [36;1mfrom linux_sandbox import probe[0m
+2026-09-08T04:55:14.7440524Z [36;1mwork = Path(os.environ['RUNNER_TEMP']) / 'isolation-probe'[0m
+2026-09-08T04:55:14.7440843Z [36;1mwork.mkdir()[0m
+2026-09-08T04:55:14.7441265Z [36;1mprobe(work, [])[0m
+2026-09-08T04:55:14.7441466Z [36;1mPY[0m
+2026-09-08T04:55:14.7475142Z shell: /usr/bin/bash -e {0}
+2026-09-08T04:55:14.7475624Z env:
+2026-09-08T04:55:14.7475854Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:14.7476248Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T04:55:14.7476644Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:14.7477033Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:14.7477390Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T04:55:14.7477745Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T04:55:14.7478110Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T04:55:14.7478489Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T04:55:14.7478799Z ##[endgroup]
+2026-09-08T04:55:14.8782954Z Linux namespace probe passed: build trees hidden, compiler paths masked, external network unavailable
+2026-09-08T04:55:14.9222527Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/isolation-probe", "/home/runner/work/_temp/isolation-probe", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--ro-bind", "/dev/null", "/home/runner/work/_temp/zig/zig", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/cmake", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/ninja", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "HOME", "/home/runner", "--setenv", "PATH", "/home/runner/work/_temp/zig:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/arm64/bin:/opt/hostedtoolcache/Python/3.14.7/arm64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "/opt/hostedtoolcache/Python/3.14.7/arm64/bin/python3", "/home/runner/work/_temp/isolation-probe/isolation-check.py"], "cwd": "/home/runner/work/_temp/isolation-probe", "exit": 0, "seconds": 0.114}
+2026-09-08T04:55:15.0982086Z warning: the VM is running with native name encoding of latin1 which may cause Elixir to malfunction as it expects utf8. Please ensure your locale is set to UTF-8 (which can be verified by running "locale" in your shell) or set the ELIXIR_ERL_OPTIONS="+fnu" environment variable
+2026-09-08T04:55:15.1621384Z ** (MatchError) no match of right hand side value:
+2026-09-08T04:55:15.1621680Z 
+2026-09-08T04:55:15.1621772Z     :latin1
+2026-09-08T04:55:15.1622400Z 
+2026-09-08T04:55:15.1622541Z     (stdlib 8.0.3) erl_eval.erl:796: :erl_eval.expr/6
+2026-09-08T04:55:15.1622901Z     (elixir 1.20.0) lib/code.ex:649: Code.validated_eval_string/4
+2026-09-08T04:55:15.1868104Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/isolation-probe", "/home/runner/work/_temp/isolation-probe", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--ro-bind", "/dev/null", "/home/runner/work/_temp/zig/zig", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/cmake", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/ninja", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "HOME", "/home/runner", "--setenv", "PATH", "/home/runner/work/_temp/zig:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/arm64/bin:/opt/hostedtoolcache/Python/3.14.7/arm64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "/home/runner/work/_temp/.setup-beam/elixir/bin/elixir", "-e", ":utf8 = :file.native_name_encoding(); IO.puts(\"UTF-8 runtime filename mode verified\")"], "cwd": "/home/runner/work/_temp/isolation-probe", "exit": 1, "seconds": 0.264}
+2026-09-08T04:55:15.1998558Z Traceback (most recent call last):
+2026-09-08T04:55:15.2002235Z   File "<stdin>", line 7, in <module>
+2026-09-08T04:55:15.2002687Z   File "/home/runner/work/Aphid/Aphid/scripts/linux_sandbox.py", line 67, in probe
+2026-09-08T04:55:15.2003144Z     run([*command, shutil.which('elixir'), '-e',
+2026-09-08T04:55:15.2003424Z     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-09-08T04:55:15.2004334Z          ':utf8 = :file.native_name_encoding(); IO.puts("UTF-8 runtime filename mode verified")'], cwd=work, timeout=30)
+2026-09-08T04:55:15.2004962Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-09-08T04:55:15.2005445Z   File "/home/runner/work/Aphid/Aphid/scripts/proof.py", line 29, in run
+2026-09-08T04:55:15.2005857Z     raise RuntimeError(f"command failed: {args}")
+2026-09-08T04:55:15.2014024Z RuntimeError: command failed: ['sudo', '-E', 'bwrap', '--die-with-parent', '--unshare-pid', '--ro-bind', '/', '/', '--dev', '/dev', '--proc', '/proc', '--bind', '/home/runner/work/_temp/isolation-probe', '/home/runner/work/_temp/isolation-probe', '--unshare-net', '--tmpfs', '/home/runner/work/Aphid/Aphid', '--ro-bind', '/dev/null', '/home/runner/work/_temp/zig/zig', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-as', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-g++-12', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-g++-13', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-g++-14', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-gcc-12', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-gcc-13', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-gcc-14', '--ro-bind', '/dev/null', '/usr/bin/aarch64-linux-gnu-ld.bfd', '--ro-bind', '/dev/null', '/usr/bin/c89-gcc', '--ro-bind', '/dev/null', '/usr/bin/c99-gcc', '--ro-bind', '/dev/null', '/usr/bin/cmake', '--ro-bind', '/dev/null', '/usr/bin/make', '--ro-bind', '/dev/null', '/usr/bin/ninja', '--ro-bind', '/dev/null', '/usr/lib/llvm-16/bin/clang', '--ro-bind', '/dev/null', '/usr/lib/llvm-16/bin/lld', '--ro-bind', '/dev/null', '/usr/lib/llvm-16/bin/llvm-as', '--ro-bind', '/dev/null', '/usr/lib/llvm-17/bin/clang', '--ro-bind', '/dev/null', '/usr/lib/llvm-17/bin/lld', '--ro-bind', '/dev/null', '/usr/lib/llvm-17/bin/llvm-as', '--ro-bind', '/dev/null', '/usr/lib/llvm-18/bin/clang', '--ro-bind', '/dev/null', '/usr/lib/llvm-18/bin/lld', '--ro-bind', '/dev/null', '/usr/lib/llvm-18/bin/llvm-as', '--ro-bind', '/dev/null', '/usr/local/bin/cmake', '--ro-bind', '/dev/null', '/usr/local/bin/ninja', '--cap-add', 'CAP_SETUID', '--cap-add', 'CAP_SETGID', '--cap-add', 'CAP_SETPCAP', '--clearenv', '--setenv', 'HOME', '/home/runner', '--setenv', 'PATH', '/home/runner/work/_temp/zig:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/arm64/bin:/opt/hostedtoolcache/Python/3.14.7/arm64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', '--', '/usr/bin/setpriv', '--reuid', '1001', '--regid', '1001', '--clear-groups', '--bounding-set=-all', '--no-new-privs', '--', '/home/runner/work/_temp/.setup-beam/elixir/bin/elixir', '-e', ':utf8 = :file.native_name_encoding(); IO.puts("UTF-8 runtime filename mode verified")']
+2026-09-08T04:55:15.2112909Z ##[error]Process completed with exit code 1.
+2026-09-08T04:55:15.2257731Z Post job cleanup.
+2026-09-08T04:55:15.2982130Z [command]/usr/bin/git version
+2026-09-08T04:55:15.3022146Z git version 2.55.0
+2026-09-08T04:55:15.3045887Z Temporarily overriding HOME='/home/runner/work/_temp/e949d1c6-8cab-4539-b320-68016e29d9e3' before making global git config changes
+2026-09-08T04:55:15.3046915Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T04:55:15.3050671Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+2026-09-08T04:55:15.3101187Z Removing SSH command configuration
+2026-09-08T04:55:15.3101849Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T04:55:15.3129620Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T04:55:15.3323594Z Removing HTTP extra header
+2026-09-08T04:55:15.3329398Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T04:55:15.3363762Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T04:55:15.3581017Z Removing includeIf entries pointing to credentials config files
+2026-09-08T04:55:15.3582241Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T04:55:15.3625753Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T04:55:15.3987056Z Cleaning up orphan processes

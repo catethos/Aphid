@@ -27,7 +27,7 @@ def sandbox(work, hidden, env=None, network=False):
         if not any(path == p or p in path.parents for p in hidden):
             command += ['--ro-bind', '/dev/null', str(path)]
     command += ['--cap-add', 'CAP_SETUID', '--cap-add', 'CAP_SETGID', '--cap-add', 'CAP_SETPCAP']
-    command += ['--clearenv']
+    command += ['--clearenv', '--setenv', 'LANG', 'C.UTF-8']
     allowed = {'PATH', 'HOME', 'TMPDIR', 'ERL_FLAGS', 'MIX_HOME', 'MIX_ENV', 'HEX_HOME',
                'ZIG_EXECUTABLE_PATH', 'ZIG_GLOBAL_CACHE_DIR', 'ZIGLER_STAGING_ROOT',
                'APHID_INSTALL', 'APHID_BUNDLE_ARCHIVE', 'APHID_BUNDLE_SHA256'}
