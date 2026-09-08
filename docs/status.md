@@ -17,8 +17,8 @@ Updated 2026-09-08. Library name: **Aphid**. Folder: `zig_library/`.
 
 | Required target | State |
 |---|---|
-| Linux x86_64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; bundle retry pending |
-| Linux ARM64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; bundle retry pending; cross-build unproved |
+| Linux x86_64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; ELF relocation fix pending |
+| Linux ARM64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; relocated bundle native/92 BEAM tests pass; installer byte-stability fix pending; cross-build unproved |
 | macOS ARM64 | Host runtime passed: explicit-target bundle and fresh local Mix consumer pass 92 tests on 26.6; local bundle adapter passes; Mix release passes embedded startup and restart; minimum OS/CPU and network delivery remain |
 
 No target is release-supported. The isolated candidate NIF load commands now declare
@@ -121,3 +121,9 @@ were cancelled after this was detected. Their logs are retained. See the
 [loader correction](evidence/linux-loader-allowlist-fix.md). Passing CI artifact
 retention for seven days is explicitly approved; GitHub releases and Hex
 publication remain excluded. No Linux catalog identity is promoted yet.
+
+Linux full run 34188940428 passed both native/NIF builds and 92 BEAM suites.
+ARM64 also passed relocated native/92 BEAM tests before consumer integrity
+rejected objcopy-modified NIF bytes; x86_64 stopped at ELF packaging. Neither
+job uploaded artifacts. [ELF correction and handoff](evidence/linux-elf-relocation.md)
+records the real failures and small-NIF prerequisite checks.

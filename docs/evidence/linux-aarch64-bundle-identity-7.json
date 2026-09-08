@@ -1,0 +1,32 @@
+{
+  "run_id": 34188940428,
+  "source_commit": "d34ea305346442e6fee5b73b403a91e338d501fb",
+  "job_id": 101942837057,
+  "scope": "Archive passed relocated native and 92 BEAM tests; fresh consumer failed after Zigler rewrote NIF bytes; binary was not retained or uploaded. Do not promote this identity.",
+  "identity": {
+    "elixir": "1.20.0",
+    "erts": "17.0.4",
+    "nif_api": "2.18",
+    "package_version": "0.1.0-dev",
+    "target": "aarch64-linux-gnu",
+    "native_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+    "native_sources": {
+      "aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
+      "bridge.h": "e36e6b3a95109b29c1063b50db4416313f28d36e54ad7ec70ff5d231a1f14c1a",
+      "bridge.cpp": "5a0abb57840f62753ba10cfbbb6d4900c48720080acd6a109ae863ef5469e0cd",
+      "proof.zig": "aac3c481fc6917b571107edc34e1f0e5f4c9ef987efcafd559b2969e6f90382c",
+      "proof.h": "681fb93f25bda1998303ed196741cf88056e78dacb1468731421902b6a40f7ad",
+      "proof.cpp": "a0084e23dd90ca6be5431b4f4ef69aa4d629ba1ea5f3821587aa0972cae92a12"
+    },
+    "archive": "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz",
+    "sha256": "2e84318365aba54cd9ed115f264248b94d02ab0a77fcba8fe82a8da18b0d614e",
+    "bytes": 46283118,
+    "native_files": {
+      "Elixir.Aphid.Native.so": "c06c6b4682c0dfa113621a0ad8834226e1ba5aa49cf7b6712895bb81878c76b9",
+      "Elixir.Aphid.Proof.so": "259c2949d7e13c49cd7990c92857e68d7c660ebcf7f45363f62c2c89b848ab23",
+      "libaphid_bridge.so": "dec22ccb93953aba35af38af0454880d832a8b2aa04fc68b2c316c258959636f",
+      "liblbug.so": "eb1fd9a8b8192120eeb6bd70852c4cc5c467b2a6e15229a8d8d7fdfa2672e3b9"
+    },
+    "elf_audit_sha256": "d48e4e82103c5f23e8b87152da97831f7f4f794a0e97b5b7c35e2fb9e1560aba"
+  }
+}

@@ -17,9 +17,11 @@ The source ELF requirements include GLIBC 2.38 and GLIBCXX 3.4.32; execution was
 on Ubuntu 24.04 with glibc 2.39. Older-system and CPU-floor execution remain open.
 
 [Run 34188940428](https://github.com/catethos/Aphid/actions/runs/34188940428),
-source `d34ea305346442e6fee5b73b403a91e338d501fb`, is the current full bundle
-qualification. Both early isolation and UTF-8 runtime checks passed; later
-build, relocation, installer and consumer outcomes are pending. Earlier attempts
+source `d34ea305346442e6fee5b73b403a91e338d501fb`, passed both native/NIF builds and 92 BEAM suites, then failed distribution
+qualification. ARM64 passed relocated native/92 BEAM tests before detecting
+changed installed NIF bytes. x86_64 stopped during ELF packaging. No artifact
+was uploaded. The [ELF correction](evidence/linux-elf-relocation.md) is being
+checked in small-NIF preflights before another full build. Earlier attempts
 and their cancellations remain in the evidence logs. See the
 [loader correction](evidence/linux-loader-allowlist-fix.md) and
 [locale preflight](evidence/linux-locale-preflight.md).
@@ -52,7 +54,7 @@ uploads only after the complete job succeeds, using pinned official
 the runtime archive and identity, ELF audit, local Hex source archive and identity,
 consumer input hashes and qualification log. It excludes build caches and
 upstream extension archives. The owner approved this scope on 2026-09-08;
-the current full run enables it. A preflight-only run cannot upload artifacts.
+run 7 enabled it but both jobs failed before upload. A preflight-only run cannot upload artifacts.
 
 Actions retention is for qualification review. It does not provide production
 GitHub release delivery. Retrieve passing artifacts before expiry, verify the

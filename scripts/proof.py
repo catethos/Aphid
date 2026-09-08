@@ -106,6 +106,9 @@ def main():
         deny.chmod(0o755)
         precompiled = dict(env, APHID_PROOF_PRECOMPILED=str(artifact),
                           ZIG_EXECUTABLE_PATH=str(deny))
+        # The artifact (and Linux original copy) preserves the source output.
+        # An empty destination is required to exercise Zigler's actual copy path.
+        library.unlink()
         run(["mix", "compile", "--force"], cwd=project, env=precompiled)
         run(["mix", "test", "--no-compile", "--seed", "0"], cwd=project, env=precompiled)
         if args.target and args.target.endswith('linux-gnu'):
