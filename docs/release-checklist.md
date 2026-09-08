@@ -5,8 +5,8 @@ validation archives are test bundles, not Hex packages or release candidates.
 
 | Required target | Build / runtime evidence | Remaining blocker |
 |---|---|---|
-| Linux x86_64 glibc | Native GitHub runner: locked native/NIF builds and 92 BEAM tests pass; bundle qualification pending | Prove compiler-free bundle and declared glibc/CPU baseline |
-| Linux ARM64 glibc | Native GitHub runner: locked native/NIF builds and 92 BEAM tests pass; bundle qualification pending | Cross-build on x86_64 Linux, then execute that exact artifact on native ARM64 Linux |
+| Linux x86_64 glibc | Native GitHub runner: locked builds, relocated suites, compiler-free 92-test consumer and failure checks pass | Prove declared glibc/CPU baseline, public delivery and Linux Mix release |
+| Linux ARM64 glibc | Native GitHub runner: locked builds, relocated suites, compiler-free 92-test consumer and failure checks pass | Cross-build on x86_64 Linux, then execute that exact artifact on native ARM64 Linux |
 | macOS ARM64 | Host-only extracted runtime validation; see Stage 08 evidence | Explicit-target candidate declares 13.3; local checksum/sidecar adapter and fresh consumer pass; embedded-mode Mix release passes; actual minimum OS/CPU and network delivery remain |
 
 ## Historical local-host inventory
@@ -138,3 +138,9 @@ measurement and automatic Mix source orchestration remain open.
 Current source changes and CI iterations are authorized. Binary artifact uploads,
 GitHub release creation and Hex publication remain excluded. The Linux catalog
 is empty pending reviewed artifacts; see [distribution preparation](evidence/linux-distribution-preparation.md).
+
+[Run 34193449987](evidence/linux-qualified-bundles.md) now passes both Linux
+bundle qualification jobs. Reviewed identities are pinned; approved seven-day
+Actions retention succeeded. The manual draft release workflow is prepared and
+local verification of its actual assets passes. Actual draft creation, public
+release delivery and Hex publication remain unexecuted and unauthorized.

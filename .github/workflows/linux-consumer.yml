@@ -1,0 +1,40 @@
+name: Current source with reviewed Linux bundles
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  consumer:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            target: x86_64-linux-gnu
+          - runner: ubuntu-24.04-arm
+            target: aarch64-linux-gnu
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124 # v1
+        with:
+          otp-version: '29.0.4'
+          elixir-version: '1.20.0'
+      - name: Install consumer proof prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes bubblewrap binutils
+          mix local.hex --force
+      - name: Verify current package with exact reviewed native archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APHID_TARGET: ${{ matrix.target }}
+        run: python3 -u scripts/linux_consumer_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-current-consumer"
+# This workflow retains job logs only. It neither rebuilds nor uploads native artifacts.

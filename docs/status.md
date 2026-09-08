@@ -17,8 +17,8 @@ Updated 2026-09-08. Library name: **Aphid**. Folder: `zig_library/`.
 
 | Required target | State |
 |---|---|
-| Linux x86_64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; ELF relocation fix pending |
-| Linux ARM64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; relocated bundle native/92 BEAM tests pass; installer byte-stability fix pending; cross-build unproved |
+| Linux x86_64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; reviewed bundle, relocated suites, compiler-free consumer and failures pass |
+| Linux ARM64 glibc | Native GitHub runner: locked native/NIF build and 92 BEAM tests pass; reviewed bundle, relocated suites, compiler-free consumer and failures pass; cross-build unproved |
 | macOS ARM64 | Host runtime passed: explicit-target bundle and fresh local Mix consumer pass 92 tests on 26.6; local bundle adapter passes; Mix release passes embedded startup and restart; minimum OS/CPU and network delivery remain |
 
 No target is release-supported. The isolated candidate NIF load commands now declare
@@ -127,3 +127,10 @@ ARM64 also passed relocated native/92 BEAM tests before consumer integrity
 rejected objcopy-modified NIF bytes; x86_64 stopped at ELF packaging. Neither
 job uploaded artifacts. [ELF correction and handoff](evidence/linux-elf-relocation.md)
 records the real failures and small-NIF prerequisite checks.
+
+[Reviewed Linux bundles](evidence/linux-qualified-bundles.md) now pass both full
+qualification jobs in run 34193449987. Seven-day Actions retention is approved
+and succeeded. Exact downloads, manifests, native hashes and source-package
+checksums were independently checked; the Linux catalog is pinned. A combined
+source-package consumer check follows without rebuilding the qualified engine.
+GitHub release creation and Hex publication remain excluded; no stage is closed.

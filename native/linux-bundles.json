@@ -1,1 +1,64 @@
-{}
+{
+  "x86_64-linux-gnu": {
+    "elixir": "1.20.0",
+    "erts": "17.0.4",
+    "nif_api": "2.18",
+    "package_version": "0.1.0-dev",
+    "target": "x86_64-linux-gnu",
+    "native_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+    "native_sources": {
+      "aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
+      "bridge.h": "e36e6b3a95109b29c1063b50db4416313f28d36e54ad7ec70ff5d231a1f14c1a",
+      "bridge.cpp": "5a0abb57840f62753ba10cfbbb6d4900c48720080acd6a109ae863ef5469e0cd",
+      "proof.zig": "aac3c481fc6917b571107edc34e1f0e5f4c9ef987efcafd559b2969e6f90382c",
+      "proof.h": "681fb93f25bda1998303ed196741cf88056e78dacb1468731421902b6a40f7ad",
+      "proof.cpp": "a0084e23dd90ca6be5431b4f4ef69aa4d629ba1ea5f3821587aa0972cae92a12"
+    },
+    "archive": "aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz",
+    "sha256": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+    "bytes": 49965445,
+    "native_files": {
+      "Elixir.Aphid.Native.so": "06a3cb88eb37630d2e31e94401325f81acc4862016c9ed30490e0668595b582a",
+      "Elixir.Aphid.Proof.so": "a34a22bdf2a5f0467130395fc1048e150c53f73c373f536c2c2b4131c8b367dc",
+      "libaphid_bridge.so": "dbd5a55239a9dc5e55ed8fea805036451bb1ab055ad88afbe64c607c89ed628a",
+      "liblbug.so": "d2df30571a10de48d4804ca87fce0ab2374ccce5cb24d74df460637abf2a5fa3"
+    },
+    "elf_audit_sha256": "c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014",
+    "qualification": {
+      "run_id": 34193449987,
+      "attempt": 1,
+      "commit": "c37c458211d0bff7e4054f90bf5d429f29ece2ef"
+    }
+  },
+  "aarch64-linux-gnu": {
+    "elixir": "1.20.0",
+    "erts": "17.0.4",
+    "nif_api": "2.18",
+    "package_version": "0.1.0-dev",
+    "target": "aarch64-linux-gnu",
+    "native_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+    "native_sources": {
+      "aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
+      "bridge.h": "e36e6b3a95109b29c1063b50db4416313f28d36e54ad7ec70ff5d231a1f14c1a",
+      "bridge.cpp": "5a0abb57840f62753ba10cfbbb6d4900c48720080acd6a109ae863ef5469e0cd",
+      "proof.zig": "aac3c481fc6917b571107edc34e1f0e5f4c9ef987efcafd559b2969e6f90382c",
+      "proof.h": "681fb93f25bda1998303ed196741cf88056e78dacb1468731421902b6a40f7ad",
+      "proof.cpp": "a0084e23dd90ca6be5431b4f4ef69aa4d629ba1ea5f3821587aa0972cae92a12"
+    },
+    "archive": "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz",
+    "sha256": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+    "bytes": 46275962,
+    "native_files": {
+      "Elixir.Aphid.Native.so": "8232add3bd3faf792a7179d6edcefabf29493601ec49740acf166e7f480de6ce",
+      "Elixir.Aphid.Proof.so": "b1db41ec30e2e5cc687fc01b2e127be1aad50bf42180859ada588f073ca0f54e",
+      "libaphid_bridge.so": "dec22ccb93953aba35af38af0454880d832a8b2aa04fc68b2c316c258959636f",
+      "liblbug.so": "c2311d4273f619fbff9ae20ab4cc12f338275dafddd981ed87dff2ec44c592d7"
+    },
+    "elf_audit_sha256": "647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+    "qualification": {
+      "run_id": 34193449987,
+      "attempt": 1,
+      "commit": "c37c458211d0bff7e4054f90bf5d429f29ece2ef"
+    }
+  }
+}

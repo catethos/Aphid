@@ -1,9 +1,10 @@
 # Local precompiled bundle installation
 
 This is Aphid's opt-in local archive adapter, exercised on macOS ARM64 26.6
-with Elixir 1.20.0 / OTP 29.0.4 (ERTS 17.0.4). **No target is release-supported.**
+and native Ubuntu 24.04 x86_64/ARM64 with Elixir 1.20.0 / OTP 29.0.4
+(ERTS 17.0.4). **No target is release-supported.**
 The adapter currently accepts the reviewed native identity in
-`native/local-bundle.json`, not arbitrary Aphid builds. The unchanged candidate's
+`native/local-bundle.json` and `native/linux-bundles.json`, not arbitrary Aphid builds. The unchanged candidate's
 seven Mach-O load commands declare 13.3; actual minimum OS/CPU execution remains
 unproved. The NIF CPU baseline resolves to Apple M1; the whole-closure CPU floor
 is still unverified.
@@ -226,3 +227,28 @@ establish compiler-free installation support. The job-local validation recipe
 packages and relocates ELF sidecars and tests a separate Hex source package
 with its build identity. See [Linux distribution evidence](evidence/linux-distribution-preparation.md).
 No repository binary delivery or release support is claimed.
+
+## Reviewed Linux local archives
+
+Use the current source package with the reviewed Linux catalog, not an older
+macOS-only source archive. The same explicit archive/SHA256 recipe above applies.
+The exact Linux filenames and independent pins are in
+[reviewed Linux bundles](evidence/linux-qualified-bundles.md). Retrieve the
+matching architecture from the passing run's Actions artifact before its
+seven-day expiry, or use the verified local review copy. Actions retention is
+not a durable public installer URL. Keep the pin from source/evidence independent
+of the downloaded archive.
+
+The proved Linux hosts are Ubuntu 24.04 with glibc 2.39 and GNU binutils 2.42.
+Zigler needs GNU `objcopy` to read NIF metadata. Producers normalize that operation
+before pinning; the real consumer proves unchanged hashes afterward. No Zig,
+C/C++ compiler, CMake or patchelf is required by the Linux consumer adapter.
+Older glibc/CPU systems, musl and different binutils/runtime versions are not
+proved by this result. The ELF engine requires GLIBC 2.38 and GLIBCXX 3.4.32;
+those symbol requirements are not minimum-system execution evidence.
+
+Both native Linux jobs passed the fresh local Hex-source-package consumer's
+92 tests with normal locked Hex dependency acquisition, then offline compilation
+and runtime. Real installer/loader failures also passed. A combined source
+package is being rechecked across targets; no Hex registry installation, default
+release download or Linux Mix release is claimed.

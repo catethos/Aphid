@@ -42,8 +42,10 @@ and loader failures. The consumer hides development/build trees and masks native
 compilers; only dependency acquisition has external networking. Compilation and
 runtime use a separate network namespace.
 
-The public Linux identity catalog remains empty until exact passing bundles are
-reviewed. CI injects its identity only into an isolated validation source package.
+The Linux identity catalog now pins the independently reviewed archives from
+[passing run 34193449987](evidence/linux-qualified-bundles.md). The qualification
+used target-specific validation source packages; the combined source package
+is checked separately.
 See [distribution preparation](evidence/linux-distribution-preparation.md).
 
 ## Approved artifact retention
@@ -54,7 +56,7 @@ uploads only after the complete job succeeds, using pinned official
 the runtime archive and identity, ELF audit, local Hex source archive and identity,
 consumer input hashes and qualification log. It excludes build caches and
 upstream extension archives. The owner approved this scope on 2026-09-08;
-run 7 enabled it but both jobs failed before upload. A preflight-only run cannot upload artifacts.
+run 7 failed before upload; run 11 passed and retained both targets. A preflight-only run cannot upload artifacts.
 
 Actions retention is for qualification review. It does not provide production
 GitHub release delivery. Retrieve passing artifacts before expiry, verify the
@@ -101,8 +103,9 @@ downloaded identities, archive hashes/sizes, ELF audit hashes, native lock and
 interface source hashes before staging any release assets. The tagged Mix/Elixir
 code must also match the retained fresh-consumer input hashes; untested wrapper
 or installer changes cannot be promoted using an older qualification. It retains the native
-archive bytes unchanged and generates `SHA256SUMS`. The current empty catalog
-rejects promotion, so this workflow is not yet ready to execute.
+archive bytes unchanged and generates `SHA256SUMS`. The catalog now contains both passing identities. Actual downloaded assets pass
+local promotion verification, but tag creation, owner review and authorization
+for draft creation remain required.
 
 The verifier has an offline fixture check (`scripts/release_assets_checks.py`)
 covering valid staging plus empty catalog, failed run, wrong source commit,
@@ -113,3 +116,9 @@ qualification archives only, and the original macOS archive remains local.
 Minimum systems, cross-build, production notices and other release gates above
 remain open. Do not dispatch this workflow under the current retention-only
 approval; obtain authorization for the concrete reviewed draft first.
+
+`.github/workflows/linux-consumer.yml` rechecks the current combined source package
+against the exact reviewed archives. It uses native runners, fresh caches and
+the existing compiler/development/network isolation. It does not rebuild engines
+or upload artifacts. Qualification provenance and archive hashes are checked
+before the real adapter and loader tests.

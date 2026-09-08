@@ -4,9 +4,9 @@ LadybugDB for Elixir, built with Zigler and a small C-compatible C++ bridge.
 The name follows Ladybug's insect theme. `:aphid` and `Aphid` are local names;
 package-name availability has not been claimed or reserved.
 
-Implementation follows `../ZIG_IMPLEMENTATION_PLAN.md`. This is an early
-development library: supervised queries, transactions and batch streams are
-available; hardening and release gates are unfinished. See [the status ledger](docs/status.md).
+This is an early development library: supervised queries, transactions and
+batch streams are available; hardening and release gates are unfinished. See
+[the status ledger](docs/status.md) and [GitHub release preparation](docs/github-release.md).
 
 ## Query API
 
@@ -127,8 +127,9 @@ process RSS separately, including batch-size variation and eager collection.
 ## Build proofs
 
 Prerequisites: Elixir 1.20 / OTP 29, Zig 0.16.0, CMake 3.20 or newer,
-Ninja, Python 3.12 or newer, Git, and a C++20 compiler/macOS SDK. The currently
-tested host is macOS 26.6 ARM64. All Mix dependencies are in `mix.lock`;
+Ninja, Python 3.12 or newer, Git, and a C++20 compiler (plus the SDK on macOS).
+Native builds and 92 BEAM tests have passed on macOS 26.6 ARM64 and native
+Ubuntu 24.04 x86_64/ARM64 runners. Linux bundle installation is still being qualified. All Mix dependencies are in `mix.lock`;
 native revisions are in `native/lock.json`.
 
 ```sh
