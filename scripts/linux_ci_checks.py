@@ -25,12 +25,16 @@ def main():
             shutil.copy2(linux_ci.ROOT / name, project / name)
         for name in ['lib', 'mix', 'test', 'examples']:
             shutil.copytree(linux_ci.ROOT / name, project / name)
+        (project / 'scripts').mkdir()
+        shutil.copy2(linux_ci.ROOT / 'scripts/proof.py', project / 'scripts/proof.py')
         (project / 'native').mkdir()
         for name in ['aphid_nif.zig', 'bridge.h', 'proof.zig', 'proof.h', 'proof.cpp', 'lock.json']:
             shutil.copy2(linux_ci.ROOT / 'native' / name, project / 'native' / name)
         build = work / (target + '-work')
         commands = []
         def capture(command, **options):
+            if 'ZIGLER_STAGING_ROOT' in options.get('env', {}):
+                assert Path(options['env']['ZIGLER_STAGING_ROOT']).is_dir(), 'Zigler staging parent missing'
             commands.append({'command': command, 'cwd': str(options.get('cwd', project)),
                              'timeout': options.get('timeout', 600)})
         with patch.object(linux_ci, 'ROOT', project), patch.object(linux_ci, 'run', capture), patch.object(linux_ci.shutil, 'which', return_value='/job/zig'), patch.object(linux_ci.platform, 'system', return_value='Linux'), patch.object(linux_ci.platform, 'libc_ver', return_value=('glibc', '2.39')), patch.object(linux_ci.platform, 'machine', return_value=machine), patch.object(sys, 'argv', ['linux_ci.py', '--target', target, '--work', str(build)]):

@@ -19,6 +19,7 @@ def main():
     target_recipe(args.target)  # Reject a foreign host before writing or fetching.
     work = args.work.resolve()
     work.mkdir()
+    (work / 'staging').mkdir()
     source, output = work / 'sources', work / 'native'
     # Tests use this fixed fixture path. Only a clean CI checkout may create it.
     fixture_path = ROOT / '_build/native'
@@ -29,10 +30,23 @@ def main():
     inventory = {'target': args.target, 'host': platform.uname()._asdict(),
                  'disk_free': shutil.disk_usage(work).free}
     (work / 'host.json').write_text(json.dumps(inventory, indent=2) + '\n')
+    print(json.dumps(inventory), flush=True)
     for command in [['getconf', 'GNU_LIBC_VERSION'], ['lscpu'], ['free', '-b'],
                     ['c++', '--version'], ['cmake', '--version'], ['ninja', '--version'],
                     ['zig', 'version'], ['elixir', '--version']]:
         run(command, timeout=30)
+    preflight = work / 'toolchain-source'
+    for name in ['mix.exs', 'mix.lock', 'mix/aphid_bundle.exs', 'lib/aphid/proof.ex',
+                 'native/proof.h', 'native/proof.cpp', 'native/proof.zig',
+                 'test/test_helper.exs', 'test/proof_test.exs', 'scripts/proof.py']:
+        destination = preflight / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / name, destination)
+    (preflight / 'staging').mkdir()
+    run(['mix', 'local.hex', '--force'], cwd=preflight, timeout=120)
+    run([sys.executable, 'scripts/proof.py', '--target', args.target], cwd=preflight,
+        env=dict(os.environ, ZIGLER_STAGING_ROOT=str(preflight / 'staging'),
+                 ZIG_EXECUTABLE_PATH=shutil.which('zig')), timeout=1200)
     for step in ['fetch', 'openssl', 'engine']:
         run([sys.executable, 'scripts/build.py', step, '--target', args.target,
              '--source-root', str(source), '--output', str(output), '--jobs', '2'], timeout=18000)
@@ -75,6 +89,13 @@ def main():
     run(['mix', 'local.hex', '--force'], cwd=candidate, env=env)
     run(['mix', 'deps.get', '--check-locked'], cwd=candidate, env=env)
     run(['mix', 'compile'], cwd=candidate, env=env, timeout=1200)
+    native_files = [candidate / '_build/test/lib/aphid/priv/lib' / ('Elixir.Aphid.' + name + '.so')
+                    for name in ['Native', 'Proof']] + [output / 'bridge/libaphid_bridge.so',
+                                                      output / 'ladybug/src/liblbug.so']
+    run(['sha256sum', *map(str, native_files), str(ROOT / 'native/lock.json'),
+         str(candidate / 'mix.lock')], timeout=30)
+    for path in native_files:
+        run(['readelf', '--file-header', '--dynamic', '--notes', '--version-info', str(path)], timeout=30)
     run(['mix', 'test', '--no-compile', '--seed', '0'], cwd=candidate, env=env, timeout=300)
     print('Native Linux source qualification passed; precompiled consumer, relocation, minimum-system and cross-build gates remain open.')
 

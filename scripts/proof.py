@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Stage 00 proof with process-group watchdogs and a relocated runtime consumer."""
+import argparse
 import hashlib
 import json
 import os
@@ -29,6 +30,9 @@ def run(args, cwd=ROOT, env=None, timeout=600):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--target", choices=["aarch64-macos.13.3-none", "x86_64-linux-gnu", "aarch64-linux-gnu"])
+    args = parser.parse_args()
     # Keep the toolchain proof independent of later engine/API compilation.
     project = ROOT / "_build/toolchain-proof"
     for name in ["mix.exs", "mix.lock", "mix/aphid_bundle.exs", "lib/aphid/proof.ex", "native/proof.h",
@@ -36,10 +40,15 @@ def main():
         destination = project / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / name, destination)
+    if args.target:
+        proof_module = project / "lib/aphid/proof.ex"
+        flags = json.dumps(["-Dtarget=" + args.target, "-Dcpu=baseline"])
+        proof_module.write_text(proof_module.read_text().replace(
+            "    otp_app: :aphid,", "    otp_app: :aphid,\n    build_flags: " + flags + ",", 1))
     # This isolated project contains only Proof, not the full Aphid application.
     mixfile = project / "mix.exs"
     mixfile.write_text(mixfile.read_text().replace(", mod: {Aphid.Application, []}", ""))
-    env = dict(os.environ, MIX_ENV="test", MIX_DEPS_PATH=str(ROOT / "deps"))
+    env = dict(os.environ, APHID_INSTALL="source", MIX_ENV="test", MIX_DEPS_PATH=str(ROOT / "deps"))
     env.setdefault("ZIG_GLOBAL_CACHE_DIR", str(ROOT / "_build/zig-cache"))
     run(["mix", "deps.get"], cwd=project, env=env)
     run(["mix", "compile", "--force"], cwd=project, env=env)

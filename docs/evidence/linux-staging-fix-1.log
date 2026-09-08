@@ -1,0 +1,2 @@
+Both Linux orchestration routes checked with captured commands only; no Linux code executed.
+{"command": ["python3", "scripts/linux_ci_checks.py", "--destination", "/tmp/aphid-linux-ci-checks-5"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.242}
