@@ -126,6 +126,40 @@ end
     assert not (work / 'escape').exists()
     assert not Path('/tmp/aphid-escape').exists()
 
+    # Reinstallation must reject missing/corrupt shipped notices, then recover
+    # after restoration without another native copy or loading a NIF.
+    installed = args.consumer.resolve() / 'consumer/_build/prod/lib/aphid/priv'
+    notice_probe = work / 'notices.exs'
+    notice_probe.write_text('''Mix.start()
+Code.require_file(System.fetch_env!("ADAPTER"))
+[archive, digest, destination] = System.argv()
+receipt = File.read!(Path.join(destination, "aphid-bundle.json")) |> JSON.decode!()
+for name <- ["licenses/aphid-supplemental.txt", Enum.find(Map.keys(receipt["licenses"]), &(&1 != "licenses/aphid-supplemental.txt"))] do
+  path = Path.join(destination, name)
+  original = File.read!(path)
+  for kind <- ["missing", "corrupt"] do
+    if kind == "missing", do: File.rm!(path), else: File.write!(path, "corrupt notice")
+    try do
+      Mix.Tasks.Compile.AphidBundle.install(archive, digest, destination)
+      raise "accepted #{kind} notice"
+    rescue
+      e in Mix.Error ->
+        true = String.contains?(e.message, "[#{kind}]")
+        IO.puts("expected notice rejection: #{name}: #{kind}")
+    after
+      File.write!(path, original)
+    end
+  end
+end
+Mix.Tasks.Compile.AphidBundle.install(archive, digest, destination)
+false = Code.ensure_loaded?(Aphid.Native)
+IO.puts("Shipped notice restoration and repeat installation passed without native module load")
+''')
+    native_archive = args.consumer.resolve() / 'candidate-retained.tar.gz'
+    run(['elixir', str(notice_probe), str(native_archive), sha(native_archive.read_bytes()), str(installed)],
+        cwd=work, env=dict(os.environ, ADAPTER=str(source / 'mix/aphid_bundle.exs'),
+                           ERL_FLAGS='+S 1:1 +SDcpu 1:1'), timeout=120)
+
     # Real compiled modules: integrity failures precede NIF loading. A sandbox
     # mapping denial separately reaches dlopen with the byte-unchanged bundle.
     original = args.consumer.resolve() / 'consumer/_build/prod/lib/aphid'

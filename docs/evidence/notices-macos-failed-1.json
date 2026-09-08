@@ -1,0 +1,8 @@
+{
+  "failed_attempt": "/private/tmp/aphid-notices-consumer-1",
+  "preserved_archive": "artifacts/notices-macos-failed-1.tar.gz",
+  "sha256": "860be1de705c8e39d746924538e14bc8985921732284d6f02a90767a90cb07fe",
+  "bytes": 86656769,
+  "verified_members": 1330,
+  "reason": "Disk-space failure preserved losslessly; raw disposable directory removed only after checking every regular file and symlink against archive."
+}

@@ -40,3 +40,33 @@ full upstream 0.14.2 text matches an already retained notice and associated it
 with this modified header. Direct link/header-dependency records are candidate associations, not
 proof of final linked-object retention or complete attribution. See
 `docs/evidence/native-notice-map.md` in the development evidence tree.
+
+## Installed supplemental notices
+
+`THIRD_PARTY_NOTICES.txt` now ships with this source package. It preserves ten
+retained texts: seven embedded native preambles (CRoaring's three amalgamated
+files, fast_float, glob, httplib and pyparse), the verified full httplib 0.14.2
+notice, NimbleParsec 1.4.2's complete README notice source, and ZigGet 0.16.0's
+content-matched parent license. Each section names its retained member and SHA256.
+The pinned source is `notice-review-8.tar.gz`, SHA256
+`56647f85783f8d15301176b53f860baaabdc04b73ea694bcc161415a99293471`.
+The native preambles are associated with the retained engine/header records;
+they do not prove final linked-object retention or historical build provenance.
+
+The precompiled installer copies this file to
+`priv/licenses/aphid-supplemental.txt` alongside the unchanged native archive's
+license tree. Its receipt records all installed license hashes and rejects
+missing or changed license files on repeat installation. Standard Mix releases
+carry that application priv directory. This does not change native archive
+bytes or introduce a separate notice download.
+
+Httplib's modified Ladybug header matches the pinned engine commit; its full
+upstream notice is associated with that fork, without claiming formatting-only
+changes. NimbleParsec's README declares Apache-2.0; preserving it is not a final
+coverage determination. ZigGet's license comes from Zigler commit
+`afb8a604e278a21717e73151eff078854f4c84ce`, whose installer files match the pinned
+package. Pegasus 0.2.6 and ZigParser 0.7.0 still lack authoritative full notices
+for their matched versions; no later or other-project grant is substituted.
+OTP/build/static-component provenance and final redistribution review remain
+open. The supplemental file contains no bundled ERTS notices and is not a
+production Mix-release attribution inventory.

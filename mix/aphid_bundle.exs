@@ -303,26 +303,38 @@ defmodule Mix.Tasks.Compile.AphidBundle do
           "native fingerprint differs from this package's reviewed local-bundle.json; use the matching candidate"
         )
 
-    # Extract into memory first. Only fixed native names and validated license paths
-    # are written into a fresh directory; archive BEAM files are never installed.
-    File.mkdir_p!(Path.dirname(destination))
-    staging = destination <> ".aphid-" <> Integer.to_string(System.unique_integer([:positive]))
-    File.mkdir!(staging)
-    File.mkdir!(Path.join(staging, "lib"))
-    Enum.each(native, fn {n, b} -> File.write!(Path.join([staging, "lib", n]), b) end)
+    notice_path = Path.expand("../THIRD_PARTY_NOTICES.txt", __DIR__)
 
-    Enum.each(files, fn {n, b} ->
-      if String.starts_with?(n, "licenses/") do
-        path = Path.join(staging, n)
-        File.mkdir_p!(Path.dirname(path))
-        File.write!(path, b)
+    supplemental =
+      case File.read(notice_path) do
+        {:ok, bytes} ->
+          bytes
+
+        _ ->
+          fail(
+            "missing",
+            "source package lacks THIRD_PARTY_NOTICES.txt; obtain the complete source package"
+          )
       end
-    end)
+
+    notice_name = "licenses/aphid-supplemental.txt"
+
+    if Map.has_key?(files, notice_name),
+      do: fail("corrupt", "archive collides with the source-package notice supplement")
+
+    licenses =
+      Map.filter(files, fn {name, _} -> String.starts_with?(name, "licenses/") end)
+      |> Map.put(notice_name, supplemental)
+
+    license_hashes = Map.new(licenses, fn {name, bytes} -> {name, sha(bytes)} end)
 
     receipt =
-      JSON.encode!(%{archive_sha256: String.downcase(digest), files: hashes, identity: identity})
-
-    File.write!(Path.join(staging, "aphid-bundle.json"), receipt)
+      JSON.encode!(%{
+        archive_sha256: String.downcase(digest),
+        files: hashes,
+        licenses: license_hashes,
+        identity: identity
+      })
 
     if match?({:ok, %File.Stat{type: :symlink}}, File.lstat(destination)),
       do: fail("unsafe", "installation destination is a symlink; use an empty MIX_BUILD_PATH")
@@ -336,8 +348,11 @@ defmodule Mix.Tasks.Compile.AphidBundle do
             "destination contains another installation; use an empty MIX_BUILD_PATH"
           )
 
-      Enum.each(hashes, fn {n, h} ->
-        path = Path.join([destination, "lib", n])
+      installed_hashes =
+        Map.merge(license_hashes, Map.new(hashes, fn {n, h} -> {"lib/" <> n, h} end))
+
+      Enum.each(installed_hashes, fn {n, h} ->
+        path = Path.join(destination, n)
 
         unless File.regular?(path),
           do: fail("missing", "installed #{n} is absent; use an empty MIX_BUILD_PATH")
@@ -345,9 +360,22 @@ defmodule Mix.Tasks.Compile.AphidBundle do
         unless sha(File.read!(path)) == h,
           do: fail("corrupt", "installed #{n} changed; use an empty MIX_BUILD_PATH")
       end)
-
-      File.rm_rf!(staging)
     else
+      # Extract into memory first. Only fixed native names and validated license paths
+      # are written into a fresh directory; archive BEAM files are never installed.
+      File.mkdir_p!(Path.dirname(destination))
+      staging = destination <> ".aphid-" <> Integer.to_string(System.unique_integer([:positive]))
+      File.mkdir!(staging)
+      File.mkdir!(Path.join(staging, "lib"))
+      Enum.each(native, fn {n, b} -> File.write!(Path.join([staging, "lib", n]), b) end)
+
+      Enum.each(licenses, fn {name, bytes} ->
+        path = Path.join(staging, name)
+        File.mkdir_p!(Path.dirname(path))
+        File.write!(path, bytes)
+      end)
+
+      File.write!(Path.join(staging, "aphid-bundle.json"), receipt)
       File.rename!(staging, destination)
     end
 

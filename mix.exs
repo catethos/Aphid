@@ -22,6 +22,7 @@ defmodule Aphid.MixProject do
           "README.md",
           "LICENSE",
           "THIRD_PARTY.md",
+          "THIRD_PARTY_NOTICES.txt",
           "docs/*.md",
           "native/lock.json",
           "native/local-bundle.json",

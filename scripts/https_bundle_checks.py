@@ -48,6 +48,7 @@ def main():
     fixture = work / 'default-package'
     (fixture / 'mix').mkdir(parents=True)
     shutil.copy2(ROOT / 'mix/aphid_bundle.exs', fixture / 'mix/aphid_bundle.exs')
+    shutil.copy2(ROOT / 'THIRD_PARTY_NOTICES.txt', fixture / 'THIRD_PARTY_NOTICES.txt')
     (fixture / 'native').mkdir()
     for name in ['local-bundle.json', 'linux-bundles.json', 'lock.json', 'aphid_nif.zig',
                  'bridge.h', 'bridge.cpp', 'proof.zig', 'proof.h', 'proof.cpp']:

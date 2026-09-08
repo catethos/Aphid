@@ -1,0 +1,16 @@
+{
+  "removed_redundant_successful_staging": [
+    "artifacts/linux-release-review-12",
+    "artifacts/linux-release-review-13"
+  ],
+  "retained_exact_bytes": "artifacts/linux-release-review-11",
+  "hashes": {
+    "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+    "x86_64-linux-gnu-identity.json": "5c4643108438c42eb24d9b76f7815b96479939d3be1fc59cd7dc779fb6bc5cb7",
+    "aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+    "aarch64-linux-gnu-elf-audit.json": "647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+    "x86_64-linux-gnu-elf-audit.json": "c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014",
+    "aarch64-linux-gnu-identity.json": "5e00e063aa7ddb131ff050f267a840d3672d2e74cd26b2ee05068df3716fc6a2",
+    "SHA256SUMS": "e210710325673b893c87b31d36e2d4fcbe2ff98f50347601451235875e7d5c1b"
+  }
+}

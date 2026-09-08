@@ -36,7 +36,7 @@ def main():
     assert sha(source / 'candidate-retained.tar.gz') == expected_digest
     prior = source / 'consumer/_build/prod/lib/aphid/priv'
     assert {p.name: sha(p) for p in (prior / 'lib').iterdir()} == identity['native_files']
-    for path in [ROOT / 'mix.exs', *(ROOT / 'mix').glob('*.exs'), *(ROOT / 'lib').rglob('*.ex'), identity_file]:
+    for path in [ROOT / 'mix.exs', ROOT / 'THIRD_PARTY_NOTICES.txt', *(ROOT / 'mix').glob('*.exs'), *(ROOT / 'lib').rglob('*.ex'), identity_file]:
         assert sha(path) == sha(source / 'consumer/vendor/aphid' / path.relative_to(ROOT)), path
     protected = [ROOT / 'native/lock.json', ROOT / 'mix.lock', archive]
     if not linux:
@@ -180,6 +180,8 @@ IO.puts("Linux release guards verified: no network routes, hidden build/host run
     extracted.rename(relocated)
     native = relocated / 'lib/aphid-0.1.0-dev/priv'
     assert {p.name: sha(p) for p in (native / 'lib').iterdir()} == identity['native_files']
+    assert sha(native / 'licenses/aphid-supplemental.txt') == sha(ROOT / 'THIRD_PARTY_NOTICES.txt')
+    print('Relocated source-package notice supplement:', sha(native / 'licenses/aphid-supplemental.txt'), flush=True)
     assert sha(native / 'aphid-bundle.json') == sha(prior / 'aphid-bundle.json')
     assert {str(p.relative_to(prior / 'licenses')): sha(p) for p in (prior / 'licenses').rglob('*') if p.is_file()} == {
         str(p.relative_to(native / 'licenses')): sha(p) for p in (native / 'licenses').rglob('*') if p.is_file()}

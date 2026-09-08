@@ -48,7 +48,7 @@ def main():
             contents.extractall(package, filter='data')
         print('using exact local Hex source package:', args.package_sha256, flush=True)
     else:
-        for name in ['mix.exs', 'mix.lock']:
+        for name in ['mix.exs', 'mix.lock', 'THIRD_PARTY_NOTICES.txt']:
             shutil.copy2(ROOT / name, package / name)
         shutil.copytree(ROOT / 'lib', package / 'lib')
         shutil.copytree(ROOT / 'mix', package / 'mix')
@@ -193,6 +193,12 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
     installed = project / '_build/prod/lib/aphid/priv/lib'
     expected = bundle / 'lib/aphid-0.1.0-dev/priv/lib'
     assert {p.name: sha(p) for p in installed.iterdir()} == {p.name: sha(p) for p in expected.iterdir()}
+    notices = installed.parent / 'licenses/aphid-supplemental.txt'
+    assert sha(notices) == sha(package / 'THIRD_PARTY_NOTICES.txt')
+    receipt = json.loads((installed.parent / 'aphid-bundle.json').read_text())
+    assert receipt['licenses'] == {str(p.relative_to(installed.parent)): sha(p)
+        for p in (installed.parent / 'licenses').rglob('*') if p.is_file()}
+    print('Installed license hashes, including source-package supplement:', sha(notices), flush=True)
     print('fresh Mix consumer passed; native files unchanged; no native compiler invocation', flush=True)
 
 

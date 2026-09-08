@@ -71,12 +71,12 @@ def prepare(catalog, run, artifacts, output, tag, root=ROOT, consumer_run=None, 
             raise ValueError('Consumer record does not qualify this archive with normal dependencies')
         source_consumer = refreshed if refreshed is not None else consumer
         def executable_source(name):
-            return name in ['mix.exs', 'mix.lock'] or name.startswith(('lib/', 'mix/')) or (
+            return name in ['mix.exs', 'mix.lock', 'THIRD_PARTY_NOTICES.txt'] or name.startswith(('lib/', 'mix/')) or (
                 refreshed is not None and name in ['native/local-bundle.json', 'native/linux-bundles.json'])
         tested = {name: digest for name, digest in source_consumer['package_files'].items()
                   if executable_source(name)}
         current = {str(path.relative_to(root)): sha(path)
-                   for pattern in (['mix.exs', 'mix.lock', 'lib/**/*.ex', 'mix/**/*.exs'] +
+                   for pattern in (['mix.exs', 'mix.lock', 'THIRD_PARTY_NOTICES.txt', 'lib/**/*.ex', 'mix/**/*.exs'] +
                                    (['native/local-bundle.json', 'native/linux-bundles.json'] if refreshed is not None else []))
                    for path in root.glob(pattern) if path.is_file()}
         if tested != current or not tested:

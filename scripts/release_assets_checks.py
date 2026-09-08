@@ -66,6 +66,7 @@ def main():
         (root / 'mix.exs').write_text('new qualified wrapper')
         for name in ['local-bundle.json', 'linux-bundles.json']:
             (root / 'native' / name).write_text('{}')
+        (root / 'THIRD_PARTY_NOTICES.txt').write_text('reviewed notice fixture')
         fresh = work / 'fresh'
         fresh.mkdir()
         package = fresh / 'aphid-0.1.0-dev-combined.tar'
@@ -75,7 +76,7 @@ def main():
             'archive_sha256': catalog['x86_64-linux-gnu']['sha256'],
             'normal_hex_dependencies': True, 'package_files': {
                 name: sha(root / name) for name in
-                ['mix.exs', 'native/local-bundle.json', 'native/linux-bundles.json']}}))
+                ['mix.exs', 'THIRD_PARTY_NOTICES.txt', 'native/local-bundle.json', 'native/linux-bundles.json']}}))
         consumer_run = dict(run, id=456, head_sha='c' * 40, path='.github/workflows/linux-consumer.yml')
         reviewed = {'run_id': 456, 'attempt': 1, 'commit': 'c' * 40,
                     'source_package_sha256': sha(package), 'inputs_sha256': sha(record)}
@@ -93,7 +94,7 @@ def main():
                 assert not (work / f'bad-consumer-{number}').exists()
             else:
                 raise AssertionError('Wrong consumer provenance accepted')
-        for number, path in enumerate([record, package, root / 'mix.exs', root / 'native/linux-bundles.json']):
+        for number, path in enumerate([record, package, root / 'mix.exs', root / 'native/linux-bundles.json', root / 'THIRD_PARTY_NOTICES.txt']):
             original = path.read_bytes()
             path.write_bytes(original + b'changed')
             try:
@@ -105,6 +106,7 @@ def main():
                 raise AssertionError('Changed consumer inputs accepted')
             path.write_bytes(original)
         (root / 'mix.exs').write_text('Mix fixture')
+        (root / 'THIRD_PARTY_NOTICES.txt').unlink()
         archive.write_bytes(b'tampered')
         try:
             prepare(catalog, run, work, work / 'tampered', 'v0.1.0-dev', root)
@@ -112,7 +114,7 @@ def main():
             assert not (work / 'tampered').exists()
         else:
             raise AssertionError('Changed archive was accepted')
-    print('Original and refreshed-source staging, seven original and six refreshed rejection checks passed; no upload or release created.')
+    print('Original and refreshed-source staging, seven original and seven refreshed rejection checks passed; no upload or release created.')
 
 
 if __name__ == '__main__':

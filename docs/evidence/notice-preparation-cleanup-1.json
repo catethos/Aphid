@@ -1,0 +1,7 @@
+{
+  "removed_completed_disposable_consumers": [
+    "/private/tmp/aphid-default-package-consumer-1",
+    "/private/tmp/aphid-default-combined-consumer-1"
+  ],
+  "retained": "both input records and complete logs; all original archives and failed attempts"
+}
