@@ -119,7 +119,14 @@ def main():
         destination = bundle / 'licenses' / notice['source']
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, destination)
-    shutil.copy2(project / 'deps/telemetry/LICENSE', bundle / 'licenses/telemetry-LICENSE')
+    for dependency in ['telemetry', 'zigler']:
+        shutil.copy2(project / 'deps' / dependency / 'LICENSE', bundle / ('licenses/' + dependency + '-LICENSE'))
+    shutil.copy2(ROOT / 'LICENSE', bundle / 'licenses/aphid-LICENSE')
+    zig_root = Path(shutil.which('zig')).resolve().parent
+    for name in ['LICENSE', 'lib/libcxx/LICENSE.TXT', 'lib/libcxxabi/LICENSE.TXT', 'lib/libunwind/LICENSE.TXT']:
+        destination = bundle / 'licenses/zig-0.16.0' / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(zig_root / name, destination)
     shutil.copy2(ROOT / 'native/lock.json', bundle / 'native-lock.json')
     (bundle / 'candidate.json').write_text(json.dumps({'flags': ['-Dtarget=' + args.target, '-Dcpu=baseline'],
         'inputs': {name: sha(path) for name, path in originals.items()}}, indent=2) + '\n')

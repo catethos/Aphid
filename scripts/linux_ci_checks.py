@@ -10,6 +10,7 @@ import sys
 from unittest.mock import patch
 import linux_ci
 from linux_bundle import elf_header
+from linux_sandbox import sandbox
 
 
 def main():
@@ -18,6 +19,13 @@ def main():
     args = parser.parse_args()
     work = args.destination.resolve()
     work.mkdir()
+    command = sandbox(work, [], {'PATH': '/usr/bin', 'HOME': str(work),
+                                'HEX_API_KEY': 'fixture-secret', 'APHID_SECRET': 'fixture-secret'})
+    assert '--clearenv' in command
+    assert 'fixture-secret' not in command
+    assert 'HEX_API_KEY' not in command and 'APHID_SECRET' not in command
+    assert '--unshare-net' in command
+    assert '--unshare-net' not in sandbox(work, [], {'PATH': '/usr/bin'}, network=True)
     header_file = work / 'header.elf'
     for target, machine in [('x86_64-linux-gnu', 62), ('aarch64-linux-gnu', 183)]:
         valid = bytearray(20)

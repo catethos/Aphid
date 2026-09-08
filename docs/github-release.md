@@ -15,8 +15,7 @@ The workflow is manual and has read-only repository permissions. It uses native
 `ubuntu-24.04` x86_64 and `ubuntu-24.04-arm` runners, pinned action revisions,
 Elixir 1.20.0, OTP 29.0.4, and SHA256-pinned Zig 0.16.0 archives. Runner labels are
 listed in the [GitHub runner reference](https://docs.github.com/en/actions/reference/runners/github-hosted-runners).
-Account/repository availability and the pinned BEAM downloads still need an actual
-run. OS packages come from the runner's apt repositories; compiler and system
+Both native runner types and pinned BEAM downloads have executed successfully. OS packages come from the runner's apt repositories; compiler and system
 versions are recorded, not yet a reproducible pinned system toolchain.
 
 Each job starts without Aphid/dependency build caches and uses a fresh private
@@ -63,3 +62,25 @@ Linux musl, Windows and macOS x86_64 remain outside the initial matrix. Source
 consumer qualification, minimum systems, cross-building, outstanding behavioural
 and attribution gates remain open. Preparing this workflow does not make Aphid
 ready to publish or establish release support.
+
+## Current iteration
+
+Source commit `adc394f8564fbbdd7b96db4b2c537e2450b1d0f9` is pushed under the
+user's approval for source changes and CI iterations.
+[Run 34185853596](https://github.com/catethos/Aphid/actions/runs/34185853596)
+adds job-local packaging, offline relocation, pinned-source-package consumers
+and real installer/loader failures. Both early isolation probes passed on the
+actual runners; later build/distribution outcomes remain pending.
+No binary upload or release creation step was added. The public Linux identity
+catalog stays empty; CI only injects its build identity into an isolated local
+validation package. See [details and boundaries](evidence/linux-distribution-preparation.md).
+
+A prepared `retain_validation` input defaults to false. When explicitly enabled,
+it uploads only after the complete job succeeds, using the pinned official
+upload-artifact v4.6.2 action (`ea165f8d65b6e75b540449e92b4886f43607fa02`).
+Retention is seven days. The allowlist contains the runtime archive and identity,
+ELF audit, local Hex source archive and identity, consumer input hashes and the
+qualification log. It does not retain build caches or upstream extension archives.
+Approval to enable this binary upload is pending; current jobs do not upload.
+Actions retention is for qualification review, not production GitHub release
+delivery. GitHub release creation and Hex publication remain excluded.

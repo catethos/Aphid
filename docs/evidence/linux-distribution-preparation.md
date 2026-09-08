@@ -33,3 +33,15 @@ No Linux archive identity or compiler-free success is claimed yet. Actual Linux
 consumer/loader outcomes, minimum glibc/CPU execution, x86_64-to-ARM64 cross-build,
 Mix releases, actual GitHub delivery, final notices and publication gates remain
 open. Binary uploads, GitHub release creation and Hex publication are excluded.
+
+The next source revision narrows the consumer environment to explicit runtime
+settings (excluding credential-like environment variables) and includes Aphid,
+Zigler, Zig and the Zig-distributed libc++/libc++abi/libunwind notice texts in new
+Linux archives. These additions do not alter the existing macOS archive. Full
+shipped-component attribution review remains open.
+
+The next Linux consumer recipe also uses normal locked Hex dependency downloads.
+Only that acquisition phase enables external networking; compilation and runtime
+use a fresh network namespace. Compiler masking and hidden build trees apply to
+both phases. This Linux path still awaits execution; the equivalent new local
+macOS Hex package passes [92 tests](platform-package.md).

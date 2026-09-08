@@ -39,11 +39,13 @@ def main():
     package = work / 'aphid-0.1.0-dev-linux-validation.tar'
     run(['mix', 'hex.build', '--output', str(package)], cwd=source,
         env=dict(os.environ, APHID_INSTALL='source'), timeout=120)
-    print(json.dumps({'source_package': package.name, 'sha256': sha(package),
-                      'runtime_archive_sha256': identity['sha256']}), flush=True)
+    package_identity = {'source_package': package.name, 'sha256': sha(package),
+                        'target': args.target, 'runtime_archive_sha256': identity['sha256']}
+    (work / 'package-identity.json').write_text(json.dumps(package_identity, indent=2) + '\n')
+    print(json.dumps(package_identity), flush=True)
     run([sys.executable, 'scripts/precompiled_consumer.py', '--archive', str(packaged / identity['archive']),
          '--sha256', identity['sha256'], '--package', str(package), '--package-sha256', sha(package),
-         '--destination', str(work / 'consumer-proof'), '--hide-build', str(build),
+         '--destination', str(work / 'consumer-proof'), '--hex-dependencies', '--hide-build', str(build),
          '--hide-build', str(source), '--hide-build', str(packaged)], timeout=1200)
     run([sys.executable, 'scripts/local_bundle_failures.py', '--destination', str(work / 'failures'),
          '--consumer', str(work / 'consumer-proof'), '--package-source', str(source)], timeout=1200)

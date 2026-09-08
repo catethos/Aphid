@@ -27,8 +27,6 @@ def main():
     parser.add_argument('--hide-build', type=Path, action='append', default=[], help='Additional private Linux build trees to hide in the consumer namespace')
     args = parser.parse_args()
     linux = platform.system() == 'Linux'
-    if linux and args.hex_dependencies:
-        parser.error('Linux proof currently uses pinned locally staged dependency sources')
     if bool(args.package) != bool(args.package_sha256):
         parser.error('--package and --package-sha256 must be supplied together')
     work = args.destination.resolve()
@@ -168,9 +166,13 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
     else:
         offline = ['/usr/bin/sandbox-exec', '-f', str(work / 'install.sb')]
     if args.hex_dependencies:
-        acquisition = work / 'acquisition.sb'
-        acquisition.write_text(profile.replace('(deny network*)', ''))
-        run(['/usr/bin/sandbox-exec', '-f', str(acquisition), 'mix', 'deps.get', '--check-locked'],
+        if linux:
+            acquisition_command = sandbox(work, args.hide_build, env, network=True)
+        else:
+            acquisition = work / 'acquisition.sb'
+            acquisition.write_text(profile.replace('(deny network*)', ''))
+            acquisition_command = ['/usr/bin/sandbox-exec', '-f', str(acquisition)]
+        run([*acquisition_command, 'mix', 'deps.get', '--check-locked'],
             cwd=project, env=env, timeout=300)
         archives = list((work / 'hex-home/packages/hexpm').glob('*.tar'))
         assert archives, 'normal Hex acquisition fetched no package archives'

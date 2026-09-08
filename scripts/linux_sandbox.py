@@ -7,7 +7,7 @@ import shutil
 from proof import ROOT, run
 
 
-def sandbox(work, hidden, env=None):
+def sandbox(work, hidden, env=None, network=False):
     work = work.resolve()
     hidden = [ROOT.resolve(), *[Path(p).resolve() for p in hidden]]
     if any(work == p or p in work.parents for p in hidden):
@@ -16,23 +16,30 @@ def sandbox(work, hidden, env=None):
     masks = {p.resolve() for directory in os.environ['PATH'].split(':')
              if Path(directory).is_dir() for p in Path(directory).iterdir()
              if compiler.search(p.name) and p.is_file()}
-    command = ['sudo', '-E', 'bwrap', '--die-with-parent', '--unshare-pid', '--unshare-net',
+    command = ['sudo', '-E', 'bwrap', '--die-with-parent', '--unshare-pid',
                '--ro-bind', '/', '/', '--dev', '/dev', '--proc', '/proc',
                '--bind', str(work), str(work)]
+    if not network:
+        command += ['--unshare-net']
     for path in hidden:
         command += ['--tmpfs', str(path)]
     for path in sorted(masks):
         if not any(path == p or p in path.parents for p in hidden):
             command += ['--ro-bind', '/dev/null', str(path)]
     command += ['--cap-add', 'CAP_SETUID', '--cap-add', 'CAP_SETGID', '--cap-add', 'CAP_SETPCAP']
+    command += ['--clearenv']
+    allowed = {'PATH', 'HOME', 'TMPDIR', 'ERL_FLAGS', 'MIX_HOME', 'MIX_ENV', 'HEX_HOME',
+               'ZIG_EXECUTABLE_PATH', 'ZIG_GLOBAL_CACHE_DIR', 'ZIGLER_STAGING_ROOT',
+               'APHID_INSTALL', 'APHID_BUNDLE_ARCHIVE', 'APHID_BUNDLE_SHA256'}
     for key, value in (env or os.environ).items():
-        if key in ['PATH', 'HOME', 'TMPDIR', 'ERL_FLAGS'] or key.startswith(('APHID_', 'MIX_', 'HEX_', 'ZIG')):
+        if key in allowed:
             command += ['--setenv', key, value]
     command += ['--', '/usr/bin/setpriv', '--reuid', str(os.getuid()), '--regid', str(os.getgid()),
                 '--clear-groups', '--bounding-set=-all', '--no-new-privs', '--']
-    (work / 'isolation.json').write_text(json.dumps({'hidden': list(map(str, hidden)),
+    record = work / ('acquisition-isolation.json' if network else 'isolation.json')
+    record.write_text(json.dumps({'hidden': list(map(str, hidden)),
         'masked_compilers': list(map(str, sorted(masks))), 'uid': os.getuid(),
-        'network': 'new namespace'}, indent=2) + '\n')
+        'network': 'dependency acquisition only' if network else 'new namespace'}, indent=2) + '\n')
     return command
 
 

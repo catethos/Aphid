@@ -1,6 +1,11 @@
 name: Linux native qualification
 on:
   workflow_dispatch:
+    inputs:
+      retain_validation:
+        description: Retain passing validation bundles for review (owner approval required)
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -64,3 +69,19 @@ jobs:
         run: |
           set -o pipefail
           python3 -u scripts/linux_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-linux" 2>&1 | tee "$RUNNER_TEMP/linux-qualification.log"
+      - name: Retain passing validation bundles for seven days
+        if: ${{ success() && inputs.retain_validation }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: validation-${{ matrix.target }}-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/aphid-linux-distribution/packaged/aphid-0.1.0-dev-${{ matrix.target }}.tar.gz
+            ${{ runner.temp }}/aphid-linux-distribution/packaged/identity.json
+            ${{ runner.temp }}/aphid-linux-distribution/packaged/elf-audit.json
+            ${{ runner.temp }}/aphid-linux-distribution/aphid-0.1.0-dev-linux-validation.tar
+            ${{ runner.temp }}/aphid-linux-distribution/package-identity.json
+            ${{ runner.temp }}/aphid-linux-distribution/consumer-proof/inputs.json
+            ${{ runner.temp }}/linux-qualification.log

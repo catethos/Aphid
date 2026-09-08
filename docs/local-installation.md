@@ -33,7 +33,7 @@ the native archive recipe below. [Package evidence](evidence/local-package.md)
 records the fresh consumer built exclusively from those package files.
 
 The copy must contain `mix.exs`, `mix.lock`, `mix/`, `lib/`, and these native inputs:
-`native/{lock.json,local-bundle.json,aphid_nif.zig,bridge.h,proof.zig,proof.h,proof.cpp}`.
+`native/{lock.json,local-bundle.json,linux-bundles.json,aphid_nif.zig,bridge.h,bridge.cpp,proof.zig,proof.h,proof.cpp}` for the current source. Historical package proofs retain their original file lists.
 Do not copy `_build`, `deps`, or `priv` from a development installation. The
 runtime archive's BEAM files are not installed: Mix compiles the Elixir sources.
 
@@ -217,3 +217,12 @@ version now reports `[missing]` instead of selecting a source build. Set
 `APHID_INSTALL=source` deliberately when following the source prerequisites.
 [Selection checks](evidence/explicit-selection-1.log) exercise the actual compiler
 task and verify rejection occurs before either native module loads.
+
+## Current Linux preparation
+
+The public Linux catalog is deliberately empty. The adapter rejects Linux
+installation until an identity is reviewed; native CI availability does not
+establish compiler-free installation support. The job-local validation recipe
+packages and relocates ELF sidecars and tests a separate Hex source package
+with its build identity. See [Linux distribution evidence](evidence/linux-distribution-preparation.md).
+No repository binary delivery or release support is claimed.

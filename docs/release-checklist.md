@@ -1,15 +1,15 @@
-# Local release checklist — no publication authorization
+# Release preparation checklist — binary publication not authorized
 
 No target is release-supported and no stage is closed. The local runtime
 validation archives are test bundles, not Hex packages or release candidates.
 
 | Required target | Build / runtime evidence | Remaining blocker |
 |---|---|---|
-| Linux x86_64 glibc | Blocked; user confirms no runner is available | Establish an actual x86_64 Linux host; lock toolchain, glibc and CPU baseline |
-| Linux ARM64 glibc | Untested; local ARM64 Colima VM is stopped | Cross-build on x86_64 Linux, then execute that exact artifact on native ARM64 Linux |
+| Linux x86_64 glibc | Native GitHub runner: locked engine and native checks pass; BEAM/distribution retries running | Prove compiler-free bundle and declared glibc/CPU baseline |
+| Linux ARM64 glibc | Native GitHub runner: locked engine and native checks pass; BEAM/distribution retries running | Cross-build on x86_64 Linux, then execute that exact artifact on native ARM64 Linux |
 | macOS ARM64 | Host-only extracted runtime validation; see Stage 08 evidence | Explicit-target candidate declares 13.3; local checksum/sidecar adapter and fresh consumer pass; embedded-mode Mix release passes; actual minimum OS/CPU and network delivery remain |
 
-## Before provisioning Linux
+## Historical local-host inventory
 
 Inventory evidence: `docs/evidence/continuation-inventory-1.log`. The Mac has
 8 GiB RAM and eight CPUs. Available disk was initially 5.1 GiB; the isolated
@@ -26,8 +26,10 @@ execution, the VM's guest distribution/libc and mounts before using Colima as a
 runtime. Record virtualization/emulation explicitly; x86_64 emulation on this
 Mac cannot fulfill the required x86_64 Linux build-host proof.
 
-The build entry point now prepares native Linux target recipes and platform library
-suffixes; the manual CI workflow is locally checked but has not run on Linux.
+The native GitHub qualification workflow has now run on both architectures.
+Both initial native builds passed; the first BEAM attempt hit a retained staging
+error. Fix and distribution retries are running. Local Linux provisioning and
+emulation remain excluded.
 See [CI preparation](evidence/linux-ci-preparation.md). Qualification must build locked OpenSSL/DuckDB/engine inputs
 for the target, separate host generators from target binaries, and remove
 Darwin-specific assumptions. Do not substitute a Mac artifact. Estimate storage
@@ -131,3 +133,7 @@ structural checks and a fresh 92-test precompiled consumer pass. Private source-
 ownership/routing and explicit native output options are checked without a source
 build. Locked acquisition, actual source compilation/linking/relocation, resource
 measurement and automatic Mix source orchestration remain open.
+
+Current source changes and CI iterations are authorized. Binary artifact uploads,
+GitHub release creation and Hex publication remain excluded. The Linux catalog
+is empty pending reviewed artifacts; see [distribution preparation](evidence/linux-distribution-preparation.md).

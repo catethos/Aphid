@@ -1,0 +1,8 @@
+{
+  "archive": "aphid-0.1.0-dev-platform-1.tar",
+  "bytes": 100352,
+  "sha256": "cdea357299b6e92d27e3132772dd246e604ef01ff563d3d25b9f4f60de9e2b23",
+  "native_archive": "runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+  "native_sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+  "result": "92 tests passed; normal locked Hex dependencies; compiler and development reads denied; macOS 26.6 only"
+}
