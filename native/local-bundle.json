@@ -1,16 +1,16 @@
 {
-  "package_version": "0.1.0-dev",
+  "package_version": "0.1.1-dev",
   "target": "aarch64-macos.13.3-none",
   "nif_cpu": "baseline (Zig 0.16.0 resolves macOS ARM64 to apple_m1)",
   "nif_api": "2.18",
   "erts": "17.0.4",
   "elixir": "1.20.0",
-  "native_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+  "native_lock_sha256": "09b8618810c5788237ebec1c8164c9322d0d65f4d312c41e4908687394647aba",
   "native_files": {
-    "Elixir.Aphid.Native.so": "94b12c614c44b5e695b1233381dc3d4c21bdb21c7fd0287fedf185d4f5f74f77",
-    "Elixir.Aphid.Proof.so": "ab08db391218885a20f3c35a95625d13f28bde5c6f7e7de5b8c1f946eba1f373",
-    "libaphid_bridge.dylib": "5dbdd4d341d63da2ba189b908510c1a13ef1f548821a9beaa06ed787e3725110",
-    "liblbug.dylib": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393"
+    "Elixir.Aphid.Native.so": "3943933257b24a934531e161793ea32024a476a3e22572dad03f110d8d1f3c22",
+    "Elixir.Aphid.Proof.so": "c2c24056ba42cf20e422ec274c188e0a0e068d05586e9ac644c9fa140d672386",
+    "libaphid_bridge.dylib": "fdb3ae78d3ffcd12a54662c4e54d1115d292303c4cade5b9badaca2dd7d5e7e3",
+    "liblbug.dylib": "a50ee147719b0e59bc70150187dd9bc98a4ec22e39c7a142aa1e47a7a08c29cc"
   },
   "native_sources": {
     "aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
@@ -21,8 +21,8 @@
   },
   "minimum_os_execution": "unavailable; host 26.6 only",
   "whole_closure_cpu": "unverified",
-  "archive": "runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
-  "sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
-  "bytes": 33608999,
-  "url": "https://github.com/catethos/Aphid/releases/download/v0.1.0-dev/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz"
+  "archive": "aphid-0.1.1-dev-aarch64-macos.tar.gz",
+  "sha256": "d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637",
+  "bytes": 33620177,
+  "url": "https://github.com/catethos/Aphid/releases/download/v0.1.1-dev/aphid-0.1.1-dev-aarch64-macos.tar.gz"
 }

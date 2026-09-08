@@ -1,0 +1,155 @@
+CASE missing
+Aphid artifact [missing]: set APHID_BUNDLE_ARCHIVE to an existing local .tar.gz. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.391}
+CASE missing-pin
+Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.385}
+CASE checksum
+Aphid artifact [corrupt]: archive SHA256 mismatch; obtain the pinned archive again. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.395}
+CASE target
+Aphid artifact [unsupported-target]: the artifact does not match this operating system. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.383}
+CASE engine
+Aphid artifact [incompatible-engine]: native lock differs; obtain the bundle for this Aphid source package. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.398}
+CASE manifest
+Aphid artifact [corrupt]: content manifest mismatch; obtain the pinned archive again. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.401}
+CASE missing-sidecar
+Aphid artifact [missing]: bundle lacks liblbug.dylib; obtain the complete matching bundle. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.391}
+CASE architecture
+Aphid artifact [wrong-architecture]: Elixir.Aphid.Native.so is not ARM64. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.396}
+CASE unloadable-header
+Aphid artifact [unloadable]: Elixir.Aphid.Native.so is not a native shared library for this target; obtain a valid bundle. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.404}
+CASE native-fingerprint
+Aphid artifact [incompatible-engine]: native fingerprint differs from this package's reviewed local-bundle.json; use the matching candidate. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.395}
+CASE lost-selection
+Aphid artifact [missing]: this development version has no authorized default delivery; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.39}
+CASE force-source
+Aphid artifact [selection]: unset ZIGLER_PRECOMPILE_FORCE_RECOMPILE; local bundle mode never falls back to source. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.346}
+CASE conflicting-source
+Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.342}
+CASE invalid-tar
+Aphid artifact [corrupt]: invalid tar archive: :eof. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.403}
+CASE traversal
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "../escape". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.397}
+CASE absolute
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "/tmp/aphid-escape". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.405}
+CASE duplicate
+Aphid artifact [unsafe]: duplicate or case-colliding archive member. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.396}
+CASE case-collision
+Aphid artifact [unsafe]: duplicate or case-colliding archive member. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.391}
+CASE file-directory
+Aphid artifact [unsafe]: archive file is also used as a directory. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.395}
+CASE dot-path
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "./escape". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.4}
+CASE symlink
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "link". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.387}
+CASE hardlink
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "hard". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.511}
+CASE fifo
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "fifo". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.393}
+NOTICE FIXTURE missing-source-notices
+Aphid artifact [missing]: source package lacks THIRD_PARTY_NOTICES.txt; obtain the complete source package. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.393}
+NOTICE FIXTURE notice-collision-0
+Aphid artifact [corrupt]: archive collides with the source-package notice supplement. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.402}
+NOTICE FIXTURE notice-collision-1
+Aphid artifact [corrupt]: archive collides with the source-package notice supplement. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.399}
+NOTICE FIXTURE notice-collision-2
+Aphid artifact [corrupt]: archive collides with the source-package notice supplement. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.396}
+Aphid local bundle verified and installed: SHA256 d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637
+Semantically identical reordered receipt accepted without replacement
+notice rejection detail: Aphid artifact [missing]: installed licenses/aphid-supplemental.txt is absent; use an empty MIX_BUILD_PATH. No source fallback.
+expected notice rejection: licenses/aphid-supplemental.txt: missing
+notice rejection detail: Aphid artifact [corrupt]: installed licenses/aphid-supplemental.txt changed; use an empty MIX_BUILD_PATH. No source fallback.
+expected notice rejection: licenses/aphid-supplemental.txt: corrupt
+notice rejection detail: Aphid artifact [missing]: installed licenses/duckdb/third_party/snowball/LICENSE is absent; use an empty MIX_BUILD_PATH. No source fallback.
+expected notice rejection: licenses/duckdb/third_party/snowball/LICENSE: missing
+notice rejection detail: Aphid artifact [corrupt]: installed licenses/duckdb/third_party/snowball/LICENSE changed; use an empty MIX_BUILD_PATH. No source fallback.
+expected notice rejection: licenses/duckdb/third_party/snowball/LICENSE: corrupt
+Aphid local bundle verified and installed: SHA256 d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637
+Shipped notice restoration and repeat installation passed without native module load
+{"command": ["elixir", "/private/tmp/aphid-011-macos-failures-1/notices.exs", "/private/tmp/aphid-011-macos-consumer-1/candidate-retained.tar.gz", "d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637", "/private/tmp/aphid-011-macos-consumer-1/consumer/_build/prod/lib/aphid/priv"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 5.697}
+REAL LOADER missing
+
+22:10:32.201 [error] Aphid artifact [missing]: /private/tmp/aphid-011-macos-failures-1/load-missing/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Native
+
+22:10:32.203 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error,
+ {:missing,
+  "/private/tmp/aphid-011-macos-failures-1/load-missing/aphid/priv/lib/liblbug.dylib"}}
+
+
+22:10:32.212 [error] Aphid artifact [missing]: /private/tmp/aphid-011-macos-failures-1/load-missing/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Proof
+
+22:10:32.213 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+{:error,
+ {:missing,
+  "/private/tmp/aphid-011-macos-failures-1/load-missing/aphid/priv/lib/liblbug.dylib"}}
+
+{"command": ["elixir", "-pa", "/private/tmp/aphid-011-macos-failures-1/load-missing/aphid/ebin", "/private/tmp/aphid-011-macos-failures-1/load.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.287}
+REAL LOADER corrupt
+
+22:10:32.525 [error] Aphid artifact [corrupt]: /private/tmp/aphid-011-macos-failures-1/load-corrupt/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Native
+
+22:10:32.527 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error,
+ {:corrupt,
+  "/private/tmp/aphid-011-macos-failures-1/load-corrupt/aphid/priv/lib/liblbug.dylib"}}
+
+
+22:10:32.537 [error] Aphid artifact [corrupt]: /private/tmp/aphid-011-macos-failures-1/load-corrupt/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Proof
+
+22:10:32.538 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+{:error,
+ {:corrupt,
+  "/private/tmp/aphid-011-macos-failures-1/load-corrupt/aphid/priv/lib/liblbug.dylib"}}
+
+{"command": ["elixir", "-pa", "/private/tmp/aphid-011-macos-failures-1/load-corrupt/aphid/ebin", "/private/tmp/aphid-011-macos-failures-1/load.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 0.282}
+REAL LOADER unloadable
+
+22:10:33.360 [error] Aphid artifact [unloadable]: /private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native: {:load_failed, ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so, 0x0006): tried: '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (no such file), '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so')'"}; use the matching complete bundle and runtime. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Native
+
+22:10:33.363 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error,
+ {:load_failed,
+  ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so, 0x0006): tried: '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (no such file), '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so')'"}}
+
+
+22:10:33.807 [error] Aphid artifact [unloadable]: /private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof: {:load_failed, ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so, 0x0006): tried: '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (no such file), '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so')'"}; use the matching complete bundle and runtime. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Proof
+
+22:10:33.810 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+{:error,
+ {:load_failed,
+  ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so, 0x0006): tried: '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (no such file), '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so')'"}}
+
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-011-macos-failures-1/unloadable.sb", "elixir", "-pa", "/private/tmp/aphid-011-macos-failures-1/load-unloadable/aphid/ebin", "/private/tmp/aphid-011-macos-failures-1/load.exs"], "cwd": "/private/tmp/aphid-011-macos-failures-1", "exit": 0, "seconds": 1.183}
+real Mix adapter rejection cases and loader processes passed

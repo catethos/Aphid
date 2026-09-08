@@ -12,11 +12,11 @@ For maintainers: [publishing future versions and adding platforms](docs/publishi
 
 ## Experimental installation
 
-The [published `0.1.0-dev` Hex prerelease](https://hex.pm/packages/aphid/0.1.0-dev)
+The [`0.1.1-dev` Hex prerelease](https://hex.pm/packages/aphid/0.1.1-dev)
 is intended for evaluation only. Add the exact prerelease to your dependencies:
 
 ```elixir
-{:aphid, "== 0.1.0-dev"}
+{:aphid, "== 0.1.1-dev"}
 ```
 
 Run `mix deps.get` and `mix compile`. Default installation downloads the

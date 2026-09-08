@@ -265,7 +265,7 @@ defmodule Mix.Tasks.Compile.AphidBundle do
       Map.new(closure, fn name ->
         bytes =
           files[prefix <> name] ||
-            fail("missing", "bundle lacks #{name}; obtain the complete 0.1.0-dev bundle")
+            fail("missing", "bundle lacks #{name}; obtain the complete matching bundle")
 
         case {linux?, bytes} do
           {false, <<0xCF, 0xFA, 0xED, 0xFE, 0x0C, 0, 0, 1, _::binary>>} ->
