@@ -68,13 +68,20 @@ def main():
         start = len(commands)
         for step in ['openssl', 'configure', 'bridge']:
             argv = ['build.py', step, '--target', target, '--source-root', str(linux_source), '--output', str(linux_output)]
-            with patch.object(sys, 'argv', argv), patch.object(build.platform, 'system', return_value='Linux'), patch.object(build.platform, 'machine', return_value=machine), patch.object(build, 'run', capture):
+            with patch.object(sys, 'argv', argv), patch.object(build.platform, 'system', return_value='Linux'), patch.object(build.platform, 'libc_ver', return_value=('glibc', '2.39')), patch.object(build.platform, 'machine', return_value=machine), patch.object(build, 'run', capture):
                 build.main()
         captured = commands[start:]
         assert any(openssl in c['command'] and '--libdir=lib' in c['command'] and cpu in c['command'] for c in captured)
         cmake = [c['command'] for c in captured if '-S' in c['command']]
         assert all(not any('OSX' in a for a in c) for c in cmake)
         assert all(any(cpu in a for a in c) for c in cmake)
+        with patch.object(build.platform, 'system', return_value='Linux'), patch.object(build.platform, 'machine', return_value=machine), patch.object(build.platform, 'libc_ver', return_value=('musl', '1.2.5')):
+            try:
+                build.target_recipe(target)
+            except RuntimeError as error:
+                assert 'glibc host' in str(error)
+            else:
+                raise AssertionError('musl host accepted as glibc')
         with patch.object(build.platform, 'system', return_value='Darwin'), patch.object(build.platform, 'machine', return_value='arm64'):
             try:
                 build.target_recipe(target)

@@ -99,6 +99,8 @@ def target_recipe(target):
     recipe = recipes.get(target)
     if recipe is None or (platform.system(), platform.machine()) != recipe[:2]:
         raise RuntimeError("Target requires its native build host; cross-build recipe remains unproved. No host artifact substituted.")
+    if target.endswith("-linux-gnu") and platform.libc_ver()[0] != "glibc":
+        raise RuntimeError("Linux GNU recipes require a glibc host; musl is not supported")
     return recipe[2:]
 
 

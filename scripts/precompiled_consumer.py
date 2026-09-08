@@ -19,6 +19,7 @@ def main():
     parser.add_argument('--sha256', required=True)
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--prepared-output', type=Path)
+    parser.add_argument('--bundle-url', help='Fetch this HTTPS URL through the Mix adapter; local archive remains the independent test oracle')
     parser.add_argument('--package', type=Path, help='Locally built Hex source archive')
     parser.add_argument('--package-sha256')
     args = parser.parse_args()
@@ -120,6 +121,10 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
                 'ZIGLER_PRECOMPILE_FORCE_RECOMPILE', 'ZIGLER_PRECOMPILED_FORCE_RELOAD',
                 'APHID_NATIVE_PRECOMPILED', 'APHID_PROOF_PRECOMPILED', 'APHID_BUNDLE_RECEIPT']:
         env.pop(key, None)
+    env.pop('APHID_BUNDLE_URL', None)
+    if args.bundle_url:
+        env.pop('APHID_BUNDLE_ARCHIVE')
+        env['APHID_BUNDLE_URL'] = args.bundle_url
     profile = ('(version 1)(allow default)(deny network*)'
                '(allow network-bind (local ip "localhost:*"))'
                '(allow network-inbound (local ip "localhost:*"))'

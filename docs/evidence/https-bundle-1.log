@@ -1,0 +1,28 @@
+.+........+......+.+..+...+++++++++++++++++++++++++++++++++++++++*.........+.....+............+....+.....+....+++++++++++++++++++++++++++++++++++++++*..+..............+..........+...+..+.......+.....+....+..+..........+..+.+..+.........+....+..+....+...+............+...+......+.................+....+......+..............+....++++++
+...+..+......+.+.....+...+..........+........+...+......+.+.....+.......+..+++++++++++++++++++++++++++++++++++++++*.+..+......+......+.........+.+.........+............+..+++++++++++++++++++++++++++++++++++++++*.+.........+...+....+...+...+...............+........+....+..+......+....+...........+.............+..+.......+..+.........+....+.....+...+...+..................................+..+...+...+.......+...+........+.......+.....+....+........+...+....+.........+......+...+............+.....+.............+.....+......+.+..............+.......+..+.+.........+......+......+........+......+......+.........+............+...+.+...+...+........+......+......+.......+..+....+..+....+.........+...............+.....+.+.....+.+...........................+..+...+...+...............+...+....+.....+.+........................+........+.........+.+..+.+.....+............+...+......+...+...+.............+.................+............+...+.......+........+...+.+.....+...............+......+...+.+...+...+..+......+.......+...............+..+.+......+...+........+..........+..+...+.......+...+..+.+......+......+..+.......+........+..........+..+.+..............+...+.+..+.......+..+....+.....+.+..................+......+.....+.+.....+.+...+............+.....+...+...................+..+...................+..+.............+............+..............+......+.......+...............+..+.+............+...............+..+...+...+...+.......+...+......+..............+......+.+..+.......+.....+...............+.+...............+...+...............+..............+.+......+...+.....+...............+.+..+....+........+...+....+.........+..+...+....+...............+..++++++
+-----
+{"command": ["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "1", "-subj", "/CN=localhost", "-addext", "subjectAltName=IP:127.0.0.1", "-keyout", "/private/tmp/aphid-https-checks-1/key.pem", "-out", "/private/tmp/aphid-https-checks-1/cert.pem"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.138}
+expected HTTPS installer rejection: insecure: Aphid artifact [download]: APHID_BUNDLE_URL must be an HTTPS URL without credentials or fragment. No source fallback.
+expected HTTPS installer rejection: credentials: Aphid artifact [download]: APHID_BUNDLE_URL must be an HTTPS URL without credentials or fragment. No source fallback.
+expected HTTPS installer rejection: pin: Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+expected HTTPS installer rejection: missing: Aphid artifact [download]: could not download bundle: {:remote, "httpc request failed with: {:failed_connect, [{:to_address, {~c\"127.0.0.1\", 52332}}, {:inet, [:inet], {:tls_alert, {:bad_certificate, ~c\"TLS client: In state wait_cert_cr at ssl_handshake.erl:2246 generated CLIENT ALERT: Fatal - Bad Certificate\\n selfsigned_peer\"}}}]}"}; check the URL, network and CA certificates. No source fallback.
+** (MatchError) no match of right hand side value:
+
+    false
+
+    /private/tmp/aphid-https-checks-1/checks.exs:17: anonymous fn/3 in :elixir_compiler_0.__FILE__/1
+    (elixir 1.20.0) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+    /private/tmp/aphid-https-checks-1/checks.exs:4: (file)
+{"command": ["elixir", "/private/tmp/aphid-https-checks-1/checks.exs", "https://127.0.0.1:52332", "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034", "/private/tmp/aphid-https-checks-1"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 0.567}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/https_bundle_checks.py", line 76, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/https_bundle_checks.py", line 64, in main
+    run(['elixir', str(checks), base, args.sha256, str(work)],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(env, APHID_ADAPTER=str(ROOT / 'mix/aphid_bundle.exs')), timeout=120)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['elixir', '/private/tmp/aphid-https-checks-1/checks.exs', 'https://127.0.0.1:52332', '3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034', '/private/tmp/aphid-https-checks-1']

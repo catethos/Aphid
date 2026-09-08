@@ -94,5 +94,5 @@ sanitizer rerun, publication/upload, or stage/implementation completion occurred
 The requested Hex/GitHub release preparation now has a manual Linux source
 qualification workflow for native x86_64 and ARM64. It has been linted and its
 routing checked locally, but no Linux job has run. The public repository is `catethos/Aphid`, with `zig_library` as its root;
-initial source push and CI execution are pending; release creation and compiler-free Linux installation remain open.
+the initial source is pushed and Linux qualification run 34181241317 is in progress; release creation and compiler-free Linux installation remain open.
 See [GitHub preparation](github-release.md). No stage or target is closed.

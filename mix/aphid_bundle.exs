@@ -5,27 +5,40 @@ defmodule Mix.Tasks.Compile.AphidBundle do
   def run(_) do
     archive = System.get_env("APHID_BUNDLE_ARCHIVE")
     digest = System.get_env("APHID_BUNDLE_SHA256")
+    url = System.get_env("APHID_BUNDLE_URL")
 
-    case {System.get_env("APHID_INSTALL"), archive, digest} do
-      {nil, nil, nil} ->
+    case {System.get_env("APHID_INSTALL"), archive, digest, url} do
+      {nil, nil, nil, nil} ->
         source()
 
-      {"source", nil, nil} ->
+      {"source", nil, nil, nil} ->
         source()
 
-      {mode, _, _} when mode in [nil, "precompiled"] ->
+      {mode, _, _, _} when mode in [nil, "precompiled"] ->
         for key <- ~w(ZIGLER_PRECOMPILE_FORCE_RECOMPILE ZIGLER_PRECOMPILED_FORCE_RELOAD) do
           if System.get_env(key, "false") != "false",
             do: fail("selection", "unset #{key}; local bundle mode never falls back to source")
         end
 
-        install(archive, digest, Path.join(Mix.Project.app_path(), "priv"))
+        destination = Path.join(Mix.Project.app_path(), "priv")
+
+        cond do
+          archive != nil and url != nil ->
+            fail("selection", "set only one of APHID_BUNDLE_ARCHIVE and APHID_BUNDLE_URL")
+
+          url != nil ->
+            install_url(url, digest, destination)
+
+          true ->
+            install(archive, digest, destination)
+        end
+
         {:ok, []}
 
       _ ->
         fail(
           "selection",
-          "use APHID_INSTALL=precompiled with archive and SHA256, or explicit source without bundle inputs"
+          "use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs"
         )
     end
   end
@@ -34,8 +47,41 @@ defmodule Mix.Tasks.Compile.AphidBundle do
     unless is_binary(archive) and File.regular?(archive),
       do: fail("missing", "set APHID_BUNDLE_ARCHIVE to an existing local .tar.gz")
 
+    install_bytes(File.read!(archive), digest, destination)
+  end
+
+  def install_url(url, digest, destination) do
+    uri = URI.parse(url)
+
+    unless uri.scheme == "https" and is_binary(uri.host) and uri.host != "" and
+             uri.userinfo == nil and uri.fragment == nil,
+           do:
+             fail(
+               "download",
+               "APHID_BUNDLE_URL must be an HTTPS URL without credentials or fragment"
+             )
+
+    validate_digest(digest)
+
+    case Mix.Utils.read_path(url, timeout: 60_000) do
+      {:ok, bytes} ->
+        install_bytes(bytes, digest, destination)
+
+      error ->
+        fail(
+          "download",
+          "could not download bundle: #{inspect(error)}; check the URL, network and CA certificates"
+        )
+    end
+  end
+
+  defp validate_digest(digest) do
     unless is_binary(digest) and Regex.match?(~r/\A[0-9a-fA-F]{64}\z/, digest),
       do: fail("corrupt", "set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256")
+  end
+
+  defp install_bytes(bytes, digest, destination) do
+    validate_digest(digest)
 
     identity = File.read!(Path.expand("../native/local-bundle.json", __DIR__)) |> JSON.decode!()
 
@@ -47,8 +93,6 @@ defmodule Mix.Tasks.Compile.AphidBundle do
             "native interface source #{name} changed; rebuild and review a matching bundle identity"
           )
     end)
-
-    bytes = File.read!(archive)
 
     unless sha(bytes) == String.downcase(digest),
       do: fail("corrupt", "archive SHA256 mismatch; obtain the pinned archive again")

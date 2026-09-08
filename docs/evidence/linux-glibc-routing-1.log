@@ -1,0 +1,5 @@
+9 ownership/configuration rejections; fetch/OpenSSL/CMake/bridge routes use private paths
+Commands were captured, not executed; native source compilation remains unproved
+{"command": ["python3", "scripts/source_routing_checks.py", "--destination", "/tmp/aphid-linux-routing-2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.242}
+Both Linux orchestration routes checked with captured commands only; no Linux code executed.
+{"command": ["python3", "scripts/linux_ci_checks.py", "--destination", "/tmp/aphid-linux-ci-checks-3"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.243}

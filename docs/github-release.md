@@ -5,8 +5,11 @@ The repository is `git@github.com:catethos/Aphid.git`
 as its root. The prepared workflow is `.github/workflows/linux-native.yml`.
 The remote was verified as an empty public repository with default branch `main`.
 A local `main` repository and `origin` remote are configured. The package links
-to this repository; its version remains `0.1.0-dev`. Nothing has been pushed,
-dispatched, uploaded or published.
+to this repository; its version remains `0.1.0-dev`. The user approved the source
+push and Linux qualification jobs. Initial commit `5d771bfb37df091c644ac18604d750135ee53e16`
+is pushed; [run 34181241317](https://github.com/catethos/Aphid/actions/runs/34181241317)
+is the first actual Linux qualification attempt. Binary uploads, GitHub releases
+and Hex publication remain unauthorized.
 
 The workflow is manual and has read-only repository permissions. It uses native
 `ubuntu-24.04` x86_64 and `ubuntu-24.04-arm` runners, pinned action revisions,
@@ -33,9 +36,7 @@ fulfil the plan's x86_64-to-ARM64 cross-build gate.
 
 ## Before release creation and Hex publication
 
-1. Review and authorize the initial source push to the confirmed public repository.
-   Commit/push the reviewed source and execute the Linux qualification jobs
-   on actual runners. Investigate retained failures before changing pins. No
+1. Follow the authorized Linux qualification jobs on actual runners. Investigate retained failures before changing pins. No
    local Linux provisioning or emulation is part of this recipe.
 2. Use passing builds to package and relocate the entire ELF closure. Inspect
    ELF architecture, NIF metadata, rpaths, GLIBC/GLIBCXX requirements, exported

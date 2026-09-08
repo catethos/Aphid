@@ -33,7 +33,7 @@ def main():
         def capture(command, **options):
             commands.append({'command': command, 'cwd': str(options.get('cwd', project)),
                              'timeout': options.get('timeout', 600)})
-        with patch.object(linux_ci, 'ROOT', project), patch.object(linux_ci, 'run', capture), patch.object(linux_ci.shutil, 'which', return_value='/job/zig'), patch.object(linux_ci.platform, 'system', return_value='Linux'), patch.object(linux_ci.platform, 'machine', return_value=machine), patch.object(sys, 'argv', ['linux_ci.py', '--target', target, '--work', str(build)]):
+        with patch.object(linux_ci, 'ROOT', project), patch.object(linux_ci, 'run', capture), patch.object(linux_ci.shutil, 'which', return_value='/job/zig'), patch.object(linux_ci.platform, 'system', return_value='Linux'), patch.object(linux_ci.platform, 'libc_ver', return_value=('glibc', '2.39')), patch.object(linux_ci.platform, 'machine', return_value=machine), patch.object(sys, 'argv', ['linux_ci.py', '--target', target, '--work', str(build)]):
             with contextlib.redirect_stdout(io.StringIO()):
                 linux_ci.main()
         candidate = build / 'candidate'

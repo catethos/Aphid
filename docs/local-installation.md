@@ -185,3 +185,21 @@ The expanded local source-input archive is
 Its precompiled route passes the same fresh-consumer tests with the unchanged
 native candidate. See [source-input evidence](evidence/source-inputs.md); this is
 not a source-installation or platform-support claim.
+
+## Explicit HTTPS bundle delivery
+
+The adapter also accepts `APHID_BUNDLE_URL` instead of `APHID_BUNDLE_ARCHIVE`.
+Set only one; keep `APHID_INSTALL=precompiled` and an independently trusted
+`APHID_BUNDLE_SHA256`. The URL must use HTTPS without embedded credentials or a
+fragment. Mix's existing TLS client validates the certificate/hostname, honors
+its standard `HEX_CACERTS_PATH` setting for managed networks, and has a 60-second
+request deadline. The downloaded bytes go through the same checksum, identity,
+archive-member and complete-sidecar checks as local archives. Download failures
+report `[download]` and never trigger source compilation.
+
+This route is proved with a private loopback HTTPS server and the unchanged
+reviewed macOS archive, including a fresh 92-test compiler-free consumer. The
+first invalid self-signed test-certificate attempt is retained. No native archive
+was uploaded. There is no usable Aphid GitHub release download URL yet, no default
+network selection, and no Linux artifact identity accepted by this adapter.
+See [HTTPS evidence](evidence/https-bundle.md).
