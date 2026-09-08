@@ -1,0 +1,83 @@
+name: Public package-default Linux consumer
+on:
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: Successful linux-consumer run retaining the final URL-enabled source package
+        required: true
+        type: string
+      source_sha256:
+        description: Independently reviewed SHA256 of that exact final source package
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  consumer:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            target: x86_64-linux-gnu
+          - runner: ubuntu-24.04-arm
+            target: aarch64-linux-gnu
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124 # v1
+        with:
+          otp-version: '29.0.4'
+          elixir-version: '1.20.0'
+      - name: Install consumer proof prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes bubblewrap binutils
+          mix local.hex --force
+      - name: Acquire independently pinned source qualification
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN: ${{ inputs.source_run }}
+          SOURCE_SHA256: ${{ inputs.source_sha256 }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess
+          from pathlib import Path
+          source_run = os.environ['SOURCE_RUN']
+          assert re.fullmatch(r'[0-9]+', source_run), 'Invalid run ID'
+          assert re.fullmatch(r'[0-9a-f]{64}', os.environ['SOURCE_SHA256']), 'Invalid source SHA256'
+          metadata = json.loads(subprocess.check_output(['gh', 'api', f'repos/catethos/Aphid/actions/runs/{source_run}'], text=True))
+          assert (metadata['status'], metadata['conclusion'], metadata['event'], metadata['head_branch'], metadata['path']) == ('completed', 'success', 'workflow_dispatch', 'main', '.github/workflows/linux-consumer.yml')
+          Path(os.environ['RUNNER_TEMP'], 'source-run.json').write_text(json.dumps(metadata, indent=2))
+          subprocess.run(['gh', 'run', 'download', source_run, '--repo', 'catethos/Aphid', '--name', f'combined-source-{source_run}', '--dir', os.environ['RUNNER_TEMP'] + '/qualified-source'], check=True)
+          PY
+      - name: Prove anonymous package-default installation and offline runtime
+        env:
+          APHID_TARGET: ${{ matrix.target }}
+          SOURCE_SHA256: ${{ inputs.source_sha256 }}
+        run: |
+          set -o pipefail
+          python3 -u - <<'PY' 2>&1 | tee "$RUNNER_TEMP/public-consumer.log"
+          import hashlib, json, os, subprocess, sys
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP'])
+          packages = list((root / 'qualified-source').rglob('aphid-0.1.0-dev-combined.tar'))
+          assert len(packages) == 1, 'Expected one exact qualified package'
+          package = packages[0]
+          assert hashlib.sha256(package.read_bytes()).hexdigest() == os.environ['SOURCE_SHA256'], 'Source pin mismatch'
+          pin = json.loads(Path('native/linux-bundles.json').read_text())[os.environ['APHID_TARGET']]
+          url = 'https://github.com/catethos/Aphid/releases/download/v' + pin['package_version'] + '/' + pin['archive']
+          archive = root / pin['archive']
+          subprocess.run(['curl', '--fail', '--location', '--proto', '=https', '--proto-redir', '=https', '--max-time', '300', '--output', str(archive), url], check=True)
+          subprocess.run([sys.executable, '-u', 'scripts/precompiled_consumer.py', '--archive', str(archive), '--sha256', pin['sha256'], '--package', str(package), '--package-sha256', os.environ['SOURCE_SHA256'], '--destination', str(root / 'public-consumer'), '--hex-dependencies', '--package-default', '--hide-build', str(root / 'qualified-source')], check=True)
+          PY
+# Manual validation only: no release writes, catalog edits, native builds or uploads.
+# Both native jobs consume the same independently pinned source package. Run the
+# same harness with that package on macOS ARM64 separately; this is not its proof.

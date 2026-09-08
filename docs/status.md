@@ -1,5 +1,11 @@
 # Implementation status
 
+Current review: [public publication decision](releases/v0.1.0-dev-publication-review.md)
+and [preparation evidence](evidence/publication-preparation-1.md). Publication is
+on hold for attribution review; existing draft 384589981 remains private. A manual
+package-default endpoint workflow is prepared and locally checked, not executed.
+URLs remain disabled; public publication and Hex remain unauthorized.
+
 Current continuation: [authorized private draft](evidence/draft-release-1.md).
 Signed `v0.1.0-dev` remains fixed at `750dc79ec3607893fe53ba84c2cfe45158c49bc3`.
 The private draft exists; public publication and Hex remain unauthorized.

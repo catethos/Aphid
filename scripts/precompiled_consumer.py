@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fresh Mix consumer proof of the local bundle adapter."""
+"""Fresh Mix consumer proof of explicit bundles or package-pinned public delivery."""
 import argparse
 import io
 import json
@@ -14,12 +14,31 @@ from proof import ROOT, run
 from runtime_bundle import extract, sha
 
 
+def package_default(package, digest, env):
+    """Require a reviewed repository URL; never inject a URL or pin into the installer."""
+    pins = [json.loads((package / 'native/local-bundle.json').read_text()),
+            *json.loads((package / 'native/linux-bundles.json').read_text()).values()]
+    matches = [pin for pin in pins if pin['sha256'] == digest]
+    if len(matches) != 1:
+        raise ValueError('Oracle checksum must identify exactly one package catalog entry')
+    pin = matches[0]
+    expected = ('https://github.com/catethos/Aphid/releases/download/v' +
+                pin['package_version'] + '/' + pin['archive'])
+    if pin.get('url') != expected:
+        raise ValueError('Package default must already contain the exact public repository URL')
+    for key in list(env):
+        if key.startswith('APHID_') or key in ['GH_TOKEN', 'GITHUB_TOKEN', 'GH_ENTERPRISE_TOKEN', 'GITHUB_ENTERPRISE_TOKEN']:
+            env.pop(key)
+    return expected
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--archive', type=Path, required=True)
     parser.add_argument('--sha256', required=True)
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--prepared-output', type=Path)
+    parser.add_argument('--package-default', action='store_true', help='Test no-input public repository installation; requires an exact package and normal Hex acquisition')
     parser.add_argument('--bundle-url', help='Fetch this HTTPS URL through the Mix adapter; local archive remains the independent test oracle')
     parser.add_argument('--package', type=Path, help='Locally built Hex source archive')
     parser.add_argument('--package-sha256')
@@ -29,6 +48,8 @@ def main():
     linux = platform.system() == 'Linux'
     if bool(args.package) != bool(args.package_sha256):
         parser.error('--package and --package-sha256 must be supplied together')
+    if args.package_default and (not args.package or not args.hex_dependencies or args.bundle_url):
+        parser.error('--package-default requires --package, --package-sha256 and --hex-dependencies, without --bundle-url')
     work = args.destination.resolve()
     work.mkdir()  # Keep failed installs and never reuse a build/cache directory.
     bundle = work / 'verified-bundle'
@@ -137,6 +158,7 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
     if args.bundle_url:
         env.pop('APHID_BUNDLE_ARCHIVE')
         env['APHID_BUNDLE_URL'] = args.bundle_url
+    default_url = package_default(package, args.sha256, env) if args.package_default else None
     profile = ('(version 1)(allow default)(deny network*)'
                '(allow network-bind (local ip "localhost:*"))'
                '(allow network-inbound (local ip "localhost:*"))'
@@ -148,6 +170,8 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
     (work / 'inputs.json').write_text(json.dumps({'archive_sha256': args.sha256,
         'source_package_sha256': args.package_sha256, 'hex': pins,
         'normal_hex_dependencies': args.hex_dependencies,
+        'package_default_url': default_url,
+        'installation_network': 'public HTTPS' if args.package_default else 'loopback only',
         'hex_installer': {str(p.relative_to(hex_tools[0])): sha(p)
                           for p in hex_tools[0].rglob('*') if p.is_file()},
         'package_files': {str(p.relative_to(package)): sha(p) for p in package.rglob('*') if p.is_file()}}, indent=2))
@@ -179,9 +203,10 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
         expected_pins = {p['name'] + '-' + p['version'] + '.tar': p['sha256'] for p in pins}
         for path in archives:
             assert sha(path) == expected_pins[path.name], path.name
-        print('Normal Hex acquisition verified:', len(archives), 'locked archives; switching to loopback-only networking', flush=True)
-    run([*offline, 'mix', 'deps.compile'], cwd=project, env=env, timeout=300)
-    run([*offline, 'mix', 'compile'], cwd=project, env=env, timeout=120)
+        print('Normal Hex acquisition verified:', len(archives), 'locked archives; dependency acquisition complete', flush=True)
+    installation = acquisition_command if args.package_default else offline
+    run([*installation, 'mix', 'deps.compile'], cwd=project, env=env, timeout=300)
+    run([*installation, 'mix', 'compile'], cwd=project, env=env, timeout=120)
     # Runtime needs installed priv only, not the installer archive or selection.
     local_archive.rename(work / 'candidate-retained.tar.gz')
     runtime_env = {k: v for k, v in env.items() if not k.startswith('APHID_')}

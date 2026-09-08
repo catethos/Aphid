@@ -264,3 +264,19 @@ source notice content is an actionable failure; retain the full source package.
 The same file survives relocated Linux Mix releases. See
 [notice delivery evidence](evidence/shipped-notices-1.md) for exact identities,
 checks and unresolved attribution. Native archive hashes have not changed.
+
+## Prepared public default qualification
+
+`scripts/precompiled_consumer.py --package-default` tests the exact package's
+repository URL with all APHID installation overrides cleared. It requires
+`--package`, `--package-sha256`, `--hex-dependencies` and an independently pinned
+local native archive as the test oracle. It does not enable catalog URLs.
+Compiler/development-read restrictions remain; public networking is allowed
+during installation, and the runtime test is offline. Current disabled catalogs
+are rejected by this mode before compilation.
+
+The manual `public-consumer.yml` workflow uses one independently pinned final
+source package for both native Linux architectures; the same package must be
+checked separately on native macOS ARM64. Neither the new workflow nor actual
+public endpoint qualification has run. See the
+[publication decision and execution sequence](releases/v0.1.0-dev-publication-review.md).

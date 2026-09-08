@@ -1,0 +1,7 @@
+2026-09-08, cwd /Users/catethos/workspace/ladybugex/zig_library
+Command: gh api repos/catethos/Aphid/releases/384589981 > docs/evidence/publication-draft-state-1.json
+Exit: 1. Outer sandbox network attempt failed:
+error connecting to api.github.com
+check your internet connection or https://githubstatus.com
+The empty output file is retained. Read-only retry with outer execution permission
+succeeded into publication-draft-state-2.json. No release mutation was attempted.

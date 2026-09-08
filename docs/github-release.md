@@ -1,5 +1,11 @@
 # GitHub release preparation
 
+Current review: [public publication decision](releases/v0.1.0-dev-publication-review.md)
+and [preparation evidence](evidence/publication-preparation-1.md). Publication is
+on hold for attribution review; existing draft 384589981 remains private. A manual
+package-default endpoint workflow is prepared and locally checked, not executed.
+URLs remain disabled; public publication and Hex remain unauthorized.
+
 Current checkpoint: [authorized private draft and remaining gates](evidence/draft-release-1.md).
 The draft exists; public publication and Hex remain unauthorized. Earlier proposal
 records describe their historical authorization state.

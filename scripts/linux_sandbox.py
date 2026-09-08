@@ -41,7 +41,7 @@ def sandbox(work, hidden, env=None, network=False):
     record = work / ('acquisition-isolation.json' if network else 'isolation.json')
     record.write_text(json.dumps({'hidden': list(map(str, hidden)),
         'masked_compilers': list(map(str, sorted(masks))), 'uid': os.getuid(),
-        'network': 'dependency acquisition only' if network else 'new namespace'}, indent=2) + '\n')
+        'network': 'external network allowed for acquisition/installation' if network else 'new namespace'}, indent=2) + '\n')
     return command
 
 
