@@ -1,6 +1,6 @@
 # Experimental package: third-party inputs and open notices
 
-This source package is prepared for experimental Hex publication at 0.1.0-dev.
+The experimental source package is published on Hex at 0.1.0-dev.
 It is not release-supported or a proved source installer.
 Aphid's own source is MIT-licensed (see LICENSE), as selected by the owner.
 Dependencies retain their own licenses; this does not relicense their contents.

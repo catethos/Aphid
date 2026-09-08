@@ -1,5 +1,11 @@
 # Experimental Hex publication scope
 
+Published: [aphid 0.1.0-dev](https://hex.pm/packages/aphid/0.1.0-dev).
+The anonymous archive matches the approved package SHA256
+`922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7`.
+See [final publication evidence](evidence/hex-published-1.md). The preparation
+sequence below records the authorized scope; Linux follow-up remains open.
+
 The owner has authorized publishing `aphid` version `0.1.0-dev` to Hex after
 preparing the final package and checking it locally on macOS ARM64. Linux
 installation checks and tests on additional Linux systems may follow publication.

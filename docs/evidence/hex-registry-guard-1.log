@@ -1,0 +1,8 @@
+usage: precompiled_consumer.py [-h] --archive ARCHIVE --sha256 SHA256
+                               --destination DESTINATION
+                               [--prepared-output PREPARED_OUTPUT]
+                               [--package-default] [--hex-registry]
+                               [--bundle-url BUNDLE_URL] [--package PACKAGE]
+                               [--package-sha256 PACKAGE_SHA256]
+                               [--hex-dependencies] [--hide-build HIDE_BUILD]
+precompiled_consumer.py: error: --hex-registry requires --package-default

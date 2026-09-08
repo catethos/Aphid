@@ -1,0 +1,9 @@
+{
+  "url": "https://repo.hex.pm/tarballs/aphid-0.1.0-dev.tar",
+  "authentication": "none",
+  "http_status": 200,
+  "bytes": 115712,
+  "sha256": "922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7",
+  "expected_sha256": "922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7",
+  "match": true
+}

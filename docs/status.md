@@ -1,5 +1,14 @@
 # Implementation status
 
+Current outcome (2026-09-08): [aphid 0.1.0-dev is published on Hex](https://hex.pm/packages/aphid/0.1.0-dev).
+The public Hex archive matches the exact reviewed SHA256
+`922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7`.
+See [publication and registry-installation evidence](evidence/hex-published-1.md).
+The GitHub prerelease, thirteen assets and fixed tag remain unchanged.
+Linux registry installation and additional-system tests follow publication under
+the owner's expanded scope. No target is release-supported and no implementation
+stage is complete. Earlier authorization and preparation checkpoints below are historical.
+
 Current scope (2026-09-08): experimental Hex publication is now authorized.
 The user accepts publication after a final local macOS package check, with Linux
 package installation and additional-system tests following publication.

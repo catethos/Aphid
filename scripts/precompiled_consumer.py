@@ -39,6 +39,7 @@ def main():
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--prepared-output', type=Path)
     parser.add_argument('--package-default', action='store_true', help='Test no-input public repository installation; requires an exact package and normal Hex acquisition')
+    parser.add_argument('--hex-registry', action='store_true', help='Acquire Aphid itself from Hex; the supplied package remains an independent byte oracle')
     parser.add_argument('--bundle-url', help='Fetch this HTTPS URL through the Mix adapter; local archive remains the independent test oracle')
     parser.add_argument('--package', type=Path, help='Locally built Hex source archive')
     parser.add_argument('--package-sha256')
@@ -50,6 +51,8 @@ def main():
         parser.error('--package and --package-sha256 must be supplied together')
     if args.package_default and (not args.package or not args.hex_dependencies or args.bundle_url):
         parser.error('--package-default requires --package, --package-sha256 and --hex-dependencies, without --bundle-url')
+    if args.hex_registry and not args.package_default:
+        parser.error('--hex-registry requires --package-default')
     work = args.destination.resolve()
     work.mkdir()  # Keep failed installs and never reuse a build/cache directory.
     bundle = work / 'verified-bundle'
@@ -107,6 +110,9 @@ def main():
     if args.hex_dependencies:
         dependencies = ['{:aphid, path: \"vendor/aphid\"}']
         shutil.copy2(package / 'mix.lock', project / 'mix.lock')
+    if args.hex_registry:
+        version = json.loads((package / 'native/local-bundle.json').read_text())['package_version']
+        dependencies = ['{:aphid, "== ' + version + '"}']
     (project / 'mix.exs').write_text('''defmodule Consumer.MixProject do
   use Mix.Project
   def project, do: [app: :aphid_consumer, version: "0.0.0", deps: [
@@ -170,6 +176,7 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
     (work / 'inputs.json').write_text(json.dumps({'archive_sha256': args.sha256,
         'source_package_sha256': args.package_sha256, 'hex': pins,
         'normal_hex_dependencies': args.hex_dependencies,
+        'aphid_from_hex_registry': args.hex_registry,
         'package_default_url': default_url,
         'installation_network': 'public HTTPS' if args.package_default else 'loopback only',
         'hex_installer': {str(p.relative_to(hex_tools[0])): sha(p)
@@ -196,11 +203,23 @@ Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
             acquisition = work / 'acquisition.sb'
             acquisition.write_text(profile.replace('(deny network*)', ''))
             acquisition_command = ['/usr/bin/sandbox-exec', '-f', str(acquisition)]
-        run([*acquisition_command, 'mix', 'deps.get', '--check-locked'],
+        # Registry mode adds Aphid to the consumer lock; all acquired bytes are checked below.
+        run([*acquisition_command, 'mix', 'deps.get', *([] if args.hex_registry else ['--check-locked'])],
             cwd=project, env=env, timeout=300)
         archives = list((work / 'hex-home/packages/hexpm').glob('*.tar'))
         assert archives, 'normal Hex acquisition fetched no package archives'
         expected_pins = {p['name'] + '-' + p['version'] + '.tar': p['sha256'] for p in pins}
+        if args.hex_registry:
+            name = 'aphid-' + version + '.tar'
+            expected_pins[name] = args.package_sha256
+            assert (work / 'hex-home/packages/hexpm' / name).is_file(), 'Hex did not fetch Aphid'
+            fetched = project / 'deps/aphid'
+            for path in package.rglob('*'):
+                if path.is_file():
+                    assert sha(fetched / path.relative_to(package)) == sha(path), path
+            # Remove the unused local oracle so compilation cannot consume it as a path dependency.
+            shutil.rmtree(package)
+            package = fetched
         for path in archives:
             assert sha(path) == expected_pins[path.name], path.name
         print('Normal Hex acquisition verified:', len(archives), 'locked archives; dependency acquisition complete', flush=True)

@@ -10,8 +10,8 @@ batch streams are available; hardening and release gates are unfinished. See
 
 ## Experimental installation
 
-The `0.1.0-dev` Hex prerelease is intended for evaluation only. Once published,
-add the exact prerelease to your dependencies:
+The [published `0.1.0-dev` Hex prerelease](https://hex.pm/packages/aphid/0.1.0-dev)
+is intended for evaluation only. Add the exact prerelease to your dependencies:
 
 ```elixir
 {:aphid, "== 0.1.0-dev"}

@@ -1,0 +1,92 @@
+Building aphid 0.1.0-dev
+  Dependencies:
+    zigler == 0.16.0 (app: zigler)
+    telemetry ~> 1.3 (app: telemetry)
+  App: aphid
+  Name: aphid
+  Files:
+    mix.exs
+    mix.lock
+    mix/aphid_bundle.exs
+    lib/aphid.ex
+    lib/aphid/application.ex
+    lib/aphid/bundle_loader.ex
+    lib/aphid/database.ex
+    lib/aphid/error.ex
+    lib/aphid/native.ex
+    lib/aphid/options.ex
+    lib/aphid/proof.ex
+    lib/aphid/result.ex
+    lib/aphid/stream.ex
+    lib/aphid/telemetry.ex
+    lib/aphid/transaction.ex
+    lib/aphid/value.ex
+    README.md
+    LICENSE
+    THIRD_PARTY.md
+    THIRD_PARTY_NOTICES.txt
+    docs/architecture.md
+    docs/extensions.md
+    docs/github-release.md
+    docs/hex-publication.md
+    docs/local-installation.md
+    docs/release-checklist.md
+    docs/source-installation.md
+    docs/status.md
+    docs/telemetry.md
+    docs/types.md
+    native/lock.json
+    native/local-bundle.json
+    native/linux-bundles.json
+    native/aphid_nif.zig
+    native/bridge.h
+    native/bridge.cpp
+    native/CMakeLists.txt
+    native/patches/aggregate-state-alignment.patch
+    native/patches/alp-conversion-range.patch
+    native/patches/detach-clear-default.patch
+    native/patches/duckdb-tabular-only.patch
+    native/patches/fts-atomic-create.patch
+    native/patches/join-row-alignment.patch
+    native/patches/node-delete-finalize.patch
+    native/patches/row-value-alignment.patch
+    native/patches/sort-key-alignment.patch
+    native/patches/string-hash-alignment.patch
+    native/patches/vector-drop-auto-transaction.patch
+    scripts/build.py
+    scripts/proof.py
+    scripts/source_preflight.py
+    native/proof.zig
+    native/proof.h
+    native/proof.cpp
+  Version: 0.1.0-dev
+  Build tools: mix
+  Description: LadybugDB for Elixir through Zigler
+  Licenses: MIT
+  Links: 
+    GitHub: https://github.com/catethos/Aphid
+  Elixir: ~> 1.20
+Before publishing, please read the Code of Conduct: https://hex.pm/policies/codeofconduct
+
+Publishing package to public repository hexpm.
+
+Publishing package...
+
+Enter your 2FA code: ** (FunctionClauseError) no function clause matching in String.trim/1    
+    
+    The following arguments were given to String.trim/1:
+    
+        # 1
+        :eof
+    
+    Attempted function clauses (showing 1 out of 1):
+    
+        def trim(+string+) when -is_binary(string)-
+    
+    (elixir 1.20.0) lib/string.ex:1390: String.trim/1
+    (hex 2.4.2) lib/mix/tasks/hex.ex:491: Mix.Tasks.Hex.with_otp_retry/2
+    (hex 2.4.2) lib/mix/tasks/hex.publish.ex:517: Mix.Tasks.Hex.Publish.send_release/5
+    (hex 2.4.2) lib/mix/tasks/hex.publish.ex:102: Mix.Tasks.Hex.Publish.run/1
+    (mix 1.20.0) lib/mix/task.ex:502: anonymous fn/3 in Mix.Task.run_task/5
+    (mix 1.20.0) lib/mix/cli.ex:129: Mix.CLI.run_task/2
+    /Users/catethos/.local/share/mise/installs/elixir/1.20.0-otp-28/bin/mix:7: (file)
