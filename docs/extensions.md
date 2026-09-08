@@ -1,9 +1,8 @@
 # Graph algorithms, indexed search and DuckDB
 
-Source builds bundle `algo`, `fts`, `vector`, and `duckdb` into the engine and check
-all four at database startup. The published archives through `0.1.1-dev` still contain
-only FTS/vector/DuckDB; ALGO requires the updated source build until new platform
-bundles are released.
+Version `0.1.2-dev` bundles `algo`, `fts`, `vector`, and `duckdb` into the engine
+and checks all four at database startup. The older archives through `0.1.1-dev`
+contain only FTS/vector/DuckDB; upgrade to `0.1.2-dev` to use bundled ALGO.
 `Aphid.info/1` reports the observed registration and engine version. Queries use
 the engine's Cypher procedures directly; Aphid does not emulate indexed search.
 
@@ -36,8 +35,9 @@ See [the complete executable example](../examples/algo.exs).
 component membership, projection removal, and failure of excluded GDS functions.
 The remaining bundled algorithms are not individually qualified by that test.
 The macOS ARM64 source build passed all 101 tests and native create/reopen
-checks on 2026-09-09. Linux, sanitizer, and new packaged-runtime qualification
-for ALGO remain pending.
+checks on 2026-09-09. The new macOS and Linux ARM64/x86_64 bundles also pass the full source/consumer
+qualification suites; see [release evidence](evidence/release-012.md). ALGO
+sanitizer and minimum-system qualification remain pending.
 
 Builds explicitly set `ICEBUG_ENABLED=OFF`. Icebug-backed `GDS_PAGE_RANK`,
 `GDS_NODE2VEC`, `GDS_LOUVAIN`, `GDS_LEIDEN`, and `GDS_PPR` are excluded.
@@ -60,7 +60,7 @@ Use a source build path without an installed precompiled bundle. Source builds
 require the pinned toolchain and native prerequisites; these commands are not a
 fresh-machine installer. Distribution requires new native archives and catalog
 checksums for every included target; see [publishing updates](publishing-updates.md).
-Existing published archives cannot satisfy the new four-extension startup check.
+Archives through `0.1.1-dev` cannot satisfy the four-extension startup check.
 
 ## Index maintenance
 

@@ -39,3 +39,16 @@ remain unchanged and no compiler is invoked.
 
 Embedded missing/corrupt/unloadable startup rejection checks also pass, with
 the native files restored unchanged afterward.
+
+## Linux ARM64 and x86_64
+
+[Native qualification run 34249482350](https://github.com/catethos/Aphid/actions/runs/34249482350)
+passed on both native architectures. Each passed 101 source-build, 101
+relocated-bundle, and 101 fresh precompiled-consumer tests, plus native
+lifecycle/concurrency/persistence and installer-rejection checks. Downloaded
+archive sizes, hashes, every manifest entry, current test contents, ELF audit
+hashes, native source hashes, and the native lock were verified before pinning
+the catalogs.
+
+- aarch64-linux-gnu: `773c99a84225dc0486a89bc1d5ef90bf3144223c04222623910b9aff15ad1731` (46396683 bytes).
+- x86_64-linux-gnu: `60c3d09f2b6e41248fde52375f5da8ab0cb90b4df3b7dd3f414f820a472e91ae` (50092308 bytes).

@@ -10,15 +10,15 @@ batch streams are available; hardening and release gates are unfinished. See
 
 For maintainers: [publishing future versions and adding platforms](docs/publishing-updates.md).
 
-The current source build also bundles graph algorithms (`algo`): PageRank,
+Version `0.1.2-dev` bundles graph algorithms (`algo`): PageRank,
 connected components, Louvain, k-core, and spanning forest. Use the existing
 query API; see [graph algorithm setup and usage](docs/extensions.md#graph-algorithms)
-and [the executable example](examples/algo.exs). This addition is not in the
-published archives through `0.1.1-dev`; `0.1.2-dev` bundles are being qualified.
+and [the executable example](examples/algo.exs). ALGO is included in all three
+`0.1.2-dev` native bundles. Older archives through `0.1.1-dev` do not include it.
 
 ## Experimental installation
 
-The `0.1.2-dev` prerelease candidate
+The [`0.1.2-dev` Hex prerelease](https://hex.pm/packages/aphid/0.1.2-dev)
 is intended for evaluation only. Add the exact prerelease to your dependencies:
 
 ```elixir

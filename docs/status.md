@@ -1,14 +1,12 @@
 # Implementation status
 
-Unreleased source addition: ALGO is bundled with FTS/vector/DuckDB, with
-icebug-backed `GDS_*` functions disabled. The published archives through
-`0.1.1-dev` contain only the previous three extensions. Updated platform bundles
-and release qualification are still required; see [the extension guide](extensions.md#graph-algorithms).
-Local macOS ARM64 verification (2026-09-09): the source engine/bridge and Zigler
-NIF build succeed, all **101 tests pass**, and native FTS/vector/DuckDB
-create/reopen checks pass with four extensions registered. The linked engine
-depends only on macOS system libraries. ALGO has not yet been requalified on
-Linux, under sanitizers, or in relocated release bundles.
+Release `0.1.2-dev` qualification (2026-09-09): ALGO is bundled with
+FTS/vector/DuckDB on macOS ARM64 and Linux x86_64/ARM64; icebug-backed `GDS_*`
+functions are disabled. All 101 tests pass in source, relocated-bundle, and
+fresh-consumer checks on each target. The macOS bundled-ERTS release also
+passes its startup/shutdown/persistence and failure checks. Combined-package
+qualification and publication are tracked in [release evidence](evidence/release-012.md).
+ALGO sanitizer and minimum-system qualification remain open.
 
 Published: [aphid 0.1.1-dev on Hex](https://hex.pm/packages/aphid/0.1.1-dev) and
 [GitHub](https://github.com/catethos/Aphid/releases/tag/v0.1.1-dev), with rebuilt
