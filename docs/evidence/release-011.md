@@ -13,10 +13,30 @@ stable-release or platform-support claim.
 - Native lock SHA256: `09b8618810c5788237ebec1c8164c9322d0d65f4d312c41e4908687394647aba`.
 - [Native Linux workflow](https://github.com/catethos/Aphid/actions/runs/34236085662)
   builds both architectures natively from the signed commit, with seven-day
-  retention of passing bundles. Results are pending.
+  retention of passing bundles. Both jobs passed: each has 99 source-build,
+  99 relocated-bundle and 99 fresh precompiled-consumer tests passing, plus
+  native arithmetic/lifecycle/concurrency/persistence and installer rejection
+  checks. See [run metadata](release-011-linux-run.json) and
+  [complete log](release-011-linux-run.log). Downloaded archives, full manifests,
+  native interface hashes and all 21 packaged test files were verified before
+  pinning `native/linux-bundles.json`.
 - The [prior release metadata](release-011-prior-release.json) records the old
   release before any new publication. [Hex version lookup](release-011-hex-availability.json)
   returned 404 for `0.1.1-dev` before preparation.
+
+Linux archive SHA256 pins:
+
+- x86_64: `02cf205c2e3efe510ddd02440eec764c2f3406a6d591de8c65e4e304c45b4f9f`
+  (49,969,085 bytes).
+- ARM64: `d919aa4165d3fa9bbf673bc3645c33e9389afedf0cdb89f7c8c1d2ff8c19f2d5`
+  (46,279,085 bytes).
+
+Both ELF audits retain GLIBC 2.38 / GLIBCXX 3.4.32 requirements. Actual execution
+is Ubuntu 24.04/glibc 2.39. The default-selection fixture initially attempted a
+download because it assumed published catalog URLs were disabled. The test now
+disables URLs only in its copied negative fixtures; production pins are unchanged.
+[The corrected offline checks pass](release-011-default-selection-2.log), as do
+the existing package-selection and release-asset staging checks.
 
 ## macOS ARM64
 
@@ -46,8 +66,7 @@ package. A final combined-catalog source package must be qualified separately.
 
 ## Remaining release steps
 
-Finish both Linux native builds and packaged checks; pin their identities;
-qualify one final combined source package on all three targets; stage and
+Qualify one final combined source package on all three targets; stage and
 publish immutable versioned native assets; verify anonymous downloads; freeze,
 dry-run and publish the exact Hex package, then verify registry installation.
 If Hex requires private 2FA, the owner must enter it directly in the terminal.

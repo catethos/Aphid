@@ -2,6 +2,17 @@
 
 For subsequent versions, see [publishing updates and platform changes](publishing-updates.md).
 
+## 0.1.1-dev
+
+The owner authorized a follow-up stability/correctness prerelease, including new
+native bundles for macOS ARM64 and both Linux architectures. This version requires
+the new three-target qualification and final package checks before publication;
+the first release's sequencing exception below does not apply. See
+[0.1.1-dev evidence](evidence/release-011.md) for results and artifact identities.
+The existing `0.1.0-dev` package, signed tag and assets stay unchanged.
+
+## First release history
+
 Published: [aphid 0.1.0-dev](https://hex.pm/packages/aphid/0.1.0-dev).
 The anonymous archive matches the approved package SHA256
 `922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7`.

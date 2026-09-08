@@ -10,7 +10,15 @@ File.mkdir_p!(Path.join(work, "mix"))
 File.mkdir_p!(Path.join(work, "native"))
 
 for name <- ["local-bundle.json", "linux-bundles.json"] do
-  File.cp!(Path.expand("../native/#{name}", __DIR__), Path.join(work, "native/#{name}"))
+  catalog = File.read!(Path.expand("../native/#{name}", __DIR__)) |> JSON.decode!()
+
+  # The missing-default cases need disabled fixture URLs, even after publication.
+  disabled =
+    if name == "local-bundle.json",
+      do: Map.delete(catalog, "url"),
+      else: Map.new(catalog, fn {target, pin} -> {target, Map.delete(pin, "url")} end)
+
+  File.write!(Path.join(work, "native/#{name}"), JSON.encode!(disabled))
 end
 
 File.cp!(Path.expand("../mix/aphid_bundle.exs", __DIR__), Path.join(work, "mix/aphid_bundle.exs"))

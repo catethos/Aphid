@@ -10,6 +10,10 @@ on:
         description: Independently reviewed SHA256 of that exact final source package
         required: true
         type: string
+      hex_registry:
+        description: After publication, acquire Aphid itself from Hex and verify its pinned bytes
+        type: boolean
+        default: false
 permissions:
   contents: read
   actions: read
@@ -62,6 +66,7 @@ jobs:
         env:
           APHID_TARGET: ${{ matrix.target }}
           SOURCE_SHA256: ${{ inputs.source_sha256 }}
+          HEX_REGISTRY: ${{ inputs.hex_registry }}
         run: |
           set -o pipefail
           python3 -u - <<'PY' 2>&1 | tee "$RUNNER_TEMP/public-consumer.log"
@@ -76,7 +81,7 @@ jobs:
           url = 'https://github.com/catethos/Aphid/releases/download/v' + pin['package_version'] + '/' + pin['archive']
           archive = root / pin['archive']
           subprocess.run(['curl', '--fail', '--location', '--proto', '=https', '--proto-redir', '=https', '--max-time', '300', '--output', str(archive), url], check=True)
-          subprocess.run([sys.executable, '-u', 'scripts/precompiled_consumer.py', '--archive', str(archive), '--sha256', pin['sha256'], '--package', str(package), '--package-sha256', os.environ['SOURCE_SHA256'], '--destination', str(root / 'public-consumer'), '--hex-dependencies', '--package-default', '--hide-build', str(root / 'qualified-source')], check=True)
+          subprocess.run([sys.executable, '-u', 'scripts/precompiled_consumer.py', '--archive', str(archive), '--sha256', pin['sha256'], '--package', str(package), '--package-sha256', os.environ['SOURCE_SHA256'], '--destination', str(root / 'public-consumer'), '--hex-dependencies', '--package-default', '--hide-build', str(root / 'qualified-source')] + (['--hex-registry'] if os.environ['HEX_REGISTRY'] == 'true' else []), check=True)
           PY
 # Manual validation only: no release writes, catalog edits, native builds or uploads.
 # Both native jobs consume the same independently pinned source package. Run the

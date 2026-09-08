@@ -1,0 +1,20 @@
+
+23:03:53.971 [error] Task #PID<0.120.0> started from #PID<0.101.0> terminating
+** (FunctionClauseError) no function clause matching in :pubkey_os_cacerts.conv_error_reason/1
+    (public_key 1.21.4) pubkey_os_cacerts.erl:301: :pubkey_os_cacerts.conv_error_reason(:no_cacerts_found)
+    (public_key 1.21.4) pubkey_os_cacerts.erl:56: :pubkey_os_cacerts.get/0
+    (mix 1.20.0) lib/mix/utils.ex:883: Mix.Utils.read_httpc/1
+    (mix 1.20.0) lib/mix/utils.ex:808: anonymous fn/2 in Mix.Utils.read_path/2
+    (elixir 1.20.0) lib/task/supervised.ex:105: Task.Supervised.invoke_mfa/2
+    (elixir 1.20.0) lib/task/supervised.ex:40: Task.Supervised.reply/4
+Function: #Function<8.132763472/0 in Mix.Utils.read_path/2>
+    Args: []
+** (EXIT from #PID<0.101.0>) an exception was raised:
+    ** (FunctionClauseError) no function clause matching in :pubkey_os_cacerts.conv_error_reason/1
+        (public_key 1.21.4) pubkey_os_cacerts.erl:301: :pubkey_os_cacerts.conv_error_reason(:no_cacerts_found)
+        (public_key 1.21.4) pubkey_os_cacerts.erl:56: :pubkey_os_cacerts.get/0
+        (mix 1.20.0) lib/mix/utils.ex:883: Mix.Utils.read_httpc/1
+        (mix 1.20.0) lib/mix/utils.ex:808: anonymous fn/2 in Mix.Utils.read_path/2
+        (elixir 1.20.0) lib/task/supervised.ex:105: Task.Supervised.invoke_mfa/2
+        (elixir 1.20.0) lib/task/supervised.ex:40: Task.Supervised.reply/4
+
