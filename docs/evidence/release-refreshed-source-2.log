@@ -1,0 +1,23 @@
+{
+  "tag": "v0.1.0-dev",
+  "qualification": {
+    "run_id": 34193449987,
+    "attempt": 1,
+    "commit": "c37c458211d0bff7e4054f90bf5d429f29ece2ef"
+  },
+  "consumer_qualification": {
+    "run_id": 34201908919,
+    "attempt": 1,
+    "commit": "21cda14476ad44343a3d6f690ceea58d1ca33644",
+    "source_package_sha256": "427a819b6eaee0f7cb80cc5e089abb3583a3c50ab016bc475b8e139bf13e3aa8",
+    "inputs_sha256": "fe05e164d94006743fd7be3f57e0a83ee06d54cf5612496a210204435ef54e65"
+  },
+  "assets": {
+    "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+    "aarch64-linux-gnu-identity.json": "5e00e063aa7ddb131ff050f267a840d3672d2e74cd26b2ee05068df3716fc6a2",
+    "aarch64-linux-gnu-elf-audit.json": "647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+    "aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+    "x86_64-linux-gnu-identity.json": "5c4643108438c42eb24d9b76f7815b96479939d3be1fc59cd7dc779fb6bc5cb7",
+    "x86_64-linux-gnu-elf-audit.json": "c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014"
+  }
+}

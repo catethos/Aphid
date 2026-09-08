@@ -2,8 +2,8 @@
 
 Current handoff: [default delivery and shipped-content review](evidence/release-preparation-1.md).
 Default selection is prepared but disabled until authorized delivery; the native
-bytes are unchanged. Notice delivery, final consumer-to-release provenance and
-macOS/public endpoint scope must be settled before requesting draft creation.
+bytes are unchanged. Refreshed consumer-to-release verification passes locally.
+Notice delivery and macOS/public endpoint scope remain before draft authorization.
 Older checkpoints below remain historical, not current gate closures.
 
 The public repository is [catethos/Aphid](https://github.com/catethos/Aphid),
@@ -134,3 +134,12 @@ or upload native bundles. Optional seven-day `retain_source` retention includes
 only the passing combined source package, consumer inputs and log, after the
 consumer and embedded release checks succeed. Qualification provenance and archive hashes are checked
 before the real adapter and loader tests.
+
+The draft workflow now also requires `consumer_run=34201908919` for this
+prepared version. The version-specific consumer record pins its attempt/commit,
+source archive and retained input-record hashes; the verifier checks current
+executable source and both catalogs against that successful consumer. It still
+checks the original native qualification separately. The exact seven assets pass
+local staging in `artifacts/linux-release-review-13/`, unchanged from review 11.
+See [current evidence](evidence/release-preparation-1.md). No workflow dispatch
+that creates a release is authorized, and notices/macOS delivery decisions remain.

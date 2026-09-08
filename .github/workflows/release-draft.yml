@@ -6,6 +6,10 @@ on:
         description: Successful Linux qualification run pinned in the tagged source catalog
         type: string
         required: true
+      consumer_run:
+        description: Successful combined consumer run pinned in version-specific review record
+        type: string
+        required: true
       reviewed:
         description: Owner has reviewed the exact assets, notices and release boundaries
         type: boolean
@@ -28,15 +32,19 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_ID: ${{ inputs.qualification_run }}
+          CONSUMER_RUN_ID: ${{ inputs.consumer_run }}
         run: |
           [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+          [[ "$CONSUMER_RUN_ID" =~ ^[0-9]+$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CONSUMER_RUN_ID" > "$RUNNER_TEMP/consumer.json"
+          gh run download "$CONSUMER_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "combined-source-$CONSUMER_RUN_ID" --dir "$RUNNER_TEMP/consumer"
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" > "$RUNNER_TEMP/qualification.json"
           gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --pattern "validation-*-$RUN_ID-*" --dir "$RUNNER_TEMP/qualified"
       - name: Verify source-pinned identities and stage exact assets
         env:
           TAG: ${{ github.ref_name }}
         run: |
-          python3 scripts/release_assets.py --run "$RUNNER_TEMP/qualification.json" --artifacts "$RUNNER_TEMP/qualified" --output "$RUNNER_TEMP/release" --tag "$TAG"
+          python3 scripts/release_assets.py --run "$RUNNER_TEMP/qualification.json" --artifacts "$RUNNER_TEMP/qualified" --output "$RUNNER_TEMP/release" --tag "$TAG" --consumer-run "$RUNNER_TEMP/consumer.json" --consumer-artifacts "$RUNNER_TEMP/consumer"
       - name: Create a draft prerelease for owner review
         env:
           GH_TOKEN: ${{ github.token }}

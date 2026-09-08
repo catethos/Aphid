@@ -1,0 +1,30 @@
+{
+  "SHA256SUMS": {
+    "sha256": "e210710325673b893c87b31d36e2d4fcbe2ff98f50347601451235875e7d5c1b",
+    "bytes": 605
+  },
+  "aarch64-linux-gnu-elf-audit.json": {
+    "sha256": "647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+    "bytes": 1243400
+  },
+  "aarch64-linux-gnu-identity.json": {
+    "sha256": "5e00e063aa7ddb131ff050f267a840d3672d2e74cd26b2ee05068df3716fc6a2",
+    "bytes": 1410
+  },
+  "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz": {
+    "sha256": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+    "bytes": 46275962
+  },
+  "aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz": {
+    "sha256": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+    "bytes": 49965445
+  },
+  "x86_64-linux-gnu-elf-audit.json": {
+    "sha256": "c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014",
+    "bytes": 1252366
+  },
+  "x86_64-linux-gnu-identity.json": {
+    "sha256": "5c4643108438c42eb24d9b76f7815b96479939d3be1fc59cd7dc779fb6bc5cb7",
+    "bytes": 1408
+  }
+}

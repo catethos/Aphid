@@ -81,19 +81,33 @@ a successful source-pinned native qualification. It does not create a tag,
 overwrite assets, include macOS/ERTS, or publish Hex. Version-specific notes
 accurately limit the native evidence to Ubuntu 24.04/glibc 2.39.
 
-The verifier still rejects changed Mix/Elixir source against run 34193449987's
-consumer inputs. That is intentional: this installer change is not qualified by
-that older run. Before draft creation, preserve native provenance from run
-34193449987 while separately verifying fresh consumer provenance for the final
-source package; do not weaken or remove the source comparison, and do not rebuild
-unchanged natives to refresh wrapper evidence. The consumer workflow already
-supports rerunning the current source with those archives.
+Without refreshed evidence, the verifier still rejects changed Mix/Elixir source
+against run 34193449987's consumer inputs (`release-stale-source-1.log`). The
+manual workflow now additionally requires a consumer run. Version-specific
+`docs/releases/v0.1.0-dev-consumer.json` independently pins run 34201908919's
+attempt, source commit, exact source archive and input-record SHA256. The run
+must be a successful manual `linux-consumer.yml` run of main. Its retained x86_64
+source/inputs are checked against those pins and the current executable source
+and both identity catalogs; both native identities/archives/audits still must
+match the original run 34193449987. Manual review confirmed both consumer jobs
+used the identical pinned source archive. The input record cannot be edited to
+bypass the source check because its own hash is pinned too.
+
+`release-refreshed-source-2.log` passes actual downloaded assets through that
+route into `artifacts/linux-release-review-13/`. All seven output assets remain
+byte-identical to review 11. `release-assets-checks-4.log` adds successful refreshed
+staging and six rejection checks (run failure/commit, changed input record,
+package, wrapper and catalog) to the original seven rejection checks. Workflow
+lint passes. No draft workflow was executed. Later catalog URL or executable
+changes require new consumer evidence and explicit review of its updated pins.
+Linux consumer acquisition now excludes only the source-only `url` and
+qualification fields when comparing the original native identity, as the release
+verifier already does; archive hashes and all native identity fields still match.
 
 A draft is private and does not prove anonymous public HTTPS delivery. A Linux-only
 draft also cannot satisfy the three-target endpoint gate. Before requesting a
 concrete draft authorization, finish the notice/shipped-content decision, decide
-the macOS asset delivery scope, tie final source consumer evidence into promotion,
-and identify the exact signed source tag and final asset matrix. Public
+the macOS asset delivery scope, and identify the exact signed source tag and final asset matrix. Public
 publication needs its own explicit authorization too. No approval is requested
 prematurely here. Preserve local verified copies: Actions copies expire around
 2026-09-15 07:03 UTC; ephemeral Linux Mix releases cannot be recovered from them.
@@ -112,3 +126,84 @@ and GLIBCXX 3.4.32, and installation needs GNU objcopy. macOS execution is 26.6
 only; 13.3 declarations do not prove that minimum and installation needs otool.
 DuckDB remains 1.4.4. Sibling projects, configured signing and qualified native
 bytes are preserved; no native rebuild, sanitizer rerun or performance work.
+
+## Checks from this continuation
+
+- `default-selection-1.log`: all three package-pinned selections in private catalog
+  fixtures; absent URLs, wrong versions/pins, unsupported targets/libc, partial
+  override and forced source rejection, before native module load.
+- `default-https-2.log`: real loopback TLS no-input installation and repeat
+  installation with a privately enabled catalog, five HTTPS rejection checks,
+  then a fresh explicit-HTTPS compiler-free consumer passing 92 tests with
+  unchanged native hashes. The first attempt (`default-https-1.log`) failed at
+  port binding under the outer sandbox and is retained. This is not repository
+  delivery or a complete no-input consumer compilation proof.
+- `default-package-consumer-1.log`: new local source archive
+  `aphid-0.1.0-dev-default-preparation-1.tar`, SHA256
+  `8d968a6c2fc02a472e9f75f93c66a30d28c005574926182fe6912e1043d7b1c1`,
+  passes all 92 tests on macOS with normal locked Hex dependency acquisition,
+  fresh build caches, denied compiler/development reads, and unchanged native
+  hashes. It contains the disabled default path, not the earlier combined source
+  bytes. Later documentation changes do not alter this retained package.
+- `default-failures-1.log`: 23 actual installer rejection cases and separate
+  missing/corrupt/unloadable NIF loader checks pass against the new consumer.
+- `https-selection-2.log`, `release-assets-checks-3.log`: selection conflicts and
+  offline release staging/seven rejection fixtures pass. Actual old downloaded
+  assets intentionally fail the new-source comparison in
+  `release-stale-source-1.log`; the verifier was not weakened.
+- `draft-matrix-review-1.json`: exact seven staged assets rehashed and all six
+  SHA256SUMS entries checked. All workflow files pass actionlint 1.7.12. Elixir
+  formatting and Python syntax checks pass.
+
+Signed source commit `21cda14476ad44343a3d6f690ceea58d1ca33644` was pushed.
+Run 34201908919 passed both native Linux consumers and embedded releases
+without a native rebuild; exact results are below. No release
+workflow was dispatched. The signing daemon required outer-sandbox access;
+configured signing remained enabled. Disk-space cleanup removed only successful
+loopback proof copies after retaining their input record; exact paths are in
+`default-success-cleanup-1.json`. Original artifacts and failed attempts remain.
+
+
+## Final combined source evidence
+
+Run [34201908919](https://github.com/catethos/Aphid/actions/runs/34201908919)
+passed both native Ubuntu 24.04 architectures. Each passed a fresh 92-test
+consumer, 23 installer rejections, loader failures, a relocated 92-test
+bundled-ERTS release, embedded startup/restart, offline shutdown/persistent reopen
+and embedded missing/corrupt/unloadable startup checks. The original native
+archives and hashes are unchanged. Linux Mix release archives remain ephemeral;
+no new native or Mix release archive was uploaded.
+
+The retained exact source archive is
+`artifacts/default-source-linux-1/aphid-current-consumer/aphid-0.1.0-dev-combined.tar`,
+104,448 bytes, SHA256
+`427a819b6eaee0f7cb80cc5e089abb3583a3c50ab016bc475b8e139bf13e3aa8`.
+Both Linux jobs recorded that hash. The same downloaded bytes then passed a
+fresh macOS ARM64 consumer's 92 tests with normal locked dependency acquisition,
+empty caches, compiler/development-read denial and unchanged native hashes
+(`default-combined-macos-1.log`). Its compressed source contents equal the local
+preparation-1 package; outer metadata ordering differs. Neither is the earlier
+combined-linux-2 archive, which remains unchanged historical evidence.
+
+`default-linux-run-1.json`, `default-linux-consumers-1.log`,
+`default-linux-artifacts-1.json` and `default-combined-package-1.json` retain run,
+log, seven-day source retention and independent package comparisons. Source
+retention included only the passing x86_64 source package, inputs and log. It
+expires around September 15; the native Actions copies have their original
+expiry. The final source for eventual public/Hex delivery remains a future
+artifact after notices and enabled URLs are reviewed. Actual repository delivery,
+no-input fresh consumer compilation via that endpoint and Hex registry
+installation are not proved by these local-archive consumers.
+
+Next resolve which retained notices must be shipped and how to include them
+without changing qualified native bytes; obtain authoritative missing notices
+without unapproved external messages. Settle macOS delivery scope and the final
+signed tag/assets, then seek separate explicit release creation authorization.
+A draft alone will not close public delivery; obtain publication authorization
+before enabling repository URLs and rerunning the final three-target package.
+
+Final checks in `default-final-checks-1.json` verify the original four artifacts,
+unchanged native lock and all seven byte-identical staged release assets. They
+also verify that ignoring source-only URL metadata for native acquisition still
+rejects a changed native SHA256. No final consumer code changed after the passing
+run; later edits affect release verification, its tests and documentation.

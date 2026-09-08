@@ -102,7 +102,7 @@ IO.puts("No-input package-pinned HTTPS install and repeat install passed; native
         run(['elixir', str(default_checks)], cwd=fixture,
             env=dict(env, APHID_ADAPTER=str(fixture / 'mix/aphid_bundle.exs'),
                      EXPECTED_SHA256=args.sha256), timeout=120)
-        run(['elixir' , str(checks), base, args.sha256, str(work)],
+        run(['elixir', str(checks), base, args.sha256, str(work)],
             env=dict(env, APHID_ADAPTER=str(ROOT / 'mix/aphid_bundle.exs')), timeout=120)
         run(['python3', 'scripts/precompiled_consumer.py', '--archive', str(args.archive.resolve()),
              '--sha256', args.sha256, '--destination', str(work / 'fresh'),

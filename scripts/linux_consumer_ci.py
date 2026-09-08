@@ -36,7 +36,7 @@ def main():
          '--name', name, '--dir', str(retained)], timeout=300)
     os.environ.pop('GH_TOKEN', None)  # Acquisition credentials do not enter application proofs.
     packaged = retained / 'aphid-linux-distribution/packaged'
-    if json.loads((packaged / 'identity.json').read_text()) != {k: v for k, v in pin.items() if k != 'qualification'}:
+    if json.loads((packaged / 'identity.json').read_text()) != {k: v for k, v in pin.items() if k not in ['qualification', 'url']}:
         raise RuntimeError('Retained native identity differs from the reviewed source pin')
     archive = packaged / pin['archive']
     if sha(archive) != pin['sha256']:

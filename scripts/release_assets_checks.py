@@ -62,6 +62,49 @@ def main():
         else:
             raise AssertionError('Untested source was accepted')
         (root / 'mix.exs').write_text('Mix fixture')
+        # New source is independently qualified without changing native provenance.
+        (root / 'mix.exs').write_text('new qualified wrapper')
+        for name in ['local-bundle.json', 'linux-bundles.json']:
+            (root / 'native' / name).write_text('{}')
+        fresh = work / 'fresh'
+        fresh.mkdir()
+        package = fresh / 'aphid-0.1.0-dev-combined.tar'
+        package.write_bytes(b'independently pinned source fixture')
+        record = fresh / 'inputs.json'
+        record.write_text(json.dumps({'source_package_sha256': sha(package),
+            'archive_sha256': catalog['x86_64-linux-gnu']['sha256'],
+            'normal_hex_dependencies': True, 'package_files': {
+                name: sha(root / name) for name in
+                ['mix.exs', 'native/local-bundle.json', 'native/linux-bundles.json']}}))
+        consumer_run = dict(run, id=456, head_sha='c' * 40, path='.github/workflows/linux-consumer.yml')
+        reviewed = {'run_id': 456, 'attempt': 1, 'commit': 'c' * 40,
+                    'source_package_sha256': sha(package), 'inputs_sha256': sha(record)}
+        (root / 'docs/releases').mkdir(parents=True)
+        (root / 'docs/releases/v0.1.0-dev-consumer.json').write_text(json.dumps(reviewed))
+        with contextlib.redirect_stdout(io.StringIO()):
+            prepare(catalog, run, work, work / 'refreshed', 'v0.1.0-dev', root,
+                    consumer_run=consumer_run, consumer_artifacts=fresh)
+        for number, bad in enumerate([dict(consumer_run, conclusion='failure'),
+                                      dict(consumer_run, head_sha='d' * 40)]):
+            try:
+                prepare(catalog, run, work, work / f'bad-consumer-{number}', 'v0.1.0-dev', root,
+                        consumer_run=bad, consumer_artifacts=fresh)
+            except ValueError:
+                assert not (work / f'bad-consumer-{number}').exists()
+            else:
+                raise AssertionError('Wrong consumer provenance accepted')
+        for number, path in enumerate([record, package, root / 'mix.exs', root / 'native/linux-bundles.json']):
+            original = path.read_bytes()
+            path.write_bytes(original + b'changed')
+            try:
+                prepare(catalog, run, work, work / f'changed-consumer-{number}', 'v0.1.0-dev', root,
+                        consumer_run=consumer_run, consumer_artifacts=fresh)
+            except ValueError:
+                assert not (work / f'changed-consumer-{number}').exists()
+            else:
+                raise AssertionError('Changed consumer inputs accepted')
+            path.write_bytes(original)
+        (root / 'mix.exs').write_text('Mix fixture')
         archive.write_bytes(b'tampered')
         try:
             prepare(catalog, run, work, work / 'tampered', 'v0.1.0-dev', root)
@@ -69,7 +112,7 @@ def main():
             assert not (work / 'tampered').exists()
         else:
             raise AssertionError('Changed archive was accepted')
-    print('Release asset staging and seven rejection checks passed; no upload or release created.')
+    print('Original and refreshed-source staging, seven original and six refreshed rejection checks passed; no upload or release created.')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,8 @@
+{
+  "removed_completed_disposable_copies": [
+    "/private/tmp/aphid-default-https-2/fresh",
+    "/private/tmp/aphid-default-https-2/default-package/_build",
+    "/private/tmp/aphid-default-https-2/candidate.tar.gz"
+  ],
+  "retained": "original native/source artifacts, failed HTTPS attempt 1, input records, fixtures and complete logs"
+}

@@ -14,20 +14,42 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def prepare(catalog, run, artifacts, output, tag, root=ROOT):
+def prepare(catalog, run, artifacts, output, tag, root=ROOT, consumer_run=None, consumer_artifacts=None):
     if set(catalog) != TARGETS:
         raise ValueError('Both reviewed Linux bundle identities must be pinned before release preparation')
     if (run['status'], run['conclusion'], run['event'], run['head_branch'], run['path']) != (
             'completed', 'success', 'workflow_dispatch', 'main', '.github/workflows/linux-native.yml'):
         raise ValueError('Expected a successful manual Linux qualification of main')
     provenance = {'run_id': run['id'], 'attempt': run['run_attempt'], 'commit': run['head_sha']}
+    if any(tag != 'v' + pin['package_version'] for pin in catalog.values()):
+        raise ValueError('Tag does not match the reviewed package version')
+    refreshed = None
+    if consumer_run is not None:
+        reviewed = json.loads((root / f'docs/releases/{tag}-consumer.json').read_text())
+        actual = {'run_id': consumer_run['id'], 'attempt': consumer_run['run_attempt'],
+                  'commit': consumer_run['head_sha']}
+        if actual != {k: reviewed[k] for k in actual} or (
+                consumer_run['status'], consumer_run['conclusion'], consumer_run['event'],
+                consumer_run['head_branch'], consumer_run['path']) != (
+                'completed', 'success', 'workflow_dispatch', 'main', '.github/workflows/linux-consumer.yml'):
+            raise ValueError('Fresh consumer run differs from reviewed successful source qualification')
+        records = list(consumer_artifacts.rglob('inputs.json'))
+        packages = list(consumer_artifacts.rglob('aphid-0.1.0-dev-combined.tar'))
+        if len(records) != 1 or len(packages) != 1 or records[0].is_symlink() or packages[0].is_symlink():
+            raise ValueError('Expected one retained combined source package and consumer record')
+        if sha(records[0]) != reviewed['inputs_sha256']:
+            raise ValueError('Fresh consumer input record differs from reviewed pin')
+        refreshed = json.loads(records[0].read_text())
+        if (sha(packages[0]) != reviewed['source_package_sha256'] or
+                refreshed['source_package_sha256'] != reviewed['source_package_sha256'] or
+                refreshed['archive_sha256'] != catalog['x86_64-linux-gnu']['sha256'] or
+                not refreshed['normal_hex_dependencies']):
+            raise ValueError('Fresh consumer package or native archive differs from reviewed pins')
     assets = []
     for target in sorted(TARGETS):
         pin = catalog[target]
         if pin.get('qualification') != provenance or pin['target'] != target:
             raise ValueError(f'Qualification provenance differs from reviewed {target} identity')
-        if tag != 'v' + pin['package_version']:
-            raise ValueError(f'Tag does not match the reviewed {target} package version')
         if pin['native_lock_sha256'] != sha(root / 'native/lock.json'):
             raise ValueError('Release native lock differs from qualification')
         for name, digest in pin['native_sources'].items():
@@ -47,12 +69,15 @@ def prepare(catalog, run, artifacts, output, tag, root=ROOT):
         consumer = json.loads(consumer_records[0].read_text())
         if consumer['archive_sha256'] != pin['sha256'] or not consumer['normal_hex_dependencies']:
             raise ValueError('Consumer record does not qualify this archive with normal dependencies')
+        source_consumer = refreshed if refreshed is not None else consumer
         def executable_source(name):
-            return name in ['mix.exs', 'mix.lock'] or name.startswith(('lib/', 'mix/'))
-        tested = {name: digest for name, digest in consumer['package_files'].items()
+            return name in ['mix.exs', 'mix.lock'] or name.startswith(('lib/', 'mix/')) or (
+                refreshed is not None and name in ['native/local-bundle.json', 'native/linux-bundles.json'])
+        tested = {name: digest for name, digest in source_consumer['package_files'].items()
                   if executable_source(name)}
         current = {str(path.relative_to(root)): sha(path)
-                   for pattern in ['mix.exs', 'mix.lock', 'lib/**/*.ex', 'mix/**/*.exs']
+                   for pattern in (['mix.exs', 'mix.lock', 'lib/**/*.ex', 'mix/**/*.exs'] +
+                                   (['native/local-bundle.json', 'native/linux-bundles.json'] if refreshed is not None else []))
                    for path in root.glob(pattern) if path.is_file()}
         if tested != current or not tested:
             raise ValueError('Tagged Elixir source differs from the fresh qualified consumer')
@@ -73,6 +98,7 @@ def prepare(catalog, run, artifacts, output, tag, root=ROOT):
     (output / 'SHA256SUMS').write_text(''.join(
         f'{sha(output / name)}  {name}\n' for _, name in sorted(assets, key=lambda item: item[1])))
     print(json.dumps({'tag': tag, 'qualification': provenance,
+                      'consumer_qualification': reviewed if refreshed is not None else None,
                       'assets': {name: sha(output / name) for _, name in assets}}, indent=2))
 
 
@@ -82,9 +108,15 @@ def main():
     parser.add_argument('--run', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--tag', required=True)
+    parser.add_argument('--consumer-run', type=Path)
+    parser.add_argument('--consumer-artifacts', type=Path)
     args = parser.parse_args()
+    if bool(args.consumer_run) != bool(args.consumer_artifacts):
+        parser.error('--consumer-run and --consumer-artifacts must be supplied together')
     prepare(json.loads((ROOT / 'native/linux-bundles.json').read_text()),
-            json.loads(args.run.read_text()), args.artifacts.resolve(), args.output.resolve(), args.tag)
+            json.loads(args.run.read_text()), args.artifacts.resolve(), args.output.resolve(), args.tag,
+            consumer_run=json.loads(args.consumer_run.read_text()) if args.consumer_run else None,
+            consumer_artifacts=args.consumer_artifacts.resolve() if args.consumer_artifacts else None)
 
 
 if __name__ == '__main__':
