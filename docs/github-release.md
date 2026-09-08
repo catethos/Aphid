@@ -98,13 +98,15 @@ source catalog. Each identity must carry `qualification` with `run_id`, `attempt
 and full `commit`. These must match a successful manual Linux workflow of `main`.
 The tag must match the pinned package version. The verifier compares the exact
 downloaded identities, archive hashes/sizes, ELF audit hashes, native lock and
-interface source hashes before staging any release assets. It retains the native
+interface source hashes before staging any release assets. The tagged Mix/Elixir
+code must also match the retained fresh-consumer input hashes; untested wrapper
+or installer changes cannot be promoted using an older qualification. It retains the native
 archive bytes unchanged and generates `SHA256SUMS`. The current empty catalog
 rejects promotion, so this workflow is not yet ready to execute.
 
 The verifier has an offline fixture check (`scripts/release_assets_checks.py`)
 covering valid staging plus empty catalog, failed run, wrong source commit,
-wrong tag, changed lock and changed archive rejection. This does not establish
+wrong tag, changed lock, untested Elixir source and changed archive rejection. This does not establish
 actual GitHub release upload or public HTTPS delivery. Workflow lint also passes.
 The Linux draft omits macOS: the approved seven-day retention scope covers Linux
 qualification archives only, and the original macOS archive remains local.

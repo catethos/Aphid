@@ -41,6 +41,21 @@ def prepare(catalog, run, artifacts, output, tag, root=ROOT):
         identity = json.loads(identity_path.read_text())
         if identity != {k: v for k, v in pin.items() if k not in ['qualification', 'url']}:
             raise ValueError(f'Downloaded identity differs from reviewed {target} pin')
+        consumer_records = list(directory.rglob('inputs.json'))
+        if len(consumer_records) != 1 or consumer_records[0].is_symlink():
+            raise ValueError(f'Expected one fresh-consumer input record for {target}')
+        consumer = json.loads(consumer_records[0].read_text())
+        if consumer['archive_sha256'] != pin['sha256'] or not consumer['normal_hex_dependencies']:
+            raise ValueError('Consumer record does not qualify this archive with normal dependencies')
+        def executable_source(name):
+            return name in ['mix.exs', 'mix.lock'] or name.startswith(('lib/', 'mix/'))
+        tested = {name: digest for name, digest in consumer['package_files'].items()
+                  if executable_source(name)}
+        current = {str(path.relative_to(root)): sha(path)
+                   for pattern in ['mix.exs', 'mix.lock', 'lib/**/*.ex', 'mix/**/*.exs']
+                   for path in root.glob(pattern) if path.is_file()}
+        if tested != current or not tested:
+            raise ValueError('Tagged Elixir source differs from the fresh qualified consumer')
         expected_name = f'aphid-{pin["package_version"]}-{target}.tar.gz'
         if pin['archive'] != expected_name:
             raise ValueError('Unexpected runtime archive name')
