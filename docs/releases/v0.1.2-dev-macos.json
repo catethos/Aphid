@@ -1,0 +1,6 @@
+{
+  "inputs_sha256": "67f7f45f6587a2afdec75d76dfdf30ccd10513f138b0495ec122ef0d94b4707e",
+  "source_package_sha256": "7236de60e361c8eabe2d4f17973ce6f9e71b247570deb5736553d6f051a037f4",
+  "consumer_log": "docs/evidence/release-012-final-macos-consumer.log",
+  "consumer_log_sha256": "bb8fb619b52868154518add5875dadfdf88821bffd02d005ba9a2ec08ac12805"
+}

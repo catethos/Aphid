@@ -52,3 +52,15 @@ the catalogs.
 
 - aarch64-linux-gnu: `773c99a84225dc0486a89bc1d5ef90bf3144223c04222623910b9aff15ad1731` (46396683 bytes).
 - x86_64-linux-gnu: `60c3d09f2b6e41248fde52375f5da8ab0cb90b4df3b7dd3f414f820a472e91ae` (50092308 bytes).
+
+## Final combined package
+
+[Combined consumer run 34255516099](https://github.com/catethos/Aphid/actions/runs/34255516099)
+passed on both Linux architectures, including 101 fresh-consumer and 101
+bundled-ERTS tests per target. The exact retained source archive also passes
+all 101 tests in a fresh macOS consumer.
+
+Qualified source archive SHA256: `7236de60e361c8eabe2d4f17973ce6f9e71b247570deb5736553d6f051a037f4`.
+The frozen-source package-only Hex dry run passes. Publication uses this exact
+retained tarball through Hex 2.5.1's `Hex.API.Release.publish/5`, with the normal
+authentication wrapper and `replace=false`, matching the installed CLI flow.

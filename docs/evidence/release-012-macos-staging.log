@@ -1,0 +1,9 @@
+{
+  "tag": "v0.1.2-dev",
+  "assets": {
+    "aarch64-macos-audit.json": "f0a83bce39a1dfa449d95ae57c07dc49947ed2f638aa7991280ca794a8ad9af9",
+    "aarch64-macos-identity.json": "f595e0d66930915c95fcdc49b965dadc0a2dc3ffd57d2b120d45ce603bebdd9b",
+    "aphid-0.1.2-dev-aarch64-macos.tar.gz": "f16d35403a13fce83ea0c94ae5caf11aff8de508c50cac3e09bafd517c474ea6"
+  },
+  "source_package_sha256": "7236de60e361c8eabe2d4f17973ce6f9e71b247570deb5736553d6f051a037f4"
+}

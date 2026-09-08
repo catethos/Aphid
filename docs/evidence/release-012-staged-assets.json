@@ -1,0 +1,54 @@
+{
+  "SHA256SUMS": {
+    "sha256": "4a41f91960216fcfa2b29d39e5faecababe73f5c2b56df10cd6895f0efa1c02b",
+    "bytes": 776
+  },
+  "SHA256SUMS-macos": {
+    "sha256": "f0d315fb0da77ed8e1c7bd4a36c1aa742a8741ee6373f7d6f2bd0a6195ad0fb6",
+    "bytes": 288
+  },
+  "THIRD_PARTY.md": {
+    "sha256": "8ab7ae4bcb8f9d1d1557da6edd49a6c5349d787e7a119dd428113676da9a5950",
+    "bytes": 5424
+  },
+  "THIRD_PARTY_NOTICES.txt": {
+    "sha256": "a9380f27e98b9ee7180560a31c99994cdfcbb2b8efae4b526e5225b14c56e992",
+    "bytes": 23288
+  },
+  "aarch64-linux-gnu-elf-audit.json": {
+    "sha256": "1bbf7b9f920b86c1d0a51f3ec3605f3aec0152f72205ffd61237eecdc9147c90",
+    "bytes": 1243544
+  },
+  "aarch64-linux-gnu-identity.json": {
+    "sha256": "438b25c19cc9251bad47a579010b722fee64097db8b45f64a105b6f05dd35a38",
+    "bytes": 1410
+  },
+  "aarch64-macos-audit.json": {
+    "sha256": "f0a83bce39a1dfa449d95ae57c07dc49947ed2f638aa7991280ca794a8ad9af9",
+    "bytes": 27716
+  },
+  "aarch64-macos-identity.json": {
+    "sha256": "f595e0d66930915c95fcdc49b965dadc0a2dc3ffd57d2b120d45ce603bebdd9b",
+    "bytes": 1519
+  },
+  "aphid-0.1.2-dev-aarch64-linux-gnu.tar.gz": {
+    "sha256": "773c99a84225dc0486a89bc1d5ef90bf3144223c04222623910b9aff15ad1731",
+    "bytes": 46396683
+  },
+  "aphid-0.1.2-dev-aarch64-macos.tar.gz": {
+    "sha256": "f16d35403a13fce83ea0c94ae5caf11aff8de508c50cac3e09bafd517c474ea6",
+    "bytes": 33681661
+  },
+  "aphid-0.1.2-dev-x86_64-linux-gnu.tar.gz": {
+    "sha256": "60c3d09f2b6e41248fde52375f5da8ab0cb90b4df3b7dd3f414f820a472e91ae",
+    "bytes": 50092308
+  },
+  "x86_64-linux-gnu-elf-audit.json": {
+    "sha256": "e51e57efebdb09a824cd82df9e89bd9b601c22844a6b7a33b2d80d7024d38d04",
+    "bytes": 1252510
+  },
+  "x86_64-linux-gnu-identity.json": {
+    "sha256": "c099f935167f3ec539ef181095dbd3676700052de2796a265a40ff7f9e35f59a",
+    "bytes": 1408
+  }
+}
