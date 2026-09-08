@@ -148,12 +148,8 @@ end
         if kind == 'unloadable':
             if linux:
                 # Private mount only: hashes remain readable, dlopen must reject noexec.
-                command = ['sudo', '-E', 'unshare', '--mount', '--fork', '--propagation', 'private',
-                           'sh', '-c', 'mount --bind "$1" "$1" && mount -o remount,bind,noexec "$1" && shift && exec "$@"',
-                           'noexec-proof', str(app / 'priv/lib'), '/usr/bin/setpriv',
-                           '--reuid', str(os.getuid()), '--regid', str(os.getgid()), '--clear-groups',
-                           '--no-new-privs', '--', '/usr/bin/env', 'PATH=' + os.environ['PATH'],
-                           shutil.which('elixir'), *command[1:]]
+                from linux_sandbox import noexec
+                command = noexec(app / 'priv/lib', [shutil.which('elixir'), *command[1:]])
             else:
                 profile = work / 'unloadable.sb'
                 profile.write_text('(version 1)(allow default)(deny file-map-executable (subpath "' + str(app / 'priv/lib') + '"))')

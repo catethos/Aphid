@@ -1,0 +1,850 @@
+﻿2026-09-08T07:12:57.1182930Z Current runner version: '2.337.0'
+2026-09-08T07:12:57.1201551Z ##[group]Runner Image Provisioner
+2026-09-08T07:12:57.1202290Z Hosted Compute Agent
+2026-09-08T07:12:57.1202815Z Version: 20260828.587
+2026-09-08T07:12:57.1203330Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-08T07:12:57.1203916Z Build Date: 2026-08-28T16:44:25Z
+2026-09-08T07:12:57.1204497Z Worker ID: {c373a22a-64d4-4e8a-9a71-124f38596321}
+2026-09-08T07:12:57.1205089Z Azure Region: centralus
+2026-09-08T07:12:57.1205567Z ##[endgroup]
+2026-09-08T07:12:57.1206776Z ##[group]Operating System
+2026-09-08T07:12:57.1207259Z Ubuntu
+2026-09-08T07:12:57.1207715Z 24.04.4
+2026-09-08T07:12:57.1208149Z LTS
+2026-09-08T07:12:57.1208577Z ##[endgroup]
+2026-09-08T07:12:57.1209030Z ##[group]Runner Image
+2026-09-08T07:12:57.1209500Z Image: ubuntu-24.04
+2026-09-08T07:12:57.1209969Z Version: 20260831.293.1
+2026-09-08T07:12:57.1211198Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-08T07:12:57.1212460Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-08T07:12:57.1213227Z ##[endgroup]
+2026-09-08T07:12:57.1214223Z ##[group]GITHUB_TOKEN Permissions
+2026-09-08T07:12:57.1216281Z Actions: read
+2026-09-08T07:12:57.1216790Z Contents: read
+2026-09-08T07:12:57.1217247Z Metadata: read
+2026-09-08T07:12:57.1217709Z ##[endgroup]
+2026-09-08T07:12:57.1219355Z Secret source: Actions
+2026-09-08T07:12:57.1220243Z Prepare workflow directory
+2026-09-08T07:12:57.1485908Z Prepare all required actions
+2026-09-08T07:12:57.1526059Z Getting action download info
+2026-09-08T07:12:57.4008030Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-09-08T07:12:57.5519240Z Download action repository 'actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1' (SHA:ece7cb06caefa5fff74198d8649806c4678c61a1)
+2026-09-08T07:12:57.7079358Z Download action repository 'erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124' (SHA:54075bcc5e249e4758d363f27d099f55d843f124)
+2026-09-08T07:12:58.1719794Z Complete job name: consumer (ubuntu-24.04, x86_64-linux-gnu)
+2026-09-08T07:12:58.2275672Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-09-08T07:12:58.2276535Z with:
+2026-09-08T07:12:58.2277023Z   persist-credentials: false
+2026-09-08T07:12:58.2277496Z   repository: catethos/Aphid
+2026-09-08T07:12:58.2281031Z   token: ***
+2026-09-08T07:12:58.2281466Z   ssh-strict: true
+2026-09-08T07:12:58.2281898Z   ssh-user: git
+2026-09-08T07:12:58.2282317Z   clean: true
+2026-09-08T07:12:58.2282768Z   sparse-checkout-cone-mode: true
+2026-09-08T07:12:58.2283299Z   fetch-depth: 1
+2026-09-08T07:12:58.2283712Z   fetch-tags: false
+2026-09-08T07:12:58.2284136Z   show-progress: true
+2026-09-08T07:12:58.2284574Z   lfs: false
+2026-09-08T07:12:58.2284968Z   submodules: false
+2026-09-08T07:12:58.2285617Z   set-safe-directory: true
+2026-09-08T07:12:58.2286081Z   allow-unsafe-pr-checkout: false
+2026-09-08T07:12:58.2286704Z ##[endgroup]
+2026-09-08T07:12:58.3107794Z Syncing repository: catethos/Aphid
+2026-09-08T07:12:58.3109838Z ##[group]Getting Git version info
+2026-09-08T07:12:58.3110979Z Working directory is '/home/runner/work/Aphid/Aphid'
+2026-09-08T07:12:58.3112132Z [command]/usr/bin/git version
+2026-09-08T07:12:58.3172256Z git version 2.55.0
+2026-09-08T07:12:58.3190395Z ##[endgroup]
+2026-09-08T07:12:58.3200431Z Temporarily overriding HOME='/home/runner/work/_temp/4adf195b-279c-46e7-9b61-5ca3e89020d0' before making global git config changes
+2026-09-08T07:12:58.3202523Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T07:12:58.3203973Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+2026-09-08T07:12:58.3243555Z Deleting the contents of '/home/runner/work/Aphid/Aphid'
+2026-09-08T07:12:58.3254560Z ##[group]Determining repository object format
+2026-09-08T07:12:58.3262298Z ##[endgroup]
+2026-09-08T07:12:58.3263522Z ##[group]Initializing the repository
+2026-09-08T07:12:58.3267240Z [command]/usr/bin/git init /home/runner/work/Aphid/Aphid
+2026-09-08T07:12:58.3321542Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-08T07:12:58.3323134Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-08T07:12:58.3325832Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-08T07:12:58.3326681Z hint: call:
+2026-09-08T07:12:58.3327348Z hint:
+2026-09-08T07:12:58.3328082Z hint: 	git config --global init.defaultBranch <name>
+2026-09-08T07:12:58.3328944Z hint:
+2026-09-08T07:12:58.3330127Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-08T07:12:58.3331458Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-08T07:12:58.3332384Z hint:
+2026-09-08T07:12:58.3332906Z hint: 	git branch -m <name>
+2026-09-08T07:12:58.3333320Z hint:
+2026-09-08T07:12:58.3333925Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-08T07:12:58.3334773Z Initialized empty Git repository in /home/runner/work/Aphid/Aphid/.git/
+2026-09-08T07:12:58.3336871Z [command]/usr/bin/git remote add origin https://github.com/catethos/Aphid
+2026-09-08T07:12:58.3363561Z ##[endgroup]
+2026-09-08T07:12:58.3364651Z ##[group]Disabling automatic garbage collection
+2026-09-08T07:12:58.3367693Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-08T07:12:58.3390226Z ##[endgroup]
+2026-09-08T07:12:58.3391380Z ##[group]Setting up auth
+2026-09-08T07:12:58.3392078Z Removing SSH command configuration
+2026-09-08T07:12:58.3397168Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T07:12:58.3423684Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T07:12:58.3694393Z Removing HTTP extra header
+2026-09-08T07:12:58.3695635Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T07:12:58.3720946Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T07:12:58.3878139Z Removing includeIf entries pointing to credentials config files
+2026-09-08T07:12:58.3886892Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T07:12:58.3913592Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T07:12:58.4070841Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-08T07:12:58.4099545Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:58.4122025Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:58.4147368Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:58.4171422Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:58.4193872Z ##[endgroup]
+2026-09-08T07:12:58.4194669Z ##[group]Fetching the repository
+2026-09-08T07:12:58.4199859Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +61bbc60555ef1331fbe3b76f87a0387d20675074:refs/remotes/origin/main
+2026-09-08T07:12:59.5938917Z From https://github.com/catethos/Aphid
+2026-09-08T07:12:59.5939825Z  * [new ref]         61bbc60555ef1331fbe3b76f87a0387d20675074 -> origin/main
+2026-09-08T07:12:59.5948104Z [command]/usr/bin/git branch --list --remote origin/main
+2026-09-08T07:12:59.5969673Z   origin/main
+2026-09-08T07:12:59.5977987Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-09-08T07:12:59.5996342Z 61bbc60555ef1331fbe3b76f87a0387d20675074
+2026-09-08T07:12:59.5999017Z ##[endgroup]
+2026-09-08T07:12:59.6000444Z ##[group]Determining the checkout info
+2026-09-08T07:12:59.6001793Z ##[endgroup]
+2026-09-08T07:12:59.6003141Z [command]/usr/bin/git sparse-checkout disable
+2026-09-08T07:12:59.6038382Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-08T07:12:59.6058944Z ##[group]Checking out the ref
+2026-09-08T07:12:59.6061341Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-08T07:12:59.7512587Z Switched to a new branch 'main'
+2026-09-08T07:12:59.7518779Z branch 'main' set up to track 'origin/main'.
+2026-09-08T07:12:59.7526584Z ##[endgroup]
+2026-09-08T07:12:59.7557693Z [command]/usr/bin/git log -1 --format=%H
+2026-09-08T07:12:59.7576353Z 61bbc60555ef1331fbe3b76f87a0387d20675074
+2026-09-08T07:12:59.7584370Z ##[group]Removing auth
+2026-09-08T07:12:59.7585126Z Removing SSH command configuration
+2026-09-08T07:12:59.7587771Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T07:12:59.7611419Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T07:12:59.7771803Z Removing HTTP extra header
+2026-09-08T07:12:59.7774717Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T07:12:59.7798183Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T07:12:59.7949636Z Removing includeIf entries pointing to credentials config files
+2026-09-08T07:12:59.7953495Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T07:12:59.7973262Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+2026-09-08T07:12:59.7974496Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+2026-09-08T07:12:59.7975688Z includeif.gitdir:/github/workspace/.git.path
+2026-09-08T07:12:59.7976832Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T07:12:59.7980985Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+2026-09-08T07:12:59.7998505Z /home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8006773Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8031250Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+2026-09-08T07:12:59.8048098Z /home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8055191Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8082853Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-08T07:12:59.8103121Z /github/runner_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8110142Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8140895Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T07:12:59.8157717Z /github/runner_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8163283Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config
+2026-09-08T07:12:59.8187664Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T07:12:59.8338037Z Removing credentials config '/home/runner/work/_temp/git-credentials-e770c95b-d3af-4608-a45d-4db7448ba5d4.config'
+2026-09-08T07:12:59.8345008Z ##[endgroup]
+2026-09-08T07:12:59.8549175Z ##[group]Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+2026-09-08T07:12:59.8549768Z with:
+2026-09-08T07:12:59.8550169Z   python-version: 3.14
+2026-09-08T07:12:59.8550574Z   check-latest: false
+2026-09-08T07:12:59.8553393Z   token: ***
+2026-09-08T07:12:59.8553800Z   update-environment: true
+2026-09-08T07:12:59.8554247Z   allow-prereleases: false
+2026-09-08T07:12:59.8554676Z   freethreaded: false
+2026-09-08T07:12:59.8555067Z ##[endgroup]
+2026-09-08T07:12:59.9620869Z ##[group]Installed versions
+2026-09-08T07:12:59.9688753Z Successfully set up CPython (3.14.7)
+2026-09-08T07:12:59.9689783Z ##[endgroup]
+2026-09-08T07:12:59.9817483Z ##[group]Run erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+2026-09-08T07:12:59.9818044Z with:
+2026-09-08T07:12:59.9818533Z   otp-version: 29.0.4
+2026-09-08T07:12:59.9818972Z   elixir-version: 1.20.0
+2026-09-08T07:12:59.9821974Z   github-token: ***
+2026-09-08T07:12:59.9822421Z   otp-architecture: 64
+2026-09-08T07:12:59.9823129Z   install-hex: true
+2026-09-08T07:12:59.9823625Z   install-rebar: true
+2026-09-08T07:12:59.9824085Z   version-type: loose
+2026-09-08T07:12:59.9824551Z   disable_problem_matchers: false
+2026-09-08T07:12:59.9825059Z   hexpm-mirrors: https://builds.hex.pm
+
+2026-09-08T07:12:59.9825590Z env:
+2026-09-08T07:12:59.9826190Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:12:59.9826824Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+2026-09-08T07:12:59.9827440Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:12:59.9828033Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:12:59.9828726Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:12:59.9829342Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+2026-09-08T07:12:59.9829863Z ##[endgroup]
+2026-09-08T07:13:00.2033849Z ##[group]Installing Erlang/OTP OTP-29.0.4 - built on amd64/ubuntu-24.04
+2026-09-08T07:13:00.8420349Z [command]/usr/bin/tar zx --strip-components=1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/20520ad2-a22d-4ed5-9b0d-7e4eb09cdaba -f /home/runner/work/_temp/50c310ea-e9af-44fa-96bf-549eb1cd4597
+2026-09-08T07:13:03.7435004Z [command]/home/runner/work/_temp/.setup-beam/otp/Install -minimal /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T07:13:03.7645941Z Installed Erlang/OTP version
+2026-09-08T07:13:03.7663848Z [command]/home/runner/work/_temp/.setup-beam/otp/bin/erl -version
+2026-09-08T07:13:03.7755020Z Erlang (SMP,ASYNC_THREADS) (BEAM) emulator version 17.0.4
+2026-09-08T07:13:03.7793436Z ##[endgroup]
+2026-09-08T07:13:03.7795213Z [command]/home/runner/work/_temp/.setup-beam/otp/bin/erl -noshell -eval io:format(erlang:system_info(otp_release)), halt().
+2026-09-08T07:13:03.9492548Z 29::debug::Was not able to coerce latest with semver
+2026-09-08T07:13:03.9506092Z Using Elixir 1.20.0 (built for Erlang/OTP 29)
+2026-09-08T07:13:03.9506988Z ##[group]Installing Elixir v1.20.0-otp-29
+2026-09-08T07:13:04.2344143Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/6b92e9db-2777-4183-a77a-4744f62a164f
+2026-09-08T07:13:04.5871181Z Installed Elixir version
+2026-09-08T07:13:04.5882581Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/elixir -v
+2026-09-08T07:13:04.7631671Z Erlang/OTP 29 [erts-17.0.4] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit:ns]
+2026-09-08T07:13:04.7632756Z 
+2026-09-08T07:13:04.7680129Z Elixir 1.20.0 (compiled with Erlang/OTP 29)
+2026-09-08T07:13:04.7715333Z ##[endgroup]
+2026-09-08T07:13:04.7716197Z ##[group]Running mix local.rebar,--force
+2026-09-08T07:13:04.7718107Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/mix local.rebar --force
+2026-09-08T07:13:05.5500752Z * creating /home/runner/.mix/elixir/1-20-otp-29/rebar3
+2026-09-08T07:13:05.5536596Z ##[endgroup]
+2026-09-08T07:13:05.5537703Z ##[group]Running mix local.hex,--force
+2026-09-08T07:13:05.5551001Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/mix local.hex --force
+2026-09-08T07:13:06.3775357Z * creating /home/runner/.mix/archives/hex-2.5.1
+2026-09-08T07:13:06.3822578Z ##[endgroup]
+2026-09-08T07:13:06.3945970Z ##[group]Run sudo apt-get update
+2026-09-08T07:13:06.3946449Z [36;1msudo apt-get update[0m
+2026-09-08T07:13:06.3946836Z [36;1msudo apt-get install --yes bubblewrap binutils[0m
+2026-09-08T07:13:06.3947215Z [36;1mmix local.hex --force[0m
+2026-09-08T07:13:06.4294444Z shell: /usr/bin/bash -e {0}
+2026-09-08T07:13:06.4294807Z env:
+2026-09-08T07:13:06.4295244Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:06.4295712Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+2026-09-08T07:13:06.4296126Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:06.4296533Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:06.4296948Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:06.4297374Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+2026-09-08T07:13:06.4297774Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T07:13:06.4298301Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T07:13:06.4298671Z ##[endgroup]
+2026-09-08T07:13:06.5398719Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-09-08T07:13:06.5880454Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-09-08T07:13:06.5881767Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-09-08T07:13:06.5994513Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-09-08T07:13:06.6073697Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-09-08T07:13:06.6183217Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-09-08T07:13:06.7219276Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [441 kB]
+2026-09-08T07:13:06.7343103Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [394 kB]
+2026-09-08T07:13:06.7564902Z Get:18 https://dl.google.com/linux/chrome-stable/deb stable InRelease [2548 B]
+2026-09-08T07:13:06.7610496Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1260 kB]
+2026-09-08T07:13:06.7665464Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [292 kB]
+2026-09-08T07:13:06.7684423Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [180 kB]
+2026-09-08T07:13:06.7699152Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1691 kB]
+2026-09-08T07:13:06.7767710Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [339 kB]
+2026-09-08T07:13:06.7792126Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+2026-09-08T07:13:06.7817227Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1536 kB]
+2026-09-08T07:13:06.7881091Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [352 kB]
+2026-09-08T07:13:06.7910820Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2026-09-08T07:13:06.8013918Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5760 B]
+2026-09-08T07:13:06.8474116Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+2026-09-08T07:13:06.8512541Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1002 kB]
+2026-09-08T07:13:06.8556069Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [212 kB]
+2026-09-08T07:13:06.8592339Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [46.3 kB]
+2026-09-08T07:13:06.8602741Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1206 kB]
+2026-09-08T07:13:06.8729157Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [241 kB]
+2026-09-08T07:13:06.8748550Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.2 kB]
+2026-09-08T07:13:06.8766793Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1437 kB]
+2026-09-08T07:13:06.8878235Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [334 kB]
+2026-09-08T07:13:06.9173002Z Get:29 https://dl.google.com/linux/chrome-stable/deb stable/main amd64 Packages [1403 B]
+2026-09-08T07:13:13.5224233Z Fetched 11.8 MB in 1s (9676 kB/s)
+2026-09-08T07:13:14.1596302Z Reading package lists...
+2026-09-08T07:13:14.1848096Z Reading package lists...
+2026-09-08T07:13:14.2896272Z Building dependency tree...
+2026-09-08T07:13:14.2899153Z Reading state information...
+2026-09-08T07:13:14.4438647Z binutils is already the newest version (2.42-4ubuntu2.10).
+2026-09-08T07:13:14.4439388Z The following NEW packages will be installed:
+2026-09-08T07:13:14.4444623Z   bubblewrap
+2026-09-08T07:13:14.4582356Z 0 upgraded, 1 newly installed, 0 to remove and 44 not upgraded.
+2026-09-08T07:13:14.4582948Z Need to get 50.2 kB of archives.
+2026-09-08T07:13:14.4583454Z After this operation, 133 kB of additional disk space will be used.
+2026-09-08T07:13:14.4583970Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-09-08T07:13:14.5579441Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 bubblewrap amd64 0.9.0-1ubuntu0.1 [50.2 kB]
+2026-09-08T07:13:14.7658921Z Fetched 50.2 kB in 0s (464 kB/s)
+2026-09-08T07:13:14.8043698Z Selecting previously unselected package bubblewrap.
+2026-09-08T07:13:14.8662602Z (Reading database ... 
+2026-09-08T07:13:14.8663152Z (Reading database ... 5%
+2026-09-08T07:13:14.8663752Z (Reading database ... 10%
+2026-09-08T07:13:14.8664200Z (Reading database ... 15%
+2026-09-08T07:13:14.8664665Z (Reading database ... 20%
+2026-09-08T07:13:14.8665236Z (Reading database ... 25%
+2026-09-08T07:13:14.8665938Z (Reading database ... 30%
+2026-09-08T07:13:14.8666340Z (Reading database ... 35%
+2026-09-08T07:13:14.8666670Z (Reading database ... 40%
+2026-09-08T07:13:14.8666996Z (Reading database ... 45%
+2026-09-08T07:13:14.8667311Z (Reading database ... 50%
+2026-09-08T07:13:14.8944402Z (Reading database ... 55%
+2026-09-08T07:13:15.2845429Z (Reading database ... 60%
+2026-09-08T07:13:15.5420152Z (Reading database ... 65%
+2026-09-08T07:13:15.7893141Z (Reading database ... 70%
+2026-09-08T07:13:15.9713001Z (Reading database ... 75%
+2026-09-08T07:13:16.2567549Z (Reading database ... 80%
+2026-09-08T07:13:16.8101907Z (Reading database ... 85%
+2026-09-08T07:13:17.4624120Z (Reading database ... 90%
+2026-09-08T07:13:18.2618312Z (Reading database ... 95%
+2026-09-08T07:13:18.2618693Z (Reading database ... 100%
+2026-09-08T07:13:18.2619076Z (Reading database ... 201676 files and directories currently installed.)
+2026-09-08T07:13:18.2656733Z Preparing to unpack .../bubblewrap_0.9.0-1ubuntu0.1_amd64.deb ...
+2026-09-08T07:13:18.2758715Z Unpacking bubblewrap (0.9.0-1ubuntu0.1) ...
+2026-09-08T07:13:18.3222328Z Setting up bubblewrap (0.9.0-1ubuntu0.1) ...
+2026-09-08T07:13:18.3280057Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-09-08T07:13:18.3302348Z Not building database; man-db/auto-update is not 'true'.
+2026-09-08T07:13:19.2164812Z 
+2026-09-08T07:13:19.2165496Z Running kernel seems to be up-to-date.
+2026-09-08T07:13:19.2165909Z 
+2026-09-08T07:13:19.2166145Z No services need to be restarted.
+2026-09-08T07:13:19.2166387Z 
+2026-09-08T07:13:19.2166586Z No containers need to be restarted.
+2026-09-08T07:13:19.2166791Z 
+2026-09-08T07:13:19.2167010Z No user sessions are running outdated binaries.
+2026-09-08T07:13:19.2167285Z 
+2026-09-08T07:13:19.2167486Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-09-08T07:13:20.7467569Z * creating /home/runner/.mix/archives/hex-2.5.1
+2026-09-08T07:13:20.7554678Z ##[group]Run python3 -u scripts/linux_consumer_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-current-consumer"
+2026-09-08T07:13:20.7555437Z [36;1mpython3 -u scripts/linux_consumer_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-current-consumer"[0m
+2026-09-08T07:13:20.7578183Z shell: /usr/bin/bash -e {0}
+2026-09-08T07:13:20.7578487Z env:
+2026-09-08T07:13:20.7578779Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:20.7579256Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+2026-09-08T07:13:20.7579671Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:20.7580443Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:20.7581025Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T07:13:20.7581433Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+2026-09-08T07:13:20.7581956Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T07:13:20.7582385Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T07:13:20.7585012Z   GH_TOKEN: ***
+2026-09-08T07:13:20.7585289Z   APHID_TARGET: x86_64-linux-gnu
+2026-09-08T07:13:20.7585575Z ##[endgroup]
+2026-09-08T07:13:23.8634883Z {"command": ["gh", "run", "download", "34193449987", "--repo", "catethos/Aphid", "--name", "validation-x86_64-linux-gnu-34193449987-1", "--dir", "/home/runner/work/_temp/aphid-current-consumer/retained"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 1.917}
+2026-09-08T07:13:24.3839047Z Building aphid 0.1.0-dev
+2026-09-08T07:13:24.3839809Z   Dependencies:
+2026-09-08T07:13:24.3840534Z     zigler == 0.16.0 (app: zigler)
+2026-09-08T07:13:24.3841289Z     telemetry ~> 1.3 (app: telemetry)
+2026-09-08T07:13:24.3866181Z   App: aphid
+2026-09-08T07:13:24.3866600Z   Name: aphid
+2026-09-08T07:13:24.3866920Z   Files:
+2026-09-08T07:13:24.3867222Z     mix.exs
+2026-09-08T07:13:24.3867552Z     mix.lock
+2026-09-08T07:13:24.3867920Z     mix/aphid_bundle.exs
+2026-09-08T07:13:24.3868348Z     lib/aphid.ex
+2026-09-08T07:13:24.3868703Z     lib/aphid/application.ex
+2026-09-08T07:13:24.3869087Z     lib/aphid/bundle_loader.ex
+2026-09-08T07:13:24.3869484Z     lib/aphid/database.ex
+2026-09-08T07:13:24.3869848Z     lib/aphid/error.ex
+2026-09-08T07:13:24.3870209Z     lib/aphid/native.ex
+2026-09-08T07:13:24.3870712Z     lib/aphid/options.ex
+2026-09-08T07:13:24.3871107Z     lib/aphid/proof.ex
+2026-09-08T07:13:24.3871475Z     lib/aphid/result.ex
+2026-09-08T07:13:24.3871821Z     lib/aphid/stream.ex
+2026-09-08T07:13:24.3872190Z     lib/aphid/telemetry.ex
+2026-09-08T07:13:24.3872601Z     lib/aphid/transaction.ex
+2026-09-08T07:13:24.3873008Z     lib/aphid/value.ex
+2026-09-08T07:13:24.3873354Z     README.md
+2026-09-08T07:13:24.3873668Z     LICENSE
+2026-09-08T07:13:24.3873991Z     THIRD_PARTY.md
+2026-09-08T07:13:24.3874467Z     docs/architecture.md
+2026-09-08T07:13:24.3874828Z     docs/extensions.md
+2026-09-08T07:13:24.3875243Z     docs/github-release.md
+2026-09-08T07:13:24.3875665Z     docs/local-installation.md
+2026-09-08T07:13:24.3876043Z     docs/release-checklist.md
+2026-09-08T07:13:24.3876471Z     docs/source-installation.md
+2026-09-08T07:13:24.3876894Z     docs/status.md
+2026-09-08T07:13:24.3877263Z     docs/telemetry.md
+2026-09-08T07:13:24.3877652Z     docs/types.md
+2026-09-08T07:13:24.3877975Z     native/lock.json
+2026-09-08T07:13:24.3878632Z     native/local-bundle.json
+2026-09-08T07:13:24.3879255Z     native/linux-bundles.json
+2026-09-08T07:13:24.3879642Z     native/aphid_nif.zig
+2026-09-08T07:13:24.3880005Z     native/bridge.h
+2026-09-08T07:13:24.3880308Z     native/bridge.cpp
+2026-09-08T07:13:24.3880808Z     native/CMakeLists.txt
+2026-09-08T07:13:24.3881224Z     native/patches/aggregate-state-alignment.patch
+2026-09-08T07:13:24.3881743Z     native/patches/alp-conversion-range.patch
+2026-09-08T07:13:24.3882220Z     native/patches/detach-clear-default.patch
+2026-09-08T07:13:24.3882646Z     native/patches/duckdb-tabular-only.patch
+2026-09-08T07:13:24.3883251Z     native/patches/fts-atomic-create.patch
+2026-09-08T07:13:24.3883694Z     native/patches/join-row-alignment.patch
+2026-09-08T07:13:24.3884207Z     native/patches/node-delete-finalize.patch
+2026-09-08T07:13:24.3884623Z     native/patches/row-value-alignment.patch
+2026-09-08T07:13:24.3885022Z     native/patches/sort-key-alignment.patch
+2026-09-08T07:13:24.3885471Z     native/patches/string-hash-alignment.patch
+2026-09-08T07:13:24.3886035Z     native/patches/vector-drop-auto-transaction.patch
+2026-09-08T07:13:24.3886380Z     scripts/build.py
+2026-09-08T07:13:24.3886675Z     scripts/proof.py
+2026-09-08T07:13:24.3886970Z     scripts/source_preflight.py
+2026-09-08T07:13:24.3887278Z     native/proof.zig
+2026-09-08T07:13:24.3887539Z     native/proof.h
+2026-09-08T07:13:24.3887802Z     native/proof.cpp
+2026-09-08T07:13:24.3888107Z   Version: 0.1.0-dev
+2026-09-08T07:13:24.3888367Z   Build tools: mix
+2026-09-08T07:13:24.3888669Z   Description: LadybugDB for Elixir through Zigler
+2026-09-08T07:13:24.3889028Z   Licenses: MIT
+2026-09-08T07:13:24.3889299Z   Links: 
+2026-09-08T07:13:24.3889591Z     GitHub: https://github.com/catethos/Aphid
+2026-09-08T07:13:24.3889947Z   Elixir: ~> 1.20
+2026-09-08T07:13:24.4231230Z Package checksum: b85967b047662ccdc66851d246a9a7301fe8c797225d7e479948653838dc57df
+2026-09-08T07:13:24.4232176Z Saved to /home/runner/work/_temp/aphid-current-consumer/aphid-0.1.0-dev-combined.tar
+2026-09-08T07:13:24.4689520Z {"command": ["mix", "hex.build", "--output", "/home/runner/work/_temp/aphid-current-consumer/aphid-0.1.0-dev-combined.tar"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.565}
+2026-09-08T07:13:24.4691510Z {"source_package_sha256": "b85967b047662ccdc66851d246a9a7301fe8c797225d7e479948653838dc57df", "native_archive_sha256": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc", "native_qualification": {"run_id": 34193449987, "attempt": 1, "commit": "c37c458211d0bff7e4054f90bf5d429f29ece2ef"}}
+2026-09-08T07:13:25.8079626Z using exact local Hex source package: b85967b047662ccdc66851d246a9a7301fe8c797225d7e479948653838dc57df
+2026-09-08T07:13:25.8480878Z fresh caches; pinned source dependencies: [{"name": "earmark_parser", "version": "1.4.46", "sha256": "9c44636e8a1c68c62f526b2dcd85d941dbbcee7ab82cf64ba06ce28bef8e89f5"}, {"name": "ex_doc", "version": "0.39.1", "sha256": "8abf0ed3e3ca87c0847dfc4168ceab5bedfe881692f1b7c45f4a11b232806865"}, {"name": "makeup", "version": "1.2.2", "sha256": "9a1a24e5b343b8ae16abea0822c10a6f75da27af7fa802ada5251f7579bfccfa"}, {"name": "makeup_elixir", "version": "1.0.1", "sha256": "7284900d412a3e5cfd97fdaed4f5ed389b8f2b4cb49efc0eb3bd10e2febf9507"}, {"name": "makeup_erlang", "version": "1.1.0", "sha256": "1cd6780fb1dd1a03979abaed0fe82712b0625118fd5257d3ebbf73f960c73c3c"}, {"name": "nimble_parsec", "version": "1.4.2", "sha256": "4b21398942dda052b403bbe1da991ccd03a053668d147d53fb8c4e0efe09c973"}, {"name": "pegasus", "version": "0.2.6", "sha256": "0ac159f0ccab7967cf90208327cc8a35788874814c8d78e19d47104d3fc049b9"}, {"name": "protoss", "version": "1.1.0", "sha256": "c2f874383dd047fcfdf467b814dd33a208a4d24a467aef90d86185b41a0752ad"}, {"name": "telemetry", "version": "1.4.2", "sha256": "928f6495066506077862c0d1646609eed891a4326bee3126ba54b60af61febb1"}, {"name": "zig_doc", "version": "0.7.0", "sha256": "28b57b0bc12f241fc855b6514fe5198f3067fbab2555a3e3a83f6f9ed4699f4c"}, {"name": "zig_get", "version": "0.16.0", "sha256": "2841127cf2005da74fb28d3cc68397a393d3d71df5f45752b974345e696beb01"}, {"name": "zig_parser", "version": "0.7.0", "sha256": "fd0b2fc343820a202787a78a40feae372386b4303717b099223d5f5c5f21f0bb"}, {"name": "zigler", "version": "0.16.0", "sha256": "867ce49289568a7fabff400cb9f1636a429defcd488f3302a82c4b51b2bc7741"}]
+2026-09-08T07:13:25.9248534Z Linux namespace probe passed: build trees hidden, compiler paths masked, external network unavailable
+2026-09-08T07:13:25.9323162Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/aphid-current-consumer/fresh", "/home/runner/work/_temp/aphid-current-consumer/fresh", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--tmpfs", "/home/runner/work/_temp/aphid-current-consumer/retained", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner", "--setenv", "PATH", "/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/x64/bin:/opt/hostedtoolcache/Python/3.14.7/x64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "/opt/hostedtoolcache/Python/3.14.7/x64/bin/python3", "/home/runner/work/_temp/aphid-current-consumer/fresh/isolation-check.py"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/fresh", "exit": 0, "seconds": 0.064}
+2026-09-08T07:13:26.1364515Z UTF-8 runtime filename mode verified
+2026-09-08T07:13:26.1470191Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/aphid-current-consumer/fresh", "/home/runner/work/_temp/aphid-current-consumer/fresh", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--tmpfs", "/home/runner/work/_temp/aphid-current-consumer/retained", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner", "--setenv", "PATH", "/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/x64/bin:/opt/hostedtoolcache/Python/3.14.7/x64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "/home/runner/work/_temp/.setup-beam/elixir/bin/elixir", "-e", ":utf8 = :file.native_name_encoding(); IO.puts(\"UTF-8 runtime filename mode verified\")"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/fresh", "exit": 0, "seconds": 0.214}
+2026-09-08T07:13:27.1255832Z Resolving Hex dependencies...
+2026-09-08T07:13:27.1422272Z Resolution completed in 0.015s
+2026-09-08T07:13:27.1435865Z Unchanged:
+2026-09-08T07:13:27.1436462Z   earmark_parser 1.4.46
+2026-09-08T07:13:27.1442801Z   ex_doc 0.39.1
+2026-09-08T07:13:27.1443311Z   makeup 1.2.2
+2026-09-08T07:13:27.1443947Z   makeup_elixir 1.0.1
+2026-09-08T07:13:27.1444521Z   makeup_erlang 1.1.0
+2026-09-08T07:13:27.1445094Z   nimble_parsec 1.4.2
+2026-09-08T07:13:27.1445589Z   pegasus 0.2.6
+2026-09-08T07:13:27.1445985Z   protoss 1.1.0
+2026-09-08T07:13:27.1446454Z   telemetry 1.4.2
+2026-09-08T07:13:27.1446860Z   zig_doc 0.7.0
+2026-09-08T07:13:27.1447310Z   zig_get 0.16.0
+2026-09-08T07:13:27.1447725Z   zig_parser 0.7.0
+2026-09-08T07:13:27.1448102Z   zigler 0.16.0
+2026-09-08T07:13:27.1482990Z * Getting zigler (Hex package)
+2026-09-08T07:13:27.2674978Z * Getting telemetry (Hex package)
+2026-09-08T07:13:27.4784644Z * creating /home/runner/work/_temp/aphid-current-consumer/fresh/mix-home/elixir/1-20-otp-29/rebar3
+2026-09-08T07:13:27.4790465Z * Getting protoss (Hex package)
+2026-09-08T07:13:27.4831331Z * Getting zig_doc (Hex package)
+2026-09-08T07:13:27.4895627Z * Getting zig_get (Hex package)
+2026-09-08T07:13:27.4933519Z * Getting zig_parser (Hex package)
+2026-09-08T07:13:27.5084583Z * Getting pegasus (Hex package)
+2026-09-08T07:13:27.5151871Z * Getting nimble_parsec (Hex package)
+2026-09-08T07:13:27.5207982Z * Getting ex_doc (Hex package)
+2026-09-08T07:13:27.5472114Z * Getting earmark_parser (Hex package)
+2026-09-08T07:13:27.5634629Z * Getting makeup_elixir (Hex package)
+2026-09-08T07:13:27.5712153Z * Getting makeup_erlang (Hex package)
+2026-09-08T07:13:27.5772835Z * Getting makeup (Hex package)
+2026-09-08T07:13:27.6504688Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/aphid-current-consumer/fresh", "/home/runner/work/_temp/aphid-current-consumer/fresh", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--tmpfs", "/home/runner/work/_temp/aphid-current-consumer/retained", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/home", "--setenv", "PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/otp/bin:/usr/bin:/bin:/usr/sbin:/sbin", "--setenv", "MIX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/mix-home", "--setenv", "HEX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/hex-home", "--setenv", "MIX_ENV", "prod", "--setenv", "ZIG_EXECUTABLE_PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools/zig", "--setenv", "ZIG_GLOBAL_CACHE_DIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/zig-cache", "--setenv", "ZIGLER_STAGING_ROOT", "/home/runner/work/_temp/aphid-current-consumer/fresh/staging", "--setenv", "ERL_FLAGS", "+S 1:1 +SDcpu 1:1", "--setenv", "APHID_INSTALL", "precompiled", "--setenv", "APHID_BUNDLE_ARCHIVE", "/home/runner/work/_temp/aphid-current-consumer/fresh/candidate.tar.gz", "--setenv", "APHID_BUNDLE_SHA256", "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc", "--setenv", "TMPDIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/tmp", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "mix", "deps.get", "--check-locked"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/fresh/consumer", "exit": 0, "seconds": 1.466}
+2026-09-08T07:13:27.6513048Z Normal Hex acquisition verified: 13 locked archives; switching to loopback-only networking
+2026-09-08T07:13:28.1529790Z ==> earmark_parser
+2026-09-08T07:13:28.1539976Z Compiling 2 files (.xrl)
+2026-09-08T07:13:28.1811241Z Compiling 1 file (.yrl)
+2026-09-08T07:13:28.2068707Z Compiling 3 files (.erl)
+2026-09-08T07:13:28.4423483Z Compiling 32 files (.ex)
+2026-09-08T07:13:29.4150012Z Generated earmark_parser app
+2026-09-08T07:13:29.4286516Z ==> protoss
+2026-09-08T07:13:29.4287188Z Compiling 1 file (.ex)
+2026-09-08T07:13:29.4730547Z Generated protoss app
+2026-09-08T07:13:29.4894117Z ==> zig_get
+2026-09-08T07:13:29.4894689Z Compiling 1 file (.ex)
+2026-09-08T07:13:29.5562207Z Generated zig_get app
+2026-09-08T07:13:29.5692082Z ==> nimble_parsec
+2026-09-08T07:13:29.5692750Z Compiling 4 files (.ex)
+2026-09-08T07:13:29.9592751Z Generated nimble_parsec app
+2026-09-08T07:13:29.9704998Z ==> pegasus
+2026-09-08T07:13:29.9705620Z Compiling 11 files (.ex)
+2026-09-08T07:13:31.5839110Z Generated pegasus app
+2026-09-08T07:13:31.6087378Z ==> zig_parser
+2026-09-08T07:13:31.6087954Z Compiling 37 files (.ex)
+2026-09-08T07:13:34.8895456Z     warning: incompatible types given to Map.replace!/3:
+2026-09-08T07:13:34.8896220Z 
+2026-09-08T07:13:34.8897788Z         Map.replace!(parse(args), :doc_comment, comment)
+2026-09-08T07:13:34.8898419Z 
+2026-09-08T07:13:34.8898664Z     the map:
+2026-09-08T07:13:34.8898880Z 
+2026-09-08T07:13:34.8899319Z         dynamic(%Zig.Parser.Test{block: %Zig.Parser.Block{}, location: nil})
+2026-09-08T07:13:34.8900183Z 
+2026-09-08T07:13:34.8900421Z     does not have all required keys:
+2026-09-08T07:13:34.8900957Z 
+2026-09-08T07:13:34.8901131Z         :doc_comment
+2026-09-08T07:13:34.8901404Z 
+2026-09-08T07:13:34.8901663Z     therefore this function will always raise
+2026-09-08T07:13:34.8901998Z 
+2026-09-08T07:13:34.8902217Z     where "args" was given the type:
+2026-09-08T07:13:34.8902511Z 
+2026-09-08T07:13:34.8902710Z         # type: dynamic(non_empty_list(term()))
+2026-09-08T07:13:34.8903230Z         # from: lib/zig.parser/test.ex:16:10
+2026-09-08T07:13:34.8903869Z         parse(args)
+2026-09-08T07:13:34.8904099Z 
+2026-09-08T07:13:34.8904316Z     where "comment" was given the type:
+2026-09-08T07:13:34.8904599Z 
+2026-09-08T07:13:34.8904793Z         # type: dynamic()
+2026-09-08T07:13:34.8905208Z         # from: lib/zig.parser/test.ex
+2026-09-08T07:13:34.8905797Z         [{:TestDecl, [start, {:doc_comment, comment} | args]} | rest_args]
+2026-09-08T07:13:34.8906207Z 
+2026-09-08T07:13:34.8906368Z     type warning found at:
+2026-09-08T07:13:34.8907058Z     │
+2026-09-08T07:13:34.8907548Z  17 │       |> Map.replace!(:doc_comment, comment)
+2026-09-08T07:13:34.8908048Z     │              ~
+2026-09-08T07:13:34.8908459Z     │
+2026-09-08T07:13:34.8909017Z     └─ lib/zig.parser/test.ex:17:14: Zig.Parser.Test.post_traverse/5
+2026-09-08T07:13:34.8909429Z 
+2026-09-08T07:13:35.0575869Z Generated zig_parser app
+2026-09-08T07:13:35.0742282Z ==> makeup
+2026-09-08T07:13:35.0742891Z Compiling 15 files (.ex)
+2026-09-08T07:13:35.4957856Z Generated makeup app
+2026-09-08T07:13:35.5107757Z ==> makeup_elixir
+2026-09-08T07:13:35.5108249Z Compiling 6 files (.ex)
+2026-09-08T07:13:43.7075036Z Generated makeup_elixir app
+2026-09-08T07:13:43.7223275Z ==> makeup_erlang
+2026-09-08T07:13:43.7224579Z Compiling 4 files (.ex)
+2026-09-08T07:13:50.9676419Z Generated makeup_erlang app
+2026-09-08T07:13:50.9937564Z ==> ex_doc
+2026-09-08T07:13:50.9938206Z Compiling 27 files (.ex)
+2026-09-08T07:13:52.6094375Z      warning: this clause of defp favicon_path/1 is never used (or it will always fail/warn when invoked)
+2026-09-08T07:13:52.6095580Z      │
+2026-09-08T07:13:52.6096378Z  153 │   defp favicon_path(%{favicon: nil}), do: nil
+2026-09-08T07:13:52.6096977Z      │        ~
+2026-09-08T07:13:52.6097415Z      │
+2026-09-08T07:13:52.6098357Z      └─ lib/ex_doc/formatter/html/templates.ex:153:8: ExDoc.Formatter.HTML.Templates.favicon_path/1
+2026-09-08T07:13:52.6098902Z 
+2026-09-08T07:13:52.6099403Z      warning: the following clause cannot match because the previous clauses already matched all possible values:
+2026-09-08T07:13:52.6100046Z 
+2026-09-08T07:13:52.6100285Z          _ ->
+2026-09-08T07:13:52.6100468Z 
+2026-09-08T07:13:52.6100941Z      it attempts to match on the result of:
+2026-09-08T07:13:52.6101249Z 
+2026-09-08T07:13:52.6101462Z          result
+2026-09-08T07:13:52.6101729Z 
+2026-09-08T07:13:52.6101912Z      which has the already matched type:
+2026-09-08T07:13:52.6102329Z 
+2026-09-08T07:13:52.6102743Z          dynamic({:docs_v1, term(), term(), term(), term(), term(), term()} or {:error, term()})
+2026-09-08T07:13:52.6103275Z 
+2026-09-08T07:13:52.6103495Z      type warning found at:
+2026-09-08T07:13:52.6104014Z      │
+2026-09-08T07:13:52.6104429Z  124 │       _ ->
+2026-09-08T07:13:52.6104846Z      │         ~
+2026-09-08T07:13:52.6105194Z      │
+2026-09-08T07:13:52.6105787Z      └─ lib/ex_doc/retriever.ex:124:9: ExDoc.Retriever.docs_chunk/1
+2026-09-08T07:13:52.6106159Z 
+2026-09-08T07:13:52.6160964Z      warning: this clause of defp logo_path/1 is never used (or it will always fail/warn when invoked)
+2026-09-08T07:13:52.6162050Z      │
+2026-09-08T07:13:52.6162747Z  156 │   defp logo_path(%{logo: nil}), do: nil
+2026-09-08T07:13:52.6168440Z      │        ~
+2026-09-08T07:13:52.6169084Z      │
+2026-09-08T07:13:52.6170267Z      └─ lib/ex_doc/formatter/html/templates.ex:156:8: ExDoc.Formatter.HTML.Templates.logo_path/1
+2026-09-08T07:13:52.6171028Z 
+2026-09-08T07:13:52.6223299Z      warning: the following clause will never match:
+2026-09-08T07:13:52.6223777Z 
+2026-09-08T07:13:52.6227346Z          nil ->
+2026-09-08T07:13:52.6227656Z 
+2026-09-08T07:13:52.6228284Z      because it attempts to match on the result of:
+2026-09-08T07:13:52.6228642Z 
+2026-09-08T07:13:52.6228846Z          ExDoc.Language.Source.fetch_type!(module_data, name, arity)
+2026-09-08T07:13:52.6229167Z 
+2026-09-08T07:13:52.6229309Z      which has type:
+2026-09-08T07:13:52.6229456Z 
+2026-09-08T07:13:52.6229621Z          dynamic(not false and not nil)
+2026-09-08T07:13:52.6229814Z 
+2026-09-08T07:13:52.6229954Z      type warning found at:
+2026-09-08T07:13:52.6230304Z      │
+2026-09-08T07:13:52.6231169Z  150 │         nil ->
+2026-09-08T07:13:52.6231549Z      │         ~~~~~~
+2026-09-08T07:13:52.6231849Z      │
+2026-09-08T07:13:52.6232467Z      └─ lib/ex_doc/language/erlang.ex:150: ExDoc.Language.Erlang.type_data/6
+2026-09-08T07:13:52.6232841Z 
+2026-09-08T07:13:52.6339905Z      warning: the following clause is redundant:
+2026-09-08T07:13:52.6340564Z 
+2026-09-08T07:13:52.6340910Z          defp to_var({:<<>>, _, _}, _)
+2026-09-08T07:13:52.6341161Z 
+2026-09-08T07:13:52.6341284Z      it has type:
+2026-09-08T07:13:52.6341451Z 
+2026-09-08T07:13:52.6341801Z          dynamic({:<<>>, term(), term()}), dynamic()
+2026-09-08T07:13:52.6342153Z 
+2026-09-08T07:13:52.6342388Z      previous clauses have already matched on the following types:
+2026-09-08T07:13:52.6342681Z 
+2026-09-08T07:13:52.6342792Z          {:%{}, term(), term()}, term()
+2026-09-08T07:13:52.6343155Z          {atom(), term(), term()}, term()
+2026-09-08T07:13:52.6343352Z 
+2026-09-08T07:13:52.6343525Z      │
+2026-09-08T07:13:52.6343948Z  569 │   defp to_var({:<<>>, _, _}, _), do: {:binary, [], nil}
+2026-09-08T07:13:52.6344330Z      │        ~
+2026-09-08T07:13:52.6344733Z      │
+2026-09-08T07:13:52.6345332Z      └─ lib/ex_doc/language/elixir.ex:569:8: ExDoc.Language.Elixir.to_var/2
+2026-09-08T07:13:52.6345706Z 
+2026-09-08T07:13:52.6431966Z      warning: the following clause is redundant:
+2026-09-08T07:13:52.6432353Z 
+2026-09-08T07:13:52.6433251Z          defp to_var({:{}, _, _}, _)
+2026-09-08T07:13:52.6433728Z 
+2026-09-08T07:13:52.6433937Z      it has type:
+2026-09-08T07:13:52.6434278Z 
+2026-09-08T07:13:52.6434621Z          dynamic({:{}, term(), term()}), dynamic()
+2026-09-08T07:13:52.6435035Z 
+2026-09-08T07:13:52.6435439Z      previous clauses have already matched on the following types:
+2026-09-08T07:13:52.6435858Z 
+2026-09-08T07:13:52.6436138Z          {:%{}, term(), term()}, term()
+2026-09-08T07:13:52.6436805Z          {atom(), term(), term()}, term()
+2026-09-08T07:13:52.6437150Z 
+2026-09-08T07:13:52.6437396Z      │
+2026-09-08T07:13:52.6438018Z  570 │   defp to_var({:{}, _, _}, _), do: {:tuple, [], nil}
+2026-09-08T07:13:52.6438602Z      │        ~
+2026-09-08T07:13:52.6439017Z      │
+2026-09-08T07:13:52.6439686Z      └─ lib/ex_doc/language/elixir.ex:570:8: ExDoc.Language.Elixir.to_var/2
+2026-09-08T07:13:52.6440174Z 
+2026-09-08T07:13:52.6448725Z      warning: the following clause is redundant:
+2026-09-08T07:13:52.6449063Z 
+2026-09-08T07:13:52.6449312Z          defp to_var(float, _) when is_integer(float)
+2026-09-08T07:13:52.6449536Z 
+2026-09-08T07:13:52.6449662Z      it has type:
+2026-09-08T07:13:52.6449793Z 
+2026-09-08T07:13:52.6449936Z          integer(), dynamic()
+2026-09-08T07:13:52.6450117Z 
+2026-09-08T07:13:52.6450331Z      previous clauses have already matched on the following types:
+2026-09-08T07:13:52.6450590Z 
+2026-09-08T07:13:52.6450957Z          {:%{}, term(), term()}, term()
+2026-09-08T07:13:52.6451295Z          {atom(), term(), term()}, term()
+2026-09-08T07:13:52.6451602Z          {term(), term()}, term()
+2026-09-08T07:13:52.6451902Z          integer(), term()
+2026-09-08T07:13:52.6452036Z 
+2026-09-08T07:13:52.6452253Z      │
+2026-09-08T07:13:52.6452639Z  573 │   defp to_var(float, _) when is_integer(float), do: {:float, [], nil}
+2026-09-08T07:13:52.6453020Z      │        ~
+2026-09-08T07:13:52.6453283Z      │
+2026-09-08T07:13:52.6453696Z      └─ lib/ex_doc/language/elixir.ex:573:8: ExDoc.Language.Elixir.to_var/2
+2026-09-08T07:13:52.6454031Z 
+2026-09-08T07:13:52.6478908Z Generated ex_doc app
+2026-09-08T07:13:52.9317011Z ==> aphid_consumer
+2026-09-08T07:13:52.9318106Z ===> Analyzing applications...
+2026-09-08T07:13:52.9797542Z ===> Compiling telemetry
+2026-09-08T07:13:53.2461879Z ==> zig_doc
+2026-09-08T07:13:53.2462937Z Compiling 5 files (.ex)
+2026-09-08T07:13:53.4836535Z     warning: the following clause will never match:
+2026-09-08T07:13:53.4837010Z 
+2026-09-08T07:13:53.4837268Z         {{:error, reason}, path} ->
+2026-09-08T07:13:53.4837578Z 
+2026-09-08T07:13:53.4837759Z     it is expected to match on type:
+2026-09-08T07:13:53.4838021Z 
+2026-09-08T07:13:53.4838381Z         dynamic(
+2026-09-08T07:13:53.4838776Z           :error or
+2026-09-08T07:13:53.4839424Z             ({term(), :read, binary() or empty_list() or non_empty_list(term(), term())} and
+2026-09-08T07:13:53.4840284Z                not {{:ok, term()}, :read, binary() or empty_list() or non_empty_list(term(), term())})
+2026-09-08T07:13:53.4841047Z         )
+2026-09-08T07:13:53.4841270Z 
+2026-09-08T07:13:53.4841496Z     type warning found at:
+2026-09-08T07:13:53.4842080Z     │
+2026-09-08T07:13:53.4842503Z  69 │       {{:error, reason}, path} ->
+2026-09-08T07:13:53.4843029Z     │       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-09-08T07:13:53.4843435Z     │
+2026-09-08T07:13:53.4844032Z     └─ lib/zig.doc/generator.ex:69: Zig.Doc.Generator.modulenode_from_config/3
+2026-09-08T07:13:53.4844536Z 
+2026-09-08T07:13:53.4859986Z Generated zig_doc app
+2026-09-08T07:13:53.5072451Z ==> zigler
+2026-09-08T07:13:53.5073164Z Compiling 50 files (.ex)
+2026-09-08T07:13:53.5188535Z 
+2026-09-08T07:13:53.5189163Z 07:13:53.516 [warning] not cross-compiling windows-msvc
+2026-09-08T07:13:53.6079454Z      warning: clauses with the same name and arity (number of arguments) should be grouped together, "def render_elixir_spec/1" was previously defined (lib/zig/_nif.ex:373)
+2026-09-08T07:13:53.6080456Z      │
+2026-09-08T07:13:53.6081195Z  386 │   def render_elixir_spec(nif) do
+2026-09-08T07:13:53.6081666Z      │       ~
+2026-09-08T07:13:53.6082048Z      │
+2026-09-08T07:13:53.6082569Z      └─ lib/zig/_nif.ex:386:7
+2026-09-08T07:13:53.6082763Z 
+2026-09-08T07:13:55.5830954Z 
+2026-09-08T07:13:55.5832206Z 07:13:55.582 [debug] creating staging directory /home/runner/work/_temp/aphid-current-consumer/fresh/staging/Elixir.Zig.Formatter
+2026-09-08T07:13:55.5908312Z 
+2026-09-08T07:13:55.5908987Z 07:13:55.590 [info] searching for zig in /home/runner/work/_temp/aphid-current-consumer/fresh/home/.cache/zigler/zig-x86_64-linux-0.16.0/zig
+2026-09-08T07:13:55.6153958Z      warning: unused require EEx
+2026-09-08T07:13:55.6155020Z      │
+2026-09-08T07:13:55.6155833Z  437 │   require EEx
+2026-09-08T07:13:55.6156362Z      │   ~
+2026-09-08T07:13:55.6156749Z      │
+2026-09-08T07:13:55.6157215Z      └─ lib/zig/_nif.ex:437:3
+2026-09-08T07:13:55.6157612Z 
+2026-09-08T07:13:56.1315557Z warning: Zig.Formatter not active (%CompileError{file: nil, line: nil, description: "zig executable not found"}).  If you need Formatter function, and zig is not available, Please run `mix zig.get` to install it.
+2026-09-08T07:13:56.1334803Z ##[warning]  lib/zig/formatter.ex:46: (file)
+2026-09-08T07:13:56.1344177Z   (elixir 1.20.0) src/elixir_compiler.erl:102: :elixir_compiler.dispatch/4
+2026-09-08T07:13:56.1344953Z   (elixir 1.20.0) src/elixir_compiler.erl:76: :elixir_compiler.compile/4
+2026-09-08T07:13:56.1345640Z   (elixir 1.20.0) src/elixir_compiler.erl:42: :elixir_compiler.optimize_defmodule/2
+2026-09-08T07:13:56.1346379Z   (elixir 1.20.0) src/elixir_lexical.erl:18: :elixir_lexical.run/3
+2026-09-08T07:13:56.1347111Z   (elixir 1.20.0) src/elixir_compiler.erl:21: :elixir_compiler.quoted/3
+2026-09-08T07:13:56.1347583Z 
+2026-09-08T07:13:56.1997075Z Generated zigler app
+2026-09-08T07:13:57.9635309Z ==> aphid
+2026-09-08T07:13:57.9636260Z Aphid local bundle verified and installed: SHA256 fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc
+2026-09-08T07:13:57.9665790Z Compiling 13 files (.ex)
+2026-09-08T07:13:58.3431402Z 
+2026-09-08T07:13:58.3432727Z 07:13:58.342 [debug] skipping compile step for precompiled module Elixir.Aphid.Proof, at /home/runner/work/_temp/aphid-current-consumer/fresh/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+2026-09-08T07:13:58.3441489Z 
+2026-09-08T07:13:58.3442556Z 07:13:58.343 [debug] destination library path: /home/runner/work/_temp/aphid-current-consumer/fresh/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+2026-09-08T07:13:58.5764997Z 
+2026-09-08T07:13:58.5767101Z 07:13:58.575 [debug] skipping compile step for precompiled module Elixir.Aphid.Native, at /home/runner/work/_temp/aphid-current-consumer/fresh/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+2026-09-08T07:13:58.5778015Z 
+2026-09-08T07:13:58.5779371Z 07:13:58.576 [debug] destination library path: /home/runner/work/_temp/aphid-current-consumer/fresh/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+2026-09-08T07:13:59.2516535Z Generated aphid app
+2026-09-08T07:13:59.2714758Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/aphid-current-consumer/fresh", "/home/runner/work/_temp/aphid-current-consumer/fresh", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--tmpfs", "/home/runner/work/_temp/aphid-current-consumer/retained", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/home", "--setenv", "PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/otp/bin:/usr/bin:/bin:/usr/sbin:/sbin", "--setenv", "MIX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/mix-home", "--setenv", "HEX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/hex-home", "--setenv", "MIX_ENV", "prod", "--setenv", "ZIG_EXECUTABLE_PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools/zig", "--setenv", "ZIG_GLOBAL_CACHE_DIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/zig-cache", "--setenv", "ZIGLER_STAGING_ROOT", "/home/runner/work/_temp/aphid-current-consumer/fresh/staging", "--setenv", "ERL_FLAGS", "+S 1:1 +SDcpu 1:1", "--setenv", "APHID_INSTALL", "precompiled", "--setenv", "APHID_BUNDLE_ARCHIVE", "/home/runner/work/_temp/aphid-current-consumer/fresh/candidate.tar.gz", "--setenv", "APHID_BUNDLE_SHA256", "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc", "--setenv", "TMPDIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/tmp", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "mix", "deps.compile"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/fresh/consumer", "exit": 0, "seconds": 31.62}
+2026-09-08T07:14:01.5871872Z ==> aphid
+2026-09-08T07:14:01.5882442Z Aphid local bundle verified and installed: SHA256 fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc
+2026-09-08T07:14:02.0592502Z ==> aphid_consumer
+2026-09-08T07:14:02.0593013Z Generated aphid_consumer app
+2026-09-08T07:14:02.0907991Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/aphid-current-consumer/fresh", "/home/runner/work/_temp/aphid-current-consumer/fresh", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--tmpfs", "/home/runner/work/_temp/aphid-current-consumer/retained", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/home", "--setenv", "PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/otp/bin:/usr/bin:/bin:/usr/sbin:/sbin", "--setenv", "MIX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/mix-home", "--setenv", "HEX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/hex-home", "--setenv", "MIX_ENV", "prod", "--setenv", "ZIG_EXECUTABLE_PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools/zig", "--setenv", "ZIG_GLOBAL_CACHE_DIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/zig-cache", "--setenv", "ZIGLER_STAGING_ROOT", "/home/runner/work/_temp/aphid-current-consumer/fresh/staging", "--setenv", "ERL_FLAGS", "+S 1:1 +SDcpu 1:1", "--setenv", "APHID_INSTALL", "precompiled", "--setenv", "APHID_BUNDLE_ARCHIVE", "/home/runner/work/_temp/aphid-current-consumer/fresh/candidate.tar.gz", "--setenv", "APHID_BUNDLE_SHA256", "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc", "--setenv", "TMPDIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/tmp", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "mix", "compile"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/fresh/consumer", "exit": 0, "seconds": 2.819}
+2026-09-08T07:14:02.8276144Z runtime identity: {"1.20.0", ~c"29", ~c"2.18"}
+2026-09-08T07:14:04.4776002Z Running ExUnit with seed: 0, max_cases: 2
+2026-09-08T07:14:04.4776400Z 
+2026-09-08T07:14:09.1234730Z ................Aphid basic example passed
+2026-09-08T07:14:09.1612749Z .Aphid transaction example passed
+2026-09-08T07:14:09.1872543Z .Aphid stream example passed
+2026-09-08T07:14:09.2612553Z .Aphid FTS example passed
+2026-09-08T07:14:09.2992653Z .Aphid vector example passed
+2026-09-08T07:14:09.3884698Z .Aphid DuckDB example passed
+2026-09-08T07:14:14.7528554Z .............stale-cancel race: 30 iterations; maximum cancel-to-idle 167002 us
+2026-09-08T07:14:18.5302900Z ........heartbeat: 11 samples; maximum gap 6 ms
+2026-09-08T07:14:18.6339535Z .
+2026-09-08T07:14:18.6341184Z 07:14:18.632 [error] Aphid artifact [unloadable]: /home/runner/work/_temp/aphid-current-consumer/fresh/consumer/_build/prod/lib/aphid/priv/lib/Elixir.Aphid.Native: {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}; use the matching complete bundle and runtime. No source fallback.
+2026-09-08T07:14:18.6385360Z 
+2026-09-08T07:14:18.6386357Z 07:14:18.635 [warning] The on_load function for module Elixir.Aphid.Native returned:
+2026-09-08T07:14:18.6386907Z {:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+2026-09-08T07:14:18.6387226Z 
+2026-09-08T07:14:21.2301777Z .................................................
+2026-09-08T07:14:21.2314921Z Finished in 18.3 seconds (1.6s on load, 0.00s async, 16.7s sync)
+2026-09-08T07:14:21.2315346Z 
+2026-09-08T07:14:21.2315624Z Result: 92 passed
+2026-09-08T07:14:21.2538352Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/aphid-current-consumer/fresh", "/home/runner/work/_temp/aphid-current-consumer/fresh", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--tmpfs", "/home/runner/work/_temp/aphid-current-consumer/retained", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/x86_64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/home", "--setenv", "PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/work/_temp/.setup-beam/otp/bin:/usr/bin:/bin:/usr/sbin:/sbin", "--setenv", "MIX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/mix-home", "--setenv", "HEX_HOME", "/home/runner/work/_temp/aphid-current-consumer/fresh/hex-home", "--setenv", "MIX_ENV", "prod", "--setenv", "ZIG_EXECUTABLE_PATH", "/home/runner/work/_temp/aphid-current-consumer/fresh/tools/zig", "--setenv", "ZIG_GLOBAL_CACHE_DIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/zig-cache", "--setenv", "ZIGLER_STAGING_ROOT", "/home/runner/work/_temp/aphid-current-consumer/fresh/staging", "--setenv", "ERL_FLAGS", "+S 1:1 +SDcpu 1:1", "--setenv", "TMPDIR", "/home/runner/work/_temp/aphid-current-consumer/fresh/tmp", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "mix", "run", "--no-compile", "check.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/fresh/consumer", "exit": 0, "seconds": 19.145}
+2026-09-08T07:14:21.4346167Z fresh Mix consumer passed; native files unchanged; no native compiler invocation
+2026-09-08T07:14:21.4832781Z {"command": ["/opt/hostedtoolcache/Python/3.14.7/x64/bin/python3", "scripts/precompiled_consumer.py", "--archive", "/home/runner/work/_temp/aphid-current-consumer/retained/aphid-linux-distribution/packaged/aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz", "--sha256", "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc", "--package", "/home/runner/work/_temp/aphid-current-consumer/aphid-0.1.0-dev-combined.tar", "--package-sha256", "b85967b047662ccdc66851d246a9a7301fe8c797225d7e479948653838dc57df", "--destination", "/home/runner/work/_temp/aphid-current-consumer/fresh", "--hex-dependencies", "--hide-build", "/home/runner/work/_temp/aphid-current-consumer/retained"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 57.014}
+2026-09-08T07:14:21.5398636Z CASE missing
+2026-09-08T07:14:21.9614174Z Aphid artifact [missing]: set APHID_BUNDLE_ARCHIVE to an existing local .tar.gz. No source fallback.
+2026-09-08T07:14:22.0049031Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:22.0050977Z CASE missing-pin
+2026-09-08T07:14:22.4256129Z Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+2026-09-08T07:14:22.4700273Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:22.4702741Z CASE checksum
+2026-09-08T07:14:22.9045897Z Aphid artifact [corrupt]: archive SHA256 mismatch; obtain the pinned archive again. No source fallback.
+2026-09-08T07:14:22.9350756Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:22.9352820Z CASE target
+2026-09-08T07:14:23.3663275Z Aphid artifact [unsupported-target]: the artifact does not match this operating system. No source fallback.
+2026-09-08T07:14:23.3999788Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.464}
+2026-09-08T07:14:23.4002197Z CASE engine
+2026-09-08T07:14:23.8359216Z Aphid artifact [incompatible-engine]: native lock differs; obtain the bundle for this Aphid source package. No source fallback.
+2026-09-08T07:14:23.8648789Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:23.8650926Z CASE manifest
+2026-09-08T07:14:24.3018365Z Aphid artifact [corrupt]: content manifest mismatch; obtain the pinned archive again. No source fallback.
+2026-09-08T07:14:24.3297771Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.464}
+2026-09-08T07:14:24.3300094Z CASE missing-sidecar
+2026-09-08T07:14:24.7582156Z Aphid artifact [missing]: bundle lacks liblbug.so; obtain the complete 0.1.0-dev bundle. No source fallback.
+2026-09-08T07:14:24.7947812Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:24.7950134Z CASE architecture
+2026-09-08T07:14:25.2250318Z Aphid artifact [wrong-architecture]: Elixir.Aphid.Native.so has the wrong ELF machine architecture. No source fallback.
+2026-09-08T07:14:25.2603224Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:25.2605584Z CASE unloadable-header
+2026-09-08T07:14:25.6972903Z Aphid artifact [unloadable]: Elixir.Aphid.Native.so is not a native shared library for this target; obtain a valid bundle. No source fallback.
+2026-09-08T07:14:25.7253829Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:25.7256022Z CASE native-fingerprint
+2026-09-08T07:14:26.1640034Z Aphid artifact [incompatible-engine]: native fingerprint differs from this package's reviewed local-bundle.json; use the matching candidate. No source fallback.
+2026-09-08T07:14:26.1904184Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:26.1907678Z CASE lost-selection
+2026-09-08T07:14:26.6147727Z Aphid artifact [selection]: this build contains a local bundle; keep its archive/checksum selection or use an empty source build path. No source fallback.
+2026-09-08T07:14:26.6555127Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:26.6556614Z CASE force-source
+2026-09-08T07:14:27.0743589Z Aphid artifact [selection]: unset ZIGLER_PRECOMPILE_FORCE_RECOMPILE; local bundle mode never falls back to source. No source fallback.
+2026-09-08T07:14:27.1203502Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.464}
+2026-09-08T07:14:27.1205991Z CASE conflicting-source
+2026-09-08T07:14:27.5781888Z Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs. No source fallback.
+2026-09-08T07:14:27.5856580Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:27.5858355Z CASE invalid-tar
+2026-09-08T07:14:28.0183226Z Aphid artifact [corrupt]: invalid tar archive: :eof. No source fallback.
+2026-09-08T07:14:28.0520845Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.466}
+2026-09-08T07:14:28.0523122Z CASE traversal
+2026-09-08T07:14:28.4949742Z Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "../escape". No source fallback.
+2026-09-08T07:14:28.5169470Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.464}
+2026-09-08T07:14:28.5172222Z CASE absolute
+2026-09-08T07:14:28.9469375Z Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "/tmp/aphid-escape". No source fallback.
+2026-09-08T07:14:28.9819317Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:28.9820880Z CASE duplicate
+2026-09-08T07:14:29.4082322Z Aphid artifact [unsafe]: duplicate or case-colliding archive member. No source fallback.
+2026-09-08T07:14:29.4467981Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:29.4470506Z CASE case-collision
+2026-09-08T07:14:29.8854840Z Aphid artifact [unsafe]: duplicate or case-colliding archive member. No source fallback.
+2026-09-08T07:14:29.9119072Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:29.9121122Z CASE file-directory
+2026-09-08T07:14:30.3497866Z Aphid artifact [unsafe]: archive file is also used as a directory. No source fallback.
+2026-09-08T07:14:30.3768503Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:30.3770398Z CASE dot-path
+2026-09-08T07:14:30.8138320Z Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "./escape". No source fallback.
+2026-09-08T07:14:30.8431873Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.466}
+2026-09-08T07:14:30.8433356Z CASE symlink
+2026-09-08T07:14:31.2748986Z Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "link". No source fallback.
+2026-09-08T07:14:31.3080004Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.464}
+2026-09-08T07:14:31.3082569Z CASE hardlink
+2026-09-08T07:14:31.7441058Z Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "hard". No source fallback.
+2026-09-08T07:14:31.7729543Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.464}
+2026-09-08T07:14:31.7731969Z CASE fifo
+2026-09-08T07:14:32.2131977Z Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "fifo". No source fallback.
+2026-09-08T07:14:32.2380007Z {"command": ["elixir", "/home/runner/work/_temp/aphid-current-consumer/failures/reject.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.465}
+2026-09-08T07:14:32.2811416Z REAL LOADER missing
+2026-09-08T07:14:32.5703487Z 
+2026-09-08T07:14:32.5705116Z 07:14:32.567 [error] Aphid artifact [missing]: /home/runner/work/_temp/aphid-current-consumer/failures/load-missing/aphid/priv/lib/liblbug.so; reinstall the complete pinned bundle. No source fallback.
+2026-09-08T07:14:32.5717631Z real loader rejected artifact: Elixir.Aphid.Native
+2026-09-08T07:14:32.5810691Z 
+2026-09-08T07:14:32.5811214Z 07:14:32.571 [warning] The on_load function for module Elixir.Aphid.Native returned:
+2026-09-08T07:14:32.5811919Z {:error,
+2026-09-08T07:14:32.5812440Z  {:missing,
+2026-09-08T07:14:32.5813182Z   "/home/runner/work/_temp/aphid-current-consumer/failures/load-missing/aphid/priv/lib/liblbug.so"}}
+2026-09-08T07:14:32.5813723Z 
+2026-09-08T07:14:32.5903214Z 
+2026-09-08T07:14:32.5904251Z 07:14:32.590 [error] Aphid artifact [missing]: /home/runner/work/_temp/aphid-current-consumer/failures/load-missing/aphid/priv/lib/liblbug.so; reinstall the complete pinned bundle. No source fallback.
+2026-09-08T07:14:32.5914596Z real loader rejected artifact: Elixir.Aphid.Proof
+2026-09-08T07:14:32.5915855Z 
+2026-09-08T07:14:32.5916277Z 07:14:32.591 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+2026-09-08T07:14:32.5916869Z {:error,
+2026-09-08T07:14:32.5917190Z  {:missing,
+2026-09-08T07:14:32.5917812Z   "/home/runner/work/_temp/aphid-current-consumer/failures/load-missing/aphid/priv/lib/liblbug.so"}}
+2026-09-08T07:14:32.5918381Z 
+2026-09-08T07:14:32.5960357Z {"command": ["elixir", "-pa", "/home/runner/work/_temp/aphid-current-consumer/failures/load-missing/aphid/ebin", "/home/runner/work/_temp/aphid-current-consumer/failures/load.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.315}
+2026-09-08T07:14:32.6379410Z REAL LOADER corrupt
+2026-09-08T07:14:32.9357282Z 
+2026-09-08T07:14:32.9359014Z 07:14:32.932 [error] Aphid artifact [corrupt]: /home/runner/work/_temp/aphid-current-consumer/failures/load-corrupt/aphid/priv/lib/liblbug.so; reinstall the complete pinned bundle. No source fallback.
+2026-09-08T07:14:32.9375316Z real loader rejected artifact: Elixir.Aphid.Native
+2026-09-08T07:14:32.9477223Z 
+2026-09-08T07:14:32.9478185Z 07:14:32.937 [warning] The on_load function for module Elixir.Aphid.Native returned:
+2026-09-08T07:14:32.9479002Z {:error,
+2026-09-08T07:14:32.9479327Z  {:corrupt,
+2026-09-08T07:14:32.9479958Z   "/home/runner/work/_temp/aphid-current-consumer/failures/load-corrupt/aphid/priv/lib/liblbug.so"}}
+2026-09-08T07:14:32.9480545Z 
+2026-09-08T07:14:32.9569571Z 
+2026-09-08T07:14:32.9570889Z 07:14:32.956 [error] Aphid artifact [corrupt]: /home/runner/work/_temp/aphid-current-consumer/failures/load-corrupt/aphid/priv/lib/liblbug.so; reinstall the complete pinned bundle. No source fallback.
+2026-09-08T07:14:32.9582628Z real loader rejected artifact: Elixir.Aphid.Proof
+2026-09-08T07:14:32.9583508Z 
+2026-09-08T07:14:32.9583992Z 07:14:32.957 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+2026-09-08T07:14:32.9584607Z {:error,
+2026-09-08T07:14:32.9584982Z  {:corrupt,
+2026-09-08T07:14:32.9585623Z   "/home/runner/work/_temp/aphid-current-consumer/failures/load-corrupt/aphid/priv/lib/liblbug.so"}}
+2026-09-08T07:14:32.9586196Z 
+2026-09-08T07:14:33.0027857Z {"command": ["elixir", "-pa", "/home/runner/work/_temp/aphid-current-consumer/failures/load-corrupt/aphid/ebin", "/home/runner/work/_temp/aphid-current-consumer/failures/load.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.365}
+2026-09-08T07:14:33.0407269Z REAL LOADER unloadable
+2026-09-08T07:14:33.4536267Z 
+2026-09-08T07:14:33.4539068Z 07:14:33.451 [error] Aphid artifact [unloadable]: /home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native: {:load_failed, ~c"Failed to load NIF library: '/home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so: failed to map segment from shared object'"}; use the matching complete bundle and runtime. No source fallback.
+2026-09-08T07:14:33.4567813Z real loader rejected artifact: Elixir.Aphid.Native
+2026-09-08T07:14:33.4568283Z 
+2026-09-08T07:14:33.4569016Z 07:14:33.454 [warning] The on_load function for module Elixir.Aphid.Native returned:
+2026-09-08T07:14:33.4569615Z {:error,
+2026-09-08T07:14:33.4569897Z  {:load_failed,
+2026-09-08T07:14:33.4571078Z   ~c"Failed to load NIF library: '/home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so: failed to map segment from shared object'"}}
+2026-09-08T07:14:33.4571776Z 
+2026-09-08T07:14:33.5551975Z 
+2026-09-08T07:14:33.5554177Z 07:14:33.554 [error] Aphid artifact [unloadable]: /home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof: {:load_failed, ~c"Failed to load NIF library: '/home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so: failed to map segment from shared object'"}; use the matching complete bundle and runtime. No source fallback.
+2026-09-08T07:14:33.5566226Z real loader rejected artifact: Elixir.Aphid.Proof
+2026-09-08T07:14:33.5567148Z 
+2026-09-08T07:14:33.5567597Z 07:14:33.556 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+2026-09-08T07:14:33.5568270Z {:error,
+2026-09-08T07:14:33.5568593Z  {:load_failed,
+2026-09-08T07:14:33.5569688Z   ~c"Failed to load NIF library: '/home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so: failed to map segment from shared object'"}}
+2026-09-08T07:14:33.5570814Z 
+2026-09-08T07:14:33.6064007Z {"command": ["sudo", "-E", "unshare", "--mount", "--fork", "--propagation", "private", "sh", "-c", "mount --bind \"$1\" \"$1\" && mount -o remount,bind,noexec \"$1\" && shift && exec \"$@\"", "noexec-proof", "/home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/priv/lib", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--no-new-privs", "--", "/usr/bin/env", "PATH=/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/x64/bin:/opt/hostedtoolcache/Python/3.14.7/x64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "/home/runner/work/_temp/.setup-beam/elixir/bin/elixir", "-pa", "/home/runner/work/_temp/aphid-current-consumer/failures/load-unloadable/aphid/ebin", "/home/runner/work/_temp/aphid-current-consumer/failures/load.exs"], "cwd": "/home/runner/work/_temp/aphid-current-consumer/failures", "exit": 0, "seconds": 0.565}
+2026-09-08T07:14:33.6068244Z real Mix adapter rejection cases and loader processes passed
+2026-09-08T07:14:33.6188162Z {"command": ["/opt/hostedtoolcache/Python/3.14.7/x64/bin/python3", "scripts/local_bundle_failures.py", "--destination", "/home/runner/work/_temp/aphid-current-consumer/failures", "--consumer", "/home/runner/work/_temp/aphid-current-consumer/fresh"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 12.136}
+2026-09-08T07:14:33.6190090Z Current combined source package passed with the unchanged qualified Linux bundle; no native build or artifact upload.
+2026-09-08T07:14:33.6398738Z Post job cleanup.
+2026-09-08T07:14:33.7535676Z Post job cleanup.
+2026-09-08T07:14:33.8276360Z [command]/usr/bin/git version
+2026-09-08T07:14:33.8307456Z git version 2.55.0
+2026-09-08T07:14:33.8338196Z Temporarily overriding HOME='/home/runner/work/_temp/361c1a2f-5f04-4d19-a8d5-6d70e7642a62' before making global git config changes
+2026-09-08T07:14:33.8339310Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T07:14:33.8343277Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+2026-09-08T07:14:33.8368904Z Removing SSH command configuration
+2026-09-08T07:14:33.8374347Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T07:14:33.8400336Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T07:14:33.8570464Z Removing HTTP extra header
+2026-09-08T07:14:33.8576059Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T07:14:33.8598841Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T07:14:33.8763933Z Removing includeIf entries pointing to credentials config files
+2026-09-08T07:14:33.8772447Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T07:14:33.8803697Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T07:14:33.9110553Z Cleaning up orphan processes

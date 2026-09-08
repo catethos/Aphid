@@ -34,6 +34,7 @@ def main():
     name = f'validation-{args.target}-{qualification["run_id"]}-{qualification["attempt"]}'
     run(['gh', 'run', 'download', str(qualification['run_id']), '--repo', 'catethos/Aphid',
          '--name', name, '--dir', str(retained)], timeout=300)
+    os.environ.pop('GH_TOKEN', None)  # Acquisition credentials do not enter application proofs.
     packaged = retained / 'aphid-linux-distribution/packaged'
     if json.loads((packaged / 'identity.json').read_text()) != {k: v for k, v in pin.items() if k != 'qualification'}:
         raise RuntimeError('Retained native identity differs from the reviewed source pin')
@@ -50,6 +51,10 @@ def main():
          '--hex-dependencies', '--hide-build', str(retained)], timeout=1200)
     run([sys.executable, 'scripts/local_bundle_failures.py', '--destination', str(work / 'failures'),
          '--consumer', str(consumer)], timeout=1200)
+    run([sys.executable, 'scripts/mix_release.py', '--consumer', str(consumer),
+         '--destination', str(work / 'mix-release-proof'), '--output', str(work / 'mix-release-validation.tar.gz')], timeout=1200)
+    run([sys.executable, 'scripts/embedded_failures.py', '--release-work', str(work / 'mix-release-proof'),
+         '--destination', str(work / 'embedded-failures')], timeout=180)
     print('Current combined source package passed with the unchanged qualified Linux bundle; no native build or artifact upload.')
 
 

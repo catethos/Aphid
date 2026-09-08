@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+import platform
 from pathlib import Path
 import shutil
 import sys
@@ -15,6 +16,8 @@ def main():
     parser.add_argument('--release-work', type=Path, required=True)
     parser.add_argument('--destination', type=Path, required=True)
     args = parser.parse_args()
+    linux = platform.system() == 'Linux'
+    suffix = '.so' if linux else '.dylib'
     work = args.destination.resolve()
     work.mkdir()
     release_work = args.release_work.resolve()
@@ -36,9 +39,9 @@ assert b"Application aphid exited" in result.stdout or b"application_start_failu
 print(sys.argv[2], "embedded startup rejected", result.returncode)
 ''')
     for kind in ['missing', 'corrupt', 'unloadable']:
-        profile = (release_work / 'runtime.sb').read_text()
-        path = native / 'liblbug.dylib'
-        saved = work / (kind + '-original.dylib')
+        profile = '' if linux else (release_work / 'runtime.sb').read_text()
+        path = native / ('liblbug' + suffix)
+        saved = work / (kind + '-original' + suffix)
         shutil.copy2(path, saved)
         if kind == 'unloadable':
             profile += '(deny file-map-executable (subpath "' + str(native) + '"))'
@@ -49,9 +52,13 @@ print(sys.argv[2], "embedded startup rejected", result.returncode)
             elif kind == 'corrupt':
                 with path.open('r+b') as f:
                     f.write(b'bad!')
-                shutil.copy2(path, work / 'corrupt-fixture.dylib')
-            command = ['/usr/bin/sandbox-exec', '-f', str(work / (kind + '.sb')),
-                       str(release / 'bin/aphid_consumer'), 'start']
+                shutil.copy2(path, work / ('corrupt-fixture' + suffix))
+            command = [str(release / 'bin/aphid_consumer'), 'start']
+            if linux and kind == 'unloadable':
+                from linux_sandbox import noexec
+                command = noexec(native, command)
+            elif not linux:
+                command = ['/usr/bin/sandbox-exec', '-f', str(work / (kind + '.sb')), *command]
             run([sys.executable, str(checker), str(work / (kind + '.log')), kind, *command],
                 cwd=work, env=env, timeout=30)
         finally:

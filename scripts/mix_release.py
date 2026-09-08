@@ -3,6 +3,8 @@
 import argparse
 import json
 import os
+import platform
+import re
 from pathlib import Path, PurePosixPath
 import shutil
 import subprocess
@@ -20,19 +22,26 @@ def main():
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
+    linux = platform.system() == 'Linux'
     source = args.consumer.resolve()
     work = args.destination.resolve()
     work.mkdir()  # Retain attempts, never reuse a release/build directory.
-    archive = ROOT / 'artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz'
-    assert sha(archive) == DIGEST
-    assert sha(source / 'candidate-retained.tar.gz') == DIGEST
-    identity = json.loads((ROOT / 'native/local-bundle.json').read_text())
+    identity_file = ROOT / ('native/linux-bundles.json' if linux else 'native/local-bundle.json')
+    identity = json.loads(identity_file.read_text())
+    if linux:
+        identity = identity[platform.machine() + '-linux-gnu']
+    archive = source / 'candidate-retained.tar.gz' if linux else ROOT / 'artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz'
+    expected_digest = identity['sha256'] if linux else DIGEST
+    assert sha(archive) == expected_digest
+    assert sha(source / 'candidate-retained.tar.gz') == expected_digest
     prior = source / 'consumer/_build/prod/lib/aphid/priv'
     assert {p.name: sha(p) for p in (prior / 'lib').iterdir()} == identity['native_files']
-    for path in [ROOT / 'mix.exs', *(ROOT / 'mix').glob('*.exs'), *(ROOT / 'lib').rglob('*.ex'), ROOT / 'native/local-bundle.json']:
+    for path in [ROOT / 'mix.exs', *(ROOT / 'mix').glob('*.exs'), *(ROOT / 'lib').rglob('*.ex'), identity_file]:
         assert sha(path) == sha(source / 'consumer/vendor/aphid' / path.relative_to(ROOT)), path
-    original_inputs = {str(p): sha(p) for p in [ROOT / 'native/lock.json', ROOT / 'mix.lock',
-        ROOT / '_build/native/bridge/libaphid_bridge.dylib', ROOT / '_build/native/ladybug/src/liblbug.dylib']}
+    protected = [ROOT / 'native/lock.json', ROOT / 'mix.lock', archive]
+    if not linux:
+        protected += [ROOT / '_build/native/bridge/libaphid_bridge.dylib', ROOT / '_build/native/ladybug/src/liblbug.dylib']
+    original_inputs = {str(p): sha(p) for p in protected}
     project = work / 'build'
     shutil.copytree(source / 'consumer', project, symlinks=True)
     mixfile = project / 'mix.exs'
@@ -101,6 +110,21 @@ rescue
 end
 IO.puts("runtime guards verified: network, compiler, development, build and host-runtime reads denied")
 ''')
+    if linux:
+        (overlay / 'guards.exs').write_text('''
+:utf8 = :file.native_name_encoding()
+1 = File.read!("/proc/net/route") |> String.split("\\n", trim: true) |> length()
+for path <- String.split(System.fetch_env!("PROOF_DENIED_FILES"), "|") do
+  {:error, :enoent} = File.read(path)
+end
+try do
+  System.cmd("/usr/bin/cc", ["--version"])
+  raise "compiler unexpectedly executable"
+rescue
+  e in ErlangError -> true = e.original in [:eacces, :eperm]
+end
+IO.puts("Linux release guards verified: no network routes, hidden build/host runtimes, compiler denied")
+''')
     tools = work / 'tools'
     tools.mkdir()
     sentinel = tools / 'no-native-compiler'
@@ -111,7 +135,7 @@ IO.puts("runtime guards verified: network, compiler, development, build and host
     for name in ['home', 'mix-home', 'hex-home', 'zig-cache', 'tmp']:
         (work / name).mkdir()
     shutil.copytree(source / 'mix-home/archives', work / 'mix-home/archives')
-    runtime_dirs = [str(Path(subprocess.check_output(['mise', 'which', n], text=True).strip()).parent)
+    runtime_dirs = [str(Path(shutil.which(n) if linux else subprocess.check_output(['mise', 'which', n], text=True).strip()).parent)
                     for n in ['elixir', 'mix', 'erl']]
     env = dict(os.environ, HOME=str(work / 'home'), MIX_HOME=str(work / 'mix-home'),
                HEX_HOME=str(work / 'hex-home'), MIX_ENV='prod', TMPDIR=str(work / 'tmp'),
@@ -129,7 +153,12 @@ IO.puts("runtime guards verified: network, compiler, development, build and host
         '(deny file-read* (subpath "' + str(ROOT.parent) + '")(subpath "' + str(source) + '"))' + compiler_rule)
     (work / 'assemble.sb').write_text(build_profile)
     assembled = work / 'assembled'
-    run(['/usr/bin/sandbox-exec', '-f', str(work / 'assemble.sb'), 'mix', 'release', '--no-compile', '--path', str(assembled)],
+    if linux:
+        from linux_sandbox import sandbox
+        assemble_command = sandbox(work, [source], env)
+    else:
+        assemble_command = ['/usr/bin/sandbox-exec', '-f', str(work / 'assemble.sb')]
+    run([*assemble_command, 'mix', 'release', '--no-compile', '--path', str(assembled)],
         cwd=project, env=env, timeout=120)
     generated = assembled / 'aphid_consumer-0.0.0.tar.gz'
     output = args.output.resolve()
@@ -165,6 +194,22 @@ IO.puts("runtime guards verified: network, compiler, development, build and host
             continue
         with path.open('rb') as f:
             magic = f.read(4)
+        if linux and magic == b'\x7fELF':
+            from linux_bundle import elf_header
+            elf_header(path, identity['target'])
+            headers = subprocess.run(['readelf', '-h', '-l', '-d', '-V', str(path)],
+                text=True, capture_output=True, check=True, timeout=30)
+            assert not headers.stderr, (path, headers.stderr)
+            libraries = subprocess.check_output(['ldd', str(path)], text=True, timeout=30)
+            assert 'not found' not in libraries, (path, libraries)
+            for line in libraries.splitlines():
+                dependency = line.split('=>', 1)[-1].strip().split(' (', 1)[0]
+                if dependency.startswith('/'):
+                    resolved = Path(dependency).resolve()
+                    assert resolved.is_relative_to(relocated) or str(resolved).startswith(('/usr/lib/', '/lib/')), (path, dependency)
+            audit[str(path.relative_to(relocated))] = {'sha256': sha(path), 'libraries': libraries,
+                'glibc': sorted(set(re.findall(r'GLIBC_[0-9.]+', headers.stdout)))}
+            continue
         if magic not in [b'\xcf\xfa\xed\xfe', b'\xca\xfe\xba\xbe']:
             continue
         libraries = subprocess.check_output(['otool', '-L', str(path)], text=True)
@@ -178,7 +223,9 @@ IO.puts("runtime guards verified: network, compiler, development, build and host
             resolved = (path.parent / dependency.removeprefix('@loader_path/')).resolve()
             assert resolved.is_relative_to(relocated) and resolved.is_file(), (path, dependency)
     (work / 'native-audit.json').write_text(json.dumps(audit, indent=2) + '\n')
-    print('audited shipped Mach-O files:', len(audit), flush=True)
+    print('audited shipped native files:', len(audit), flush=True)
+    if linux:
+        print(json.dumps({'release_native_audit': audit}), flush=True)
     # Deny source, assembly and installed host runtimes; launch only bundled ERTS.
     host_roots = [str(Path(d).parent.resolve()) for d in set(runtime_dirs)]
     denied = [str(ROOT.parent), str(source), str(project), str(assembled), *host_roots,
@@ -191,7 +238,10 @@ IO.puts("runtime guards verified: network, compiler, development, build and host
         PROOF_DATABASE=str(work / 'persistent.db'),
         PROOF_DENIED_FILES='|'.join([str(ROOT / 'mix.exs'), str(project / 'mix.exs'), str(source / 'consumer/mix.exs'),
                                    str(Path(runtime_dirs[0]) / 'elixir')]))
-    command = ['/usr/bin/sandbox-exec', '-f', str(work / 'runtime.sb'), str(relocated / 'bin/aphid_consumer')]
+    if linux:
+        command = [*sandbox(work, [Path(p) for p in denied if Path(p).exists()], runtime_env), str(relocated / 'bin/aphid_consumer')]
+    else:
+        command = ['/usr/bin/sandbox-exec', '-f', str(work / 'runtime.sb'), str(relocated / 'bin/aphid_consumer')]
     checks = relocated / 'validation'
     run([*command, 'eval', 'Code.require_file("guards.exs")'], cwd=checks, env=runtime_env, timeout=30)
     run([*command, 'eval', 'Code.require_file("suite.exs")'], cwd=checks, env=runtime_env, timeout=180)
@@ -202,7 +252,11 @@ IO.puts("runtime guards verified: network, compiler, development, build and host
     expression = f'apply(list_to_atom({module}),eval_file,[unicode:characters_to_binary(os:getenv({variable}))]).'
     vm_args.write_text('+S 1:1\n+SDcpu 1:1\n-eval ' + expression + '\n')
     start_env = dict(runtime_env, RELEASE_VM_ARGS=str(vm_args), PROOF_START_SCRIPT=str(checks / 'start.exs'))
-    run([*command, 'start'], cwd=checks, env=start_env, timeout=30)
+    if linux:
+        start_command = [*sandbox(work, [Path(p) for p in denied if Path(p).exists()], start_env), str(relocated / 'bin/aphid_consumer')]
+    else:
+        start_command = command
+    run([*start_command, 'start'], cwd=checks, env=start_env, timeout=30)
     run([*command, 'eval', 'Code.require_file("reopen.exs")'], cwd=checks, env=runtime_env, timeout=30)
     after = {str(p.relative_to(relocated)): sha(p) for p in relocated.rglob('*') if p.is_file()}
     assert all(after.get(name) == digest for name, digest in manifest.items())

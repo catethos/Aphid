@@ -1,0 +1,68 @@
+Building aphid 0.1.0-dev
+  Dependencies:
+    zigler == 0.16.0 (app: zigler)
+    telemetry ~> 1.3 (app: telemetry)
+  App: aphid
+  Name: aphid
+  Files:
+    mix.exs
+    mix.lock
+    mix/aphid_bundle.exs
+    lib/aphid.ex
+    lib/aphid/application.ex
+    lib/aphid/bundle_loader.ex
+    lib/aphid/database.ex
+    lib/aphid/error.ex
+    lib/aphid/native.ex
+    lib/aphid/options.ex
+    lib/aphid/proof.ex
+    lib/aphid/result.ex
+    lib/aphid/stream.ex
+    lib/aphid/telemetry.ex
+    lib/aphid/transaction.ex
+    lib/aphid/value.ex
+    README.md
+    LICENSE
+    THIRD_PARTY.md
+    docs/architecture.md
+    docs/extensions.md
+    docs/github-release.md
+    docs/local-installation.md
+    docs/release-checklist.md
+    docs/source-installation.md
+    docs/status.md
+    docs/telemetry.md
+    docs/types.md
+    native/lock.json
+    native/local-bundle.json
+    native/linux-bundles.json
+    native/aphid_nif.zig
+    native/bridge.h
+    native/bridge.cpp
+    native/CMakeLists.txt
+    native/patches/aggregate-state-alignment.patch
+    native/patches/alp-conversion-range.patch
+    native/patches/detach-clear-default.patch
+    native/patches/duckdb-tabular-only.patch
+    native/patches/fts-atomic-create.patch
+    native/patches/join-row-alignment.patch
+    native/patches/node-delete-finalize.patch
+    native/patches/row-value-alignment.patch
+    native/patches/sort-key-alignment.patch
+    native/patches/string-hash-alignment.patch
+    native/patches/vector-drop-auto-transaction.patch
+    scripts/build.py
+    scripts/proof.py
+    scripts/source_preflight.py
+    native/proof.zig
+    native/proof.h
+    native/proof.cpp
+  Version: 0.1.0-dev
+  Build tools: mix
+  Description: LadybugDB for Elixir through Zigler
+  Licenses: MIT
+  Links: 
+    GitHub: https://github.com/catethos/Aphid
+  Elixir: ~> 1.20
+Package checksum: 4dc6bf1b3083f6ffeb0f177483750723be7c9796d3b391fd749990b2396e7ffe
+Saved to artifacts/aphid-0.1.0-dev-combined-1.tar

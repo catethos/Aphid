@@ -1,6 +1,11 @@
 name: Current source with reviewed Linux bundles
 on:
   workflow_dispatch:
+    inputs:
+      retain_source:
+        description: Retain passing Hex source package and evidence for seven days
+        type: boolean
+        default: false
 permissions:
   contents: read
   actions: read
@@ -36,5 +41,18 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           APHID_TARGET: ${{ matrix.target }}
-        run: python3 -u scripts/linux_consumer_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-current-consumer"
-# This workflow retains job logs only. It neither rebuilds nor uploads native artifacts.
+        run: |
+          set -o pipefail
+          python3 -u scripts/linux_consumer_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-current-consumer" 2>&1 | tee "$RUNNER_TEMP/current-consumer.log"
+      - name: Retain passing source package for cross-platform review
+        if: ${{ success() && inputs.retain_source && matrix.target == 'x86_64-linux-gnu' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: combined-source-${{ github.run_id }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/aphid-current-consumer/aphid-0.1.0-dev-combined.tar
+            ${{ runner.temp }}/aphid-current-consumer/fresh/inputs.json
+            ${{ runner.temp }}/current-consumer.log
+# Native bundles and bundled-ERTS release archives are not uploaded by this workflow.

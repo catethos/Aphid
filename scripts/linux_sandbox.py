@@ -30,7 +30,9 @@ def sandbox(work, hidden, env=None, network=False):
     command += ['--clearenv', '--setenv', 'LANG', 'C.UTF-8']
     allowed = {'PATH', 'HOME', 'TMPDIR', 'ERL_FLAGS', 'MIX_HOME', 'MIX_ENV', 'HEX_HOME',
                'ZIG_EXECUTABLE_PATH', 'ZIG_GLOBAL_CACHE_DIR', 'ZIGLER_STAGING_ROOT',
-               'APHID_INSTALL', 'APHID_BUNDLE_ARCHIVE', 'APHID_BUNDLE_SHA256'}
+               'APHID_INSTALL', 'APHID_BUNDLE_ARCHIVE', 'APHID_BUNDLE_SHA256',
+               'RELEASE_DISTRIBUTION', 'RELEASE_VM_ARGS', 'PROOF_DATABASE',
+               'PROOF_DENIED_FILES', 'PROOF_START_SCRIPT', 'ERL_CRASH_DUMP'}
     for key, value in (env or os.environ).items():
         if key in allowed:
             command += ['--setenv', key, value]
@@ -67,3 +69,12 @@ print('Linux namespace probe passed: build trees hidden, compiler paths masked, 
     run([*command, shutil.which('elixir'), '-e',
          ':utf8 = :file.native_name_encoding(); IO.puts("UTF-8 runtime filename mode verified")'], cwd=work, timeout=30)
     return command
+
+
+def noexec(path, command):
+    """Deny library mappings in a private mount, then launch as the caller."""
+    return ['sudo', '-E', 'unshare', '--mount', '--fork', '--propagation', 'private',
+            'sh', '-c', 'mount --bind "$1" "$1" && mount -o remount,bind,noexec "$1" && shift && exec "$@"',
+            'noexec-proof', str(path), '/usr/bin/setpriv', '--reuid', str(os.getuid()),
+            '--regid', str(os.getgid()), '--clear-groups', '--no-new-privs', '--',
+            '/usr/bin/env', 'PATH=' + os.environ['PATH'], *command]
