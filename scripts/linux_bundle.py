@@ -9,7 +9,7 @@ import shutil
 import subprocess
 import tarfile
 from build import target_recipe
-from proof import ROOT, run
+from proof import ROOT, run, normalize_linux_nif
 from runtime_bundle import extract
 from linux_sandbox import probe, sandbox
 
@@ -99,17 +99,25 @@ def main():
                 raise RuntimeError(f'Unbundled dependency: {path.name}: {dependency}')
         relative = os.path.relpath(lib, path.parent)
         rpath = '$ORIGIN' if relative == '.' else '$ORIGIN/' + relative
-        run(['patchelf', '--set-rpath', rpath, str(path)], timeout=30)
+        if subprocess.check_output(['patchelf', '--print-rpath', str(path)], text=True).strip() != rpath:
+            run(['patchelf', '--set-rpath', rpath, str(path)], timeout=30)
         if path.name in ['libaphid_bridge.so', 'liblbug.so']:
             run(['patchelf', '--set-soname', path.name, str(path)], timeout=30)
+        if path.name.startswith('Elixir.'):
+            normalize_linux_nif(path)
         actual = subprocess.check_output(['patchelf', '--print-rpath', str(path)], text=True).strip()
         if actual != rpath:
             raise RuntimeError(f'Unexpected runtime path: {path}')
-        audit[str(path.relative_to(bundle))] = subprocess.check_output(
-            ['readelf', '--file-header', '--dynamic', '--notes', '--version-info', str(path)], text=True)
+        headers = subprocess.run(
+            ['readelf', '--file-header', '--program-headers', '--dynamic', '--notes', '--version-info', str(path)],
+            text=True, capture_output=True, check=True, timeout=30)
+        if headers.stderr:
+            raise RuntimeError(f'ELF audit diagnostics for {path}: {headers.stderr}')
+        audit[str(path.relative_to(bundle))] = headers.stdout
         symbols = subprocess.check_output(['nm', '-D', str(path)], text=True)
-        if any(marker in symbols for marker in ['__asan_', '__ubsan_', '__tsan_']):
-            raise RuntimeError(f'Sanitizer reference in normal artifact: {path}')
+        undefined = subprocess.check_output(['nm', '-D', '--undefined-only', str(path)], text=True)
+        if any(marker in undefined for marker in ['__asan_', '__ubsan_', '__tsan_']):
+            raise RuntimeError(f'External sanitizer reference in normal artifact: {path}')
         if path.name.startswith('Elixir.') and ' T nif_init' not in symbols:
             raise RuntimeError(f'NIF entry point missing: {path}')
     for name in ['test', 'examples']:

@@ -88,6 +88,9 @@ def main():
         flags = json.dumps(['-Dtarget=' + args.target, '-Dcpu=baseline'])
         path.write_text(path.read_text().replace('    otp_app: :aphid,',
             '    otp_app: :aphid,\n    build_flags: ' + flags + ',', 1))
+    proof_module = candidate / 'lib/aphid/proof.ex'
+    proof_module.write_text(proof_module.read_text().replace(
+        '    c: [', '    c: [\n      rpaths: [{:special, "$ORIGIN"}],', 1))
     (candidate / '_build').mkdir()
     (candidate / '_build/native').symlink_to(output, target_is_directory=True)
     run(['mix', 'local.hex', '--force'], cwd=candidate, env=env)

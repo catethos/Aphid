@@ -29,6 +29,22 @@ def run(args, cwd=ROOT, env=None, timeout=600):
         raise RuntimeError(f"command failed: {args}")
 
 
+def normalize_linux_nif(path):
+    # Zigler's objcopy call rewrites its input even when only dumping metadata.
+    # Pin that representation at production time and require a stable second pass.
+    previous = None
+    for _ in range(2):
+        metadata = subprocess.check_output(
+            ['objcopy', '--dump-section', '.sema=/dev/stdout', str(path)], timeout=30)
+        json.loads(metadata.rstrip(b'\0'))
+        current = (hashlib.sha256(path.read_bytes()).hexdigest(), hashlib.sha256(metadata).hexdigest())
+        if previous is not None and previous != current:
+            raise RuntimeError(f'objcopy metadata extraction is not byte-stable: {path}')
+        previous = current
+    print(json.dumps({'normalized_nif': str(path), 'sha256': current[0],
+                      'sema_sha256': current[1]}), flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--target", choices=["aarch64-macos.13.3-none", "x86_64-linux-gnu", "aarch64-linux-gnu"])
@@ -45,6 +61,11 @@ def main():
         flags = json.dumps(["-Dtarget=" + args.target, "-Dcpu=baseline"])
         proof_module.write_text(proof_module.read_text().replace(
             "    otp_app: :aphid,", "    otp_app: :aphid,\n    build_flags: " + flags + ",", 1))
+    if args.target and args.target.endswith('linux-gnu'):
+        # Reserve the runtime path at link time; adding it with patchelf can
+        # invalidate the program headers of a Zig x86_64 ELF with no RPATH.
+        proof_module.write_text(proof_module.read_text().replace(
+            '    c: [', '    c: [\n      rpaths: [{:special, "$ORIGIN"}],', 1))
     # This isolated project contains only Proof, not the full Aphid application.
     mixfile = project / "mix.exs"
     mixfile.write_text(mixfile.read_text().replace(", mod: {Aphid.Application, []}", ""))
@@ -71,7 +92,8 @@ def main():
                                   'sanitizer_symbols': markers}), flush=True)
             if phase == 'original':
                 shutil.copy2(artifact, artifact.with_suffix('.original.so'))
-                run(['patchelf', '--set-rpath', '$ORIGIN', str(artifact)], timeout=30)
+                assert subprocess.check_output(['patchelf', '--print-rpath', str(artifact)], text=True).strip() == '$ORIGIN'
+                normalize_linux_nif(artifact)
     digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
     (artifacts / "sha256.json").write_text(json.dumps({artifact.name: digest}, indent=2) + "\n")
 
@@ -86,6 +108,9 @@ def main():
                           ZIG_EXECUTABLE_PATH=str(deny))
         run(["mix", "compile", "--force"], cwd=project, env=precompiled)
         run(["mix", "test", "--no-compile", "--seed", "0"], cwd=project, env=precompiled)
+        if args.target and args.target.endswith('linux-gnu'):
+            assert hashlib.sha256(artifact.read_bytes()).hexdigest() == digest
+            assert hashlib.sha256(library.read_bytes()).hexdigest() == digest
 
         app = temp / "relocated/lib/aphid-0.1.0"
         shutil.copytree(app_build / "ebin", app / "ebin")
