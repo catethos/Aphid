@@ -1,0 +1,984 @@
+﻿2026-09-08T06:04:49.5653580Z Current runner version: '2.337.0'
+2026-09-08T06:04:49.5682216Z ##[group]Runner Image Provisioner
+2026-09-08T06:04:49.5683375Z Hosted Compute Agent
+2026-09-08T06:04:49.5683966Z Version: 20260828.587
+2026-09-08T06:04:49.5684735Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-08T06:04:49.5685486Z Build Date: 2026-08-28T16:44:25Z
+2026-09-08T06:04:49.5686306Z Worker ID: {e9da2fac-3063-4759-9c49-385c54150ceb}
+2026-09-08T06:04:49.5687041Z Azure Region: eastus
+2026-09-08T06:04:49.5687642Z ##[endgroup]
+2026-09-08T06:04:49.5690689Z ##[group]Operating System
+2026-09-08T06:04:49.5691388Z Ubuntu
+2026-09-08T06:04:49.5692022Z 24.04.4
+2026-09-08T06:04:49.5692543Z LTS
+2026-09-08T06:04:49.5693094Z ##[endgroup]
+2026-09-08T06:04:49.5693874Z ##[group]Runner Image
+2026-09-08T06:04:49.5694507Z Image: ubuntu-24.04-arm
+2026-09-08T06:04:49.5695686Z Version: 20260831.111.1
+2026-09-08T06:04:49.5697134Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24-arm64/20260831.111/images/ubuntu/Ubuntu2404-Arm64-Readme.md
+2026-09-08T06:04:49.5698881Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24-arm64%2F20260831.111
+2026-09-08T06:04:49.5700129Z ##[endgroup]
+2026-09-08T06:04:49.5701381Z ##[group]GITHUB_TOKEN Permissions
+2026-09-08T06:04:49.5704478Z Contents: read
+2026-09-08T06:04:49.5705275Z Metadata: read
+2026-09-08T06:04:49.5705838Z ##[endgroup]
+2026-09-08T06:04:49.5708667Z Secret source: Actions
+2026-09-08T06:04:49.5710202Z Prepare workflow directory
+2026-09-08T06:04:49.6087290Z Prepare all required actions
+2026-09-08T06:04:49.6142853Z Getting action download info
+2026-09-08T06:04:49.8094562Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-09-08T06:04:49.8855954Z Download action repository 'actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1' (SHA:ece7cb06caefa5fff74198d8649806c4678c61a1)
+2026-09-08T06:04:49.9591323Z Download action repository 'erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124' (SHA:54075bcc5e249e4758d363f27d099f55d843f124)
+2026-09-08T06:04:50.0931411Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-08T06:04:50.2997403Z Complete job name: aarch64-linux-gnu (preflight)
+2026-09-08T06:04:50.3870928Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-09-08T06:04:50.3872415Z with:
+2026-09-08T06:04:50.3873175Z   persist-credentials: false
+2026-09-08T06:04:50.3873813Z   repository: catethos/Aphid
+2026-09-08T06:04:50.3877680Z   token: ***
+2026-09-08T06:04:50.3878218Z   ssh-strict: true
+2026-09-08T06:04:50.3878750Z   ssh-user: git
+2026-09-08T06:04:50.3879389Z   clean: true
+2026-09-08T06:04:50.3880459Z   sparse-checkout-cone-mode: true
+2026-09-08T06:04:50.3881219Z   fetch-depth: 1
+2026-09-08T06:04:50.3881869Z   fetch-tags: false
+2026-09-08T06:04:50.3882421Z   show-progress: true
+2026-09-08T06:04:50.3883059Z   lfs: false
+2026-09-08T06:04:50.3883584Z   submodules: false
+2026-09-08T06:04:50.3884232Z   set-safe-directory: true
+2026-09-08T06:04:50.3884940Z   allow-unsafe-pr-checkout: false
+2026-09-08T06:04:50.3886099Z ##[endgroup]
+2026-09-08T06:04:50.4757050Z Syncing repository: catethos/Aphid
+2026-09-08T06:04:50.4759958Z ##[group]Getting Git version info
+2026-09-08T06:04:50.4761207Z Working directory is '/home/runner/work/Aphid/Aphid'
+2026-09-08T06:04:50.4762747Z [command]/usr/bin/git version
+2026-09-08T06:04:50.4796917Z git version 2.55.0
+2026-09-08T06:04:50.4826445Z ##[endgroup]
+2026-09-08T06:04:50.4844314Z Temporarily overriding HOME='/home/runner/work/_temp/b4431ffa-f5d8-437b-93af-e756df384c76' before making global git config changes
+2026-09-08T06:04:50.4846237Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T06:04:50.4847802Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+2026-09-08T06:04:50.4882371Z Deleting the contents of '/home/runner/work/Aphid/Aphid'
+2026-09-08T06:04:50.4884577Z ##[group]Determining repository object format
+2026-09-08T06:04:50.4886118Z ##[endgroup]
+2026-09-08T06:04:50.4887430Z ##[group]Initializing the repository
+2026-09-08T06:04:50.4888284Z [command]/usr/bin/git init /home/runner/work/Aphid/Aphid
+2026-09-08T06:04:50.4990838Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-08T06:04:50.4992626Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-08T06:04:50.4993695Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-08T06:04:50.4994627Z hint: call:
+2026-09-08T06:04:50.4995173Z hint:
+2026-09-08T06:04:50.4995811Z hint: 	git config --global init.defaultBranch <name>
+2026-09-08T06:04:50.4996613Z hint:
+2026-09-08T06:04:50.4997311Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-08T06:04:50.4998400Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-08T06:04:50.4999250Z hint:
+2026-09-08T06:04:50.5000106Z hint: 	git branch -m <name>
+2026-09-08T06:04:50.5000895Z hint:
+2026-09-08T06:04:50.5001653Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-08T06:04:50.5002754Z Initialized empty Git repository in /home/runner/work/Aphid/Aphid/.git/
+2026-09-08T06:04:50.5007493Z [command]/usr/bin/git remote add origin https://github.com/catethos/Aphid
+2026-09-08T06:04:50.5048632Z ##[endgroup]
+2026-09-08T06:04:50.5049646Z ##[group]Disabling automatic garbage collection
+2026-09-08T06:04:50.5050799Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-08T06:04:50.5082609Z ##[endgroup]
+2026-09-08T06:04:50.5083754Z ##[group]Setting up auth
+2026-09-08T06:04:50.5084471Z Removing SSH command configuration
+2026-09-08T06:04:50.5089840Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T06:04:50.5129235Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T06:04:50.5433353Z Removing HTTP extra header
+2026-09-08T06:04:50.5440210Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T06:04:50.5471666Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T06:04:50.5671121Z Removing includeIf entries pointing to credentials config files
+2026-09-08T06:04:50.5691007Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T06:04:50.5709162Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T06:04:50.5913408Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-08T06:04:50.5956427Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:50.5987059Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:50.6018913Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:50.6048344Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:50.6085583Z ##[endgroup]
+2026-09-08T06:04:50.6086752Z ##[group]Fetching the repository
+2026-09-08T06:04:50.6088189Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +c37c458211d0bff7e4054f90bf5d429f29ece2ef:refs/remotes/origin/main
+2026-09-08T06:04:51.4925118Z From https://github.com/catethos/Aphid
+2026-09-08T06:04:51.4926528Z  * [new ref]         c37c458211d0bff7e4054f90bf5d429f29ece2ef -> origin/main
+2026-09-08T06:04:51.4936992Z [command]/usr/bin/git branch --list --remote origin/main
+2026-09-08T06:04:51.4971179Z   origin/main
+2026-09-08T06:04:51.4973390Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-09-08T06:04:51.4993970Z c37c458211d0bff7e4054f90bf5d429f29ece2ef
+2026-09-08T06:04:51.4997427Z ##[endgroup]
+2026-09-08T06:04:51.4998561Z ##[group]Determining the checkout info
+2026-09-08T06:04:51.5000071Z ##[endgroup]
+2026-09-08T06:04:51.5001246Z [command]/usr/bin/git sparse-checkout disable
+2026-09-08T06:04:51.5038147Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-08T06:04:51.5066085Z ##[group]Checking out the ref
+2026-09-08T06:04:51.5068073Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-08T06:04:51.6165318Z Switched to a new branch 'main'
+2026-09-08T06:04:51.6166746Z branch 'main' set up to track 'origin/main'.
+2026-09-08T06:04:51.6179282Z ##[endgroup]
+2026-09-08T06:04:51.6219938Z [command]/usr/bin/git log -1 --format=%H
+2026-09-08T06:04:51.6243142Z c37c458211d0bff7e4054f90bf5d429f29ece2ef
+2026-09-08T06:04:51.6252533Z ##[group]Removing auth
+2026-09-08T06:04:51.6253768Z Removing SSH command configuration
+2026-09-08T06:04:51.6255466Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T06:04:51.6284805Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T06:04:51.6475751Z Removing HTTP extra header
+2026-09-08T06:04:51.6477668Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T06:04:51.6506826Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T06:04:51.6695679Z Removing includeIf entries pointing to credentials config files
+2026-09-08T06:04:51.6697860Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T06:04:51.6717118Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+2026-09-08T06:04:51.6719189Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+2026-09-08T06:04:51.6721757Z includeif.gitdir:/github/workspace/.git.path
+2026-09-08T06:04:51.6723431Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T06:04:51.6727202Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+2026-09-08T06:04:51.6747843Z /home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6758153Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6788220Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+2026-09-08T06:04:51.6810026Z /home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6818774Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6848000Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-08T06:04:51.6871638Z /github/runner_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6879055Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6908328Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T06:04:51.6929489Z /github/runner_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6936058Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config
+2026-09-08T06:04:51.6966469Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T06:04:51.7160578Z Removing credentials config '/home/runner/work/_temp/git-credentials-4a91bb74-00a7-4b30-b03e-6378d036858d.config'
+2026-09-08T06:04:51.7168199Z ##[endgroup]
+2026-09-08T06:04:51.7503228Z ##[group]Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+2026-09-08T06:04:51.7504735Z with:
+2026-09-08T06:04:51.7505664Z   python-version: 3.14
+2026-09-08T06:04:51.7506506Z   check-latest: false
+2026-09-08T06:04:51.7513697Z   token: ***
+2026-09-08T06:04:51.7514526Z   update-environment: true
+2026-09-08T06:04:51.7515448Z   allow-prereleases: false
+2026-09-08T06:04:51.7516432Z   freethreaded: false
+2026-09-08T06:04:51.7517227Z ##[endgroup]
+2026-09-08T06:04:51.8604711Z ##[group]Installed versions
+2026-09-08T06:04:51.8679508Z Successfully set up CPython (3.14.7)
+2026-09-08T06:04:51.8681627Z ##[endgroup]
+2026-09-08T06:04:51.8904474Z ##[group]Run erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124
+2026-09-08T06:04:51.8905757Z with:
+2026-09-08T06:04:51.8906596Z   otp-version: 29.0.4
+2026-09-08T06:04:51.8907426Z   elixir-version: 1.20.0
+2026-09-08T06:04:51.8914143Z   github-token: ***
+2026-09-08T06:04:51.8914989Z   otp-architecture: 64
+2026-09-08T06:04:51.8915762Z   install-hex: true
+2026-09-08T06:04:51.8916604Z   install-rebar: true
+2026-09-08T06:04:51.8917458Z   version-type: loose
+2026-09-08T06:04:51.8918307Z   disable_problem_matchers: false
+2026-09-08T06:04:51.8919265Z   hexpm-mirrors: https://builds.hex.pm
+
+2026-09-08T06:04:51.8920338Z env:
+2026-09-08T06:04:51.8921280Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:51.8922672Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T06:04:51.8924085Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:51.8925427Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:51.8926757Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:51.8928036Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T06:04:51.8929164Z ##[endgroup]
+2026-09-08T06:04:52.0862498Z ##[group]Installing Erlang/OTP OTP-29.0.4 - built on arm64/ubuntu-24.04
+2026-09-08T06:04:52.5287471Z [command]/usr/bin/tar zx --strip-components=1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/90c2fcf0-6346-43a0-bc6a-4fdebd2c19e2 -f /home/runner/work/_temp/f66a4b7d-d237-474a-9c70-e75de2a643ce
+2026-09-08T06:04:54.6505099Z [command]/home/runner/work/_temp/.setup-beam/otp/Install -minimal /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T06:04:54.6747697Z Installed Erlang/OTP version
+2026-09-08T06:04:54.6769349Z [command]/home/runner/work/_temp/.setup-beam/otp/bin/erl -version
+2026-09-08T06:04:54.6868707Z Erlang (SMP,ASYNC_THREADS) (BEAM) emulator version 17.0.4
+2026-09-08T06:04:54.6892706Z ##[endgroup]
+2026-09-08T06:04:54.6893835Z [command]/home/runner/work/_temp/.setup-beam/otp/bin/erl -noshell -eval io:format(erlang:system_info(otp_release)), halt().
+2026-09-08T06:04:54.8351451Z 29::debug::Was not able to coerce latest with semver
+2026-09-08T06:04:54.8364974Z Using Elixir 1.20.0 (built for Erlang/OTP 29)
+2026-09-08T06:04:54.8365907Z ##[group]Installing Elixir v1.20.0-otp-29
+2026-09-08T06:04:54.9273302Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/5683a5e9-b435-435a-ba06-0009fa154499
+2026-09-08T06:04:55.2188810Z Installed Elixir version
+2026-09-08T06:04:55.2205285Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/elixir -v
+2026-09-08T06:04:55.4012116Z Erlang/OTP 29 [erts-17.0.4] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit]
+2026-09-08T06:04:55.4012796Z 
+2026-09-08T06:04:55.4070074Z Elixir 1.20.0 (compiled with Erlang/OTP 29)
+2026-09-08T06:04:55.4114957Z ##[endgroup]
+2026-09-08T06:04:55.4115528Z ##[group]Running mix local.rebar,--force
+2026-09-08T06:04:55.4124442Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/mix local.rebar --force
+2026-09-08T06:04:56.0613903Z * creating /home/runner/.mix/elixir/1-20-otp-29/rebar3
+2026-09-08T06:04:56.0667485Z ##[endgroup]
+2026-09-08T06:04:56.0667977Z ##[group]Running mix local.hex,--force
+2026-09-08T06:04:56.0683221Z [command]/home/runner/work/_temp/.setup-beam/elixir/bin/mix local.hex --force
+2026-09-08T06:04:56.7497216Z * creating /home/runner/.mix/archives/hex-2.5.1
+2026-09-08T06:04:56.7560951Z ##[endgroup]
+2026-09-08T06:04:56.7715757Z ##[group]Run sudo apt-get update
+2026-09-08T06:04:56.7716342Z [36;1msudo apt-get update[0m
+2026-09-08T06:04:56.7716868Z [36;1msudo apt-get install --yes build-essential cmake ninja-build perl binutils patchelf bubblewrap[0m
+2026-09-08T06:04:56.7820252Z shell: /usr/bin/bash -e {0}
+2026-09-08T06:04:56.7820857Z env:
+2026-09-08T06:04:56.7821186Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:56.7821724Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T06:04:56.7822192Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:56.7822599Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:56.7823089Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:04:56.7823508Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T06:04:56.7823945Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T06:04:56.7824482Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T06:04:56.7824925Z ##[endgroup]
+2026-09-08T06:04:56.8676623Z Get:1 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-09-08T06:04:56.9187474Z Get:2 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [394 kB]
+2026-09-08T06:04:56.9319983Z Get:3 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [441 kB]
+2026-09-08T06:04:56.9646042Z Hit:4 http://ports.ubuntu.com/ubuntu-ports noble InRelease
+2026-09-08T06:04:56.9785415Z Get:5 http://ports.ubuntu.com/ubuntu-ports noble-updates InRelease [126 kB]
+2026-09-08T06:04:57.0345036Z Get:6 http://ports.ubuntu.com/ubuntu-ports noble-backports InRelease [126 kB]
+2026-09-08T06:04:57.0621132Z Get:7 http://ports.ubuntu.com/ubuntu-ports noble-security InRelease [126 kB]
+2026-09-08T06:04:57.0809667Z Get:8 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Packages [1318 kB]
+2026-09-08T06:04:57.1457853Z Get:9 http://ports.ubuntu.com/ubuntu-ports noble-updates/main Translation-en [292 kB]
+2026-09-08T06:04:57.1618447Z Get:10 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 Components [178 kB]
+2026-09-08T06:04:57.1762040Z Get:11 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Packages [1731 kB]
+2026-09-08T06:04:57.2160916Z Get:12 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe Translation-en [339 kB]
+2026-09-08T06:04:57.2302626Z Get:13 http://ports.ubuntu.com/ubuntu-ports noble-updates/universe arm64 Components [387 kB]
+2026-09-08T06:04:57.2452698Z Get:14 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted arm64 Packages [2320 kB]
+2026-09-08T06:04:57.2744228Z Get:15 http://ports.ubuntu.com/ubuntu-ports noble-updates/restricted Translation-en [352 kB]
+2026-09-08T06:04:57.2890790Z Get:16 http://ports.ubuntu.com/ubuntu-ports noble-backports/main arm64 Components [3576 B]
+2026-09-08T06:04:57.3024975Z Get:17 http://ports.ubuntu.com/ubuntu-ports noble-backports/universe arm64 Components [12.6 kB]
+2026-09-08T06:04:57.3690749Z Get:18 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Packages [1065 kB]
+2026-09-08T06:04:57.3861993Z Get:19 http://ports.ubuntu.com/ubuntu-ports noble-security/main Translation-en [212 kB]
+2026-09-08T06:04:57.4003717Z Get:20 http://ports.ubuntu.com/ubuntu-ports noble-security/main arm64 Components [43.3 kB]
+2026-09-08T06:04:57.4137808Z Get:21 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Packages [1280 kB]
+2026-09-08T06:04:57.4318304Z Get:22 http://ports.ubuntu.com/ubuntu-ports noble-security/universe Translation-en [241 kB]
+2026-09-08T06:04:57.4460485Z Get:23 http://ports.ubuntu.com/ubuntu-ports noble-security/universe arm64 Components [76.2 kB]
+2026-09-08T06:04:57.4596523Z Get:24 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted arm64 Packages [2210 kB]
+2026-09-08T06:04:57.4811340Z Get:25 http://ports.ubuntu.com/ubuntu-ports noble-security/restricted Translation-en [334 kB]
+2026-09-08T06:05:01.4241210Z Fetched 13.6 MB in 1s (10.8 MB/s)
+2026-09-08T06:05:02.2813546Z Reading package lists...
+2026-09-08T06:05:02.3110379Z Reading package lists...
+2026-09-08T06:05:02.5166256Z Building dependency tree...
+2026-09-08T06:05:02.5171297Z Reading state information...
+2026-09-08T06:05:02.7262213Z perl is already the newest version (5.38.2-3.2ubuntu0.4).
+2026-09-08T06:05:02.7262731Z perl set to manually installed.
+2026-09-08T06:05:02.7263100Z binutils is already the newest version (2.42-4ubuntu2.10).
+2026-09-08T06:05:02.7263650Z patchelf is already the newest version (0.18.0-1.1build1).
+2026-09-08T06:05:02.7264042Z Suggested packages:
+2026-09-08T06:05:02.7264362Z   cmake-doc cmake-format elpa-cmake-mode
+2026-09-08T06:05:02.7435617Z The following NEW packages will be installed:
+2026-09-08T06:05:02.7440985Z   bubblewrap build-essential cmake cmake-data libjsoncpp25 librhash0
+2026-09-08T06:05:02.7442259Z   ninja-build
+2026-09-08T06:05:02.8664166Z 0 upgraded, 7 newly installed, 0 to remove and 43 not upgraded.
+2026-09-08T06:05:02.8664986Z Need to get 12.8 MB of archives.
+2026-09-08T06:05:02.8665410Z After this operation, 45.5 MB of additional disk space will be used.
+2026-09-08T06:05:02.8666196Z Get:1 http://ports.ubuntu.com/ubuntu-ports noble-updates/main arm64 bubblewrap arm64 0.9.0-1ubuntu0.1 [49.7 kB]
+2026-09-08T06:05:02.9071400Z Get:2 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 build-essential arm64 12.10ubuntu1 [4932 B]
+2026-09-08T06:05:02.9207620Z Get:3 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 libjsoncpp25 arm64 1.9.5-6build1 [78.2 kB]
+2026-09-08T06:05:02.9478422Z Get:4 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 librhash0 arm64 1.4.3-3build1 [126 kB]
+2026-09-08T06:05:02.9757666Z Get:5 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 cmake-data all 3.28.3-1build7 [2155 kB]
+2026-09-08T06:05:03.0621737Z Get:6 http://ports.ubuntu.com/ubuntu-ports noble/main arm64 cmake arm64 3.28.3-1build7 [10.3 MB]
+2026-09-08T06:05:03.1433098Z Get:7 http://ports.ubuntu.com/ubuntu-ports noble/universe arm64 ninja-build arm64 1.11.1-2 [125 kB]
+2026-09-08T06:05:03.3874649Z Fetched 12.8 MB in 0s (32.9 MB/s)
+2026-09-08T06:05:03.4074279Z Selecting previously unselected package bubblewrap.
+2026-09-08T06:05:03.4274693Z (Reading database ... 
+2026-09-08T06:05:03.4275109Z (Reading database ... 5%
+2026-09-08T06:05:03.4275608Z (Reading database ... 10%
+2026-09-08T06:05:03.4275943Z (Reading database ... 15%
+2026-09-08T06:05:03.4276267Z (Reading database ... 20%
+2026-09-08T06:05:03.4276551Z (Reading database ... 25%
+2026-09-08T06:05:03.4276828Z (Reading database ... 30%
+2026-09-08T06:05:03.4277152Z (Reading database ... 35%
+2026-09-08T06:05:03.4277455Z (Reading database ... 40%
+2026-09-08T06:05:03.4278689Z (Reading database ... 45%
+2026-09-08T06:05:03.4279017Z (Reading database ... 50%
+2026-09-08T06:05:03.4402108Z (Reading database ... 55%
+2026-09-08T06:05:03.5800732Z (Reading database ... 60%
+2026-09-08T06:05:03.7872351Z (Reading database ... 65%
+2026-09-08T06:05:03.9355758Z (Reading database ... 70%
+2026-09-08T06:05:03.9689137Z (Reading database ... 75%
+2026-09-08T06:05:04.0840312Z (Reading database ... 80%
+2026-09-08T06:05:04.2754152Z (Reading database ... 85%
+2026-09-08T06:05:04.4806994Z (Reading database ... 90%
+2026-09-08T06:05:04.6064845Z (Reading database ... 95%
+2026-09-08T06:05:04.6065262Z (Reading database ... 100%
+2026-09-08T06:05:04.6065837Z (Reading database ... 200999 files and directories currently installed.)
+2026-09-08T06:05:04.6109026Z Preparing to unpack .../0-bubblewrap_0.9.0-1ubuntu0.1_arm64.deb ...
+2026-09-08T06:05:04.6133603Z Unpacking bubblewrap (0.9.0-1ubuntu0.1) ...
+2026-09-08T06:05:04.6386396Z Selecting previously unselected package build-essential.
+2026-09-08T06:05:04.6570768Z Preparing to unpack .../1-build-essential_12.10ubuntu1_arm64.deb ...
+2026-09-08T06:05:04.6583447Z Unpacking build-essential (12.10ubuntu1) ...
+2026-09-08T06:05:04.6785841Z Selecting previously unselected package libjsoncpp25:arm64.
+2026-09-08T06:05:04.6966848Z Preparing to unpack .../2-libjsoncpp25_1.9.5-6build1_arm64.deb ...
+2026-09-08T06:05:04.6988143Z Unpacking libjsoncpp25:arm64 (1.9.5-6build1) ...
+2026-09-08T06:05:04.7200387Z Selecting previously unselected package librhash0:arm64.
+2026-09-08T06:05:04.7385481Z Preparing to unpack .../3-librhash0_1.4.3-3build1_arm64.deb ...
+2026-09-08T06:05:04.7397210Z Unpacking librhash0:arm64 (1.4.3-3build1) ...
+2026-09-08T06:05:04.7612084Z Selecting previously unselected package cmake-data.
+2026-09-08T06:05:04.7776334Z Preparing to unpack .../4-cmake-data_3.28.3-1build7_all.deb ...
+2026-09-08T06:05:04.7842239Z Unpacking cmake-data (3.28.3-1build7) ...
+2026-09-08T06:05:05.2899453Z Selecting previously unselected package cmake.
+2026-09-08T06:05:05.3085855Z Preparing to unpack .../5-cmake_3.28.3-1build7_arm64.deb ...
+2026-09-08T06:05:05.3096805Z Unpacking cmake (3.28.3-1build7) ...
+2026-09-08T06:05:05.4705822Z Selecting previously unselected package ninja-build.
+2026-09-08T06:05:05.4885772Z Preparing to unpack .../6-ninja-build_1.11.1-2_arm64.deb ...
+2026-09-08T06:05:05.4896887Z Unpacking ninja-build (1.11.1-2) ...
+2026-09-08T06:05:05.5290966Z Setting up bubblewrap (0.9.0-1ubuntu0.1) ...
+2026-09-08T06:05:05.5340865Z Setting up ninja-build (1.11.1-2) ...
+2026-09-08T06:05:05.5364690Z Setting up libjsoncpp25:arm64 (1.9.5-6build1) ...
+2026-09-08T06:05:05.5387242Z Setting up librhash0:arm64 (1.4.3-3build1) ...
+2026-09-08T06:05:05.5412950Z Setting up build-essential (12.10ubuntu1) ...
+2026-09-08T06:05:05.5436204Z Setting up cmake-data (3.28.3-1build7) ...
+2026-09-08T06:05:05.5500626Z Setting up cmake (3.28.3-1build7) ...
+2026-09-08T06:05:05.5528168Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-09-08T06:05:05.5550447Z Not building database; man-db/auto-update is not 'true'.
+2026-09-08T06:05:05.5564287Z Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+2026-09-08T06:05:07.8039383Z 
+2026-09-08T06:05:07.8040250Z Running kernel seems to be up-to-date.
+2026-09-08T06:05:07.8040774Z 
+2026-09-08T06:05:07.8040939Z No services need to be restarted.
+2026-09-08T06:05:07.8041155Z 
+2026-09-08T06:05:07.8041333Z No containers need to be restarted.
+2026-09-08T06:05:07.8041558Z 
+2026-09-08T06:05:07.8051083Z No user sessions are running outdated binaries.
+2026-09-08T06:05:07.8051400Z 
+2026-09-08T06:05:07.8051627Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-09-08T06:05:08.9016055Z ##[group]Run curl --fail --location --retry 3 --output "$RUNNER_TEMP/zig.tar.xz" "https://ziglang.org/download/0.16.0/zig-${ZIG_ARCH}-0.16.0.tar.xz"
+2026-09-08T06:05:08.9017130Z [36;1mcurl --fail --location --retry 3 --output "$RUNNER_TEMP/zig.tar.xz" "https://ziglang.org/download/0.16.0/zig-${ZIG_ARCH}-0.16.0.tar.xz"[0m
+2026-09-08T06:05:08.9017965Z [36;1mecho "$ZIG_SHA256  $RUNNER_TEMP/zig.tar.xz" | sha256sum --check --strict[0m
+2026-09-08T06:05:08.9018382Z [36;1mmkdir "$RUNNER_TEMP/zig"[0m
+2026-09-08T06:05:08.9018840Z [36;1mtar -xJf "$RUNNER_TEMP/zig.tar.xz" -C "$RUNNER_TEMP/zig" --strip-components=1[0m
+2026-09-08T06:05:08.9019308Z [36;1mecho "$RUNNER_TEMP/zig" >> "$GITHUB_PATH"[0m
+2026-09-08T06:05:08.9072665Z shell: /usr/bin/bash -e {0}
+2026-09-08T06:05:08.9073012Z env:
+2026-09-08T06:05:08.9073383Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:08.9073840Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T06:05:08.9074456Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:08.9074896Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:08.9075309Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:08.9075768Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T06:05:08.9076193Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T06:05:08.9076660Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T06:05:08.9077040Z   ZIG_ARCH: aarch64-linux
+2026-09-08T06:05:08.9077455Z   ZIG_SHA256: ea4b09bfb22ec6f6c6ceac57ab63efb6b46e17ab08d21f69f3a48b38e1534f17
+2026-09-08T06:05:08.9077906Z ##[endgroup]
+2026-09-08T06:05:08.9207595Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-09-08T06:05:08.9208186Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-09-08T06:05:08.9208453Z 
+2026-09-08T06:05:09.6887026Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-09-08T06:05:10.7245174Z   0 48.8M    0 98042    0     0   124k      0  0:06:41 --:--:--  0:06:41  124k
+2026-09-08T06:05:11.6939873Z   8 48.8M    8 4095k    0     0  2270k      0  0:00:22  0:00:01  0:00:21 2270k
+2026-09-08T06:05:12.4461819Z  58 48.8M   58 28.7M    0     0  10.3M      0  0:00:04  0:00:02  0:00:02 10.3M
+2026-09-08T06:05:12.4462663Z 100 48.8M  100 48.8M    0     0  13.8M      0  0:00:03  0:00:03 --:--:-- 13.8M
+2026-09-08T06:05:12.4829470Z /home/runner/work/_temp/zig.tar.xz: OK
+2026-09-08T06:05:15.1748446Z ##[group]Run python3 scripts/source_routing_checks.py --destination "$RUNNER_TEMP/routing"
+2026-09-08T06:05:15.1749147Z [36;1mpython3 scripts/source_routing_checks.py --destination "$RUNNER_TEMP/routing"[0m
+2026-09-08T06:05:15.1785288Z shell: /usr/bin/bash -e {0}
+2026-09-08T06:05:15.1785708Z env:
+2026-09-08T06:05:15.1786005Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.1786461Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T06:05:15.1786955Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.1787376Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.1787797Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.1788211Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T06:05:15.1788626Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T06:05:15.1789175Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T06:05:15.1789562Z ##[endgroup]
+2026-09-08T06:05:15.8057823Z 9 ownership/configuration rejections; fetch/OpenSSL/CMake/bridge routes use private paths
+2026-09-08T06:05:15.8058866Z Commands were captured, not executed; native source compilation remains unproved
+2026-09-08T06:05:15.8392229Z ##[group]Run python3 - <<'PY'
+2026-09-08T06:05:15.8392554Z [36;1mpython3 - <<'PY'[0m
+2026-09-08T06:05:15.8392759Z [36;1mimport os, sys[0m
+2026-09-08T06:05:15.8392966Z [36;1mfrom pathlib import Path[0m
+2026-09-08T06:05:15.8393209Z [36;1msys.path.insert(0, 'scripts')[0m
+2026-09-08T06:05:15.8393462Z [36;1mfrom linux_sandbox import probe[0m
+2026-09-08T06:05:15.8393782Z [36;1mwork = Path(os.environ['RUNNER_TEMP']) / 'isolation-probe'[0m
+2026-09-08T06:05:15.8394097Z [36;1mwork.mkdir()[0m
+2026-09-08T06:05:15.8394287Z [36;1mprobe(work, [])[0m
+2026-09-08T06:05:15.8394484Z [36;1mPY[0m
+2026-09-08T06:05:15.8435071Z shell: /usr/bin/bash -e {0}
+2026-09-08T06:05:15.8435298Z env:
+2026-09-08T06:05:15.8435530Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.8435920Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T06:05:15.8436572Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.8436976Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.8437328Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:15.8437684Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T06:05:15.8438049Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T06:05:15.8438427Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T06:05:15.8438740Z ##[endgroup]
+2026-09-08T06:05:15.9558269Z Linux namespace probe passed: build trees hidden, compiler paths masked, external network unavailable
+2026-09-08T06:05:15.9676348Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/isolation-probe", "/home/runner/work/_temp/isolation-probe", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--ro-bind", "/dev/null", "/home/runner/work/_temp/zig/zig", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/cmake", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/ninja", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner", "--setenv", "PATH", "/home/runner/work/_temp/zig:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/arm64/bin:/opt/hostedtoolcache/Python/3.14.7/arm64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "/opt/hostedtoolcache/Python/3.14.7/arm64/bin/python3", "/home/runner/work/_temp/isolation-probe/isolation-check.py"], "cwd": "/home/runner/work/_temp/isolation-probe", "exit": 0, "seconds": 0.064}
+2026-09-08T06:05:16.1897908Z UTF-8 runtime filename mode verified
+2026-09-08T06:05:16.2323617Z {"command": ["sudo", "-E", "bwrap", "--die-with-parent", "--unshare-pid", "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc", "--bind", "/home/runner/work/_temp/isolation-probe", "/home/runner/work/_temp/isolation-probe", "--unshare-net", "--tmpfs", "/home/runner/work/Aphid/Aphid", "--ro-bind", "/dev/null", "/home/runner/work/_temp/zig/zig", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-as", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-g++-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-12", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-13", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-gcc-14", "--ro-bind", "/dev/null", "/usr/bin/aarch64-linux-gnu-ld.bfd", "--ro-bind", "/dev/null", "/usr/bin/c89-gcc", "--ro-bind", "/dev/null", "/usr/bin/c99-gcc", "--ro-bind", "/dev/null", "/usr/bin/cmake", "--ro-bind", "/dev/null", "/usr/bin/make", "--ro-bind", "/dev/null", "/usr/bin/ninja", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-16/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-17/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/clang", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/lld", "--ro-bind", "/dev/null", "/usr/lib/llvm-18/bin/llvm-as", "--ro-bind", "/dev/null", "/usr/local/bin/cmake", "--ro-bind", "/dev/null", "/usr/local/bin/ninja", "--cap-add", "CAP_SETUID", "--cap-add", "CAP_SETGID", "--cap-add", "CAP_SETPCAP", "--clearenv", "--setenv", "LANG", "C.UTF-8", "--setenv", "HOME", "/home/runner", "--setenv", "PATH", "/home/runner/work/_temp/zig:/home/runner/work/_temp/.setup-beam/elixir/bin:/home/runner/.mix/escripts:/home/runner/work/_temp/.setup-beam/otp/bin:/opt/hostedtoolcache/Python/3.14.7/arm64/bin:/opt/hostedtoolcache/Python/3.14.7/arm64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "--", "/usr/bin/setpriv", "--reuid", "1001", "--regid", "1001", "--clear-groups", "--bounding-set=-all", "--no-new-privs", "--", "/home/runner/work/_temp/.setup-beam/elixir/bin/elixir", "-e", ":utf8 = :file.native_name_encoding(); IO.puts(\"UTF-8 runtime filename mode verified\")"], "cwd": "/home/runner/work/_temp/isolation-probe", "exit": 0, "seconds": 0.264}
+2026-09-08T06:05:16.2427611Z ##[group]Run python3 -u scripts/linux_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-preflight" --toolchain-only
+2026-09-08T06:05:16.2428407Z [36;1mpython3 -u scripts/linux_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-preflight" --toolchain-only[0m
+2026-09-08T06:05:16.2462131Z shell: /usr/bin/bash -e {0}
+2026-09-08T06:05:16.2462349Z env:
+2026-09-08T06:05:16.2462581Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:16.2462976Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib/pkgconfig
+2026-09-08T06:05:16.2463367Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:16.2463716Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:16.2464067Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/arm64
+2026-09-08T06:05:16.2464418Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/arm64/lib
+2026-09-08T06:05:16.2464847Z   INSTALL_DIR_FOR_OTP: /home/runner/work/_temp/.setup-beam/otp
+2026-09-08T06:05:16.2465227Z   INSTALL_DIR_FOR_ELIXIR: /home/runner/work/_temp/.setup-beam/elixir
+2026-09-08T06:05:16.2465557Z   APHID_TARGET: aarch64-linux-gnu
+2026-09-08T06:05:16.2465774Z ##[endgroup]
+2026-09-08T06:05:16.3145517Z {"target": "aarch64-linux-gnu", "host": {"system": "Linux", "node": "runnervmfx5wp", "release": "6.17.0-1022-azure", "version": "#22-Ubuntu SMP Mon Jul 27 17:12:01 UTC 2026", "machine": "aarch64", "processor": "aarch64"}, "disk_free": 114906558464}
+2026-09-08T06:05:16.3157985Z glibc 2.39
+2026-09-08T06:05:16.3163629Z {"command": ["getconf", "GNU_LIBC_VERSION"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.002}
+2026-09-08T06:05:16.3265749Z Architecture:                            aarch64
+2026-09-08T06:05:16.3266111Z CPU op-mode(s):                          32-bit, 64-bit
+2026-09-08T06:05:16.3266442Z Byte Order:                              Little Endian
+2026-09-08T06:05:16.3267140Z CPU(s):                                  4
+2026-09-08T06:05:16.3267438Z On-line CPU(s) list:                     0-3
+2026-09-08T06:05:16.3267731Z Vendor ID:                               ARM
+2026-09-08T06:05:16.3268024Z Model name:                              Neoverse-N2
+2026-09-08T06:05:16.3268325Z Model:                                   0
+2026-09-08T06:05:16.3268597Z Thread(s) per core:                      1
+2026-09-08T06:05:16.3268870Z Core(s) per socket:                      4
+2026-09-08T06:05:16.3269151Z Socket(s):                               1
+2026-09-08T06:05:16.3269439Z Stepping:                                r0p0
+2026-09-08T06:05:16.3269937Z BogoMIPS:                                2000.00
+2026-09-08T06:05:16.3271027Z Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm uscat ilrcpc flagm sb paca pacg dcpodp sve2 sveaes svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16
+2026-09-08T06:05:16.3272106Z L1d cache:                               256 KiB (4 instances)
+2026-09-08T06:05:16.3272446Z L1i cache:                               256 KiB (4 instances)
+2026-09-08T06:05:16.3272778Z L2 cache:                                4 MiB (4 instances)
+2026-09-08T06:05:16.3273104Z L3 cache:                                128 MiB (1 instance)
+2026-09-08T06:05:16.3273409Z NUMA node(s):                            1
+2026-09-08T06:05:16.3273681Z NUMA node0 CPU(s):                       0-3
+2026-09-08T06:05:16.3274006Z Vulnerability Gather data sampling:      Not affected
+2026-09-08T06:05:16.3274360Z Vulnerability Ghostwrite:                Not affected
+2026-09-08T06:05:16.3274716Z Vulnerability Indirect target selection: Not affected
+2026-09-08T06:05:16.3275069Z Vulnerability Itlb multihit:             Not affected
+2026-09-08T06:05:16.3275412Z Vulnerability L1tf:                      Not affected
+2026-09-08T06:05:16.3275755Z Vulnerability Mds:                       Not affected
+2026-09-08T06:05:16.3276402Z Vulnerability Meltdown:                  Not affected
+2026-09-08T06:05:16.3276823Z Vulnerability Mmio stale data:           Not affected
+2026-09-08T06:05:16.3277177Z Vulnerability Old microcode:             Not affected
+2026-09-08T06:05:16.3277529Z Vulnerability Reg file data sampling:    Not affected
+2026-09-08T06:05:16.3277895Z Vulnerability Retbleed:                  Not affected
+2026-09-08T06:05:16.3278247Z Vulnerability Spec rstack overflow:      Not affected
+2026-09-08T06:05:16.3278721Z Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+2026-09-08T06:05:16.3279269Z Vulnerability Spectre v1:                Mitigation; __user pointer sanitization
+2026-09-08T06:05:16.3279918Z Vulnerability Spectre v2:                Mitigation; CSV2, BHB
+2026-09-08T06:05:16.3280348Z Vulnerability Srbds:                     Not affected
+2026-09-08T06:05:16.3280686Z Vulnerability Tsa:                       Not affected
+2026-09-08T06:05:16.3281040Z Vulnerability Tsx async abort:           Not affected
+2026-09-08T06:05:16.3281396Z Vulnerability Vmscape:                   Not affected
+2026-09-08T06:05:16.3281850Z {"command": ["lscpu"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.012}
+2026-09-08T06:05:16.3293672Z                total        used        free      shared  buff/cache   available
+2026-09-08T06:05:16.3294141Z Mem:     16722006016  1299673088 12578181120    48668672  3167252480 15422332928
+2026-09-08T06:05:16.3294527Z Swap:     3221221376           0  3221221376
+2026-09-08T06:05:16.3296035Z {"command": ["free", "-b"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.001}
+2026-09-08T06:05:16.3711291Z c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+2026-09-08T06:05:16.3711622Z Copyright (C) 2023 Free Software Foundation, Inc.
+2026-09-08T06:05:16.3712018Z This is free software; see the source for copying conditions.  There is NO
+2026-09-08T06:05:16.3712506Z warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+2026-09-08T06:05:16.3713190Z 
+2026-09-08T06:05:16.3973830Z {"command": ["c++", "--version"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.068}
+2026-09-08T06:05:16.7097219Z cmake version 3.31.6
+2026-09-08T06:05:16.7097800Z 
+2026-09-08T06:05:16.7098174Z CMake suite maintained and supported by Kitware (kitware.com/cmake).
+2026-09-08T06:05:16.7166805Z {"command": ["cmake", "--version"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.319}
+2026-09-08T06:05:16.7301116Z 1.13.2
+2026-09-08T06:05:16.7365141Z {"command": ["ninja", "--version"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.02}
+2026-09-08T06:05:16.7392529Z 0.16.0
+2026-09-08T06:05:16.7400813Z {"command": ["zig", "version"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.004}
+2026-09-08T06:05:16.9166381Z Erlang/OTP 29 [erts-17.0.4] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit]
+2026-09-08T06:05:16.9167030Z 
+2026-09-08T06:05:16.9211871Z Elixir 1.20.0 (compiled with Erlang/OTP 29)
+2026-09-08T06:05:16.9544297Z {"command": ["elixir", "--version"], "cwd": "/home/runner/work/Aphid/Aphid", "exit": 0, "seconds": 0.214}
+2026-09-08T06:05:17.6364062Z * creating /home/runner/.mix/archives/hex-2.5.1
+2026-09-08T06:05:17.6712488Z {"command": ["mix", "local.hex", "--force"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source", "exit": 0, "seconds": 0.715}
+2026-09-08T06:05:19.0272470Z Resolving Hex dependencies...
+2026-09-08T06:05:19.0466139Z Resolution completed in 0.018s
+2026-09-08T06:05:19.0481091Z Unchanged:
+2026-09-08T06:05:19.0481570Z   earmark_parser 1.4.46
+2026-09-08T06:05:19.0489155Z   ex_doc 0.39.1
+2026-09-08T06:05:19.0489422Z   makeup 1.2.2
+2026-09-08T06:05:19.0489796Z   makeup_elixir 1.0.1
+2026-09-08T06:05:19.0490030Z   makeup_erlang 1.1.0
+2026-09-08T06:05:19.0490252Z   nimble_parsec 1.4.2
+2026-09-08T06:05:19.0490580Z   pegasus 0.2.6
+2026-09-08T06:05:19.0490784Z   protoss 1.1.0
+2026-09-08T06:05:19.0491068Z   telemetry 1.4.2
+2026-09-08T06:05:19.0491400Z   zig_doc 0.7.0
+2026-09-08T06:05:19.0491655Z   zig_get 0.16.0
+2026-09-08T06:05:19.0492273Z   zig_parser 0.7.0
+2026-09-08T06:05:19.0492595Z   zigler 0.16.0
+2026-09-08T06:05:19.0533651Z * Getting zigler (Hex package)
+2026-09-08T06:05:19.2309441Z * Getting telemetry (Hex package)
+2026-09-08T06:05:19.2365112Z * Getting protoss (Hex package)
+2026-09-08T06:05:19.2395831Z * Getting zig_doc (Hex package)
+2026-09-08T06:05:19.2437332Z * Getting zig_get (Hex package)
+2026-09-08T06:05:19.2461488Z * Getting zig_parser (Hex package)
+2026-09-08T06:05:19.2548886Z * Getting pegasus (Hex package)
+2026-09-08T06:05:19.2586354Z * Getting nimble_parsec (Hex package)
+2026-09-08T06:05:19.2621444Z * Getting ex_doc (Hex package)
+2026-09-08T06:05:19.2804038Z * Getting earmark_parser (Hex package)
+2026-09-08T06:05:19.3009813Z * Getting makeup_elixir (Hex package)
+2026-09-08T06:05:19.3081042Z * Getting makeup_erlang (Hex package)
+2026-09-08T06:05:19.3134599Z * Getting makeup (Hex package)
+2026-09-08T06:05:19.3849842Z {"command": ["mix", "deps.get"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof", "exit": 0, "seconds": 1.668}
+2026-09-08T06:05:19.9221858Z ==> earmark_parser
+2026-09-08T06:05:19.9231074Z Compiling 2 files (.xrl)
+2026-09-08T06:05:19.9430860Z Compiling 1 file (.yrl)
+2026-09-08T06:05:19.9644472Z Compiling 3 files (.erl)
+2026-09-08T06:05:20.0743094Z Compiling 32 files (.ex)
+2026-09-08T06:05:20.4702395Z Generated earmark_parser app
+2026-09-08T06:05:20.5212192Z ==> protoss
+2026-09-08T06:05:20.5212651Z Compiling 1 file (.ex)
+2026-09-08T06:05:20.5608069Z Generated protoss app
+2026-09-08T06:05:20.6459550Z ==> zig_get
+2026-09-08T06:05:20.6460424Z Compiling 1 file (.ex)
+2026-09-08T06:05:20.7079416Z Generated zig_get app
+2026-09-08T06:05:20.7929647Z ==> nimble_parsec
+2026-09-08T06:05:20.7930147Z Compiling 4 files (.ex)
+2026-09-08T06:05:20.9967214Z Generated nimble_parsec app
+2026-09-08T06:05:21.0352011Z ==> pegasus
+2026-09-08T06:05:21.0352466Z Compiling 11 files (.ex)
+2026-09-08T06:05:22.6811811Z Generated pegasus app
+2026-09-08T06:05:22.8266486Z ==> zig_parser
+2026-09-08T06:05:22.8266816Z Compiling 37 files (.ex)
+2026-09-08T06:05:26.5247138Z     warning: incompatible types given to Map.replace!/3:
+2026-09-08T06:05:26.5247841Z 
+2026-09-08T06:05:26.5248169Z         Map.replace!(parse(args), :doc_comment, comment)
+2026-09-08T06:05:26.5248413Z 
+2026-09-08T06:05:26.5248506Z     the map:
+2026-09-08T06:05:26.5248615Z 
+2026-09-08T06:05:26.5248819Z         dynamic(%Zig.Parser.Test{block: %Zig.Parser.Block{}, location: nil})
+2026-09-08T06:05:26.5249103Z 
+2026-09-08T06:05:26.5249202Z     does not have all required keys:
+2026-09-08T06:05:26.5249373Z 
+2026-09-08T06:05:26.5249455Z         :doc_comment
+2026-09-08T06:05:26.5249578Z 
+2026-09-08T06:05:26.5249861Z     therefore this function will always raise
+2026-09-08T06:05:26.5250061Z 
+2026-09-08T06:05:26.5250165Z     where "args" was given the type:
+2026-09-08T06:05:26.5250327Z 
+2026-09-08T06:05:26.5250448Z         # type: dynamic(non_empty_list(term()))
+2026-09-08T06:05:26.5250770Z         # from: lib/zig.parser/test.ex:16:10
+2026-09-08T06:05:26.5251047Z         parse(args)
+2026-09-08T06:05:26.5251168Z 
+2026-09-08T06:05:26.5251273Z     where "comment" was given the type:
+2026-09-08T06:05:26.5251442Z 
+2026-09-08T06:05:26.5251533Z         # type: dynamic()
+2026-09-08T06:05:26.5251760Z         # from: lib/zig.parser/test.ex
+2026-09-08T06:05:26.5252087Z         [{:TestDecl, [start, {:doc_comment, comment} | args]} | rest_args]
+2026-09-08T06:05:26.5252340Z 
+2026-09-08T06:05:26.5252431Z     type warning found at:
+2026-09-08T06:05:26.5252863Z     │
+2026-09-08T06:05:26.5255202Z  17 │       |> Map.replace!(:doc_comment, comment)
+2026-09-08T06:05:26.5255744Z     │              ~
+2026-09-08T06:05:26.5255967Z     │
+2026-09-08T06:05:26.5256305Z     └─ lib/zig.parser/test.ex:17:14: Zig.Parser.Test.post_traverse/5
+2026-09-08T06:05:26.5256562Z 
+2026-09-08T06:05:26.8727678Z Generated zig_parser app
+2026-09-08T06:05:26.8884113Z ==> makeup
+2026-09-08T06:05:26.8884598Z Compiling 15 files (.ex)
+2026-09-08T06:05:27.1623699Z Generated makeup app
+2026-09-08T06:05:27.1766612Z ==> makeup_elixir
+2026-09-08T06:05:27.1766981Z Compiling 6 files (.ex)
+2026-09-08T06:05:33.5794647Z Generated makeup_elixir app
+2026-09-08T06:05:33.5941569Z ==> makeup_erlang
+2026-09-08T06:05:33.5941850Z Compiling 4 files (.ex)
+2026-09-08T06:05:43.3805300Z Generated makeup_erlang app
+2026-09-08T06:05:43.4040949Z ==> ex_doc
+2026-09-08T06:05:43.4041341Z Compiling 27 files (.ex)
+2026-09-08T06:05:44.0275717Z      warning: the following clause cannot match because the previous clauses already matched all possible values:
+2026-09-08T06:05:44.0276195Z 
+2026-09-08T06:05:44.0276707Z          _ ->
+2026-09-08T06:05:44.0276855Z 
+2026-09-08T06:05:44.0276981Z      it attempts to match on the result of:
+2026-09-08T06:05:44.0277184Z 
+2026-09-08T06:05:44.0277265Z          result
+2026-09-08T06:05:44.0277378Z 
+2026-09-08T06:05:44.0277484Z      which has the already matched type:
+2026-09-08T06:05:44.0277663Z 
+2026-09-08T06:05:44.0278515Z          dynamic({:docs_v1, term(), term(), term(), term(), term(), term()} or {:error, term()})
+2026-09-08T06:05:44.0278831Z 
+2026-09-08T06:05:44.0278940Z      type warning found at:
+2026-09-08T06:05:44.0279367Z      │
+2026-09-08T06:05:44.0279583Z  124 │       _ ->
+2026-09-08T06:05:44.0280049Z      │         ~
+2026-09-08T06:05:44.0280235Z      │
+2026-09-08T06:05:44.0280553Z      └─ lib/ex_doc/retriever.ex:124:9: ExDoc.Retriever.docs_chunk/1
+2026-09-08T06:05:44.0280801Z 
+2026-09-08T06:05:44.0285617Z      warning: this clause of defp favicon_path/1 is never used (or it will always fail/warn when invoked)
+2026-09-08T06:05:44.0286139Z      │
+2026-09-08T06:05:44.0286728Z  153 │   defp favicon_path(%{favicon: nil}), do: nil
+2026-09-08T06:05:44.0287035Z      │        ~
+2026-09-08T06:05:44.0287226Z      │
+2026-09-08T06:05:44.0287676Z      └─ lib/ex_doc/formatter/html/templates.ex:153:8: ExDoc.Formatter.HTML.Templates.favicon_path/1
+2026-09-08T06:05:44.0288195Z 
+2026-09-08T06:05:44.0302565Z      warning: this clause of defp logo_path/1 is never used (or it will always fail/warn when invoked)
+2026-09-08T06:05:44.0303767Z      │
+2026-09-08T06:05:44.0304324Z  156 │   defp logo_path(%{logo: nil}), do: nil
+2026-09-08T06:05:44.0304829Z      │        ~
+2026-09-08T06:05:44.0305150Z      │
+2026-09-08T06:05:44.0305731Z      └─ lib/ex_doc/formatter/html/templates.ex:156:8: ExDoc.Formatter.HTML.Templates.logo_path/1
+2026-09-08T06:05:44.0306205Z 
+2026-09-08T06:05:44.0348276Z      warning: the following clause will never match:
+2026-09-08T06:05:44.0348875Z 
+2026-09-08T06:05:44.0349378Z          nil ->
+2026-09-08T06:05:44.0350216Z 
+2026-09-08T06:05:44.0350706Z      because it attempts to match on the result of:
+2026-09-08T06:05:44.0351112Z 
+2026-09-08T06:05:44.0351491Z          ExDoc.Language.Source.fetch_type!(module_data, name, arity)
+2026-09-08T06:05:44.0351949Z 
+2026-09-08T06:05:44.0352240Z      which has type:
+2026-09-08T06:05:44.0352544Z 
+2026-09-08T06:05:44.0352829Z          dynamic(not false and not nil)
+2026-09-08T06:05:44.0353196Z 
+2026-09-08T06:05:44.0353472Z      type warning found at:
+2026-09-08T06:05:44.0353985Z      │
+2026-09-08T06:05:44.0354441Z  150 │         nil ->
+2026-09-08T06:05:44.0354897Z      │         ~~~~~~
+2026-09-08T06:05:44.0355304Z      │
+2026-09-08T06:05:44.0355874Z      └─ lib/ex_doc/language/erlang.ex:150: ExDoc.Language.Erlang.type_data/6
+2026-09-08T06:05:44.0356537Z 
+2026-09-08T06:05:44.0369000Z      warning: the following clause is redundant:
+2026-09-08T06:05:44.0369377Z 
+2026-09-08T06:05:44.0369780Z          defp to_var({:<<>>, _, _}, _)
+2026-09-08T06:05:44.0370179Z 
+2026-09-08T06:05:44.0370590Z      it has type:
+2026-09-08T06:05:44.0370881Z 
+2026-09-08T06:05:44.0371166Z          dynamic({:<<>>, term(), term()}), dynamic()
+2026-09-08T06:05:44.0371960Z 
+2026-09-08T06:05:44.0372367Z      previous clauses have already matched on the following types:
+2026-09-08T06:05:44.0372782Z 
+2026-09-08T06:05:44.0373043Z          {:%{}, term(), term()}, term()
+2026-09-08T06:05:44.0373476Z          {atom(), term(), term()}, term()
+2026-09-08T06:05:44.0373848Z 
+2026-09-08T06:05:44.0374548Z      │
+2026-09-08T06:05:44.0375140Z  569 │   defp to_var({:<<>>, _, _}, _), do: {:binary, [], nil}
+2026-09-08T06:05:44.0375694Z      │        ~
+2026-09-08T06:05:44.0376075Z      │
+2026-09-08T06:05:44.0376646Z      └─ lib/ex_doc/language/elixir.ex:569:8: ExDoc.Language.Elixir.to_var/2
+2026-09-08T06:05:44.0377108Z 
+2026-09-08T06:05:44.0386674Z      warning: the following clause is redundant:
+2026-09-08T06:05:44.0387120Z 
+2026-09-08T06:05:44.0387439Z          defp to_var({:{}, _, _}, _)
+2026-09-08T06:05:44.0387772Z 
+2026-09-08T06:05:44.0388026Z      it has type:
+2026-09-08T06:05:44.0388315Z 
+2026-09-08T06:05:44.0388632Z          dynamic({:{}, term(), term()}), dynamic()
+2026-09-08T06:05:44.0389003Z 
+2026-09-08T06:05:44.0389363Z      previous clauses have already matched on the following types:
+2026-09-08T06:05:44.0389869Z 
+2026-09-08T06:05:44.0390143Z          {:%{}, term(), term()}, term()
+2026-09-08T06:05:44.0390580Z          {atom(), term(), term()}, term()
+2026-09-08T06:05:44.0390938Z 
+2026-09-08T06:05:44.0391300Z      │
+2026-09-08T06:05:44.0391818Z  570 │   defp to_var({:{}, _, _}, _), do: {:tuple, [], nil}
+2026-09-08T06:05:44.0392356Z      │        ~
+2026-09-08T06:05:44.0392769Z      │
+2026-09-08T06:05:44.0393348Z      └─ lib/ex_doc/language/elixir.ex:570:8: ExDoc.Language.Elixir.to_var/2
+2026-09-08T06:05:44.0393813Z 
+2026-09-08T06:05:44.0403229Z      warning: the following clause is redundant:
+2026-09-08T06:05:44.0403431Z 
+2026-09-08T06:05:44.0403560Z          defp to_var(float, _) when is_integer(float)
+2026-09-08T06:05:44.0403764Z 
+2026-09-08T06:05:44.0403843Z      it has type:
+2026-09-08T06:05:44.0403958Z 
+2026-09-08T06:05:44.0404048Z          integer(), dynamic()
+2026-09-08T06:05:44.0404193Z 
+2026-09-08T06:05:44.0404507Z      previous clauses have already matched on the following types:
+2026-09-08T06:05:44.0404933Z 
+2026-09-08T06:05:44.0405035Z          {:%{}, term(), term()}, term()
+2026-09-08T06:05:44.0405326Z          {atom(), term(), term()}, term()
+2026-09-08T06:05:44.0405926Z          {term(), term()}, term()
+2026-09-08T06:05:44.0406160Z          integer(), term()
+2026-09-08T06:05:44.0406293Z 
+2026-09-08T06:05:44.0406451Z      │
+2026-09-08T06:05:44.0406782Z  573 │   defp to_var(float, _) when is_integer(float), do: {:float, [], nil}
+2026-09-08T06:05:44.0407141Z      │        ~
+2026-09-08T06:05:44.0407321Z      │
+2026-09-08T06:05:44.0407657Z      └─ lib/ex_doc/language/elixir.ex:573:8: ExDoc.Language.Elixir.to_var/2
+2026-09-08T06:05:44.0407929Z 
+2026-09-08T06:05:44.0479056Z Generated ex_doc app
+2026-09-08T06:05:44.3282103Z ==> aphid
+2026-09-08T06:05:44.3282392Z ===> Analyzing applications...
+2026-09-08T06:05:44.3603811Z ===> Compiling telemetry
+2026-09-08T06:05:44.5684484Z ==> zig_doc
+2026-09-08T06:05:44.5685116Z Compiling 5 files (.ex)
+2026-09-08T06:05:44.7307756Z     warning: the following clause will never match:
+2026-09-08T06:05:44.7308034Z 
+2026-09-08T06:05:44.7308148Z         {{:error, reason}, path} ->
+2026-09-08T06:05:44.7308367Z 
+2026-09-08T06:05:44.7308467Z     it is expected to match on type:
+2026-09-08T06:05:44.7308661Z 
+2026-09-08T06:05:44.7308740Z         dynamic(
+2026-09-08T06:05:44.7308923Z           :error or
+2026-09-08T06:05:44.7309252Z             ({term(), :read, binary() or empty_list() or non_empty_list(term(), term())} and
+2026-09-08T06:05:44.7309912Z                not {{:ok, term()}, :read, binary() or empty_list() or non_empty_list(term(), term())})
+2026-09-08T06:05:44.7310304Z         )
+2026-09-08T06:05:44.7310406Z 
+2026-09-08T06:05:44.7310495Z     type warning found at:
+2026-09-08T06:05:44.7310911Z     │
+2026-09-08T06:05:44.7311158Z  69 │       {{:error, reason}, path} ->
+2026-09-08T06:05:44.7311447Z     │       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-09-08T06:05:44.7311675Z     │
+2026-09-08T06:05:44.7312047Z     └─ lib/zig.doc/generator.ex:69: Zig.Doc.Generator.modulenode_from_config/3
+2026-09-08T06:05:44.7312333Z 
+2026-09-08T06:05:44.7334582Z Generated zig_doc app
+2026-09-08T06:05:44.7517087Z ==> zigler
+2026-09-08T06:05:44.7517406Z Compiling 50 files (.ex)
+2026-09-08T06:05:44.7600489Z 
+2026-09-08T06:05:44.7601747Z 06:05:44.757 [warning] not cross-compiling windows-msvc
+2026-09-08T06:05:44.7825353Z      warning: clauses with the same name and arity (number of arguments) should be grouped together, "def render_elixir_spec/1" was previously defined (lib/zig/_nif.ex:373)
+2026-09-08T06:05:44.7827486Z      │
+2026-09-08T06:05:44.7827826Z  386 │   def render_elixir_spec(nif) do
+2026-09-08T06:05:44.7828127Z      │       ~
+2026-09-08T06:05:44.7828319Z      │
+2026-09-08T06:05:44.7828551Z      └─ lib/zig/_nif.ex:386:7
+2026-09-08T06:05:44.7828712Z 
+2026-09-08T06:05:45.4341424Z      warning: unused require EEx
+2026-09-08T06:05:45.4360923Z      │
+2026-09-08T06:05:45.4390834Z  437 │   require EEx
+2026-09-08T06:05:45.4404145Z      │   ~
+2026-09-08T06:05:45.4420693Z      │
+2026-09-08T06:05:45.4450592Z      └─ lib/zig/_nif.ex:437:3
+2026-09-08T06:05:45.4480596Z 
+2026-09-08T06:05:45.5651898Z 
+2026-09-08T06:05:45.5653841Z 06:05:45.564 [debug] creating staging directory /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Zig.Formatter
+2026-09-08T06:05:45.5714726Z 
+2026-09-08T06:05:45.5724323Z 06:05:45.571 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:05:45.5727072Z 
+2026-09-08T06:05:45.5727643Z 06:05:45.571 [debug] running command: /home/runner/work/_temp/zig/zig fmt /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Zig.Formatter/build.zig
+2026-09-08T06:05:45.5775472Z 
+2026-09-08T06:05:45.5776077Z 06:05:45.577 [debug] wrote build.zig to /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Zig.Formatter/build.zig
+2026-09-08T06:05:45.6766341Z 
+2026-09-08T06:05:45.6768465Z 06:05:45.676 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:05:45.6768838Z 
+2026-09-08T06:05:45.6770996Z 06:05:45.676 [debug] running command: /home/runner/work/_temp/zig/zig build -Dzigler-mode=sema -Derts_include=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include -Derl_nif_header=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/home/runner/work/_temp/aphid-preflight/toolchain-source/deps/zigler/lib/zig
+2026-09-08T06:06:04.7538027Z Compiling lib/zig/formatter.ex (it's taking more than 10s)
+2026-09-08T06:06:14.1417677Z 
+2026-09-08T06:06:14.1418568Z 06:06:14.141 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:06:14.1419357Z 
+2026-09-08T06:06:14.1420196Z 06:06:14.141 [debug] running command: /home/runner/work/_temp/zig/zig fmt /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Zig.Formatter/module.zig
+2026-09-08T06:06:14.1456723Z 
+2026-09-08T06:06:14.1457656Z 06:06:14.145 [debug] wrote module code to /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Zig.Formatter/module.zig
+2026-09-08T06:06:14.1458759Z 
+2026-09-08T06:06:14.1459046Z 06:06:14.145 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:06:14.1461498Z 
+2026-09-08T06:06:14.1464062Z 06:06:14.145 [debug] running command: /home/runner/work/_temp/zig/zig build -Derts_include=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include -Derl_nif_header=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/home/runner/work/_temp/aphid-preflight/toolchain-source/deps/zigler/lib/zig --prefix /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv
+2026-09-08T06:07:14.6047210Z 
+2026-09-08T06:07:14.6050642Z 06:07:14.604 [debug] compiled lib at: /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv
+2026-09-08T06:07:14.6087219Z 
+2026-09-08T06:07:14.6088005Z 06:07:14.608 [debug] moved library to /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv/lib/Elixir.Zig.Formatter.so
+2026-09-08T06:07:14.6721842Z Generated zigler app
+2026-09-08T06:07:14.6833013Z ==> aphid
+2026-09-08T06:07:14.6833931Z Compiling 1 file (.ex)
+2026-09-08T06:07:14.6874280Z 
+2026-09-08T06:07:14.6874979Z 06:07:14.687 [debug] creating staging directory /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Aphid.Proof
+2026-09-08T06:07:14.6880636Z 
+2026-09-08T06:07:14.6880959Z 06:07:14.687 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:07:14.6881286Z 
+2026-09-08T06:07:14.6881837Z 06:07:14.687 [debug] running command: /home/runner/work/_temp/zig/zig fmt /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Aphid.Proof/build.zig
+2026-09-08T06:07:14.6924965Z 
+2026-09-08T06:07:14.6925592Z 06:07:14.692 [debug] wrote build.zig to /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Aphid.Proof/build.zig
+2026-09-08T06:07:14.6992729Z 
+2026-09-08T06:07:14.6993379Z 06:07:14.699 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:07:14.6994036Z 
+2026-09-08T06:07:14.6996552Z 06:07:14.699 [debug] running command: /home/runner/work/_temp/zig/zig build -Dzigler-mode=sema -Derts_include=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include -Derl_nif_header=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/lib/aphid
+2026-09-08T06:07:24.6848121Z Compiling lib/aphid/proof.ex (it's taking more than 10s)
+2026-09-08T06:07:28.3353792Z 
+2026-09-08T06:07:28.3354728Z 06:07:28.335 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:07:28.3355099Z 
+2026-09-08T06:07:28.3355640Z 06:07:28.335 [debug] running command: /home/runner/work/_temp/zig/zig fmt /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Aphid.Proof/module.zig
+2026-09-08T06:07:28.3396882Z 
+2026-09-08T06:07:28.3397617Z 06:07:28.339 [debug] wrote module code to /home/runner/work/_temp/aphid-preflight/toolchain-source/staging/Elixir.Aphid.Proof/module.zig
+2026-09-08T06:07:28.3399888Z 
+2026-09-08T06:07:28.3400155Z 06:07:28.339 [info] zig expected (via env variable) in /home/runner/work/_temp/zig/zig
+2026-09-08T06:07:28.3400597Z 
+2026-09-08T06:07:28.3403298Z 06:07:28.339 [debug] running command: /home/runner/work/_temp/zig/zig build -Derts_include=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include -Derl_nif_header=/home/runner/work/_temp/.setup-beam/otp/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/lib/aphid -Dtarget=aarch64-linux-gnu -Dcpu=baseline --prefix /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/aphid/priv
+2026-09-08T06:07:34.1182764Z 
+2026-09-08T06:07:34.1183943Z 06:07:34.117 [debug] compiled lib at: /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/aphid/priv
+2026-09-08T06:07:34.1201565Z 
+2026-09-08T06:07:34.1202833Z 06:07:34.120 [debug] moved library to /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+2026-09-08T06:07:34.2726014Z Generated aphid app
+2026-09-08T06:07:34.3265778Z {"command": ["mix", "compile", "--force"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof", "exit": 0, "seconds": 134.942}
+2026-09-08T06:07:34.8879222Z Running ExUnit with seed: 0, max_cases: 8
+2026-09-08T06:07:34.8879804Z 
+2026-09-08T06:07:34.9090683Z 
+2026-09-08T06:07:34.9091189Z 06:07:34.907 [debug] loaded module at Elixir.Aphid.Proof
+2026-09-08T06:07:34.9148819Z ..
+2026-09-08T06:07:34.9165501Z Finished in 0.02 seconds (0.00s async, 0.02s sync)
+2026-09-08T06:07:34.9172771Z 
+2026-09-08T06:07:34.9173034Z Result: 2 passed
+2026-09-08T06:07:34.9423834Z {"command": ["mix", "test", "--seed", "0"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof", "exit": 0, "seconds": 0.616}
+2026-09-08T06:07:34.9840085Z 
+2026-09-08T06:07:34.9840444Z Elf file type is DYN (Shared object file)
+2026-09-08T06:07:34.9840771Z Entry point 0x0
+2026-09-08T06:07:34.9841021Z There are 10 program headers, starting at offset 64
+2026-09-08T06:07:34.9841229Z 
+2026-09-08T06:07:34.9841325Z Program Headers:
+2026-09-08T06:07:34.9841574Z   Type           Offset             VirtAddr           PhysAddr
+2026-09-08T06:07:34.9841919Z                  FileSiz            MemSiz              Flags  Align
+2026-09-08T06:07:34.9842278Z   PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+2026-09-08T06:07:34.9842889Z                  0x0000000000000230 0x0000000000000230  R      0x8
+2026-09-08T06:07:34.9843239Z   LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+2026-09-08T06:07:34.9843601Z                  0x0000000000049a34 0x0000000000049a34  R      0x10000
+2026-09-08T06:07:34.9843958Z   LOAD           0x0000000000049a40 0x0000000000059a40 0x0000000000059a40
+2026-09-08T06:07:34.9844315Z                  0x0000000000151c90 0x0000000000151c90  R E    0x10000
+2026-09-08T06:07:34.9845160Z   LOAD           0x000000000019b6d0 0x00000000001bb6d0 0x00000000001bb6d0
+2026-09-08T06:07:34.9845520Z                  0x0000000000003718 0x0000000000003930  RW     0x10000
+2026-09-08T06:07:34.9845879Z   LOAD           0x000000000019edf0 0x00000000001cedf0 0x00000000001cedf0
+2026-09-08T06:07:34.9846241Z                  0x0000000000004f18 0x0000000000006810  RW     0x10000
+2026-09-08T06:07:34.9846595Z   TLS            0x000000000019b6d0 0x00000000001ab6d0 0x00000000001ab6d0
+2026-09-08T06:07:34.9846941Z                  0x0000000000000000 0x0000000000040048  R      0x8
+2026-09-08T06:07:34.9847297Z   DYNAMIC        0x000000000019e850 0x00000000001be850 0x00000000001be850
+2026-09-08T06:07:34.9847652Z                  0x0000000000000180 0x0000000000000180  RW     0x8
+2026-09-08T06:07:34.9848009Z   GNU_RELRO      0x000000000019b6d0 0x00000000001bb6d0 0x00000000001bb6d0
+2026-09-08T06:07:34.9848376Z                  0x0000000000003718 0x0000000000003930  R      0x1
+2026-09-08T06:07:34.9848746Z   GNU_EH_FRAME   0x000000000001b6c0 0x000000000001b6c0 0x000000000001b6c0
+2026-09-08T06:07:34.9849160Z                  0x000000000000522c 0x000000000000522c  R      0x4
+2026-09-08T06:07:34.9849514Z   GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+2026-09-08T06:07:34.9850267Z                  0x0000000000000000 0x0000000000000000  RW     0x0
+2026-09-08T06:07:34.9850481Z 
+2026-09-08T06:07:34.9850583Z  Section to Segment mapping:
+2026-09-08T06:07:34.9850810Z   Segment Sections...
+2026-09-08T06:07:34.9851003Z    00     
+2026-09-08T06:07:34.9851434Z    01     .dynsym .gnu.version .gnu.version_r .gnu.hash .hash .dynstr .rela.dyn .rela.plt .rodata .sema .eh_frame_hdr .eh_frame 
+2026-09-08T06:07:34.9851930Z    02     .text .plt 
+2026-09-08T06:07:34.9852184Z    03     .data.rel.ro .dynamic .got .got.plt .relro_padding 
+2026-09-08T06:07:34.9852477Z    04     .data .bss 
+2026-09-08T06:07:34.9852670Z    05     .tbss 
+2026-09-08T06:07:34.9852851Z    06     .dynamic 
+2026-09-08T06:07:34.9853391Z    07     .data.rel.ro .dynamic .got .got.plt .relro_padding 
+2026-09-08T06:07:34.9853721Z    08     .eh_frame_hdr 
+2026-09-08T06:07:34.9853918Z    09     
+2026-09-08T06:07:34.9854019Z 
+2026-09-08T06:07:34.9854181Z Dynamic section at offset 0x19e850 contains 24 entries:
+2026-09-08T06:07:34.9854499Z   Tag        Type                         Name/Value
+2026-09-08T06:07:34.9854846Z  0x000000000000001d (RUNPATH)            Library runpath: [$ORIGIN]
+2026-09-08T06:07:34.9855255Z  0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+2026-09-08T06:07:34.9855676Z  0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+2026-09-08T06:07:34.9856143Z  0x000000000000000e (SONAME)             Library soname: [libElixir.Aphid.Proof.so.0]
+2026-09-08T06:07:34.9856544Z  0x000000000000001e (FLAGS)              BIND_NOW
+2026-09-08T06:07:34.9856836Z  0x000000006ffffffb (FLAGS_1)            Flags: NOW
+2026-09-08T06:07:34.9857130Z  0x0000000000000007 (RELA)               0x1958
+2026-09-08T06:07:34.9857433Z  0x0000000000000008 (RELASZ)             14976 (bytes)
+2026-09-08T06:07:34.9857738Z  0x0000000000000009 (RELAENT)            24 (bytes)
+2026-09-08T06:07:34.9858023Z  0x000000006ffffff9 (RELACOUNT)          619
+2026-09-08T06:07:34.9858302Z  0x0000000000000017 (JMPREL)             0x53d8
+2026-09-08T06:07:34.9858596Z  0x0000000000000002 (PLTRELSZ)           2808 (bytes)
+2026-09-08T06:07:34.9858896Z  0x0000000000000003 (PLTGOT)             0x1bea28
+2026-09-08T06:07:34.9859178Z  0x0000000000000014 (PLTREL)             RELA
+2026-09-08T06:07:34.9859454Z  0x0000000000000006 (SYMTAB)             0x270
+2026-09-08T06:07:34.9860026Z  0x000000000000000b (SYMENT)             24 (bytes)
+2026-09-08T06:07:34.9860375Z  0x0000000000000005 (STRTAB)             0x1380
+2026-09-08T06:07:34.9860669Z  0x000000000000000a (STRSZ)              1495 (bytes)
+2026-09-08T06:07:34.9860963Z  0x000000006ffffef5 (GNU_HASH)           0xf60
+2026-09-08T06:07:34.9861239Z  0x0000000000000004 (HASH)               0xfa0
+2026-09-08T06:07:34.9861813Z  0x000000006ffffff0 (VERSYM)             0xdf8
+2026-09-08T06:07:34.9862101Z  0x000000006ffffffe (VERNEED)            0xef0
+2026-09-08T06:07:34.9862384Z  0x000000006fffffff (VERNEEDNUM)         2
+2026-09-08T06:07:34.9862649Z  0x0000000000000000 (NULL)               0x0
+2026-09-08T06:07:35.0146259Z {"command": ["readelf", "--program-headers", "--dynamic", "/home/runner/work/_temp/aphid-preflight/toolchain-source/artifacts/proof/Elixir.Aphid.Proof.so"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source", "exit": 0, "seconds": 0.071}
+2026-09-08T06:07:40.0554884Z {"elf_phase": "original", "symbol_scope": ["all"], "sanitizer_symbols": []}
+2026-09-08T06:07:40.0818588Z {"elf_phase": "original", "symbol_scope": ["--undefined-only"], "sanitizer_symbols": []}
+2026-09-08T06:07:40.1358316Z {"normalized_nif": "/home/runner/work/_temp/aphid-preflight/toolchain-source/artifacts/proof/Elixir.Aphid.Proof.so", "sha256": "140386465e317eed7518bc9c2247bc1d75646d89ed454e9d93a73aae49449630", "sema_sha256": "68e1e6e28ccfbafca6428d056253cbd8d065e6ed6aaa4a9a36680a1b20f2d555"}
+2026-09-08T06:07:40.1365531Z 
+2026-09-08T06:07:40.1365735Z Elf file type is DYN (Shared object file)
+2026-09-08T06:07:40.1366019Z Entry point 0x0
+2026-09-08T06:07:40.1366266Z There are 10 program headers, starting at offset 64
+2026-09-08T06:07:40.1366479Z 
+2026-09-08T06:07:40.1366576Z Program Headers:
+2026-09-08T06:07:40.1366824Z   Type           Offset             VirtAddr           PhysAddr
+2026-09-08T06:07:40.1367170Z                  FileSiz            MemSiz              Flags  Align
+2026-09-08T06:07:40.1367528Z   PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+2026-09-08T06:07:40.1367881Z                  0x0000000000000230 0x0000000000000230  R      0x8
+2026-09-08T06:07:40.1368224Z   LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+2026-09-08T06:07:40.1368582Z                  0x0000000000049a34 0x0000000000049a34  R      0x10000
+2026-09-08T06:07:40.1368962Z   LOAD           0x0000000000049a40 0x0000000000059a40 0x0000000000059a40
+2026-09-08T06:07:40.1369621Z                  0x0000000000151c90 0x0000000000151c90  R E    0x10000
+2026-09-08T06:07:40.1370183Z   LOAD           0x000000000019b6d0 0x00000000001bb6d0 0x00000000001bb6d0
+2026-09-08T06:07:40.1370549Z                  0x0000000000003718 0x0000000000003930  RW     0x10000
+2026-09-08T06:07:40.1370911Z   LOAD           0x000000000019edf0 0x00000000001cedf0 0x00000000001cedf0
+2026-09-08T06:07:40.1371270Z                  0x0000000000004f18 0x0000000000006810  RW     0x10000
+2026-09-08T06:07:40.1371626Z   TLS            0x000000000019b6d0 0x00000000001ab6d0 0x00000000001ab6d0
+2026-09-08T06:07:40.1371971Z                  0x0000000000000000 0x0000000000040048  R      0x8
+2026-09-08T06:07:40.1372324Z   DYNAMIC        0x000000000019e850 0x00000000001be850 0x00000000001be850
+2026-09-08T06:07:40.1372715Z                  0x0000000000000180 0x0000000000000180  RW     0x8
+2026-09-08T06:07:40.1373073Z   GNU_RELRO      0x000000000019b6d0 0x00000000001bb6d0 0x00000000001bb6d0
+2026-09-08T06:07:40.1373445Z                  0x0000000000003718 0x0000000000003930  R      0x1
+2026-09-08T06:07:40.1373808Z   GNU_EH_FRAME   0x000000000001b6c0 0x000000000001b6c0 0x000000000001b6c0
+2026-09-08T06:07:40.1374172Z                  0x000000000000522c 0x000000000000522c  R      0x4
+2026-09-08T06:07:40.1374525Z   GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+2026-09-08T06:07:40.1374878Z                  0x0000000000000000 0x0000000000000000  RW     0x0
+2026-09-08T06:07:40.1375090Z 
+2026-09-08T06:07:40.1375187Z  Section to Segment mapping:
+2026-09-08T06:07:40.1375414Z   Segment Sections...
+2026-09-08T06:07:40.1375610Z    00     
+2026-09-08T06:07:40.1376039Z    01     .dynsym .gnu.version .gnu.version_r .gnu.hash .hash .dynstr .rela.dyn .rela.plt .rodata .sema .eh_frame_hdr .eh_frame 
+2026-09-08T06:07:40.1376535Z    02     .text .plt 
+2026-09-08T06:07:40.1376790Z    03     .data.rel.ro .dynamic .got .got.plt .relro_padding 
+2026-09-08T06:07:40.1377372Z    04     .data .bss 
+2026-09-08T06:07:40.1377570Z    05     .tbss 
+2026-09-08T06:07:40.1377778Z    06     .dynamic 
+2026-09-08T06:07:40.1378025Z    07     .data.rel.ro .dynamic .got .got.plt .relro_padding 
+2026-09-08T06:07:40.1378324Z    08     .eh_frame_hdr 
+2026-09-08T06:07:40.1378524Z    09     
+2026-09-08T06:07:40.1378620Z 
+2026-09-08T06:07:40.1378777Z Dynamic section at offset 0x19e850 contains 24 entries:
+2026-09-08T06:07:40.1379097Z   Tag        Type                         Name/Value
+2026-09-08T06:07:40.1379439Z  0x000000000000001d (RUNPATH)            Library runpath: [$ORIGIN]
+2026-09-08T06:07:40.1380142Z  0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+2026-09-08T06:07:40.1380566Z  0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+2026-09-08T06:07:40.1381034Z  0x000000000000000e (SONAME)             Library soname: [libElixir.Aphid.Proof.so.0]
+2026-09-08T06:07:40.1381436Z  0x000000000000001e (FLAGS)              BIND_NOW
+2026-09-08T06:07:40.1381741Z  0x000000006ffffffb (FLAGS_1)            Flags: NOW
+2026-09-08T06:07:40.1382036Z  0x0000000000000007 (RELA)               0x1958
+2026-09-08T06:07:40.1382328Z  0x0000000000000008 (RELASZ)             14976 (bytes)
+2026-09-08T06:07:40.1382626Z  0x0000000000000009 (RELAENT)            24 (bytes)
+2026-09-08T06:07:40.1382911Z  0x000000006ffffff9 (RELACOUNT)          619
+2026-09-08T06:07:40.1383186Z  0x0000000000000017 (JMPREL)             0x53d8
+2026-09-08T06:07:40.1383479Z  0x0000000000000002 (PLTRELSZ)           2808 (bytes)
+2026-09-08T06:07:40.1383776Z  0x0000000000000003 (PLTGOT)             0x1bea28
+2026-09-08T06:07:40.1384053Z  0x0000000000000014 (PLTREL)             RELA
+2026-09-08T06:07:40.1384323Z  0x0000000000000006 (SYMTAB)             0x270
+2026-09-08T06:07:40.1384600Z  0x000000000000000b (SYMENT)             24 (bytes)
+2026-09-08T06:07:40.1384887Z  0x0000000000000005 (STRTAB)             0x1380
+2026-09-08T06:07:40.1385180Z  0x000000000000000a (STRSZ)              1495 (bytes)
+2026-09-08T06:07:40.1385475Z  0x000000006ffffef5 (GNU_HASH)           0xf60
+2026-09-08T06:07:40.1385983Z  0x0000000000000004 (HASH)               0xfa0
+2026-09-08T06:07:40.1386277Z  0x000000006ffffff0 (VERSYM)             0xdf8
+2026-09-08T06:07:40.1386554Z  0x000000006ffffffe (VERNEED)            0xef0
+2026-09-08T06:07:40.1386833Z  0x000000006fffffff (VERNEEDNUM)         2
+2026-09-08T06:07:40.1387094Z  0x0000000000000000 (NULL)               0x0
+2026-09-08T06:07:40.1388097Z {"command": ["readelf", "--program-headers", "--dynamic", "/home/runner/work/_temp/aphid-preflight/toolchain-source/artifacts/proof/Elixir.Aphid.Proof.so"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source", "exit": 0, "seconds": 0.001}
+2026-09-08T06:07:40.1666757Z {"elf_phase": "relocated", "symbol_scope": ["all"], "sanitizer_symbols": []}
+2026-09-08T06:07:40.1913056Z {"elf_phase": "relocated", "symbol_scope": ["--undefined-only"], "sanitizer_symbols": []}
+2026-09-08T06:07:40.7486310Z Compiling 1 file (.ex)
+2026-09-08T06:07:40.8272283Z 
+2026-09-08T06:07:40.8273310Z 06:07:40.825 [debug] skipping compile step for precompiled module Elixir.Aphid.Proof, at /home/runner/work/_temp/aphid-preflight/toolchain-source/artifacts/proof/Elixir.Aphid.Proof.so
+2026-09-08T06:07:40.8282773Z 
+2026-09-08T06:07:40.8283904Z 06:07:40.828 [debug] destination library path: /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+2026-09-08T06:07:40.8284852Z 
+2026-09-08T06:07:40.8285956Z 06:07:40.828 [debug] transferring cached library from /home/runner/work/_temp/aphid-preflight/toolchain-source/artifacts/proof/Elixir.Aphid.Proof.so to /home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+2026-09-08T06:07:40.9969077Z Generated aphid app
+2026-09-08T06:07:41.0610339Z {"command": ["mix", "compile", "--force"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof", "exit": 0, "seconds": 0.866}
+2026-09-08T06:07:41.6336344Z Running ExUnit with seed: 0, max_cases: 8
+2026-09-08T06:07:41.6336606Z 
+2026-09-08T06:07:41.6561864Z 
+2026-09-08T06:07:41.6562362Z 06:07:41.653 [debug] loaded module at Elixir.Aphid.Proof
+2026-09-08T06:07:41.6617843Z ..
+2026-09-08T06:07:41.6635415Z Finished in 0.02 seconds (0.00s async, 0.02s sync)
+2026-09-08T06:07:41.6635815Z 
+2026-09-08T06:07:41.6636102Z Result: 2 passed
+2026-09-08T06:07:41.6762849Z {"command": ["mix", "test", "--no-compile", "--seed", "0"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source/_build/toolchain-proof", "exit": 0, "seconds": 0.615}
+2026-09-08T06:07:41.9744776Z 
+2026-09-08T06:07:41.9745353Z 06:07:41.971 [debug] loaded module at Elixir.Aphid.Proof
+2026-09-08T06:07:41.9749416Z relocated dependency-free precompiled consumer passed
+2026-09-08T06:07:42.0007877Z {"command": ["elixir", "/tmp/aphid-proof-3zv50b4s/relocated/check.exs"], "cwd": "/tmp/aphid-proof-3zv50b4s", "exit": 0, "seconds": 0.314}
+2026-09-08T06:07:42.0020029Z artifact sha256: 140386465e317eed7518bc9c2247bc1d75646d89ed454e9d93a73aae49449630
+2026-09-08T06:07:42.0288065Z {"command": ["/opt/hostedtoolcache/Python/3.14.7/arm64/bin/python3", "scripts/proof.py", "--target", "aarch64-linux-gnu"], "cwd": "/home/runner/work/_temp/aphid-preflight/toolchain-source", "exit": 0, "seconds": 144.357}
+2026-09-08T06:07:42.0289011Z Small NIF toolchain/ELF probe only; no engine build or distribution qualification.
+2026-09-08T06:07:42.0531483Z Post job cleanup.
+2026-09-08T06:07:42.1718138Z Post job cleanup.
+2026-09-08T06:07:42.2411090Z [command]/usr/bin/git version
+2026-09-08T06:07:42.2444602Z git version 2.55.0
+2026-09-08T06:07:42.2483287Z Temporarily overriding HOME='/home/runner/work/_temp/f0794306-ff8c-48b7-9c1f-f42ac68bc816' before making global git config changes
+2026-09-08T06:07:42.2484021Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T06:07:42.2498540Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+2026-09-08T06:07:42.2528349Z Removing SSH command configuration
+2026-09-08T06:07:42.2550450Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T06:07:42.2629388Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T06:07:42.2791489Z Removing HTTP extra header
+2026-09-08T06:07:42.2792080Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T06:07:42.2793423Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T06:07:42.2981223Z Removing includeIf entries pointing to credentials config files
+2026-09-08T06:07:42.2991141Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T06:07:42.3008833Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T06:07:42.3331944Z Cleaning up orphan processes

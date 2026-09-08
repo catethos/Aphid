@@ -53,3 +53,10 @@ No full engine rebuild was started for these diagnostic iterations.
 The public Linux catalog remains empty. These checks do not close minimum-system,
 CPU, cross-build, Mix release, network delivery, attribution or publication gates.
 The macOS runtime and DuckDB 1.4.4 lock remain unchanged. No stage is complete.
+
+The actual-copy [preflight run 34193129110](https://github.com/catethos/Aphid/actions/runs/34193129110)
+passes both architectures at source `c37c458`. Logs `linux-*-run-10.log` record
+byte-stable normalized artifacts, actual Zigler transfer, passing small-NIF tests
+and relocated execution. These are prerequisites, not full bundle qualification.
+Full [run 34193449987](https://github.com/catethos/Aphid/actions/runs/34193449987)
+now tests that same source with success-gated seven-day retention enabled.

@@ -76,10 +76,38 @@ provenance. The outer Actions artifact digest is not the runtime archive SHA256.
    the initial matrix. Source-consumer and outstanding behavioural gates remain.
 5. Prepare release creation around the reviewed immutable artifact matrix, with
    `contents: write` confined to the creation job. Keep Hex publication separate.
-   There is currently no release-creation or Hex-publication workflow. Actual
-   creation/publication still requires authorization.
+   The prepared manual draft workflow is described below. Actual draft creation
+   and Hex publication still require authorization; no Hex publication workflow exists.
 
 The original macOS runtime archive remains unchanged, SHA256
 `3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034`.
 Its Mach-O declarations are 13.3; actual execution is macOS 26.6 only. DuckDB stays
 pinned to 1.4.4. Preparing these workflows does not establish release support.
+
+## Prepared manual Linux draft workflow
+
+`.github/workflows/release-draft.yml` is source preparation only; it has not been
+executed. It must be dispatched on an existing version tag with `reviewed=true`
+after owner review of the exact assets and notices. Its only creation job has
+`contents: write` and `actions: read`; qualification jobs remain read-only.
+It uses GitHub's CLI to retrieve the selected run and creates only a draft
+prerelease. It does not create a tag, overwrite assets or publish to Hex.
+
+`scripts/release_assets.py` requires both reviewed Linux identities in the tagged
+source catalog. Each identity must carry `qualification` with `run_id`, `attempt`
+and full `commit`. These must match a successful manual Linux workflow of `main`.
+The tag must match the pinned package version. The verifier compares the exact
+downloaded identities, archive hashes/sizes, ELF audit hashes, native lock and
+interface source hashes before staging any release assets. It retains the native
+archive bytes unchanged and generates `SHA256SUMS`. The current empty catalog
+rejects promotion, so this workflow is not yet ready to execute.
+
+The verifier has an offline fixture check (`scripts/release_assets_checks.py`)
+covering valid staging plus empty catalog, failed run, wrong source commit,
+wrong tag, changed lock and changed archive rejection. This does not establish
+actual GitHub release upload or public HTTPS delivery. Workflow lint also passes.
+The Linux draft omits macOS: the approved seven-day retention scope covers Linux
+qualification archives only, and the original macOS archive remains local.
+Minimum systems, cross-build, production notices and other release gates above
+remain open. Do not dispatch this workflow under the current retention-only
+approval; obtain authorization for the concrete reviewed draft first.
