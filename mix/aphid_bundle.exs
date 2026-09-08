@@ -8,14 +8,6 @@ defmodule Mix.Tasks.Compile.AphidBundle do
     url = System.get_env("APHID_BUNDLE_URL")
 
     case {System.get_env("APHID_INSTALL"), archive, digest, url} do
-      {nil, nil, nil, nil} ->
-        reject_existing_bundle()
-
-        fail(
-          "missing",
-          "this development version has no default release bundle; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites"
-        )
-
       {"source", nil, nil, nil} ->
         source()
 
@@ -28,6 +20,10 @@ defmodule Mix.Tasks.Compile.AphidBundle do
         destination = Path.join(Mix.Project.app_path(), "priv")
 
         cond do
+          archive == nil and url == nil and digest == nil ->
+            {default_url, default_digest} = default_bundle(Mix.Project.config()[:version])
+            install_url(default_url, default_digest, destination)
+
           archive != nil and url != nil ->
             fail("selection", "set only one of APHID_BUNDLE_ARCHIVE and APHID_BUNDLE_URL")
 
@@ -46,6 +42,53 @@ defmodule Mix.Tasks.Compile.AphidBundle do
           "use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs"
         )
     end
+  end
+
+  # A URL is added to the package identity only after separately authorized delivery.
+  # Explicit archive/URL inputs continue to require an independent caller-supplied pin.
+  def default_bundle(
+        version,
+        os \\ :os.type(),
+        architecture \\ :erlang.system_info(:system_architecture)
+      ) do
+    architecture = to_string(architecture)
+
+    identity =
+      case {os, architecture} do
+        {{:unix, :darwin}, "aarch64" <> _} ->
+          File.read!(Path.expand("../native/local-bundle.json", __DIR__)) |> JSON.decode!()
+
+        {{:unix, :linux}, arch}
+        when arch in ["x86_64-pc-linux-gnu", "aarch64-unknown-linux-gnu"] ->
+          target =
+            if String.starts_with?(arch, "x86_64"),
+              do: "x86_64-linux-gnu",
+              else: "aarch64-linux-gnu"
+
+          catalog =
+            File.read!(Path.expand("../native/linux-bundles.json", __DIR__)) |> JSON.decode!()
+
+          catalog[target] || fail("unsupported-target", "no reviewed #{target} identity")
+
+        _ ->
+          fail(
+            "unsupported-target",
+            "no default bundle for this OS/BEAM architecture/libc; use a reviewed explicit archive or explicit source prerequisites"
+          )
+      end
+
+    unless identity["package_version"] == version,
+      do: fail("incompatible-engine", "default bundle version differs from this source package")
+
+    unless is_binary(identity["url"]),
+      do:
+        fail(
+          "missing",
+          "this development version has no authorized default delivery; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites"
+        )
+
+    validate_digest(identity["sha256"])
+    {identity["url"], identity["sha256"]}
   end
 
   def install(archive, digest, destination) do

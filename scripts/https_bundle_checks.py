@@ -44,6 +44,18 @@ def main():
     threading.Thread(target=server.serve_forever, daemon=True).start()
     base = f'https://127.0.0.1:{server.server_port}'
     env = dict(os.environ, HEX_CACERTS_PATH=str(ca))
+    # Private package fixture enables default delivery only at the loopback server.
+    fixture = work / 'default-package'
+    (fixture / 'mix').mkdir(parents=True)
+    shutil.copy2(ROOT / 'mix/aphid_bundle.exs', fixture / 'mix/aphid_bundle.exs')
+    (fixture / 'native').mkdir()
+    for name in ['local-bundle.json', 'linux-bundles.json', 'lock.json', 'aphid_nif.zig',
+                 'bridge.h', 'bridge.cpp', 'proof.zig', 'proof.h', 'proof.cpp']:
+        shutil.copy2(ROOT / 'native' / name, fixture / 'native' / name)
+    pin_path = fixture / 'native/local-bundle.json'
+    pin = json.loads(pin_path.read_text())
+    pin.update(url=base + '/candidate.tar.gz', sha256=args.sha256)
+    pin_path.write_text(json.dumps(pin))
     checks = work / 'checks.exs'
     checks.write_text('''Mix.start()
 Code.require_file(System.fetch_env!("APHID_ADAPTER"))
@@ -69,8 +81,28 @@ for {label, url, checksum, kind} <- [
   end
 end
 ''')
+    default_checks = work / 'default.exs'
+    default_checks.write_text('''Mix.start()
+Code.require_file(System.fetch_env!("APHID_ADAPTER"))
+defmodule DefaultHttpsProject do
+  use Mix.Project
+  def project, do: [app: :aphid, version: "0.1.0-dev"]
+end
+for key <- ~w(APHID_INSTALL APHID_BUNDLE_ARCHIVE APHID_BUNDLE_URL APHID_BUNDLE_SHA256) do
+  System.delete_env(key)
+end
+{:ok, []} = Mix.Tasks.Compile.AphidBundle.run([])
+{:ok, []} = Mix.Tasks.Compile.AphidBundle.run([])
+receipt = File.read!(System.fetch_env!("APHID_BUNDLE_RECEIPT")) |> JSON.decode!()
+true = receipt["archive_sha256"] == System.fetch_env!("EXPECTED_SHA256")
+false = Code.ensure_loaded?(Aphid.Native)
+IO.puts("No-input package-pinned HTTPS install and repeat install passed; native modules not loaded")
+''')
     try:
-        run(['elixir', str(checks), base, args.sha256, str(work)],
+        run(['elixir', str(default_checks)], cwd=fixture,
+            env=dict(env, APHID_ADAPTER=str(fixture / 'mix/aphid_bundle.exs'),
+                     EXPECTED_SHA256=args.sha256), timeout=120)
+        run(['elixir' , str(checks), base, args.sha256, str(work)],
             env=dict(env, APHID_ADAPTER=str(ROOT / 'mix/aphid_bundle.exs')), timeout=120)
         run(['python3', 'scripts/precompiled_consumer.py', '--archive', str(args.archive.resolve()),
              '--sha256', args.sha256, '--destination', str(work / 'fresh'),

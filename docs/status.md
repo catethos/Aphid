@@ -1,5 +1,11 @@
 # Implementation status
 
+Current handoff: [default delivery and shipped-content review](evidence/release-preparation-1.md).
+Default selection is prepared but disabled until authorized delivery; the native
+bytes are unchanged. Notice delivery, final consumer-to-release provenance and
+macOS/public endpoint scope must be settled before requesting draft creation.
+Older checkpoints below remain historical, not current gate closures.
+
 Updated 2026-09-08. Library name: **Aphid**. Folder: `zig_library/`.
 
 | Stage | Status | Evidence / next gate |

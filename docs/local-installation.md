@@ -202,7 +202,7 @@ report `[download]` and never trigger source compilation.
 This route is proved with a private loopback HTTPS server and the unchanged
 reviewed macOS archive, including a fresh 92-test compiler-free consumer. The
 first invalid self-signed test-certificate attempt is retained. No native archive
-was uploaded. There is no usable Aphid GitHub release download URL yet, no default
+was uploaded. There is no usable Aphid GitHub release download URL yet, no enabled default
 network selection. The current catalog also accepts the reviewed Linux identities below.
 See [HTTPS evidence](evidence/https-bundle.md).
 
@@ -245,3 +245,12 @@ and runtime. Real installer/loader failures also passed. The [exact combined sou
 now passes on both Linux architectures and macOS ARM64. Bundled-ERTS Linux
 Mix releases also pass startup, restart, shutdown/reopen and failure checks.
 Hex registry installation and default public release download remain unproved.
+
+## Prepared package defaults (disabled)
+
+The adapter can select an exact package-version identity with a source-pinned
+HTTPS URL and SHA256. No catalog URL is enabled in this development package;
+unset installation inputs or `APHID_INSTALL=precompiled` alone fail `[missing]`.
+Explicit archive/URL overrides still require an independent caller-supplied pin.
+See [delivery preparation](evidence/release-preparation-1.md) for proposed paths,
+checks and the authorization/public-delivery gates. No source fallback occurs.

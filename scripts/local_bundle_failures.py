@@ -73,7 +73,7 @@ def main():
         ('architecture', archive('architecture', change=lambda f: f.update({prefix + closure[0]: wrong_arch})), 'wrong-architecture', {}),
         ('unloadable-header', archive('unloadable-header', change=lambda f: f.update({prefix + closure[0]: b'not a library'})), 'unloadable', {}),
         ('native-fingerprint', healthy_schema, 'incompatible-engine', {}),
-        ('lost-selection', healthy_schema, 'selection', {'APHID_INSTALL': None, 'APHID_BUNDLE_ARCHIVE': None, 'APHID_BUNDLE_SHA256': None}),
+        ('lost-selection', healthy_schema, 'missing', {'APHID_INSTALL': None, 'APHID_BUNDLE_ARCHIVE': None, 'APHID_BUNDLE_SHA256': None}),
         ('force-source', healthy_schema, 'selection', {'ZIGLER_PRECOMPILE_FORCE_RECOMPILE': 'true'}),
         ('conflicting-source', healthy_schema, 'selection', {'APHID_INSTALL': 'source'}),
     ]

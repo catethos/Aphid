@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/release_assets.py", line 91, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/release_assets.py", line 86, in main
+    prepare(json.loads((ROOT / 'native/linux-bundles.json').read_text()),
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            json.loads(args.run.read_text()), args.artifacts.resolve(), args.output.resolve(), args.tag)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/release_assets.py", line 58, in prepare
+    raise ValueError('Tagged Elixir source differs from the fresh qualified consumer')
+ValueError: Tagged Elixir source differs from the fresh qualified consumer

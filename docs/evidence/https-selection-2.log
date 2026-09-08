@@ -1,0 +1,5 @@
+Aphid artifact [selection]: set only one of APHID_BUNDLE_ARCHIVE and APHID_BUNDLE_URL. No source fallback.
+Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs. No source fallback.
+Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive or HTTPS URL and SHA256, or explicit source without bundle inputs. No source fallback.
+Aphid artifact [missing]: this development version has no authorized default delivery; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites. No source fallback.
+HTTPS selection conflicts rejected before native module load

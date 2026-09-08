@@ -3,7 +3,7 @@ Code.require_file("../mix/aphid_bundle.exs", __DIR__)
 
 defmodule HttpsSelectionProject do
   use Mix.Project
-  def project, do: [app: :https_selection_proof, version: "0.0.0"]
+  def project, do: [app: :https_selection_proof, version: "0.1.0-dev"]
 end
 
 for {mode, archive, url} <- [

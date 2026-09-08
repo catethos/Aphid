@@ -1,5 +1,11 @@
 # Release preparation checklist — release publication not authorized
 
+Current handoff: [default delivery and shipped-content review](evidence/release-preparation-1.md).
+Default selection is prepared but disabled until authorized delivery; the native
+bytes are unchanged. Notice delivery, final consumer-to-release provenance and
+macOS/public endpoint scope must be settled before requesting draft creation.
+Older checkpoints below remain historical, not current gate closures.
+
 No target is release-supported and no stage is closed. The local runtime
 validation archives are test bundles, not Hex packages or release candidates.
 

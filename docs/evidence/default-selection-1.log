@@ -1,0 +1,14 @@
+Aphid artifact [missing]: this development version has no authorized default delivery; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites. No source fallback.
+Aphid artifact [missing]: this development version has no authorized default delivery; select a pinned archive or HTTPS URL, or set APHID_INSTALL=source with its build prerequisites. No source fallback.
+Aphid artifact [unsupported-target]: no default bundle for this OS/BEAM architecture/libc; use a reviewed explicit archive or explicit source prerequisites. No source fallback.
+Aphid artifact [unsupported-target]: no default bundle for this OS/BEAM architecture/libc; use a reviewed explicit archive or explicit source prerequisites. No source fallback.
+Aphid artifact [unsupported-target]: no default bundle for this OS/BEAM architecture/libc; use a reviewed explicit archive or explicit source prerequisites. No source fallback.
+Aphid artifact [incompatible-engine]: default bundle version differs from this source package. No source fallback.
+Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+Aphid artifact [incompatible-engine]: default bundle version differs from this source package. No source fallback.
+Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+Aphid artifact [incompatible-engine]: default bundle version differs from this source package. No source fallback.
+Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+Aphid artifact [missing]: set APHID_BUNDLE_ARCHIVE to an existing local .tar.gz. No source fallback.
+Aphid artifact [selection]: unset ZIGLER_PRECOMPILE_FORCE_RECOMPILE; local bundle mode never falls back to source. No source fallback.
+Three-target package-pinned selection, disabled defaults, version/pin/target rejection and no native load passed. No download performed.

@@ -1,5 +1,11 @@
 # GitHub release preparation
 
+Current handoff: [default delivery and shipped-content review](evidence/release-preparation-1.md).
+Default selection is prepared but disabled until authorized delivery; the native
+bytes are unchanged. Notice delivery, final consumer-to-release provenance and
+macOS/public endpoint scope must be settled before requesting draft creation.
+Older checkpoints below remain historical, not current gate closures.
+
 The public repository is [catethos/Aphid](https://github.com/catethos/Aphid),
 with `zig_library` as its root and `git@github.com:catethos/Aphid.git` as its
 remote. The package version remains `0.1.0-dev`. The owner has authorized source

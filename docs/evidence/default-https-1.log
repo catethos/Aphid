@@ -1,0 +1,27 @@
+.+..........+...+..+.......+..+..........+++++++++++++++++++++++++++++++++++++++*..+...+.+++++++++++++++++++++++++++++++++++++++*.+....+..+.+........+....+......+..+...............+.......+........+.......+.....+.......+.....+.+...+.....+.+........+...+...+.......+..+......+.+...+......+........................+..+..................+.+......+.....+.+...............+.....+.......+..+.............+......+..+.......+.....+..........+..+......+....+...+......+......+.....+.+........+.......+...+....................+.......+........+.........+.......+........+.+..+.......+...+..+...+...+.+...+............+.....+...+.+......+.....+...+...+...+.+......+...+..+.........+....++++++
+..............+.+...+........+............+.............+...+.....+.+...+..+.............+..+....+..+.........+.+++++++++++++++++++++++++++++++++++++++*..+....+.........+...+..+++++++++++++++++++++++++++++++++++++++*..................+.+........+......+....+..+...+.+...+...+........+.+...+...+...............+..+.+..............+.+.....+.+...........+...+.+...+......+.....+.......+..+.......+.....+...+...+..........+...+.........+..+....+..+....+........+......+....+........+...+.+.....+..........+....................+...+......+......++++++
+-----
+{"command": ["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "1", "-subj", "/CN=Aphid loopback test CA", "-addext", "basicConstraints=critical,CA:TRUE", "-addext", "keyUsage=critical,keyCertSign,cRLSign", "-keyout", "/private/tmp/aphid-default-https-1/ca-key.pem", "-out", "/private/tmp/aphid-default-https-1/ca.pem"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.142}
+..+........+.........+....+..+++++++++++++++++++++++++++++++++++++++*..+.......+............+...+++++++++++++++++++++++++++++++++++++++*........+.....+.+..+.......+........++++++
+......+.........+.........+..+......+...+.+...........+...+......+...+++++++++++++++++++++++++++++++++++++++*.+......+.........+.+......+.........+.....+.+.....+...+...+...+++++++++++++++++++++++++++++++++++++++*.+......+......+.......+..+.+.....++++++
+-----
+{"command": ["openssl", "req", "-new", "-newkey", "rsa:2048", "-nodes", "-subj", "/CN=localhost", "-keyout", "/private/tmp/aphid-default-https-1/key.pem", "-out", "/private/tmp/aphid-default-https-1/server.csr"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+Certificate request self-signature ok
+subject=CN=localhost
+{"command": ["openssl", "x509", "-req", "-in", "/private/tmp/aphid-default-https-1/server.csr", "-CA", "/private/tmp/aphid-default-https-1/ca.pem", "-CAkey", "/private/tmp/aphid-default-https-1/ca-key.pem", "-CAcreateserial", "-days", "1", "-extfile", "/private/tmp/aphid-default-https-1/extensions.cnf", "-out", "/private/tmp/aphid-default-https-1/cert.pem"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.078}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/https_bundle_checks.py", line 117, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/https_bundle_checks.py", line 40, in main
+    server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), handler)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 457, in __init__
+    self.server_bind()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 148, in server_bind
+    socketserver.TCPServer.server_bind(self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
