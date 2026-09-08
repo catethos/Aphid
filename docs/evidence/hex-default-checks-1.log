@@ -1,0 +1,1 @@
+Public-selection fixtures passed: three disabled/enabled targets, wrong URLs/pins, duplicate pin, environment clearing, argument guard. No runtime qualification.

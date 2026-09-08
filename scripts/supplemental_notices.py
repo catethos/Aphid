@@ -37,6 +37,13 @@ def render(archive):
                        hashlib.sha256(text).hexdigest() + '\n' + '=' * 72 + '\n').encode()
             result += text  # Original member bytes, including original line endings.
             result += b'\n'
+    zig = Path(__file__).resolve().parents[1] / 'docs/releases/v0.1.0-dev-zig-NOTICE.txt'
+    text = zig.read_bytes()
+    digest = hashlib.sha256(text).hexdigest()
+    assert digest == '5c537d6853e005298a285d508cff9ac7192cea23576c840d485b2b586a7ff177'
+    result += ('\n' + '=' * 72 + '\nZig 0.16.0 runtime and standard-library notice\n'
+               'Retained member: licenses/zig-0.16.0/LICENSE in approved Linux x86_64 archive\n'
+               'SHA256: ' + digest + '\n' + '=' * 72 + '\n').encode() + text + b'\n'
     return result
 
 
@@ -52,7 +59,7 @@ def main():
     else:
         with args.output.open('xb') as output:
             output.write(content)
-    print(f'{len(MEMBERS)} retained texts; {len(content)} bytes; SHA256 {hashlib.sha256(content).hexdigest()}')
+    print(f'{len(MEMBERS) + 1} retained texts; {len(content)} bytes; SHA256 {hashlib.sha256(content).hexdigest()}')
 
 
 if __name__ == '__main__':

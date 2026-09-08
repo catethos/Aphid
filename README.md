@@ -1,12 +1,40 @@
 # Aphid
 
 LadybugDB for Elixir, built with Zigler and a small C-compatible C++ bridge.
-The name follows Ladybug's insect theme. `:aphid` and `Aphid` are local names;
-package-name availability has not been claimed or reserved.
+The name follows Ladybug's insect theme. The package/application name is `:aphid`;
+the Elixir namespace is `Aphid`.
 
 This is an early development library: supervised queries, transactions and
 batch streams are available; hardening and release gates are unfinished. See
 [the status ledger](docs/status.md) and [GitHub release preparation](docs/github-release.md).
+
+## Experimental installation
+
+The `0.1.0-dev` Hex prerelease is intended for evaluation only. Once published,
+add the exact prerelease to your dependencies:
+
+```elixir
+{:aphid, "== 0.1.0-dev"}
+```
+
+Run `mix deps.get` and `mix compile`. Default installation downloads the
+matching native archive from the fixed GitHub prerelease and verifies its pinned
+SHA256. No `APHID_*` overrides or native compilation are needed. Installation
+requires internet access; normal runtime is offline. Download failures never
+silently start a source build.
+
+Use **Elixir 1.20.0 / OTP 29.0.4 (ERTS 17.0.4)**; the installer checks the exact
+runtime identity. The experimental targets are Linux x86_64/ARM64 with glibc
+and macOS ARM64. Linux needs GNU `objcopy`, GLIBC 2.38 and GLIBCXX 3.4.32;
+macOS needs `otool`. Execution evidence is limited to Ubuntu 24.04/glibc 2.39
+and macOS 26.6. macOS 13.3 is a binary declaration, not a tested minimum.
+Other Linux systems and the final package's Linux installation tests may follow
+publication. No target is release-supported and no implementation stage is complete.
+
+The installer places the package's supplemental notices, including the Zig MIT
+notice, beside the archive's license tree in application `priv/licenses/`.
+Keep that directory with redistributed native files. See
+[experimental Hex publication](docs/hex-publication.md) for scope and remaining checks.
 
 ## Query API
 
@@ -154,12 +182,12 @@ For the opt-in checksum-verifying local archive adapter, see
 consumer passes 92 tests without a native compiler. A configured
 [relocated Mix release](docs/evidence/embedded-startup.md) also passes 92 tests and
 embedded start/restart/shutdown/reopen with bundled ERTS.
-Network delivery, source installation and the platform matrix
-remain open. Bundled ERTS declares macOS 15.0; no release support is claimed.
+Anonymous native download integrity is verified; final Hex installation,
+source installation and the broader platform matrix remain separate checks. Bundled ERTS declares macOS 15.0; no release support is claimed.
 
-Source builds require `APHID_INSTALL=source`. With no selection, this development
-version reports a missing bundle instead of starting a compiler. Select a pinned
-archive or HTTPS URL for precompiled mode; no default release download exists.
+Source builds require `APHID_INSTALL=source`. With no selection, this package
+uses its reviewed public catalog URL and checksum. Explicit pinned archive or
+HTTPS URL selection remains available for precompiled mode.
 The engine build is not yet an installation/support claim for any target.
 
 The [value contract](docs/types.md) describes the full query/transaction/stream API.

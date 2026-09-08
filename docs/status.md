@@ -1,5 +1,16 @@
 # Implementation status
 
+Current scope (2026-09-08): experimental Hex publication is now authorized.
+The user accepts publication after a final local macOS package check, with Linux
+package installation and additional-system tests following publication.
+The three public catalog URLs are enabled in this source revision, and the
+source supplement now includes the retained Zig MIT notice. See
+[Hex publication scope](hex-publication.md). The GitHub prerelease is already
+public; its thirteen assets and fixed tag remain unchanged. No target is
+release-supported and no implementation stage is complete.
+
+Earlier checkpoints below are historical and do not override this scope.
+
 Latest scope: [authorized experimental publication](evidence/public-release-1.md).
 Release [v0.1.0-dev](https://github.com/catethos/Aphid/releases/tag/v0.1.0-dev)
 (ID 384589981) is public with `draft=false`, `prerelease=true`, and is not latest

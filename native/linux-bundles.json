@@ -28,7 +28,8 @@
       "run_id": 34193449987,
       "attempt": 1,
       "commit": "c37c458211d0bff7e4054f90bf5d429f29ece2ef"
-    }
+    },
+    "url": "https://github.com/catethos/Aphid/releases/download/v0.1.0-dev/aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz"
   },
   "aarch64-linux-gnu": {
     "elixir": "1.20.0",
@@ -59,6 +60,7 @@
       "run_id": 34193449987,
       "attempt": 1,
       "commit": "c37c458211d0bff7e4054f90bf5d429f29ece2ef"
-    }
+    },
+    "url": "https://github.com/catethos/Aphid/releases/download/v0.1.0-dev/aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz"
   }
 }

@@ -1,0 +1,15 @@
+Initial read-only Hex lookup: https://hex.pm/api/packages/aphid returned HTTP 404.
+Initial mix hex.user whoami: exit 1; no authenticated user found. Authentication
+was not started because user credentials must be entered in the user's terminal.
+The user was asked to run mix hex.user auth; passwords/codes must not enter chat.
+Initial package-only --dry-run built the candidate but stopped at the same missing
+authentication step; full output retained in hex-package-dry-run-1.log.
+Exploratory paths scripts/third_party_notices.py, scripts/shipped_notices.py and
+scripts/local_package.py did not exist. The existing helper was located as
+scripts/supplemental_notices.py; no replacement helper was invented.
+A documentation read piped mix help hex.publish through head. The output pipe
+closed after the requested lines and Mix logged :epipe; no package or publication
+operation was involved. A sandboxed Mix help read also warned about TCP :eperm.
+Initial staged whitespace check blocked commit on three verbatim Hex-output
+Links: lines with trailing spaces. Source/documentation checks passed with raw
+log files excluded; the original tool output was preserved, not rewritten.

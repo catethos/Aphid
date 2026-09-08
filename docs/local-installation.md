@@ -9,6 +9,11 @@ seven Mach-O load commands declare 13.3; actual minimum OS/CPU execution remains
 unproved. The NIF CPU baseline resolves to Apple M1; the whole-closure CPU floor
 is still unverified.
 
+For the current default public-download path, see [Hex publication](hex-publication.md)
+and the README installation section. The explicit local recipe and older package
+identities below remain useful historical proofs; their no-download statements
+do not describe the current URL-enabled package.
+
 ## Recipe
 
 Use a self-contained copy of the Aphid source package as your consumer's
@@ -99,7 +104,8 @@ No archive BEAM files or test programs are installed. A receipt records the
 archive checksum, native hashes and reviewed identity. Both NIF loaders embed
 the expected closure hashes into the newly compiled BEAM code and check all four
 files before every load; deleting the receipt later does not disable checks.
-The adapter never downloads, edits dependency sources, or starts a source build.
+The explicit local-archive path never downloads native assets, edits dependency
+sources, or starts a source build. Default selection now uses the reviewed public URL.
 
 | Diagnostic | Action |
 |---|---|

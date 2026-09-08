@@ -26,9 +26,11 @@ with tempfile.TemporaryDirectory(prefix='aphid-public-selection-') as directory:
             return
         raise AssertionError('Invalid package default accepted')
 
+    for pin in pins:
+        expected = 'https://github.com/catethos/Aphid/releases/download/v' + pin['package_version'] + '/' + pin['archive']
+        assert pin.pop('url') == expected, 'Live catalog must use the reviewed public endpoint'
     save()
     for pin in pins:
-        assert 'url' not in pin, 'Live catalog must remain disabled'
         rejects(pin['sha256'])
         pin['url'] = 'https://github.com/catethos/Aphid/releases/download/v' + pin['package_version'] + '/' + pin['archive']
     save()

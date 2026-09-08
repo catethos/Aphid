@@ -1,7 +1,7 @@
-# Local package review: third-party inputs and open notices
+# Experimental package: third-party inputs and open notices
 
-This source package is a local precompiled-installation review candidate at
-0.1.0-dev. It is not published, release-supported, or a proved source installer.
+This source package is prepared for experimental Hex publication at 0.1.0-dev.
+It is not release-supported or a proved source installer.
 Aphid's own source is MIT-licensed (see LICENSE), as selected by the owner.
 Dependencies retain their own licenses; this does not relicense their contents.
 
@@ -9,7 +9,8 @@ The source package contains Aphid Elixir/Zig/C++ interface code, Mix adapter,
 locked dependency/native identities and documentation. It includes no dependency
 source distributions, engine libraries, NIF binaries, bundled Erlang runtime,
 build caches or upstream engine trees. Dependencies resolve separately; the
-local runtime archive is separately selected and independently SHA256-pinned.
+native runtime archive is separately downloaded from the reviewed public catalog
+and independently SHA256-pinned.
 
 Zigler 0.16.0 and its transitive dependencies are compile-time inputs. Telemetry
 is a runtime dependency. Exact versions and Hex checksums are in mix.lock.
@@ -30,9 +31,9 @@ Native inventory coverage, final shipped-content review,
 and notices for a production Mix release remain open. No legal approval or
 redistribution clearance is claimed.
 
-See docs/local-installation.md for the local adapter recipe and boundaries.
-The source archive is a standard locally built Hex tar, consumed by extracting
-its contents into vendor/aphid. Network Hex installation remains unproved.
+See docs/hex-publication.md for the experimental package scope and
+docs/local-installation.md for the explicit local archive recipe. A local Hex
+archive check does not by itself establish installation through the Hex registry.
 
 A further local build-record map retains embedded notices from CRoaring,
 fast_float, glob, httplib and pyparse. The httplib header has an abbreviated MIT notice; a follow-up verified that the
@@ -43,8 +44,8 @@ proof of final linked-object retention or complete attribution. See
 
 ## Installed supplemental notices
 
-`THIRD_PARTY_NOTICES.txt` now ships with this source package. It preserves ten
-retained texts: seven embedded native preambles (CRoaring's three amalgamated
+`THIRD_PARTY_NOTICES.txt` now ships with this source package. It preserves eleven
+retained texts, including the exact Zig 0.16.0 MIT notice, plus: seven embedded native preambles (CRoaring's three amalgamated
 files, fast_float, glob, httplib and pyparse), the verified full httplib 0.14.2
 notice, NimbleParsec 1.4.2's complete README notice source, and ZigGet 0.16.0's
 content-matched parent license. Each section names its retained member and SHA256.
@@ -70,3 +71,14 @@ for their matched versions; no later or other-project grant is substituted.
 OTP/build/static-component provenance and final redistribution review remain
 open. The supplemental file contains no bundled ERTS notices and is not a
 production Mix-release attribution inventory.
+
+The Zig notice is copied byte-for-byte from `licenses/zig-0.16.0/LICENSE` in the
+approved Linux x86_64 archive (archive SHA256
+`fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc`).
+Notice SHA256: `5c537d6853e005298a285d508cff9ac7192cea23576c840d485b2b586a7ff177`.
+This supplies the notice missing from the standalone macOS native archive without
+changing any native asset. The earlier small review found no bundled Pegasus,
+ZigParser, NimbleParsec packages or ERTS in the native archives; this source
+package likewise acquires executable dependencies separately. Their unresolved
+provenance questions remain scoped follow-up work, not blanket experimental
+publication blockers. Retain all supplemental and archive notices together.

@@ -116,6 +116,16 @@ end
         env.update(overrides)
         env = {k: v for k, v in env.items() if v is not None}
         if name == 'lost-selection':
+            # This historical rejection requires a catalog with delivery disabled.
+            disabled = work / 'disabled-source'
+            shutil.copytree(source / 'mix', disabled / 'mix')
+            (disabled / 'native').mkdir()
+            for filename in ['local-bundle.json', 'linux-bundles.json']:
+                catalog = json.loads((source / 'native' / filename).read_text())
+                for pin in ([catalog] if filename == 'local-bundle.json' else catalog.values()):
+                    pin.pop('url', None)
+                (disabled / 'native' / filename).write_text(json.dumps(catalog))
+            env['ADAPTER'] = str(disabled / 'mix/aphid_bundle.exs')
             destination = work / ('build-' + name) / 'lib/aphid/priv'
             destination.mkdir(parents=True)
             (destination / 'aphid-bundle.json').write_text('{}')

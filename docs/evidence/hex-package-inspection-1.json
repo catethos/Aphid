@@ -1,0 +1,228 @@
+{
+  "package": "artifacts/hex-publication-1/aphid-0.1.0-dev.tar",
+  "sha256": "922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7",
+  "bytes": 115712,
+  "hex_inner_checksum": "F524CDA1286C70D39533DC638DC462CAFAE0B0CC215A38C5AE020A82AC066972",
+  "metadata": "{<<\"links\">>,[{<<\"GitHub\">>,<<\"https://github.com/catethos/Aphid\">>}]}.\n{<<\"name\">>,<<\"aphid\">>}.\n{<<\"version\">>,<<\"0.1.0-dev\">>}.\n{<<\"description\">>,<<\"LadybugDB for Elixir through Zigler\">>}.\n{<<\"elixir\">>,<<\"~> 1.20\">>}.\n{<<\"files\">>,\n [<<\"mix.exs\">>,<<\"mix.lock\">>,<<\"mix/aphid_bundle.exs\">>,<<\"lib/aphid.ex\">>,\n  <<\"lib/aphid/application.ex\">>,<<\"lib/aphid/bundle_loader.ex\">>,\n  <<\"lib/aphid/database.ex\">>,<<\"lib/aphid/error.ex\">>,\n  <<\"lib/aphid/native.ex\">>,<<\"lib/aphid/options.ex\">>,\n  <<\"lib/aphid/proof.ex\">>,<<\"lib/aphid/result.ex\">>,\n  <<\"lib/aphid/stream.ex\">>,<<\"lib/aphid/telemetry.ex\">>,\n  <<\"lib/aphid/transaction.ex\">>,<<\"lib/aphid/value.ex\">>,<<\"README.md\">>,\n  <<\"LICENSE\">>,<<\"THIRD_PARTY.md\">>,<<\"THIRD_PARTY_NOTICES.txt\">>,\n  <<\"docs/architecture.md\">>,<<\"docs/extensions.md\">>,\n  <<\"docs/github-release.md\">>,<<\"docs/hex-publication.md\">>,\n  <<\"docs/local-installation.md\">>,<<\"docs/release-checklist.md\">>,\n  <<\"docs/source-installation.md\">>,<<\"docs/status.md\">>,\n  <<\"docs/telemetry.md\">>,<<\"docs/types.md\">>,<<\"native/lock.json\">>,\n  <<\"native/local-bundle.json\">>,<<\"native/linux-bundles.json\">>,\n  <<\"native/aphid_nif.zig\">>,<<\"native/bridge.h\">>,<<\"native/bridge.cpp\">>,\n  <<\"native/CMakeLists.txt\">>,\n  <<\"native/patches/aggregate-state-alignment.patch\">>,\n  <<\"native/patches/alp-conversion-range.patch\">>,\n  <<\"native/patches/detach-clear-default.patch\">>,\n  <<\"native/patches/duckdb-tabular-only.patch\">>,\n  <<\"native/patches/fts-atomic-create.patch\">>,\n  <<\"native/patches/join-row-alignment.patch\">>,\n  <<\"native/patches/node-delete-finalize.patch\">>,\n  <<\"native/patches/row-value-alignment.patch\">>,\n  <<\"native/patches/sort-key-alignment.patch\">>,\n  <<\"native/patches/string-hash-alignment.patch\">>,\n  <<\"native/patches/vector-drop-auto-transaction.patch\">>,\n  <<\"scripts/build.py\">>,<<\"scripts/proof.py\">>,\n  <<\"scripts/source_preflight.py\">>,<<\"native/proof.zig\">>,\n  <<\"native/proof.h\">>,<<\"native/proof.cpp\">>]}.\n{<<\"app\">>,<<\"aphid\">>}.\n{<<\"licenses\">>,[<<\"MIT\">>]}.\n{<<\"requirements\">>,\n [[{<<\"name\">>,<<\"zigler\">>},\n   {<<\"app\">>,<<\"zigler\">>},\n   {<<\"optional\">>,false},\n   {<<\"requirement\">>,<<\"== 0.16.0\">>},\n   {<<\"repository\">>,<<\"hexpm\">>}],\n  [{<<\"name\">>,<<\"telemetry\">>},\n   {<<\"app\">>,<<\"telemetry\">>},\n   {<<\"optional\">>,false},\n   {<<\"requirement\">>,<<\"~> 1.3\">>},\n   {<<\"repository\">>,<<\"hexpm\">>}]]}.\n{<<\"build_tools\">>,[<<\"mix\">>]}.\n",
+  "supplement_sha256": "a9380f27e98b9ee7180560a31c99994cdfcbb2b8efae4b526e5225b14c56e992",
+  "files": {
+    "mix.exs": {
+      "bytes": 1380,
+      "sha256": "a5a08d2df75893304ce7b85a3727e509cf9a6827cce6721953d5c5ff56a00213"
+    },
+    "mix.lock": {
+      "bytes": 3957,
+      "sha256": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a"
+    },
+    "mix/aphid_bundle.exs": {
+      "bytes": 15232,
+      "sha256": "2a746a3cf2e3dc5fac264dee3227a2b5c15ccdc059f24dea2aa86a120febccc0"
+    },
+    "lib/aphid.ex": {
+      "bytes": 4328,
+      "sha256": "bcbd29f2ba7d1a347a5073baeadcdd78364780eabfaaf0fe4c1fb8953ac846f4"
+    },
+    "lib/aphid/application.ex": {
+      "bytes": 304,
+      "sha256": "dc10d58557713df46be7081cdc25baa3a56c216bbdcbad312ade120d3d03be4a"
+    },
+    "lib/aphid/bundle_loader.ex": {
+      "bytes": 2515,
+      "sha256": "25308f663a1eb6f76df61b83cee30a17737d8fddc53892b9cb3a5a1546830a5e"
+    },
+    "lib/aphid/database.ex": {
+      "bytes": 18376,
+      "sha256": "b9c862ae6d1cff37e4b6436c8c82c0e53fd659865ea450dc819610901aad6a9c"
+    },
+    "lib/aphid/error.ex": {
+      "bytes": 235,
+      "sha256": "9df2c6d17c7d6689e9b23eb17649b118c400cde98767379d3f1094f483d8a5cd"
+    },
+    "lib/aphid/native.ex": {
+      "bytes": 1811,
+      "sha256": "6d7454e551dcf0e7569406a83073847ecdfde46954b0063ec2d57317e6999d3c"
+    },
+    "lib/aphid/options.ex": {
+      "bytes": 2673,
+      "sha256": "edb4e65d16a2e57db086a4a0f1451c6a82e483badc16c88dce32c27c0e5ff6d9"
+    },
+    "lib/aphid/proof.ex": {
+      "bytes": 490,
+      "sha256": "31389df3a67ab87483a9e857793a87aed61001c092bdd368e8acefa65c8564b3"
+    },
+    "lib/aphid/result.ex": {
+      "bytes": 1297,
+      "sha256": "e08208d7dac19ec8f67ab79dd62f0e8bb6ecf2f82c70cf0b29171b0041671bad"
+    },
+    "lib/aphid/stream.ex": {
+      "bytes": 5401,
+      "sha256": "14cec0da334a1240d472bed7e9aca605f43bb766045a1978a6dafe1b18f19eb9"
+    },
+    "lib/aphid/telemetry.ex": {
+      "bytes": 866,
+      "sha256": "589fc4d2283c73c0ca60780bbdb2dccc6c0ed69f1f772ab7f4abe937fa9b0dd8"
+    },
+    "lib/aphid/transaction.ex": {
+      "bytes": 6602,
+      "sha256": "4ae4c457c5d422efbeb4c2c43a169c17cb2ca1f185088adbd59d2fb4b098fa79"
+    },
+    "lib/aphid/value.ex": {
+      "bytes": 600,
+      "sha256": "e28c3ed1931394aabbbdb7b3563d0eab4358aae87a1f805bb1807f7f6f44451a"
+    },
+    "README.md": {
+      "bytes": 11034,
+      "sha256": "6bb7b67335b81c11453fe13ea3138bfdeabbe80fd6b7888ca945409e83b41d89"
+    },
+    "LICENSE": {
+      "bytes": 1075,
+      "sha256": "b80b4dddc5005e96e968562e3ef1af13d0b6eda9fa30a1b6002025638e3c327d"
+    },
+    "THIRD_PARTY.md": {
+      "bytes": 5437,
+      "sha256": "b40bb53860d236b2c45a1fc0f413632642c8b1a855cc96fd6644d7b333d22979"
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "bytes": 23288,
+      "sha256": "a9380f27e98b9ee7180560a31c99994cdfcbb2b8efae4b526e5225b14c56e992"
+    },
+    "docs/architecture.md": {
+      "bytes": 8687,
+      "sha256": "aed665d7c8a059783131e7c3ca337271a248f719a1abd421e284f9f81ad76c40"
+    },
+    "docs/extensions.md": {
+      "bytes": 5600,
+      "sha256": "7046956dc03a88ec7388059d2abec03504710170ef1092118dd8a1303e05b16d"
+    },
+    "docs/github-release.md": {
+      "bytes": 12514,
+      "sha256": "4d149e96938c47724e0bc98b7d80a9864625a0d1a1e48fe21977c1e817792918"
+    },
+    "docs/hex-publication.md": {
+      "bytes": 2848,
+      "sha256": "69242e91e2b822ca30bd8b3adb8df5d9553c59ee082caa22f10e74b8d2d79824"
+    },
+    "docs/local-installation.md": {
+      "bytes": 17002,
+      "sha256": "0d9e63924f3ce78748dc7f5474c2dcce1c67efd69b12ddf99d98d46c4c1e4df4"
+    },
+    "docs/release-checklist.md": {
+      "bytes": 13243,
+      "sha256": "cf4bd3828dfe2413d3b28627db1318aa576e30d275c719f7ce133743c2631e4c"
+    },
+    "docs/source-installation.md": {
+      "bytes": 6046,
+      "sha256": "db2637667824e3596fd83d2b60933b59bb8efa932f744d385d5477adfd020a91"
+    },
+    "docs/status.md": {
+      "bytes": 15038,
+      "sha256": "90733dbe0a6a4b173f4f0e0a20ce77b997f7f3f00ef69e2ccd1536ba4250344b"
+    },
+    "docs/telemetry.md": {
+      "bytes": 2757,
+      "sha256": "66a0bf1b2125fd930a97c6069ff5158631df8c6a95dbd48b6c0fd42b809bc9d7"
+    },
+    "docs/types.md": {
+      "bytes": 10126,
+      "sha256": "3f8a264613b2f50ff3b79edfa84eb9357eb379aa55a26f1be64aa52d715587cd"
+    },
+    "native/lock.json": {
+      "bytes": 7182,
+      "sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955"
+    },
+    "native/local-bundle.json": {
+      "bytes": 1557,
+      "sha256": "5a5c38fdf12af7e19802050ebcc6efdce0ee6cdb9a1be1e38261cd45d41fbf37"
+    },
+    "native/linux-bundles.json": {
+      "bytes": 3479,
+      "sha256": "939a72143e4659d8514b9af4be498df45506ef6852ef89fea3978dd703eac505"
+    },
+    "native/aphid_nif.zig": {
+      "bytes": 45179,
+      "sha256": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622"
+    },
+    "native/bridge.h": {
+      "bytes": 10596,
+      "sha256": "e36e6b3a95109b29c1063b50db4416313f28d36e54ad7ec70ff5d231a1f14c1a"
+    },
+    "native/bridge.cpp": {
+      "bytes": 48913,
+      "sha256": "5a0abb57840f62753ba10cfbbb6d4900c48720080acd6a109ae863ef5469e0cd"
+    },
+    "native/CMakeLists.txt": {
+      "bytes": 1642,
+      "sha256": "68c63e472e0b066c99c0cab2c05f96cc8773842d9cf2351a378d6e4a70e93c3d"
+    },
+    "native/patches/aggregate-state-alignment.patch": {
+      "bytes": 9156,
+      "sha256": "75ff061b727f3f2e27e298c184a0bc5ba6af3c9eb5dc4b98eee1dd58fbb38f18"
+    },
+    "native/patches/alp-conversion-range.patch": {
+      "bytes": 1222,
+      "sha256": "4956d6ca30ae4ee911e7db103e0797a1dd0f616e853193c2a53a723723a91024"
+    },
+    "native/patches/detach-clear-default.patch": {
+      "bytes": 624,
+      "sha256": "75e11aa0c8398196f7e94eaff0f6856d8e6c48b78b8056a58743dd15ad19a411"
+    },
+    "native/patches/duckdb-tabular-only.patch": {
+      "bytes": 2472,
+      "sha256": "05b214f64350c5126a98ed036a3e134d84efe17198121b44254db97139310835"
+    },
+    "native/patches/fts-atomic-create.patch": {
+      "bytes": 4103,
+      "sha256": "b0c8f418e4880690fb48e632611b2f33c5a4abca082a0df3e140d0a5afaf3eb5"
+    },
+    "native/patches/join-row-alignment.patch": {
+      "bytes": 8911,
+      "sha256": "ff51a377d6fb6b607539c831b0189688f9de10843e0f7d37bc672aa250845e9c"
+    },
+    "native/patches/node-delete-finalize.patch": {
+      "bytes": 926,
+      "sha256": "73db975fc76cc2e0d06a14f143279066108155f182416fa5fb4cc9aa20bc3da6"
+    },
+    "native/patches/row-value-alignment.patch": {
+      "bytes": 14290,
+      "sha256": "8c5719d3a3e3442f85e9f0a107358eae662ea519ed9a865cd317fae28951e7d5"
+    },
+    "native/patches/sort-key-alignment.patch": {
+      "bytes": 2297,
+      "sha256": "6cd05b54e072203398b59f2b9db91ae94f8756e32df90b124f4d6bbe72fa6be1"
+    },
+    "native/patches/string-hash-alignment.patch": {
+      "bytes": 1031,
+      "sha256": "54ea5d790fb5a3d20ddb4609ffedd84ae76bb04a48f0101efe4ee340ebf20bac"
+    },
+    "native/patches/vector-drop-auto-transaction.patch": {
+      "bytes": 955,
+      "sha256": "b362199b15d63056e3715bfd3ff02731dbe07d8f3e094f7e777080eb3b6f3818"
+    },
+    "scripts/build.py": {
+      "bytes": 11718,
+      "sha256": "b91074623551c8537e74d7f2c70eec83d720c14b7641fb262b4125000e8801ed"
+    },
+    "scripts/proof.py": {
+      "bytes": 6945,
+      "sha256": "24f1f4329216722d80922e437ee4f3203c2d09c054ec77acb54fd0b06958adcf"
+    },
+    "scripts/source_preflight.py": {
+      "bytes": 5257,
+      "sha256": "5fa69ceb59ebfa4f447e5f2928329530f6bae6a357bccf166ee84b6c11091ed6"
+    },
+    "native/proof.zig": {
+      "bytes": 731,
+      "sha256": "aac3c481fc6917b571107edc34e1f0e5f4c9ef987efcafd559b2969e6f90382c"
+    },
+    "native/proof.h": {
+      "bytes": 302,
+      "sha256": "681fb93f25bda1998303ed196741cf88056e78dacb1468731421902b6a40f7ad"
+    },
+    "native/proof.cpp": {
+      "bytes": 178,
+      "sha256": "a0084e23dd90ca6be5431b4f4ef69aa4d629ba1ea5f3821587aa0972cae92a12"
+    }
+  },
+  "checks_passed": true,
+  "publish_snapshot": "/private/tmp/aphid-hex-publish-1"
+}
