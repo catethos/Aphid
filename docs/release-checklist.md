@@ -5,7 +5,7 @@ validation archives are test bundles, not Hex packages or release candidates.
 
 | Required target | Build / runtime evidence | Remaining blocker |
 |---|---|---|
-| Linux x86_64 glibc | Native GitHub runner: locked builds, relocated suites, compiler-free 92-test consumer and failure checks pass | Prove declared glibc/CPU baseline, public delivery and Linux Mix release |
+| Linux x86_64 glibc | Native GitHub runner: locked builds, relocated suites, compiler-free 92-test consumer and failure checks pass | Prove declared glibc/CPU baseline and public delivery; host Mix release passes |
 | Linux ARM64 glibc | Native GitHub runner: locked builds, relocated suites, compiler-free 92-test consumer and failure checks pass | Cross-build on x86_64 Linux, then execute that exact artifact on native ARM64 Linux |
 | macOS ARM64 | Host-only extracted runtime validation; see Stage 08 evidence | Explicit-target candidate declares 13.3; local checksum/sidecar adapter and fresh consumer pass; embedded-mode Mix release passes; actual minimum OS/CPU and network delivery remain |
 
@@ -28,7 +28,7 @@ Mac cannot fulfill the required x86_64 Linux build-host proof.
 
 The native GitHub qualification workflow has now run on both architectures.
 Both native/NIF builds and 92 BEAM tests passed in run 34184718955 after the
-retained first-attempt staging error. Full bundle qualification is running. Local Linux provisioning and
+retained first-attempt staging error. Full bundle qualification and combined-source embedded release checks now pass. Local Linux provisioning and
 emulation remain excluded.
 See [CI preparation](evidence/linux-ci-preparation.md). Qualification must build locked OpenSSL/DuckDB/engine inputs
 for the target, separate host generators from target binaries, and remove
@@ -135,12 +135,18 @@ ownership/routing and explicit native output options are checked without a sourc
 build. Locked acquisition, actual source compilation/linking/relocation, resource
 measurement and automatic Mix source orchestration remain open.
 
-Current source changes and CI iterations are authorized. Binary artifact uploads,
-GitHub release creation and Hex publication remain excluded. The Linux catalog
-is empty pending reviewed artifacts; see [distribution preparation](evidence/linux-distribution-preparation.md).
+Current source changes, CI iterations and seven-day retention of passing CI
+artifacts are authorized. GitHub release creation and Hex publication remain
+excluded. The Linux catalog pins both reviewed artifacts; see [distribution preparation](evidence/linux-distribution-preparation.md).
 
 [Run 34193449987](evidence/linux-qualified-bundles.md) now passes both Linux
 bundle qualification jobs. Reviewed identities are pinned; approved seven-day
 Actions retention succeeded. The manual draft release workflow is prepared and
 local verification of its actual assets passes. Actual draft creation, public
 release delivery and Hex publication remain unexecuted and unauthorized.
+
+[Combined package and embedded release evidence](evidence/combined-installation-2.md)
+now records one exact source archive passing all 92 tests on macOS ARM64 and
+both Linux architectures, plus Linux bundled-ERTS startup/restart/reopen and
+failure checks. Public delivery, final notices and minimum-system gates remain
+open; no stage is marked complete.

@@ -20,8 +20,8 @@ on Ubuntu 24.04 with glibc 2.39. Older-system and CPU-floor execution remain ope
 source `d34ea305346442e6fee5b73b403a91e338d501fb`, passed both native/NIF builds and 92 BEAM suites, then failed distribution
 qualification. ARM64 passed relocated native/92 BEAM tests before detecting
 changed installed NIF bytes. x86_64 stopped during ELF packaging. No artifact
-was uploaded. The [ELF correction](evidence/linux-elf-relocation.md) is being
-checked in small-NIF preflights before another full build. Earlier attempts
+was uploaded. The [ELF correction](evidence/linux-elf-relocation.md) subsequently passed
+small-NIF preflights and full run 34193449987. Earlier attempts
 and their cancellations remain in the evidence logs. See the
 [loader correction](evidence/linux-loader-allowlist-fix.md) and
 [locale preflight](evidence/linux-locale-preflight.md).
@@ -71,7 +71,9 @@ provenance. The outer Actions artifact digest is not the runtime archive SHA256.
    consumer of that exact source package. Zigler 0.16.0 requires `objcopy` on
    Linux and `otool` on macOS; compiler-free still has installer prerequisites.
 3. Prove HTTPS delivery from the actual repository, package-pinned checksums,
-   default precompiled selection, offline runtime and relocated Linux Mix releases.
+   default precompiled selection. Offline runtime and relocated Linux Mix releases
+   now pass on the tested Ubuntu 24.04 hosts; see
+   [combined qualification](evidence/combined-installation-2.md).
    Execute the same artifacts on every declared minimum system and OTP version.
 4. Preserve the plan's separate x86_64-to-ARM64 cross-build gate: a native ARM64
    build does not prove it. Linux musl, Windows and macOS x86_64 remain outside
@@ -93,7 +95,9 @@ executed. It must be dispatched on an existing version tag with `reviewed=true`
 after owner review of the exact assets and notices. Its only creation job has
 `contents: write` and `actions: read`; qualification jobs remain read-only.
 It uses GitHub's CLI to retrieve the selected run and creates only a draft
-prerelease. It does not create a tag, overwrite assets or publish to Hex.
+prerelease. It does not create a tag, overwrite assets or publish to Hex. Version-specific
+review notes are required at `docs/releases/<tag>.md`; the concrete
+[v0.1.0-dev notes](releases/v0.1.0-dev.md) list exact assets and limitations.
 
 `scripts/release_assets.py` requires both reviewed Linux identities in the tagged
 source catalog. Each identity must carry `qualification` with `run_id`, `attempt`
@@ -120,5 +124,7 @@ approval; obtain authorization for the concrete reviewed draft first.
 `.github/workflows/linux-consumer.yml` rechecks the current combined source package
 against the exact reviewed archives. It uses native runners, fresh caches and
 the existing compiler/development/network isolation. It does not rebuild engines
-or upload artifacts. Qualification provenance and archive hashes are checked
+or upload native bundles. Optional seven-day `retain_source` retention includes
+only the passing combined source package, consumer inputs and log, after the
+consumer and embedded release checks succeed. Qualification provenance and archive hashes are checked
 before the real adapter and loader tests.

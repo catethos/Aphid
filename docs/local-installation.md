@@ -145,7 +145,8 @@ executable mapping reaches the real `dlopen` failure with unchanged native bytes
 
 Network artifact delivery, a normal published Hex package, a fresh source-mode
 consumer, actual minimum OS/CPU execution,
-other OTP versions and both Linux targets remain open. No Linux system was
+other OTP versions remained open at this historical checkpoint. Current Linux
+results are linked below. No local Linux system was
 provisioned/emulated, no sanitizer suite was rerun, and no performance work was
 done. See [current evidence and handoff](evidence/local-bundle-installation.md).
 
@@ -176,8 +177,8 @@ python3 -u scripts/mix_release.py \
 ```
 
 Use new paths and retain attempts. This is a genuine, configured local Mix release
-validation path, not release support or a production package. Embedded boot,
-network delivery, source installs, minimum OS/CPU/other OTP execution and Linux
+validation path, not release support or a production package. Public
+network delivery, source installs and minimum OS/CPU/other OTP execution
 remain open; see the linked evidence for exact archive hashes and boundaries.
 
 The expanded local source-input archive is
@@ -202,7 +203,7 @@ This route is proved with a private loopback HTTPS server and the unchanged
 reviewed macOS archive, including a fresh 92-test compiler-free consumer. The
 first invalid self-signed test-certificate attempt is retained. No native archive
 was uploaded. There is no usable Aphid GitHub release download URL yet, no default
-network selection, and no Linux artifact identity accepted by this adapter.
+network selection. The current catalog also accepts the reviewed Linux identities below.
 See [HTTPS evidence](evidence/https-bundle.md).
 
 The local source package also passes a fresh consumer using normal Hex dependency
@@ -218,15 +219,6 @@ version now reports `[missing]` instead of selecting a source build. Set
 `APHID_INSTALL=source` deliberately when following the source prerequisites.
 [Selection checks](evidence/explicit-selection-1.log) exercise the actual compiler
 task and verify rejection occurs before either native module loads.
-
-## Current Linux preparation
-
-The public Linux catalog is deliberately empty. The adapter rejects Linux
-installation until an identity is reviewed; native CI availability does not
-establish compiler-free installation support. The job-local validation recipe
-packages and relocates ELF sidecars and tests a separate Hex source package
-with its build identity. See [Linux distribution evidence](evidence/linux-distribution-preparation.md).
-No repository binary delivery or release support is claimed.
 
 ## Reviewed Linux local archives
 
@@ -249,6 +241,7 @@ those symbol requirements are not minimum-system execution evidence.
 
 Both native Linux jobs passed the fresh local Hex-source-package consumer's
 92 tests with normal locked Hex dependency acquisition, then offline compilation
-and runtime. Real installer/loader failures also passed. A combined source
-package is being rechecked across targets; no Hex registry installation, default
-release download or Linux Mix release is claimed.
+and runtime. Real installer/loader failures also passed. The [exact combined source archive](evidence/combined-installation-2.md)
+now passes on both Linux architectures and macOS ARM64. Bundled-ERTS Linux
+Mix releases also pass startup, restart, shutdown/reopen and failure checks.
+Hex registry installation and default public release download remain unproved.

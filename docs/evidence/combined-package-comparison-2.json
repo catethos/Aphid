@@ -1,0 +1,20 @@
+{
+  "mac_archive_sha256": "4dc6bf1b3083f6ffeb0f177483750723be7c9796d3b391fd749990b2396e7ffe",
+  "linux_archive_sha256": "b85967b047662ccdc66851d246a9a7301fe8c797225d7e479948653838dc57df",
+  "linux_archive_bytes": 103936,
+  "source_files_equal": true,
+  "files": 52,
+  "outer_parts_equal": {
+    "VERSION": true,
+    "CHECKSUM": false,
+    "metadata.config": false,
+    "contents.tar.gz": true
+  },
+  "uncompressed_payload_equal": true,
+  "gzip_headers": {
+    "mac": "1f8b0800000000000000",
+    "linux": "1f8b0800000000000000"
+  },
+  "metadata_values_equal": true,
+  "observed_metadata_difference": "Only top-level app and licenses field order differs; parsed Erlang metadata maps and compressed contents.tar.gz are identical."
+}

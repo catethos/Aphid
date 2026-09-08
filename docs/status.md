@@ -27,7 +27,7 @@ one atomic decrement; it does not prove heavy database retirement.
 
 ## Concrete handoff from this continuation
 
-[Linux CI preparation](evidence/linux-ci-preparation.md) is the current handoff;
+[Combined package qualification](evidence/combined-installation-2.md) is the current handoff;
 [source inputs/private routing](evidence/source-inputs.md) remains valid for the prior package;
 [source preflight](evidence/source-preflight.md) remains valid for the older package;
 [attribution follow-up](evidence/attribution-followup.md) remains valid;
@@ -134,3 +134,9 @@ and succeeded. Exact downloads, manifests, native hashes and source-package
 checksums were independently checked; the Linux catalog is pinned. A combined
 source-package consumer check follows without rebuilding the qualified engine.
 GitHub release creation and Hex publication remain excluded; no stage is closed.
+
+[Combined package and embedded release evidence](evidence/combined-installation-2.md)
+now records one exact source archive passing all 92 tests on macOS ARM64 and
+both Linux architectures, plus Linux bundled-ERTS startup/restart/reopen and
+failure checks. Public delivery, final notices and minimum-system gates remain
+open; no stage is marked complete.

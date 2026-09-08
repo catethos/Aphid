@@ -129,7 +129,8 @@ process RSS separately, including batch-size variation and eager collection.
 Prerequisites: Elixir 1.20 / OTP 29, Zig 0.16.0, CMake 3.20 or newer,
 Ninja, Python 3.12 or newer, Git, and a C++20 compiler (plus the SDK on macOS).
 Native builds and 92 BEAM tests have passed on macOS 26.6 ARM64 and native
-Ubuntu 24.04 x86_64/ARM64 runners. Linux bundle installation is still being qualified. All Mix dependencies are in `mix.lock`;
+Ubuntu 24.04 x86_64/ARM64 runners. Reviewed Linux bundle installation and embedded Mix releases now pass; see
+[combined package evidence](docs/evidence/combined-installation-2.md). All Mix dependencies are in `mix.lock`;
 native revisions are in `native/lock.json`.
 
 ```sh

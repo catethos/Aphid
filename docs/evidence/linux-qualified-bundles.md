@@ -25,8 +25,8 @@ byte-unchanged noexec mount. This is not registry installation or a Linux Mix re
 The two job-local Hex source package hashes were respectively
 `f70fcdf0894eda5211521e0765d8bc9e2cd0f57f9d0330e3c9f37823a729b7d8` and
 `5c17089fdcec618061bc0e1401534706c5d14c19819b65e477fc53b4d40f5a8c`.
-They contain target-specific validation catalogs. A combined source package is
-being checked separately; do not describe these as one identical Hex archive.
+They contain target-specific validation catalogs. A separate [combined source archive](combined-installation-2.md) now passes
+on all three targets; the two older target-specific archives remain distinct.
 
 The owner-approved Actions uploads contain seven allowlisted files per target.
 Their outer artifact IDs/digests and expiry times are in `linux-artifacts-11.json`;
@@ -47,12 +47,13 @@ The engine requires GLIBC 2.38 and GLIBCXX 3.4.32. Older-system execution and th
 whole CPU floor are unproved; requested baseline flags do not close them.
 Native ARM64 builds do not satisfy the x86_64-to-ARM64 cross-build gate. Minimum
 systems, other OTP versions, public release HTTPS/default selection, ordinary Hex
-registry delivery, Linux Mix releases, source installation, final notices and
+registry delivery, source installation, final notices and
 remaining behavioural/instrumentation gates remain open. GitHub release creation
 and Hex publication are still excluded from the current approval.
 
 The manual draft workflow is prepared and its offline verifier passes the actual
-qualified assets; it has not been executed. The next source-consumer workflow
-reuses these exact native archives, builds the current combined source package,
-and reruns fresh consumers/failures without another engine build or binary upload.
+qualified assets; it has not been executed. The [combined consumer run](combined-installation-2.md)
+reused these exact native archives and passed fresh consumers, failures and
+Linux Mix releases without another engine build. Only the passing source package,
+inputs and log were retained by that run.
 The original macOS candidate and DuckDB 1.4.4 lock remain unchanged.
