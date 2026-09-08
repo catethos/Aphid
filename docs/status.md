@@ -1,14 +1,15 @@
 # Implementation status
 
-Release `0.1.2-dev` qualification (2026-09-09): ALGO is bundled with
-FTS/vector/DuckDB on macOS ARM64 and Linux x86_64/ARM64; icebug-backed `GDS_*`
-functions are disabled. All 101 tests pass in source, relocated-bundle, and
-fresh-consumer checks on each target. The macOS bundled-ERTS release also
-passes its startup/shutdown/persistence and failure checks. Combined-package
-qualification and publication are tracked in [release evidence](evidence/release-012.md).
-ALGO sanitizer and minimum-system qualification remain open.
+Published: [aphid 0.1.2-dev on Hex](https://hex.pm/packages/aphid/0.1.2-dev) and
+[GitHub](https://github.com/catethos/Aphid/releases/tag/v0.1.2-dev), with ALGO
+bundled alongside FTS/vector/DuckDB on macOS ARM64 and Linux x86_64/ARM64.
+Fresh Hex-registry installations pass **101 tests on each target**. The public
+source archive matches the exact package qualified on all three platforms;
+all thirteen public assets match their staged checksums. See
+[release evidence](evidence/release-012.md). Icebug-backed `GDS_*` functions
+remain disabled; ALGO sanitizer and minimum-system qualification remain open.
 
-Published: [aphid 0.1.1-dev on Hex](https://hex.pm/packages/aphid/0.1.1-dev) and
+Previous release: [aphid 0.1.1-dev on Hex](https://hex.pm/packages/aphid/0.1.1-dev) and
 [GitHub](https://github.com/catethos/Aphid/releases/tag/v0.1.1-dev), with rebuilt
 native bundles containing the five hardening fixes. The public Hex archive
 matches the exact package qualified on all three targets. Fresh Hex registry

@@ -5,7 +5,7 @@ prerelease rebuilds macOS ARM64 and Linux x86_64/ARM64 with the standard
 algorithms bundled and icebug disabled. Existing releases remain unchanged.
 
 Source verification: 101 tests and native create/reopen checks pass on macOS
-ARM64. Native platform bundles, fresh consumers, and publication checks follow.
+ARM64. Native platform, fresh-consumer, and publication checks are recorded below.
 No new platform-support or minimum-system claim is made.
 
 ## Build identity
@@ -72,6 +72,21 @@ is public with thirteen assets. Every anonymous download matches the staged
 SHA256 and size; the prior `v0.1.1-dev` release and all of its assets are unchanged.
 Public default installations pass 101 tests each on macOS ARM64 and both Linux
 architectures ([public Linux run](https://github.com/catethos/Aphid/actions/runs/34256497743)).
-The exact qualified Hex publisher has been launched in Terminal using Hex's
-normal authentication flow. Registry publication is not confirmed until its
-public archive is independently verified.
+[Aphid 0.1.2-dev is published on Hex](https://hex.pm/packages/aphid/0.1.2-dev).
+The publisher exited with status 0. The independently downloaded registry
+archive is 123,904 bytes and exactly matches the qualified SHA256 above. No
+existing version was replaced. Fresh registry-installation checks pass on all three targets.
+
+## Final registry verification
+
+Fresh Hex-registry installations pass all 101 tests on macOS ARM64 and Linux
+x86_64/ARM64. [Linux registry run 34257103251](https://github.com/catethos/Aphid/actions/runs/34257103251)
+explicitly enables `HEX_REGISTRY=true`. The macOS registry log and input record
+are retained beside this report. Every check acquires Aphid from Hex, verifies
+the exact independently pinned source archive, downloads the native bundle
+through its public default URL, and runs with native compilers denied. Offline
+runtime, unchanged native files, and installed notices pass.
+
+Publication and three-target registry verification are complete. Temporary
+local consumer/publisher copies were removed after retaining archives, input
+identities, and logs. Existing release assets remain unchanged.
