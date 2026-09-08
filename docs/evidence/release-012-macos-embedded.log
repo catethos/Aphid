@@ -1,0 +1,63 @@
+* assembling aphid_consumer-0.0.0 on MIX_ENV=prod
+* skipping runtime configuration (config/runtime.exs not found)
+* creating /private/tmp/aphid-012-macos-embedded/assembled/releases/0.0.0/env.sh
+* building /private/tmp/aphid-012-macos-embedded/assembled/aphid_consumer-0.0.0.tar.gz
+
+Release created at /private/tmp/aphid-012-macos-embedded/assembled
+
+    # To start your system
+    /private/tmp/aphid-012-macos-embedded/assembled/bin/aphid_consumer start
+
+Once the release is running:
+
+    # To connect to it remotely
+    /private/tmp/aphid-012-macos-embedded/assembled/bin/aphid_consumer remote
+
+    # To stop it gracefully (you may also send SIGINT/SIGTERM)
+    /private/tmp/aphid-012-macos-embedded/assembled/bin/aphid_consumer stop
+
+To list all commands:
+
+    /private/tmp/aphid-012-macos-embedded/assembled/bin/aphid_consumer
+
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-012-macos-embedded/assemble.sb", "mix", "release", "--no-compile", "--path", "/private/tmp/aphid-012-macos-embedded/assembled"], "cwd": "/private/tmp/aphid-012-macos-embedded/build", "exit": 0, "seconds": 10.612}
+{"release_archive": "/Users/catethos/workspace/ladybugex/zig_library/artifacts/aphid-0.1.2-dev-macos-embedded-validation.tar.gz", "sha256": "3b02a9d46479e77273439489f97335b0dc1e6be59d2c6d9d9915bf1c1ea8e8d6", "bytes": 91478556}
+Relocated source-package notice supplement: a9380f27e98b9ee7180560a31c99994cdfcbb2b8efae4b526e5225b14c56e992
+audited shipped native files: 22
+denied compiler execution: :eperm
+runtime guards verified: network, compiler, development, build and host-runtime reads denied
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-012-macos-embedded/runtime.sb", "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/bin/aphid_consumer", "eval", "Code.require_file(\"guards.exs\")"], "cwd": "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/validation", "exit": 0, "seconds": 3.566}
+bundled release runtime: {"1.20.0", ~c"17.0.4",
+ "/private/tmp/aphid-012-macos-embedded/relocated café release"}
+Running ExUnit with seed: 0, max_cases: 2
+
+....................Aphid basic example passed
+.Aphid transaction example passed
+.Aphid stream example passed
+.Aphid FTS example passed
+.Aphid vector example passed
+.Aphid graph algorithm example passed
+.Aphid DuckDB example passed
+.............stale-cancel race: 30 iterations; maximum cancel-to-idle 100009 us
+........heartbeat: 31 samples; maximum gap 6 ms
+.
+00:15:47.851 [error] Aphid artifact [unloadable]: /private/tmp/aphid-012-macos-embedded/relocated café release/lib/aphid-0.1.2-dev/priv/lib/Elixir.Aphid.Native: {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}; use the matching complete bundle and runtime. No source fallback.
+
+00:15:47.855 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.....................................................
+Finished in 16.0 seconds (0.00s async, 16.0s sync)
+
+Result: 101 passed
+relocated Mix release: all 101 tests passed
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-012-macos-embedded/runtime.sb", "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/bin/aphid_consumer", "eval", "Code.require_file(\"suite.exs\")"], "cwd": "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/validation", "exit": 0, "seconds": 20.711}
+
+00:15:51.197 [notice] Application aphid exited: :stopped
+embedded activation passed; application restart did not reload NIFs
+release start booted applications, loaded both NIFs, persisted data and closed database
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-012-macos-embedded/runtime.sb", "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/bin/aphid_consumer", "start"], "cwd": "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/validation", "exit": 0, "seconds": 0.826}
+new release VM reopened persisted database after graceful shutdown
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-012-macos-embedded/runtime.sb", "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/bin/aphid_consumer", "eval", "Code.require_file(\"reopen.exs\")"], "cwd": "/private/tmp/aphid-012-macos-embedded/relocated caf\u00e9 release/validation", "exit": 0, "seconds": 0.544}
+retained ExUnit scratch databases (not archive contents): ['validation/tmp/Aphid.CombinedHardeningTest/test-caller_death-rolls-back-indexed-mutation-with-three-retained-feature-cursors-3cdae5f7/fixture.duckdb', 'validation/tmp/Aphid.CombinedHardeningTest/test-caller_death-rolls-back-indexed-mutation-with-three-retained-feature-cursors-3cdae5f7/graph', 'validation/tmp/Aphid.CombinedHardeningTest/test-shutdown-rolls-back-indexed-mutation-with-three-retained-feature-cursors-19761466/fixture.duckdb', 'validation/tmp/Aphid.CombinedHardeningTest/test-shutdown-rolls-back-indexed-mutation-with-three-retained-feature-cursors-19761466/graph', 'validation/tmp/Aphid.CombinedHardeningTest/test-timeout-rolls-back-indexed-mutation-with-three-retained-feature-cursors-9fee5f53/fixture.duckdb', 'validation/tmp/Aphid.CombinedHardeningTest/test-timeout-rolls-back-indexed-mutation-with-three-retained-feature-cursors-9fee5f53/graph', 'validation/tmp/Aphid.TransactionTest/test-supervisor-death-stops-even-an-exit-trapping-callback-before-persistent-reopen-cc171fa5/graph', 'validation/tmp/AphidTest/test-supervisor-restart-preserves-data-and-waits-for-the-retiring-native-owner-1f95b412/graph']
+relocated Mix release passed: closure unchanged, compiler-free, offline start/shutdown/reopen, 101 tests; no release support claim

@@ -1,16 +1,16 @@
 {
-  "package_version": "0.1.1-dev",
+  "package_version": "0.1.2-dev",
   "target": "aarch64-macos.13.3-none",
   "nif_cpu": "baseline (Zig 0.16.0 resolves macOS ARM64 to apple_m1)",
   "nif_api": "2.18",
   "erts": "17.0.4",
   "elixir": "1.20.0",
-  "native_lock_sha256": "09b8618810c5788237ebec1c8164c9322d0d65f4d312c41e4908687394647aba",
+  "native_lock_sha256": "80a5763a43cddc17ecade56f34f24d83fc9b1af52158d25a488b68fc9c23514d",
   "native_files": {
-    "Elixir.Aphid.Native.so": "3943933257b24a934531e161793ea32024a476a3e22572dad03f110d8d1f3c22",
-    "Elixir.Aphid.Proof.so": "c2c24056ba42cf20e422ec274c188e0a0e068d05586e9ac644c9fa140d672386",
-    "libaphid_bridge.dylib": "fdb3ae78d3ffcd12a54662c4e54d1115d292303c4cade5b9badaca2dd7d5e7e3",
-    "liblbug.dylib": "a50ee147719b0e59bc70150187dd9bc98a4ec22e39c7a142aa1e47a7a08c29cc"
+    "Elixir.Aphid.Native.so": "c197ad28dc4026f69da3810d33d8d19b9f40b9b98cac446708f3daa429fa6fce",
+    "Elixir.Aphid.Proof.so": "d37fc57786a3586845c0ec9fd681e80b12013096ca9c61f5dfb96c5cef872c13",
+    "libaphid_bridge.dylib": "5dbdd4d341d63da2ba189b908510c1a13ef1f548821a9beaa06ed787e3725110",
+    "liblbug.dylib": "ebac0f1085c7e3b4323ae1509ff434c6258d2d376c0c07d58c95b3051e0b8e06"
   },
   "native_sources": {
     "aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
@@ -21,8 +21,8 @@
   },
   "minimum_os_execution": "unavailable; host 26.6 only",
   "whole_closure_cpu": "unverified",
-  "archive": "aphid-0.1.1-dev-aarch64-macos.tar.gz",
-  "sha256": "d026518323a5448f2705b126584b2b3b225188c0c599e831b4947a44442c0637",
-  "bytes": 33620177,
-  "url": "https://github.com/catethos/Aphid/releases/download/v0.1.1-dev/aphid-0.1.1-dev-aarch64-macos.tar.gz"
+  "archive": "aphid-0.1.2-dev-aarch64-macos.tar.gz",
+  "sha256": "f16d35403a13fce83ea0c94ae5caf11aff8de508c50cac3e09bafd517c474ea6",
+  "bytes": 33681661,
+  "url": "https://github.com/catethos/Aphid/releases/download/v0.1.2-dev/aphid-0.1.2-dev-aarch64-macos.tar.gz"
 }

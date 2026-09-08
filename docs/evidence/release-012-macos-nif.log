@@ -1,0 +1,76 @@
+{"flags": ["-Dtarget=aarch64-macos.13.3-none", "-Dcpu=baseline", "--verbose"], "inputs": {"/Users/catethos/workspace/ladybugex/zig_library/native/lock.json": "80a5763a43cddc17ecade56f34f24d83fc9b1af52158d25a488b68fc9c23514d", "/Users/catethos/workspace/ladybugex/zig_library/mix.lock": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/libaphid_bridge.dylib": "66da4859f901aac548666e496be75c4e0ba34703be02fbc352eb971679f1a06f", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src/liblbug.dylib": "995f92ff945160e71515732cc8210e5c2ed024af10c2d06a76412619df7d8aa5"}}
+Compiling 13 files (.ex)
+
+00:10:10.181 [debug] creating staging directory /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Native
+
+00:10:10.190 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:10.198 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:10.198 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Native/build.zig
+
+00:10:10.201 [debug] creating staging directory /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Proof
+
+00:10:10.201 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:10.201 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:10.201 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Proof/build.zig
+
+00:10:10.627 [debug] wrote build.zig to /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Proof/build.zig
+
+00:10:10.627 [debug] wrote build.zig to /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Native/build.zig
+
+00:10:10.638 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:10.638 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:10.638 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:10.638 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/lib/aphid
+
+00:10:10.638 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:10.638 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/lib/aphid
+
+00:10:18.410 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:18.411 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:18.411 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Native/module.zig
+
+00:10:18.454 [debug] wrote module code to /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Native/module.zig
+
+00:10:18.454 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:18.455 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:18.455 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/lib/aphid -Dtarget=aarch64-macos.13.3-none -Dcpu=baseline --verbose --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/aphid/priv
+
+00:10:18.822 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:18.823 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:18.823 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Proof/module.zig
+
+00:10:18.868 [debug] wrote module code to /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/staging/Elixir.Aphid.Proof/module.zig
+
+00:10:18.868 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:10:18.869 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:10:18.869 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/lib/aphid -Dtarget=aarch64-macos.13.3-none -Dcpu=baseline --verbose --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/aphid/priv
+
+00:10:20.448 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/aphid/priv
+
+00:10:20.451 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+
+00:10:20.489 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/aphid/priv
+
+00:10:20.498 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+Compiling lib/aphid/proof.ex (it's taking more than 10s)
+Compiling lib/aphid/database.ex (it's taking more than 10s)
+Compiling lib/aphid/native.ex (it's taking more than 10s)
+Compiling lib/aphid.ex (it's taking more than 10s)
+Generated aphid app
+{"command": ["mix", "compile", "--force"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library/_build/release-012-macos", "exit": 0, "seconds": 11.982}

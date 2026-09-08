@@ -62,8 +62,8 @@ true = String.starts_with?(List.to_string(:code.root_dir()), System.fetch_env!("
 {:error, :nofile} = :code.ensure_loaded(Zig)
 ExUnit.start(seed: 0, autorun: false)
 Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
-%{failures: 0, total: 99} = ExUnit.run()
-IO.puts("relocated Mix release: all 99 tests passed")
+%{failures: 0, total: 101} = ExUnit.run()
+IO.puts("relocated Mix release: all 101 tests passed")
 ''')
     (overlay / 'start.exs').write_text('''
 true = Enum.any?(Application.started_applications(), fn {app, _, _} -> app == :aphid_consumer end)
@@ -266,7 +266,7 @@ IO.puts("Linux release guards verified: no network routes, hidden build/host run
     assert not (work / 'compiler-invocations').exists()
     assert not list((work / 'zig-cache').iterdir())
     assert original_inputs == {p: sha(Path(p)) for p in original_inputs}
-    print('relocated Mix release passed: closure unchanged, compiler-free, offline start/shutdown/reopen, 99 tests; no release support claim', flush=True)
+    print('relocated Mix release passed: closure unchanged, compiler-free, offline start/shutdown/reopen, 101 tests; no release support claim', flush=True)
 
 
 if __name__ == '__main__':
