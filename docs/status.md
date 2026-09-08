@@ -1,5 +1,12 @@
 # Implementation status
 
+Latest scope: [small review of the thirteen draft assets](evidence/small-release-review-1.md).
+The parser packages are not bundled; their missing full notices are not a
+demonstrated blocker for this native draft. One concrete notice fix is prepared
+in the proposed public body: include Zig’s existing MIT notice for macOS users.
+The broader hold below is superseded for this narrow experimental-release review.
+No publication is authorized or performed; the fixed tag/assets remain unchanged.
+
 Current review: [public publication decision](releases/v0.1.0-dev-publication-review.md)
 and [preparation evidence](evidence/publication-preparation-1.md). Publication is
 on hold for attribution review; existing draft 384589981 remains private. A manual

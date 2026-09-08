@@ -1,0 +1,9 @@
+2026-09-08. Initial read-only BEAM inspection used a hand-written Python atom
+chunk decoder against the retained macOS archive. It failed with IndexError:
+index out of range. No absence/presence conclusion is based on that decoder.
+It was replaced with OTP's :beam_lib.chunks(path, [:atoms, :imports]), which
+successfully inspected all 65 packaged BEAM files without executing their code.
+The successful records are in small-review-beam-modules-1.json.
+Version-specific web fetches for ZigParser/Pegasus failed (URL safety/cache miss).
+The MIT declarations used in this review are the already retained exact package
+metadata/mix.exs, not a substituted current-version page.

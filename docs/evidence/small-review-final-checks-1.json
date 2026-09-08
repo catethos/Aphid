@@ -1,0 +1,9 @@
+{
+  "supplement_inventory_sha256": "56647f85783f8d15301176b53f860baaabdc04b73ea694bcc161415a99293471",
+  "zigler_notice_equals_supplement_parent_notice": true,
+  "zigler_notice_sha256": "7d862750a4f7161fa3a29c7b1f52337ee783a0908d0ce68c4a79faaa90030098",
+  "proposed_public_body_sha256": "be0a8afc33b553c423f78d6576fedc8205645b2e9d0c7e847267f221bcea24ae",
+  "proposed_public_body_bytes": 4813,
+  "catalog_urls_enabled": false,
+  "native_lock_unchanged": true
+}
