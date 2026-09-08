@@ -1,5 +1,9 @@
 # Implementation status
 
+Temporary cleanup: [130 Aphid temporary entries cleared](evidence/temp-cleanup-1.md),
+with a verified local recovery archive retained; 2.96 GiB net space recovered.
+Use fresh directories for subsequent registry tests.
+
 Current outcome (2026-09-08): [aphid 0.1.0-dev is published on Hex](https://hex.pm/packages/aphid/0.1.0-dev).
 The public Hex archive matches the exact reviewed SHA256
 `922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7`.
