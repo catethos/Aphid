@@ -84,8 +84,20 @@ and normal credential/OTP retry flow used by the CLI. The frozen-source
 [package-only dry run](release-011-hex-dry-run-2.log) passes after installing
 locked publisher dependencies; the first dry run lacked those dependencies.
 
-Publish immutable versioned native assets; verify anonymous downloads; publish
-the exact qualified Hex package, then verify registry installation.
+The signed [GitHub prerelease](https://github.com/catethos/Aphid/releases/tag/v0.1.1-dev)
+is public with thirteen assets. [Anonymous download checks](release-011-public-assets.json)
+match every independently staged SHA256 and size. The prior release and its
+thirteen asset identities remain unchanged. [macOS default installation](release-011-public-macos.log)
+passes 99 tests, and [Linux public-consumer run 34243869828](https://github.com/catethos/Aphid/actions/runs/34243869828)
+passes 99 tests on both architectures with no native compiler invocation.
+
+Hex submission is waiting for the owner's private 2FA entry. The exact-archive
+[publisher](release-011-publish.exs) runs with the installed Hex archive on the
+normal Elixir code path. Initial `mix run` attempts pruned Hex/SSL paths and
+failed before submission; the direct Elixir invocation passed its read-only
+404 lookup and reached Hex's standard OTP challenge. No existing version is
+replaced. After authentication, verify the registry archive SHA256 and fresh
+registry installation on all three architectures.
 If Hex requires private 2FA, the owner must enter it directly in the terminal.
 No code or credential should enter chat or evidence logs.
 
