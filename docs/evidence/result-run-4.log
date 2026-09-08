@@ -1,0 +1,49 @@
+Compiling 1 file (.ex)
+
+01:47:02.317 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:47:02.318 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:47:02.318 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:47:02.496 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:47:02.508 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:47:02.509 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:47:02.509 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+01:47:05.641 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:47:05.641 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:47:05.641 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+01:47:05.681 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+01:47:05.681 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:47:05.681 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:47:05.681 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+01:47:07.244 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+01:47:07.248 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+Running ExUnit with seed: 0, max_cases: 16
+
+
+== Compilation error in file test/native_values_test.exs ==
+** (MismatchedDelimiterError) mismatched delimiter found on test/native_values_test.exs:40:77:
+    error: unexpected token: )
+    │
+ 29 │   test "exact decimal coefficient, raw temporal units, JSON and binary", %{db: db} do
+    │                                                                                    └ unclosed delimiter
+ ...
+ 40 │              query(db, ~s(RETURN CAST('{"n":12345678901234567890}' AS JSON)))
+    │                                                                             └ mismatched closing delimiter (expected "end")
+    │
+    └─ test/native_values_test.exs:40:77
+    (elixir 1.20.0) lib/kernel/parallel_compiler.ex:667: Kernel.ParallelCompiler.require_file/2
+    (elixir 1.20.0) lib/kernel/parallel_compiler.ex:550: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8

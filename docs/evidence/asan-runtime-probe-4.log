@@ -1,0 +1,3 @@
+{"command": ["/Library/Developer/CommandLineTools/usr/bin/clang++", "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk", "-isystem", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/usr/include/c++/v1", "-fsanitize=address,undefined", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-qkcgkysy/probe.cpp", "-o", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-qkcgkysy/probe"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 3.541}
+ASan main reached
+{"command": ["/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-qkcgkysy/probe"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.846}

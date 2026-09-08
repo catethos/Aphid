@@ -1,0 +1,312 @@
+diff --git a/src/common/types/value/value.cpp b/src/common/types/value/value.cpp
+index 8386071fa..5251402e5 100644
+--- a/src/common/types/value/value.cpp
++++ b/src/common/types/value/value.cpp
+@@ -1,5 +1,7 @@
+ #include "common/types/value/value.h"
+ 
++#include <cstring>
++#include <type_traits>
+ #include <utility>
+ 
+ #include "common/exception/binder.h"
+@@ -346,6 +348,15 @@ Value::Value(const Value& other) : isNull_{other.isNull_} {
+     childrenSize = other.childrenSize;
+ }
+ 
++// Row layouts pack values after null bytes and do not guarantee alignment.
++template<typename T>
++static T readRowValue(const uint8_t* value) {
++    static_assert(std::is_trivially_copyable_v<T>);
++    T result;
++    std::memcpy(&result, value, sizeof(T));
++    return result;
++}
++
+ void Value::copyFromRowLayout(const uint8_t* value) {
+     switch (dataType.getLogicalTypeID()) {
+     case LogicalTypeID::SERIAL:
+@@ -355,86 +366,86 @@ void Value::copyFromRowLayout(const uint8_t* value) {
+     case LogicalTypeID::TIMESTAMP_TZ:
+     case LogicalTypeID::TIMESTAMP:
+     case LogicalTypeID::INT64: {
+-        val.int64Val = *((int64_t*)value);
++        val.int64Val = readRowValue<int64_t>(value);
+     } break;
+     case LogicalTypeID::DATE:
+     case LogicalTypeID::INT32: {
+-        val.int32Val = *((int32_t*)value);
++        val.int32Val = readRowValue<int32_t>(value);
+     } break;
+     case LogicalTypeID::INT16: {
+-        val.int16Val = *((int16_t*)value);
++        val.int16Val = readRowValue<int16_t>(value);
+     } break;
+     case LogicalTypeID::INT8: {
+-        val.int8Val = *((int8_t*)value);
++        val.int8Val = readRowValue<int8_t>(value);
+     } break;
+     case LogicalTypeID::UINT64: {
+-        val.uint64Val = *((uint64_t*)value);
++        val.uint64Val = readRowValue<uint64_t>(value);
+     } break;
+     case LogicalTypeID::UINT32: {
+-        val.uint32Val = *((uint32_t*)value);
++        val.uint32Val = readRowValue<uint32_t>(value);
+     } break;
+     case LogicalTypeID::UINT16: {
+-        val.uint16Val = *((uint16_t*)value);
++        val.uint16Val = readRowValue<uint16_t>(value);
+     } break;
+     case LogicalTypeID::UINT8: {
+-        val.uint8Val = *((uint8_t*)value);
++        val.uint8Val = readRowValue<uint8_t>(value);
+     } break;
+     case LogicalTypeID::INT128: {
+-        val.int128Val = *((int128_t*)value);
++        val.int128Val = readRowValue<int128_t>(value);
+     } break;
+     case LogicalTypeID::BOOL: {
+-        val.booleanVal = *((bool*)value);
++        val.booleanVal = readRowValue<bool>(value);
+     } break;
+     case LogicalTypeID::DOUBLE: {
+-        val.doubleVal = *((double*)value);
++        val.doubleVal = readRowValue<double>(value);
+     } break;
+     case LogicalTypeID::FLOAT: {
+-        val.floatVal = *((float*)value);
++        val.floatVal = readRowValue<float>(value);
+     } break;
+     case LogicalTypeID::DECIMAL: {
+         switch (dataType.getPhysicalType()) {
+         case PhysicalTypeID::INT16:
+-            val.int16Val = (*(int16_t*)value);
++            val.int16Val = readRowValue<int16_t>(value);
+             break;
+         case PhysicalTypeID::INT32:
+-            val.int32Val = (*(int32_t*)value);
++            val.int32Val = readRowValue<int32_t>(value);
+             break;
+         case PhysicalTypeID::INT64:
+-            val.int64Val = (*(int64_t*)value);
++            val.int64Val = readRowValue<int64_t>(value);
+             break;
+         case PhysicalTypeID::INT128:
+-            val.int128Val = (*(int128_t*)value);
++            val.int128Val = readRowValue<int128_t>(value);
+             break;
+         default:
+             UNREACHABLE_CODE;
+         }
+     } break;
+     case LogicalTypeID::INTERVAL: {
+-        val.intervalVal = *((interval_t*)value);
++        val.intervalVal = readRowValue<interval_t>(value);
+     } break;
+     case LogicalTypeID::INTERNAL_ID: {
+-        val.internalIDVal = *((nodeID_t*)value);
++        val.internalIDVal = readRowValue<nodeID_t>(value);
+     } break;
+     case LogicalTypeID::UINT128: {
+-        val.uint128Val = *((uint128_t*)value);
++        val.uint128Val = readRowValue<uint128_t>(value);
+     } break;
+     case LogicalTypeID::BLOB: {
+-        strVal = ((blob_t*)value)->value.getAsString();
++        strVal = readRowValue<blob_t>(value).value.getAsString();
+     } break;
+     case LogicalTypeID::UUID: {
+-        val.int128Val = ((uuid*)value)->value;
+-        strVal = UUID::toString(*((uuid*)value));
++        val.int128Val = readRowValue<uuid>(value).value;
++        strVal = UUID::toString(readRowValue<uuid>(value));
+     } break;
+     case LogicalTypeID::JSON:
+     case LogicalTypeID::STRING: {
+-        strVal = ((string_t*)value)->getAsString();
++        strVal = readRowValue<string_t>(value).getAsString();
+     } break;
+     case LogicalTypeID::MAP:
+     case LogicalTypeID::LIST: {
+-        copyFromRowLayoutList(*(list_t*)value, ListType::getChildType(dataType));
++        copyFromRowLayoutList(readRowValue<list_t>(value), ListType::getChildType(dataType));
+     } break;
+     case LogicalTypeID::ARRAY: {
+-        copyFromRowLayoutList(*(list_t*)value, ArrayType::getChildType(dataType));
++        copyFromRowLayoutList(readRowValue<list_t>(value), ArrayType::getChildType(dataType));
+     } break;
+     case LogicalTypeID::UNION: {
+         copyFromUnion(value);
+@@ -446,7 +457,7 @@ void Value::copyFromRowLayout(const uint8_t* value) {
+         copyFromRowLayoutStruct(value);
+     } break;
+     case LogicalTypeID::POINTER: {
+-        val.pointer = *((uint8_t**)value);
++        val.pointer = readRowValue<uint8_t*>(value);
+     } break;
+     default:
+         UNREACHABLE_CODE;
+@@ -757,7 +768,7 @@ void Value::copyFromUnion(const uint8_t* unionValue) {
+     auto unionValues = unionNullValues + NullBuffer::getNumBytesForNullValues(childrenTypes.size());
+     // For union dataType, only one member can be active at a time. So we don't need to copy all
+     // union fields into value.
+-    auto activeFieldIdx = UnionType::getInternalFieldIdx(*(union_field_idx_t*)unionValues);
++    auto activeFieldIdx = UnionType::getInternalFieldIdx(readRowValue<union_field_idx_t>(unionValues));
+     // Create default value now that we know the active field
+     auto childValue = Value::createDefaultValue(*childrenTypes[activeFieldIdx]);
+     auto curMemberIdx = 0u;
+diff --git a/src/common/vector/value_vector.cpp b/src/common/vector/value_vector.cpp
+index 2fd5215f4..984044300 100644
+--- a/src/common/vector/value_vector.cpp
++++ b/src/common/vector/value_vector.cpp
+@@ -100,7 +100,9 @@ void ValueVector::copyFromRowData(uint32_t pos, const uint8_t* rowData) {
+     } break;
+     case PhysicalTypeID::STRING:
+     case PhysicalTypeID::JSON: {
+-        StringVector::addString(this, pos, *(string_t*)rowData);
++        string_t srcStr;
++        memcpy(&srcStr, rowData, sizeof(srcStr));
++        StringVector::addString(this, pos, srcStr);
+     } break;
+     default: {
+         auto dataTypeSize = LogicalTypeUtils::getRowLayoutSize(dataType);
+@@ -568,7 +570,7 @@ void StringVector::addString(lbug::common::ValueVector* vector, string_t& dstStr
+ void StringVector::copyToRowData(const ValueVector* vector, uint32_t pos, uint8_t* rowData,
+     InMemOverflowBuffer* rowOverflowBuffer) {
+     auto& srcStr = vector->getValue<string_t>(pos);
+-    auto& dstStr = *(string_t*)rowData;
++    string_t dstStr;
+     if (string_t::isShortString(srcStr.len)) {
+         dstStr.setShortString(srcStr);
+     } else {
+@@ -576,6 +578,7 @@ void StringVector::copyToRowData(const ValueVector* vector, uint32_t pos, uint8_
+             reinterpret_cast<uint64_t>(rowOverflowBuffer->allocateSpace(srcStr.len));
+         dstStr.setLongString(srcStr);
+     }
++    memcpy(rowData, &dstStr, sizeof(dstStr));
+ }
+ 
+ void ListVector::copyListEntryAndBufferMetaData(ValueVector& vector,
+@@ -600,7 +603,8 @@ void ListVector::copyListEntryAndBufferMetaData(ValueVector& vector,
+ 
+ void ListVector::copyFromRowData(ValueVector* vector, uint32_t pos, const uint8_t* rowData) {
+     DASSERT(validateType(*vector));
+-    auto& srcList = *(list_t*)rowData;
++    list_t srcList;
++    memcpy(&srcList, rowData, sizeof(srcList));
+     auto srcNullBytes = reinterpret_cast<uint8_t*>(srcList.overflowPtr);
+     auto srcListValues = srcNullBytes + NullBuffer::getNumBytesForNullValues(srcList.size);
+     auto dstListEntry = addList(vector, srcList.size);
+@@ -623,7 +627,7 @@ void ListVector::copyToRowData(const ValueVector* vector, uint32_t pos, uint8_t*
+     InMemOverflowBuffer* rowOverflowBuffer) {
+     auto& srcListEntry = vector->getValue<list_entry_t>(pos);
+     auto srcListDataVector = ListVector::getDataVector(vector);
+-    auto& dstListEntry = *(list_t*)rowData;
++    list_t dstListEntry;
+     dstListEntry.size = srcListEntry.size;
+     auto nullBytesSize = NullBuffer::getNumBytesForNullValues(dstListEntry.size);
+     auto dataRowLayoutSize = LogicalTypeUtils::getRowLayoutSize(srcListDataVector->dataType);
+@@ -641,6 +645,7 @@ void ListVector::copyToRowData(const ValueVector* vector, uint32_t pos, uint8_t*
+         }
+         dstListValues += dataRowLayoutSize;
+     }
++    memcpy(rowData, &dstListEntry, sizeof(dstListEntry));
+ }
+ 
+ void ListVector::copyFromVectorData(ValueVector* dstVector, uint8_t* dstData,
+diff --git a/src/include/processor/result/factorized_table.h b/src/include/processor/result/factorized_table.h
+index 524e48288..9998a5740 100644
+--- a/src/include/processor/result/factorized_table.h
++++ b/src/include/processor/result/factorized_table.h
+@@ -161,7 +161,9 @@ public:
+     template<typename TYPE>
+     TYPE getData(ft_block_idx_t blockIdx, ft_block_offset_t blockOffset,
+         ft_col_offset_t colOffset) const {
+-        return *((TYPE*)getCell(blockIdx, blockOffset, colOffset));
++        TYPE value;
++        memcpy(&value, getCell(blockIdx, blockOffset, colOffset), sizeof(TYPE));
++        return value;
+     }
+ 
+     uint8_t* getTuple(ft_tuple_idx_t tupleIdx) const;
+diff --git a/src/processor/result/factorized_table.cpp b/src/processor/result/factorized_table.cpp
+index a50f81453..19934af0e 100644
+--- a/src/processor/result/factorized_table.cpp
++++ b/src/processor/result/factorized_table.cpp
+@@ -274,7 +274,11 @@ uint64_t FactorizedTable::getNumFlatTuples(ft_tuple_idx_t tupleIdx) const {
+         auto groupID = column->getGroupID();
+         if (!calculatedGroups.contains(groupID)) {
+             calculatedGroups[groupID] = true;
+-            numFlatTuples *= column->isFlat() ? 1 : ((overflow_value_t*)tupleBuffer)->numElements;
++            if (!column->isFlat()) {
++                overflow_value_t overflowValue;
++                memcpy(&overflowValue, tupleBuffer, sizeof(overflowValue));
++                numFlatTuples *= overflowValue.numElements;
++            }
+         }
+         tupleBuffer += column->getNumBytes();
+     }
+@@ -567,8 +571,9 @@ overflow_value_t FactorizedTable::appendVectorToUnflatTupleBlocks(const ValueVec
+ 
+ void FactorizedTable::readUnflatCol(uint8_t** tuplesToRead, ft_col_idx_t colIdx,
+     ValueVector& vector) const {
+-    auto overflowColValue =
+-        *(overflow_value_t*)(tuplesToRead[0] + tableSchema.getColOffset(colIdx));
++    overflow_value_t overflowColValue;
++    memcpy(&overflowColValue, tuplesToRead[0] + tableSchema.getColOffset(colIdx),
++        sizeof(overflowColValue));
+     DASSERT(vector.state->getSelVector().isUnfiltered());
+     auto numBytesPerValue = LogicalTypeUtils::getRowLayoutSize(vector.dataType);
+     if (hasNoNullGuarantee(colIdx)) {
+@@ -597,7 +602,9 @@ void FactorizedTable::readUnflatCol(uint8_t** tuplesToRead, ft_col_idx_t colIdx,
+ 
+ void FactorizedTable::readUnflatCol(const uint8_t* tupleToRead, const SelectionVector& selVector,
+     ft_col_idx_t colIdx, ValueVector& vector) const {
+-    auto vectorOverflowValue = *(overflow_value_t*)(tupleToRead + tableSchema.getColOffset(colIdx));
++    overflow_value_t vectorOverflowValue;
++    memcpy(&vectorOverflowValue, tupleToRead + tableSchema.getColOffset(colIdx),
++        sizeof(vectorOverflowValue));
+     DASSERT(vector.state->getSelVector().isUnfiltered());
+     if (hasNoNullGuarantee(colIdx)) {
+         vector.setAllNonNull();
+@@ -709,15 +716,17 @@ void FactorizedTableIterator::resetState() {
+ 
+ void FactorizedTableIterator::readUnflatColToFlatTuple(ft_col_idx_t colIdx, uint8_t* valueBuffer,
+     FlatTuple& tuple) {
+-    auto overflowValue =
+-        (overflow_value_t*)(valueBuffer + factorizedTable.getTableSchema()->getColOffset(colIdx));
++    overflow_value_t overflowValue;
++    memcpy(&overflowValue,
++        valueBuffer + factorizedTable.getTableSchema()->getColOffset(colIdx),
++        sizeof(overflowValue));
+     auto groupID = factorizedTable.getTableSchema()->getColumn(colIdx)->getGroupID();
+     auto tupleSizeInOverflowBuffer =
+         LogicalTypeUtils::getRowLayoutSize(tuple[colIdx].getDataType());
+-    valueBuffer = overflowValue->value +
++    valueBuffer = overflowValue.value +
+                   tupleSizeInOverflowBuffer * flatTuplePositionsInDataChunk[groupID].first;
+     auto isNull = factorizedTable.isOverflowColNull(
+-        overflowValue->value + tupleSizeInOverflowBuffer * overflowValue->numElements,
++        overflowValue.value + tupleSizeInOverflowBuffer * overflowValue.numElements,
+         flatTuplePositionsInDataChunk[groupID].first, colIdx);
+     tuple[colIdx].setNull(isNull);
+     if (!isNull) {
+@@ -758,10 +767,13 @@ void FactorizedTableIterator::updateNumElementsInDataChunk() {
+         auto groupID = column->getGroupID();
+         // If this is an unflat column, the number of elements is stored in the
+         // overflow_value_t struct. Otherwise, the number of elements is 1.
+-        auto numElementsInDataChunk =
+-            column->isFlat() ?
+-                1 :
+-                ((overflow_value_t*)(currentTupleBuffer + colOffsetInTupleBuffer))->numElements;
++        auto numElementsInDataChunk = uint64_t{1};
++        if (!column->isFlat()) {
++            overflow_value_t overflowValue;
++            memcpy(&overflowValue, currentTupleBuffer + colOffsetInTupleBuffer,
++                sizeof(overflowValue));
++            numElementsInDataChunk = overflowValue.numElements;
++        }
+         if (groupID >= flatTuplePositionsInDataChunk.size()) {
+             flatTuplePositionsInDataChunk.resize(groupID + 1);
+         }

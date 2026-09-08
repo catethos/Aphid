@@ -1,0 +1,60 @@
+Compiling 1 file (.ex)
+
+01:44:16.822 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:44:16.823 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:44:16.823 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:44:17.213 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:44:17.226 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:44:17.226 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:44:17.226 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+01:44:17.579 [error] sema error: lib/aphid/.Elixir.Aphid.Native.zig:158: note: file imported here
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/result.zig:1:1: error: unable to load 'result.zig': FileNotFound
+   +- compile exe sema Debug native 1 errors
++- install sema
+install
+
+    return @import("result.zig").collect(op.parent.handle, op.session, op.id, max_rows, max_bytes);
+                   ^~~~~~~~~~~~
+error: 1 compilation errors
+failed command: /Users/catethos/.zvm/0.16.0/zig build-exe /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/libaphid_bridge.dylib -ferror-tracing -ODebug -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src --dep nif -Mroot=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/sema.zig --dep erl_nif --dep beam --dep attributes --dep bridge -Mnif=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig -Merl_nif=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/stub_erl_nif.zig --dep erl_nif -Mbeam=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/beam.zig -Mattributes=attributes.zig -ODebug -Mbridge=.zig-cache/o/073e22a01f2a43de22d0a9bda5c12684/bridge.zig -lc --cache-dir .zig-cache --global-cache-dir /tmp/aphid-zig-cache --name sema --zig-lib-dir /Users/catethos/.zvm/0.16.0/lib/ --listen=-
+
+Build Summary: 1/4 steps succeeded (1 failed)
+install transitive failure
++- install sema transitive failure
+   +- compile exe sema Debug native 1 errors
+
+error: the following build command failed with exit code 1:
+.zig-cache/o/6505930dd65eb4251fc6044c9bfc8ce8/build /Users/catethos/.zvm/0.16.0/zig /Users/catethos/.zvm/0.16.0/lib /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native .zig-cache /tmp/aphid-zig-cache --seed 0x1108cb28 -Z4568f8dd14fa14fa -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+== Compilation error in file lib/aphid/native.ex ==
+** (CompileError) lib/aphid/.Elixir.Aphid.Native.zig:158: note: file imported here
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/result.zig:1:1: error: unable to load 'result.zig': FileNotFound
+   +- compile exe sema Debug native 1 errors
++- install sema
+install
+
+    return @import("result.zig").collect(op.parent.handle, op.session, op.id, max_rows, max_bytes);
+                   ^~~~~~~~~~~~
+error: 1 compilation errors
+failed command: /Users/catethos/.zvm/0.16.0/zig build-exe /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/libaphid_bridge.dylib -ferror-tracing -ODebug -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src --dep nif -Mroot=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/sema.zig --dep erl_nif --dep beam --dep attributes --dep bridge -Mnif=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig -Merl_nif=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/stub_erl_nif.zig --dep erl_nif -Mbeam=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/beam.zig -Mattributes=attributes.zig -ODebug -Mbridge=.zig-cache/o/073e22a01f2a43de22d0a9bda5c12684/bridge.zig -lc --cache-dir .zig-cache --global-cache-dir /tmp/aphid-zig-cache --name sema --zig-lib-dir /Users/catethos/.zvm/0.16.0/lib/ --listen=-
+
+Build Summary: 1/4 steps succeeded (1 failed)
+install transitive failure
++- install sema transitive failure
+   +- compile exe sema Debug native 1 errors
+
+error: the following build command failed with exit code 1:
+.zig-cache/o/6505930dd65eb4251fc6044c9bfc8ce8/build /Users/catethos/.zvm/0.16.0/zig /Users/catethos/.zvm/0.16.0/lib /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native .zig-cache /tmp/aphid-zig-cache --seed 0x1108cb28 -Z4568f8dd14fa14fa -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+    (zigler 0.16.0) lib/zig/command.ex:33: Zig.Command.run_zig/2
+    (zigler 0.16.0) lib/zig/command.ex:61: Zig.Command.run_sema!/1
+    (zigler 0.16.0) lib/zig/sema.ex:49: Zig.Sema.run_sema!/1
+    (zigler 0.16.0) lib/zig/compiler.ex:144: Zig.Compiler.compile/3
+    (zigler 0.16.0) expanding macro: Zig.Compiler.__before_compile__/1
+    lib/aphid/native.ex:14: Aphid.Native (module)

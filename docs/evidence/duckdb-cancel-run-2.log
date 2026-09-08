@@ -1,0 +1,7 @@
+[1/2] Building CXX object CMakeFiles/fixture.dir/fixture.cpp.o
+[2/2] Linking CXX executable fixture
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/src/libduckdb_static.a'
+{"command": ["cmake", "--build", "_build/native/tests", "--target", "fixture", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 3.121}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-duckdb-cancel-j_h6925o/slow.duckdb", "slow"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.238}
+DuckDB execution cancellation: response=101 ms, native_idle=797 ms; session reuse/detach/close passed
+{"command": ["mix", "run", "scripts/duckdb_cancel.exs", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-duckdb-cancel-j_h6925o/slow.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.741}

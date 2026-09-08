@@ -1,0 +1,2 @@
+default/custom path options and relative-path rejection passed; stub Zig, no source link proof
+{"command": ["elixir", "/tmp/aphid-native-options-1.exs"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.598}

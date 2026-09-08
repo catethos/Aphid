@@ -1,0 +1,2 @@
+[1/2] Building CXX object CMakeFiles/aphid_bridge.dir/bridge.cpp.o
+[2/2] Linking CXX shared library libaphid_bridge.dylib

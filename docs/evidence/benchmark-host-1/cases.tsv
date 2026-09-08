@@ -1,0 +1,6 @@
+small	1	RETURN 42
+rows	1000	MATCH (n:Bench) RETURN n.id,n.body ORDER BY n.id
+nested	1	RETURN range(1,10000)
+fts	10	CALL QUERY_FTS_INDEX('Bench','words','aphid') RETURN node.id ORDER BY node.id LIMIT 10
+vector	10	CALL QUERY_VECTOR_INDEX('Bench','neighbors',CAST([1,1,1],'FLOAT[3]'),10,efs := 200) RETURN node.id
+duckdb	2	LOAD FROM source.records RETURN id,title ORDER BY id

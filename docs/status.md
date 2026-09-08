@@ -1,0 +1,98 @@
+# Implementation status
+
+Updated 2026-09-08. Library name: **Aphid**. Folder: `zig_library/`.
+
+| Stage | Status | Evidence / next gate |
+|---|---|---|
+| 00 | Toolchain gate passed | [Evidence](evidence/stage-00.md); compiler-free fresh package install remains a distribution gate |
+| 01 | Host gate passed; Linux pending | [Evidence](evidence/stage-01.md); packaged offline C++/BEAM feature proofs passed |
+| 02 | Initial lifecycle gate passed | [Evidence](evidence/stage-02.md); 9 BEAM tests and native fault checks pass |
+| 03 | Host query/value gate passed | [Evidence](evidence/stage-03.md); 43 BEAM tests plus native checks, including typed/null/empty metadata and required extensions |
+| 04 | Host admission/transaction gate passed | [Evidence](evidence/stage-04.md); 57 BEAM tests plus native checks, including persisted transaction recovery |
+| 05 | Core deadlines and repeated cancellation races pass | [Evidence](evidence/stage-05.md); queued public-write caller death now checked; actual commit-uncertainty and long FTS/vector/DuckDB workflows retained; broader boundary gates remain |
+| 06 | Host stream/memory gate passed | [Evidence](evidence/stage-06.md); 76 BEAM tests plus eight isolated BEAM/RSS cases |
+| 07 | In progress; ASan/UBSan and focused host TSan checks passed | [Evidence](evidence/stage-07.md); isolated TSan rebuild now finished, fresh lifecycle and concurrent FTS/vector/DuckDB reads pass; [limits](evidence/tsan.md): test-only 1 GiB range, broader mutation/GC races and Linux remain |
+| 08 | In progress; local macOS runtime bundle validated | [Evidence](evidence/stage-08.md); packaged native lifecycle/concurrent-extension reads and 92 BEAM tests pass offline after relocation; explicit-target candidate declares 13.3 and fresh local Mix consumer passes; local checksum/sidecar adapter now passes fresh-consumer/failure checks; embedded relocated Mix release now passes; minimum execution, network delivery and required matrix remain |
+| 09 | In progress; examples and six host baseline comparisons recorded | [Evidence](evidence/stage-09.md); latency distributions, service-time throughput and memory retained; ~6 ms small-query Aphid median needs investigation; broader benchmarks and local release candidate remain; [release checklist](release-checklist.md) |
+
+| Required target | State |
+|---|---|
+| Linux x86_64 glibc | Blocked; user confirms no x86_64 Linux runner available |
+| Linux ARM64 glibc | Untested; no Linux cross-build or ARM64 runner established |
+| macOS ARM64 | Host runtime passed: explicit-target bundle and fresh local Mix consumer pass 92 tests on 26.6; local bundle adapter passes; Mix release passes embedded startup and restart; minimum OS/CPU and network delivery remain |
+
+No target is release-supported. The isolated candidate NIF load commands now declare
+macOS 13.3 (normal development NIFs remain 26.6); 13.3 is not a tested whole-bundle minimum. Stage 00's small resource destructor performs
+one atomic decrement; it does not prove heavy database retirement.
+
+## Concrete handoff from this continuation
+
+[Linux CI preparation](evidence/linux-ci-preparation.md) is the current handoff;
+[source inputs/private routing](evidence/source-inputs.md) remains valid for the prior package;
+[source preflight](evidence/source-preflight.md) remains valid for the older package;
+[attribution follow-up](evidence/attribution-followup.md) remains valid;
+[native notice mapping](evidence/native-notice-map.md) remains valid;
+[notice-source evidence](evidence/notice-sources.md) remains valid;
+[local package evidence](evidence/local-package.md) remains valid;
+[embedded startup evidence](evidence/embedded-startup.md) remains valid;
+[the earlier interactive proof](evidence/mix-release.md) remains historical evidence.
+The fresh adapter consumer and relocated bundled-ERTS release each pass 92 tests.
+Default embedded startup, application restart without NIF reload, graceful shutdown,
+and persistent reopen pass with network/compiler/development/host-runtime reads denied.
+Early embedded on_load leaves managed stubs until crypto is ready; application
+startup then verifies the complete native closure before loading either NIF.
+Real embedded missing/corrupt/unloadable startup failures pass. No checksum bypass.
+
+Validation archive: `mix-release-embedded-aarch64-macos-1.tar.gz`, SHA256
+`2ee9d858ec12ab848f083ceb4b1b57d2acf289a40bc94690eaac3991e21a9008`.
+The native input archive remains `runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz`,
+SHA256 `3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034`.
+Normal engine/bridge, dependency sources and DuckDB 1.4.4 lock remain unchanged.
+Bundled ERTS/crypto declare macOS 15.0; Aphid native files declare 13.3.
+Neither declaration proves actual minimum OS/CPU compatibility; execution is macOS 26.6 only.
+
+The local MIT-licensed Hex archive `aphid-0.1.0-dev-local-2.tar` now builds and
+installs into a fresh compiler-free consumer, passing all 92 tests. SHA256:
+`921d21ece8c5a96bb3cdc5ab60b6932e73dd4471b2f9382d446d9f182bd8d7e3`.
+Supplementary notices and the native component map are retained in
+`notice-review-8.tar.gz`, SHA256
+`56647f85783f8d15301176b53f860baaabdc04b73ea694bcc161415a99293471`.
+The follow-up preserves NimbleParsec's README notice, the content-matched ZigGet
+parent license, 22 blob-verified OTP notice texts and the version-matched OTP
+OpenSSL 3.5.7 license. All Pegasus/ZigParser package files match recorded upstream
+commits, but those commits still lack full license texts. 303 installed OTP source
+files match the pinned upstream tree; six remain outside that comparison.
+
+The retained native link/header records now map 57 component groups to candidate
+notices and preserve seven embedded notice preambles missed by named-file discovery.
+All 13 file-backed normal/packaged engine sections match. This is not a final
+linker map or a proof of historical header contents/object retention.
+
+Httplib's full upstream 0.14.2 notice is now verified and mapped to the existing
+retained text. Its modified Ladybug header matches the pinned engine commit;
+source differences are retained. Pegasus/ZigParser's fetched non-shallow histories
+do not resolve their pinned-version attribution; authoritative notices remain open.
+
+The new `aphid-0.1.0-dev-source-inputs-1.tar` includes the previously missing build
+inputs and all eleven checked patches. SHA256:
+`f216f32977d5339a0bdd0a242754498458684c3e7245ee8044f855a76a48d90e`.
+Structural preflight passes and a fresh precompiled consumer passes 92 tests.
+Private source/output ownership and command routing are checked; the Native module
+accepts an absolute APHID_NATIVE_BUILD_ROOT. No source engine/NIF compilation was
+performed, and Mix does not automatically orchestrate the source build.
+
+Next prove locked acquisition/patch validation in a private tree, then measure a
+fresh source build with a linker map and full consumer/closure tests. Retain unresolved attribution and
+OTP/static-component provenance gates; prove a fresh source consumer when
+resources permit. Keep network/Hex
+delivery, minimum-system/other-OTP execution and both Linux targets open. No Linux
+runner is available; do not provision/emulate one. Retain mutation/cancellation/GC
+sanitizer gates and TSan's test-only 1 GiB limit; performance is separate.
+Root `library/`, `source/`, and `hex_consumer/` were preserved. No native rebuild,
+sanitizer rerun, publication/upload, or stage/implementation completion occurred.
+
+The requested Hex/GitHub release preparation now has a manual Linux source
+qualification workflow for native x86_64 and ARM64. It has been linted and its
+routing checked locally, but no Linux job has run. The public repository is `catethos/Aphid`, with `zig_library` as its root;
+initial source push and CI execution are pending; release creation and compiler-free Linux installation remain open.
+See [GitHub preparation](github-release.md). No stage or target is closed.

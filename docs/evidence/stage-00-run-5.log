@@ -1,0 +1,332 @@
+Resolving Hex dependencies...
+Resolution completed in 0.015s
+Unchanged:
+  earmark_parser 1.4.46
+  ex_doc 0.39.1
+  makeup 1.2.2
+  makeup_elixir 1.0.1
+  makeup_erlang 1.1.0
+  nimble_parsec 1.4.2
+  pegasus 0.2.6
+  protoss 1.1.0
+  zig_doc 0.7.0
+  zig_get 0.16.0
+  zig_parser 0.7.0
+  zigler 0.16.0
+All dependencies have been fetched
+{"command": ["mix", "deps.get"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof", "exit": 0, "seconds": 1.417}
+==> earmark_parser
+Compiling 3 files (.erl)
+Compiling 32 files (.ex)
+Generated earmark_parser app
+==> protoss
+Compiling 1 file (.ex)
+Generated protoss app
+==> zig_get
+Compiling 1 file (.ex)
+Generated zig_get app
+==> nimble_parsec
+Compiling 4 files (.ex)
+Generated nimble_parsec app
+==> pegasus
+Compiling 11 files (.ex)
+Generated pegasus app
+==> zig_parser
+Compiling 37 files (.ex)
+    warning: incompatible types given to Map.replace!/3:
+
+        Map.replace!(parse(args), :doc_comment, comment)
+
+    the map:
+
+        dynamic(%Zig.Parser.Test{block: %Zig.Parser.Block{}, location: nil})
+
+    does not have all required keys:
+
+        :doc_comment
+
+    therefore this function will always raise
+
+    where "args" was given the type:
+
+        # type: dynamic(non_empty_list(term()))
+        # from: lib/zig.parser/test.ex:16:10
+        parse(args)
+
+    where "comment" was given the type:
+
+        # type: dynamic()
+        # from: lib/zig.parser/test.ex
+        [{:TestDecl, [start, {:doc_comment, comment} | args]} | rest_args]
+
+    type warning found at:
+    │
+ 17 │       |> Map.replace!(:doc_comment, comment)
+    │              ~
+    │
+    └─ lib/zig.parser/test.ex:17:14: Zig.Parser.Test.post_traverse/5
+
+Generated zig_parser app
+==> makeup
+Compiling 15 files (.ex)
+Generated makeup app
+==> makeup_elixir
+Compiling 6 files (.ex)
+Generated makeup_elixir app
+==> makeup_erlang
+Compiling 4 files (.ex)
+Generated makeup_erlang app
+==> ex_doc
+Compiling 27 files (.ex)
+     warning: this clause of defp favicon_path/1 is never used (or it will always fail/warn when invoked)
+     │
+ 153 │   defp favicon_path(%{favicon: nil}), do: nil
+     │        ~
+     │
+     └─ lib/ex_doc/formatter/html/templates.ex:153:8: ExDoc.Formatter.HTML.Templates.favicon_path/1
+
+     warning: this clause of defp logo_path/1 is never used (or it will always fail/warn when invoked)
+     │
+ 156 │   defp logo_path(%{logo: nil}), do: nil
+     │        ~
+     │
+     └─ lib/ex_doc/formatter/html/templates.ex:156:8: ExDoc.Formatter.HTML.Templates.logo_path/1
+
+     warning: the following clause cannot match because the previous clauses already matched all possible values:
+
+         _ ->
+
+     it attempts to match on the result of:
+
+         result
+
+     which has the already matched type:
+
+         dynamic({:docs_v1, term(), term(), term(), term(), term(), term()} or {:error, term()})
+
+     type warning found at:
+     │
+ 124 │       _ ->
+     │         ~
+     │
+     └─ lib/ex_doc/retriever.ex:124:9: ExDoc.Retriever.docs_chunk/1
+
+     warning: the following clause is redundant:
+
+         defp to_var({:<<>>, _, _}, _)
+
+     it has type:
+
+         dynamic({:<<>>, term(), term()}), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+
+     │
+ 569 │   defp to_var({:<<>>, _, _}, _), do: {:binary, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:569:8: ExDoc.Language.Elixir.to_var/2
+
+     warning: the following clause is redundant:
+
+         defp to_var({:{}, _, _}, _)
+
+     it has type:
+
+         dynamic({:{}, term(), term()}), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+
+     │
+ 570 │   defp to_var({:{}, _, _}, _), do: {:tuple, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:570:8: ExDoc.Language.Elixir.to_var/2
+
+     warning: the following clause will never match:
+
+         nil ->
+
+     because it attempts to match on the result of:
+
+         ExDoc.Language.Source.fetch_type!(module_data, name, arity)
+
+     which has type:
+
+         dynamic(not false and not nil)
+
+     type warning found at:
+     │
+ 150 │         nil ->
+     │         ~~~~~~
+     │
+     └─ lib/ex_doc/language/erlang.ex:150: ExDoc.Language.Erlang.type_data/6
+
+     warning: the following clause is redundant:
+
+         defp to_var(float, _) when is_integer(float)
+
+     it has type:
+
+         integer(), dynamic()
+
+     previous clauses have already matched on the following types:
+
+         {:%{}, term(), term()}, term()
+         {atom(), term(), term()}, term()
+         {term(), term()}, term()
+         integer(), term()
+
+     │
+ 573 │   defp to_var(float, _) when is_integer(float), do: {:float, [], nil}
+     │        ~
+     │
+     └─ lib/ex_doc/language/elixir.ex:573:8: ExDoc.Language.Elixir.to_var/2
+
+Generated ex_doc app
+==> zig_doc
+Compiling 5 files (.ex)
+    warning: the following clause will never match:
+
+        {{:error, reason}, path} ->
+
+    it is expected to match on type:
+
+        dynamic(
+          :error or
+            ({term(), :read, binary() or empty_list() or non_empty_list(term(), term())} and
+               not {{:ok, term()}, :read, binary() or empty_list() or non_empty_list(term(), term())})
+        )
+
+    type warning found at:
+    │
+ 69 │       {{:error, reason}, path} ->
+    │       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/zig.doc/generator.ex:69: Zig.Doc.Generator.modulenode_from_config/3
+
+Generated zig_doc app
+==> zigler
+Compiling 50 files (.ex)
+
+01:54:21.721 [warning] not cross-compiling windows-msvc
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "def render_elixir_spec/1" was previously defined (lib/zig/_nif.ex:373)
+     │
+ 386 │   def render_elixir_spec(nif) do
+     │       ~
+     │
+     └─ lib/zig/_nif.ex:386:7
+
+     warning: unused require EEx
+     │
+ 437 │   require EEx
+     │   ~
+     │
+     └─ lib/zig/_nif.ex:437:3
+
+
+01:54:22.204 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:22.205 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:22.205 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/build.zig
+
+01:54:22.630 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/build.zig
+
+01:54:22.638 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:22.639 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:22.639 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/deps/zigler/lib/zig
+
+01:54:29.642 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:29.642 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:29.642 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/module.zig
+
+01:54:29.691 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Zig.Formatter/module.zig
+
+01:54:29.691 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:29.692 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:29.692 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/deps/zigler/lib/zig --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv
+
+01:54:38.242 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv
+
+01:54:38.243 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv/lib/Elixir.Zig.Formatter.so
+Compiling lib/zig/formatter.ex (it's taking more than 10s)
+Generated zigler app
+==> aphid
+Compiling 1 file (.ex)
+
+01:54:38.322 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:38.323 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:38.323 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/build.zig
+
+01:54:38.365 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/build.zig
+
+01:54:38.369 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:38.369 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:38.369 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/lib/aphid
+
+01:54:44.927 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:44.928 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:44.928 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/module.zig
+
+01:54:44.980 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/module.zig
+
+01:54:44.981 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:54:44.981 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:54:44.981 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/aphid/priv
+
+01:54:46.549 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/aphid/priv
+
+01:54:46.550 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+Generated aphid app
+{"command": ["mix", "compile", "--force"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof", "exit": 0, "seconds": 42.659}
+Running ExUnit with seed: 0, max_cases: 16
+
+
+01:54:47.862 [debug] loaded module at Elixir.Aphid.Proof
+..
+Finished in 0.5 seconds (0.00s async, 0.5s sync)
+
+Result: 2 passed
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof", "exit": 0, "seconds": 1.109}
+Compiling 1 file (.ex)
+
+01:54:48.531 [debug] skipping compile step for precompiled module Elixir.Aphid.Proof, at /Users/catethos/workspace/ladybugex/zig_library/artifacts/proof/Elixir.Aphid.Proof.so
+
+01:54:48.534 [debug] destination library path: /Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+Generated aphid app
+{"command": ["mix", "compile", "--force"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof", "exit": 0, "seconds": 0.889}
+Running ExUnit with seed: 0, max_cases: 16
+
+
+01:54:49.288 [debug] loaded module at Elixir.Aphid.Proof
+..
+Finished in 0.02 seconds (0.00s async, 0.02s sync)
+
+Result: 2 passed
+{"command": ["mix", "test", "--no-compile", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library/_build/toolchain-proof", "exit": 0, "seconds": 0.504}
+
+01:54:50.050 [debug] loaded module at Elixir.Aphid.Proof
+relocated dependency-free precompiled consumer passed
+{"command": ["elixir", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-proof-_yi90owd/relocated/check.exs"], "cwd": "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-proof-_yi90owd", "exit": 0, "seconds": 0.782}
+artifact sha256: ce923e1469d7befde9289464954730d5206bab6a1790d1c87d0c6471dbb5ed76

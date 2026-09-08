@@ -1,0 +1,40 @@
+cmake_minimum_required(VERSION 3.20)
+project(aphid_feature_proof LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(DuckDB_USE_STATIC_LIBS ON)
+find_package(DuckDB REQUIRED)
+add_executable(benchmark benchmark.cpp)
+target_include_directories(benchmark PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(benchmark PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
+add_executable(fixture fixture.cpp)
+target_include_directories(fixture PRIVATE ${DuckDB_INCLUDE_DIRS})
+target_link_libraries(fixture PRIVATE ${DuckDB_LIBRARIES})
+add_executable(features features.cpp)
+target_include_directories(features PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(features PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
+add_executable(hash_alignment hash_alignment.cpp)
+target_include_directories(hash_alignment PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(hash_alignment PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
+add_executable(fts_cancel_capacity fts_cancel_capacity.cpp)
+target_include_directories(fts_cancel_capacity PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(fts_cancel_capacity PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
+add_executable(fts_failure_recovery fts_failure_recovery.cpp)
+target_include_directories(fts_failure_recovery PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(fts_failure_recovery PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
+add_executable(alp_range alp_range.cpp)
+target_include_directories(alp_range PRIVATE ${LADYBUG_SOURCE}/third_party/alp/include)
+add_executable(aggregate_alignment aggregate_alignment.cpp)
+target_include_directories(aggregate_alignment PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(aggregate_alignment PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})
+add_library(aphid_feature_bridge SHARED features.cpp)
+target_compile_definitions(aphid_feature_bridge PRIVATE APHID_NIF_PROOF)
+target_include_directories(aphid_feature_bridge PRIVATE
+    ${LADYBUG_SOURCE}/src/include ${LADYBUG_BUILD}/src/include)
+target_link_libraries(aphid_feature_bridge PRIVATE ${LADYBUG_BUILD}/src/${CMAKE_SHARED_LIBRARY_PREFIX}lbug${CMAKE_SHARED_LIBRARY_SUFFIX})

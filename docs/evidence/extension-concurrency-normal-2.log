@@ -1,0 +1,6 @@
+[1/2] Building CXX object CMakeFiles/extension_concurrency.dir/tests/extension_concurrency.cpp.o
+[2/2] Linking CXX executable extension_concurrency
+{"command": ["cmake", "--build", "_build/native/bridge", "--target", "extension_concurrency", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.429}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-concurrency-pf84ll7d/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.131}
+gated concurrent FTS/vector/DuckDB: 100 queries each; joined shutdown passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/extension_concurrency", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-concurrency-pf84ll7d/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.055}

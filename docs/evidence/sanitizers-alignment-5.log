@@ -1,0 +1,271 @@
+Candidate row-value-alignment sha256: 1a794197bcde506dc1324b2c2fe0d75c900f93f7d7e3e58961c7943ff61c8d54
+Candidate string-hash-alignment sha256: 54ea5d790fb5a3d20ddb4609ffedd84ae76bb04a48f0101efe4ee340ebf20bac
+[0/2] Re-checking globbed directories...
+[1/236] Building CXX object extension/duckdb/src/main/CMakeFiles/duckdb_extension_main.dir/duckdb_extension.cpp.o
+[2/236] Building CXX object extension/duckdb/src/main/CMakeFiles/duckdb_extension_main.dir/duckdb_options.cpp.o
+[3/236] Building CXX object extension/duckdb/src/catalog/CMakeFiles/lbug_duckdb_catalog.dir/duckdb_catalog.cpp.o
+[4/236] Building CXX object extension/duckdb/src/main/CMakeFiles/duckdb_extension_main.dir/__/__/__/httpfs/src/s3fs_config.cpp.o
+[5/236] Building CXX object extension/duckdb/src/function/CMakeFiles/lbug_duckdb_function.dir/clear_cache.cpp.o
+[6/236] Building CXX object extension/duckdb/src/storage/CMakeFiles/lbug_duckdb_storage.dir/duckdb_storage.cpp.o
+[7/236] Building CXX object extension/fts/src/catalog/CMakeFiles/lbug_fts_index_catalog.dir/fts_index_catalog_entry.cpp.o
+[8/236] Building CXX object extension/fts/src/function/CMakeFiles/lbug_fts_function.dir/drop_fts_index.cpp.o
+[9/236] Building CXX object extension/fts/src/function/CMakeFiles/lbug_fts_function.dir/create_fts_index.cpp.o
+[10/236] Building CXX object extension/fts/src/function/CMakeFiles/lbug_fts_function.dir/fts_config.cpp.o
+[11/236] Building CXX object extension/fts/src/function/CMakeFiles/lbug_fts_function.dir/fts_index_utils.cpp.o
+[12/236] Building CXX object extension/fts/src/function/CMakeFiles/lbug_fts_function.dir/query_fts_bind_data.cpp.o
+[13/236] Building CXX object extension/fts/src/main/CMakeFiles/fts_extension_main.dir/fts_extension.cpp.o
+[14/236] Building CXX object extension/fts/src/function/CMakeFiles/lbug_fts_function.dir/query_fts_index.cpp.o
+[15/236] Building CXX object extension/fts/src/index/CMakeFiles/lbug_fts_index.dir/fts_internal_table_info.cpp.o
+[16/236] Building CXX object extension/fts/src/index/CMakeFiles/lbug_fts_index.dir/fts_index.cpp.o
+[17/236] Building CXX object extension/fts/src/index/CMakeFiles/lbug_fts_index.dir/fts_update_state.cpp.o
+[18/236] Building CXX object extension/vector/src/catalog/CMakeFiles/lbug_hnsw_index_catalog.dir/hnsw_index_catalog_entry.cpp.o
+[19/236] Building CXX object extension/fts/src/utils/CMakeFiles/lbug_fts_utils.dir/fts_utils.cpp.o
+[20/236] Building CXX object extension/vector/src/function/CMakeFiles/lbug_hnsw_function.dir/drop_hnsw_index.cpp.o
+[21/236] Building CXX object extension/vector/src/function/CMakeFiles/lbug_hnsw_function.dir/create_hnsw_index.cpp.o
+[22/236] Building CXX object extension/vector/src/index/CMakeFiles/lbug_hnsw_index.dir/hnsw_config.cpp.o
+[23/236] Building CXX object extension/vector/src/function/CMakeFiles/lbug_hnsw_function.dir/query_hnsw_index.cpp.o
+[24/236] Building CXX object extension/vector/src/index/CMakeFiles/lbug_hnsw_index.dir/hnsw_index_utils.cpp.o
+[25/236] Building CXX object extension/vector/src/index/CMakeFiles/lbug_hnsw_index.dir/hnsw_index.cpp.o
+[26/236] Building CXX object extension/vector/src/index/CMakeFiles/lbug_hnsw_index.dir/hnsw_rel_batch_insert.cpp.o
+[27/236] Building CXX object extension/vector/src/main/CMakeFiles/vector_extension_main.dir/vector_extension.cpp.o
+[28/236] Building CXX object extension/vector/src/index/CMakeFiles/lbug_hnsw_index.dir/hnsw_graph.cpp.o
+[29/236] Building CXX object src/binder/CMakeFiles/lbug_binder.dir/binder.cpp.o
+[30/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_create_macro.cpp.o
+[31/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_file_scan.cpp.o
+[32/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_ddl.cpp.o
+[33/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_table_function.cpp.o
+[34/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_graph_pattern.cpp.o
+[35/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_updating_clause.cpp.o
+[36/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_extension.cpp.o
+[37/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_standalone_call_function.cpp.o
+[38/236] Building CXX object src/binder/bind/CMakeFiles/lbug_binder_bind.dir/bind_export_database.cpp.o
+[39/236] Building CXX object src/binder/bind/copy/CMakeFiles/lbug_binder_bind_copy.dir/bind_copy_to.cpp.o
+[40/236] Building CXX object src/binder/bind/read/CMakeFiles/lbug_binder_bind_read.dir/bind_in_query_call.cpp.o
+[41/236] Building CXX object src/binder/bind/copy/CMakeFiles/lbug_binder_bind_copy.dir/bind_copy_from.cpp.o
+[42/236] Building CXX object src/binder/bind/read/CMakeFiles/lbug_binder_bind_read.dir/bind_match.cpp.o
+[43/236] Building CXX object src/binder/bind_expression/CMakeFiles/lbug_binder_bind_expression.dir/bind_comparison_expression.cpp.o
+[44/236] Building CXX object src/binder/bind_expression/CMakeFiles/lbug_binder_bind_expression.dir/bind_property_expression.cpp.o
+[45/236] Building CXX object src/binder/bind_expression/CMakeFiles/lbug_binder_bind_expression.dir/bind_function_expression.cpp.o
+[46/236] Building CXX object src/binder/bind_expression/CMakeFiles/lbug_binder_bind_expression.dir/bind_subquery_expression.cpp.o
+[47/236] Building CXX object src/binder/query/CMakeFiles/lbug_binder_query.dir/query_graph_label_analyzer.cpp.o
+[48/236] Building CXX object src/catalog/catalog_entry/CMakeFiles/lbug_catalog_entry.dir/table_catalog_entry.cpp.o
+[49/236] Building CXX object src/catalog/CMakeFiles/lbug_catalog.dir/catalog.cpp.o
+[50/236] Building CXX object src/catalog/catalog_entry/CMakeFiles/lbug_catalog_entry.dir/rel_group_catalog_entry.cpp.o
+[51/236] Building CXX object src/catalog/catalog_entry/CMakeFiles/lbug_catalog_entry.dir/index_catalog_entry.cpp.o
+[52/236] Building CXX object src/common/types/CMakeFiles/lbug_common_types.dir/int128_t.cpp.o
+[53/236] Building CXX object src/common/types/CMakeFiles/lbug_common_types.dir/types.cpp.o
+[54/236] Building CXX object src/common/types/CMakeFiles/lbug_common_types.dir/uint128_t.cpp.o
+[55/236] Building CXX object src/common/types/value/CMakeFiles/lbug_common_types_value.dir/value.cpp.o
+[56/236] Building CXX object src/function/CMakeFiles/lbug_function.dir/vector_hash_functions.cpp.o
+[57/236] Building CXX object src/function/gds/CMakeFiles/lbug_function_algorithm.dir/gds.cpp.o
+[58/236] Building CXX object src/function/path/CMakeFiles/lbug_function_path.dir/semantic_function.cpp.o
+[59/236] Building CXX object src/function/sequence/CMakeFiles/lbug_function_sequence.dir/sequence_functions.cpp.o
+[60/236] Building CXX object src/function/CMakeFiles/lbug_function.dir/vector_cast_functions.cpp.o
+[61/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/cache_column.cpp.o
+[62/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/catalog_version.cpp.o
+[63/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/disk_size_info.cpp.o
+[64/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/file_info.cpp.o
+[65/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_attached_databases.cpp.o
+[66/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/project_native_graph.cpp.o
+[67/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_connection.cpp.o
+[68/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_functions.cpp.o
+[69/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_graphs.cpp.o
+[70/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_indexes.cpp.o
+[71/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_loaded_extensions.cpp.o
+[72/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_macros.cpp.o
+[73/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_official_extensions.cpp.o
+[74/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_sequences.cpp.o
+[75/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/show_tables.cpp.o
+[76/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/stats_info.cpp.o
+[77/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/storage_version.cpp.o
+[78/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/table_info.cpp.o
+[79/236] Building CXX object src/function/table/CMakeFiles/lbug_table_function.dir/storage_info.cpp.o
+[80/236] Building CXX object src/main/CMakeFiles/lbug_main.dir/attached_database.cpp.o
+[81/236] Building CXX object src/graph/CMakeFiles/lbug_graph.dir/on_disk_graph.cpp.o
+[82/236] Building CXX object src/main/CMakeFiles/lbug_main.dir/connection.cpp.o
+[83/236] Building CXX object src/main/CMakeFiles/lbug_main.dir/client_context.cpp.o
+[84/236] Building CXX object src/main/CMakeFiles/lbug_main.dir/database.cpp.o
+[85/236] Building CXX object src/main/CMakeFiles/lbug_main.dir/storage_driver.cpp.o
+[86/236] Building CXX object src/main/CMakeFiles/lbug_main.dir/database_manager.cpp.o
+[87/236] Building CXX object src/main/CMakeFiles/lbug_main.dir/settings.cpp.o
+[88/236] Building CXX object src/optimizer/CMakeFiles/lbug_optimizer.dir/count_rel_table_optimizer.cpp.o
+[89/236] Building CXX object src/optimizer/CMakeFiles/lbug_optimizer.dir/filter_push_down_optimizer.cpp.o
+[90/236] Building CXX object src/parser/expression/CMakeFiles/lbug_parser_expression.dir/parsed_expression_visitor.cpp.o
+[91/236] Building CXX object src/optimizer/CMakeFiles/lbug_optimizer.dir/foreign_join_push_down_optimizer.cpp.o
+[92/236] Building CXX object src/parser/transform/CMakeFiles/lbug_parser_transform.dir/transform_extension.cpp.o
+[93/236] Building CXX object src/parser/visitor/CMakeFiles/lbug_parser_visitor.dir/standalone_call_rewriter.cpp.o
+[94/236] Building CXX object src/planner/join_order/CMakeFiles/lbug_planner_join_order.dir/cardinality_estimator.cpp.o
+[95/236] Building CXX object src/planner/plan/CMakeFiles/lbug_planner_plan_operator.dir/append_extend.cpp.o
+[96/236] Building CXX object src/planner/plan/CMakeFiles/lbug_planner_plan_operator.dir/plan_copy.cpp.o
+[97/236] Building CXX object src/planner/plan/CMakeFiles/lbug_planner_plan_operator.dir/plan_subquery.cpp.o
+[98/236] Building CXX object src/planner/plan/CMakeFiles/lbug_planner_plan_operator.dir/plan_port_db.cpp.o
+[99/236] Building CXX object src/processor/CMakeFiles/lbug_processor.dir/partition_routing.cpp.o
+[100/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/create_arrow_result_collector.cpp.o
+[101/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_count_rel_table.cpp.o
+[102/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_aggregate.cpp.o
+[103/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_insert.cpp.o
+[104/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_copy_from.cpp.o
+[105/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_create_macro.cpp.o
+[106/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_delete.cpp.o
+[107/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_index_scan_node.cpp.o
+[108/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_extend.cpp.o
+[109/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_merge.cpp.o
+[110/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_query_primary_key_lookup.cpp.o
+[111/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_rel_degree_table.cpp.o
+[112/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_recursive_extend.cpp.o
+[113/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_reachable_count.cpp.o
+[114/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_scan_node_table.cpp.o
+[115/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_semi_masker.cpp.o
+[116/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_simple.cpp.o
+[117/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_set.cpp.o
+[118/236] Building CXX object src/processor/operator/CMakeFiles/lbug_processor_operator.dir/base_partitioner_shared_state.cpp.o
+[119/236] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/plan_mapper.cpp.o
+[120/236] Building CXX object src/processor/operator/CMakeFiles/lbug_processor_operator.dir/partitioner.cpp.o
+[121/236] Building CXX object src/processor/operator/CMakeFiles/lbug_processor_operator.dir/index_lookup.cpp.o
+[122/236] Building CXX object src/processor/operator/CMakeFiles/lbug_processor_operator.dir/path_property_probe.cpp.o
+[123/236] Building CXX object src/processor/operator/CMakeFiles/lbug_processor_operator.dir/query_primary_key_lookup.cpp.o
+[124/236] Building CXX object src/processor/operator/CMakeFiles/lbug_processor_operator.dir/transaction.cpp.o
+[125/236] Building CXX object src/processor/operator/CMakeFiles/lbug_processor_operator.dir/recursive_extend.cpp.o
+[126/236] Building CXX object src/processor/operator/ddl/CMakeFiles/lbug_processor_operator_ddl.dir/alter.cpp.o
+[127/236] Building CXX object src/processor/operator/ddl/CMakeFiles/lbug_processor_operator_ddl.dir/create_index.cpp.o
+[128/236] Building CXX object src/processor/operator/ddl/CMakeFiles/lbug_processor_operator_ddl.dir/create_table.cpp.o
+[129/236] Building CXX object src/processor/operator/ddl/CMakeFiles/lbug_processor_operator_ddl.dir/create_type.cpp.o
+[130/236] Building CXX object src/processor/operator/ddl/CMakeFiles/lbug_processor_operator_ddl.dir/create_sequence.cpp.o
+[131/236] Building CXX object src/processor/operator/ddl/CMakeFiles/lbug_processor_operator_ddl.dir/drop.cpp.o
+[132/236] Building CXX object src/processor/operator/intersect/CMakeFiles/lbug_processor_operator_intersect.dir/intersect.cpp.o
+[133/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/node_batch_insert_error_handler.cpp.o
+[134/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/rel_batch_insert.cpp.o
+[135/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/delete.cpp.o
+[136/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/delete_executor.cpp.o
+[137/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/node_batch_insert.cpp.o
+[138/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/insert.cpp.o
+[139/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/insert_executor.cpp.o
+[140/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/index_builder.cpp.o
+[141/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/merge.cpp.o
+[142/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/set.cpp.o
+[143/236] Building CXX object src/processor/operator/persistent/CMakeFiles/lbug_processor_operator_persistent.dir/set_executor.cpp.o
+[144/236] Building CXX object src/processor/operator/persistent/writer/parquet/CMakeFiles/lbug_processor_operator_parquet_writer.dir/string_column_writer.cpp.o
+[145/236] Building CXX object src/processor/operator/scan/CMakeFiles/lbug_processor_operator_scan.dir/count_rel_table.cpp.o
+[146/236] Building CXX object src/processor/operator/scan/CMakeFiles/lbug_processor_operator_scan.dir/primary_key_scan_node_table.cpp.o
+[147/236] Building CXX object src/processor/operator/scan/CMakeFiles/lbug_processor_operator_scan.dir/reachable_count.cpp.o
+[148/236] Building CXX object src/processor/operator/scan/CMakeFiles/lbug_processor_operator_scan.dir/scan_multi_rel_tables.cpp.o
+[149/236] Building CXX object src/processor/operator/scan/CMakeFiles/lbug_processor_operator_scan.dir/scan_node_table.cpp.o
+[150/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/analyze.cpp.o
+[151/236] Building CXX object src/processor/operator/scan/CMakeFiles/lbug_processor_operator_scan.dir/scan_rel_table.cpp.o
+[152/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/attach_database.cpp.o
+[153/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/detach_database.cpp.o
+[154/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/install_extension.cpp.o
+[155/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/load_extension.cpp.o
+[156/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/export_db.cpp.o
+[157/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/use_database.cpp.o
+[158/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/use_graph.cpp.o
+[159/236] Building CXX object src/processor/operator/simple/CMakeFiles/lbug_processor_operator_simple.dir/uninstall_extension.cpp.o
+[160/236] Building CXX object src/processor/operator/macro/CMakeFiles/lbug_processor_operator_create_macro.dir/create_macro.cpp.o
+[161/236] Building CXX object src/storage/CMakeFiles/lbug_storage.dir/checkpointer.cpp.o
+[162/236] Building CXX object src/storage/CMakeFiles/lbug_storage.dir/overflow_file.cpp.o
+[163/236] Building CXX object src/storage/CMakeFiles/lbug_storage.dir/page_manager.cpp.o
+[164/236] Building CXX object src/storage/CMakeFiles/lbug_storage.dir/shadow_file.cpp.o
+[165/236] Building CXX object src/storage/CMakeFiles/lbug_storage.dir/partition_storage_registry.cpp.o
+[166/236] Building CXX object src/storage/CMakeFiles/lbug_storage.dir/storage_manager.cpp.o
+[167/236] Building CXX object src/storage/local_storage/CMakeFiles/lbug_storage_local_storage.dir/local_node_table.cpp.o
+[168/236] Building CXX object src/storage/local_storage/CMakeFiles/lbug_storage_local_storage.dir/local_storage.cpp.o
+[169/236] Building CXX object src/storage/index/CMakeFiles/lbug_storage_index.dir/art_index.cpp.o
+[170/236] Building CXX object src/storage/index/CMakeFiles/lbug_storage_index.dir/art_index_disk.cpp.o
+[171/236] Building CXX object src/storage/index/CMakeFiles/lbug_storage_index.dir/in_mem_hash_index.cpp.o
+[172/236] Building CXX object src/storage/index/CMakeFiles/lbug_storage_index.dir/index.cpp.o
+[173/236] Building CXX object src/storage/stats/CMakeFiles/lbug_storage_stats.dir/planner_stats.cpp.o
+[174/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/arrow_node_table.cpp.o
+[175/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/arrow_rel_table.cpp.o
+[176/236] Building CXX object src/storage/index/CMakeFiles/lbug_storage_index.dir/hash_index.cpp.o
+[177/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/columnar_node_table_base.cpp.o
+[178/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/chunked_node_group.cpp.o
+[179/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/columnar_rel_table_base.cpp.o
+[180/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/foreign_rel_table.cpp.o
+[181/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/node_group.cpp.o
+[182/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/ice_disk_node_table.cpp.o
+[183/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/node_table.cpp.o
+[184/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/ice_disk_rel_table.cpp.o
+[185/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/rel_table_data.cpp.o
+[186/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/rel_table.cpp.o
+[187/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/local_wal.cpp.o
+[188/236] Building CXX object src/storage/table/CMakeFiles/lbug_storage_store.dir/table.cpp.o
+[189/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/wal_record.cpp.o
+[190/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/wal.cpp.o
+[191/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/begin_transaction_record.cpp.o
+[192/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/commit_record.cpp.o
+[193/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/wal_replayer.cpp.o
+[194/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/checkpoint_record.cpp.o
+[195/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/create_catalog_entry_record.cpp.o
+[196/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/create_index_record.cpp.o
+[197/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/drop_catalog_entry_record.cpp.o
+[198/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/copy_table_record.cpp.o
+[199/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/update_sequence_record.cpp.o
+[200/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/alter_table_entry_record.cpp.o
+[201/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/table_insertion_record.cpp.o
+[202/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/node_deletion_record.cpp.o
+[203/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/node_update_record.cpp.o
+[204/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/rel_deletion_record.cpp.o
+[205/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/rel_detach_delete_record.cpp.o
+[206/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/rel_update_record.cpp.o
+[207/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/load_extension_record.cpp.o
+[208/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/create_index_record_replay.cpp.o
+[209/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/create_catalog_entry_record_replay.cpp.o
+[210/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/drop_catalog_entry_record_replay.cpp.o
+[211/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/alter_table_entry_record_replay.cpp.o
+[212/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/table_insertion_record_replay.cpp.o
+[213/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/node_deletion_record_replay.cpp.o
+[214/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/node_update_record_replay.cpp.o
+[215/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/rel_deletion_record_replay.cpp.o
+[216/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/rel_detach_delete_record_replay.cpp.o
+[217/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/copy_table_record_replay.cpp.o
+[218/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/rel_update_record_replay.cpp.o
+[219/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/update_sequence_record_replay.cpp.o
+[220/236] Building CXX object src/storage/wal/CMakeFiles/lbug_storage_wal.dir/records/load_extension_record_replay.cpp.o
+[221/236] Building CXX object src/transaction/CMakeFiles/lbug_transaction.dir/transaction_context.cpp.o
+[222/236] Building CXX object src/transaction/CMakeFiles/lbug_transaction.dir/transaction.cpp.o
+[223/236] Building CXX object src/transaction/CMakeFiles/lbug_transaction.dir/transaction_manager.cpp.o
+[224/236] Building CXX object src/extension/CMakeFiles/lbug_generated_extension_loader.dir/codegen/generated_extension_loader.cpp.o
+[225/236] Building CXX object src/extension/CMakeFiles/lbug_extension.dir/catalog_extension.cpp.o
+[226/236] Building CXX object src/extension/CMakeFiles/lbug_extension.dir/extension_entries.cpp.o
+[227/236] Building CXX object src/extension/CMakeFiles/lbug_extension.dir/extension.cpp.o
+[228/236] Building CXX object src/extension/CMakeFiles/lbug_extension.dir/extension_manager.cpp.o
+[229/236] Building CXX object src/extension/CMakeFiles/lbug_extension.dir/loaded_extension.cpp.o
+[230/236] Building CXX object src/extension/CMakeFiles/lbug_extension.dir/extension_installer.cpp.o
+[231/236] Linking CXX static library src/liblbug.a
+[232/236] Linking CXX static library /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/extension/vector/build/libvector_static.lbug_extension
+[233/236] Linking CXX static library /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/extension/fts/build/libfts_static.lbug_extension
+[234/236] Linking CXX static library /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/extension/duckdb/build/libduckdb_static.lbug_extension
+[235/236] Linking CXX shared library src/liblbug.0.20.2.dylib
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/src/libduckdb_static.a', 'src/liblbug.a'
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/ladybug", "--target", "src/liblbug.0.20.2.dylib", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 326.378}
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 6.13}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ypnsywft/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.678}
+/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/processor/operator/hash_join/join_hash_table.cpp:190:17: runtime error: load of misaligned address 0x00011e3b4031 for type 'hash_t' (aka 'unsigned long long'), which requires 8 byte alignment
+0x00011e3b4031: note: pointer points here
+ 65 73 00  00 de 88 9e 6e 5c 63 dc  bd 00 00 00 00 00 00 00  00 00 04 00 00 00 79 6f  75 72 00 00 00
+              ^ 
+    #0 0x000111decff4 in lbug::processor::JoinHashTable::findHashSlot(unsigned char const*) const+0x1b4 (liblbug.0.20.2.dylib:arm64+0x1330ff4)
+    #1 0x000111deb964 in lbug::processor::JoinHashTable::buildHashSlots()+0x150 (liblbug.0.20.2.dylib:arm64+0x132f964)
+    #2 0x000110de1a64 in lbug::common::Task::deRegisterThreadAndFinalizeTask()+0x25c (liblbug.0.20.2.dylib:arm64+0x325a64)
+    #3 0x000110de435c in lbug::common::TaskScheduler::runWorkerThread()+0x260 (liblbug.0.20.2.dylib:arm64+0x32835c)
+    #4 0x000110de643c in void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, lbug::common::TaskScheduler::TaskScheduler(unsigned long long, unsigned int)::$_0>>(void*)+0x11c (liblbug.0.20.2.dylib:arm64+0x32a43c)
+    #5 0x0001036c1d64 in asan_thread_start(void*)+0x4c (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3dd64)
+    #6 0x000181d97c54 in _pthread_start+0x84 (libsystem_pthread.dylib:arm64e+0x6c54)
+    #7 0x000181d92c18 in thread_start+0x4 (libsystem_pthread.dylib:arm64e+0x1c18)
+
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/processor/operator/hash_join/join_hash_table.cpp:190:17 
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ypnsywft/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ypnsywft/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": -6, "seconds": 1.013}
+Traceback (most recent call last):
+  File "<stdin>", line 17, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features', 'create', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ypnsywft/graph', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ypnsywft/fixture.duckdb']

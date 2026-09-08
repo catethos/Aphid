@@ -1,0 +1,3827 @@
+
+FILE _build/native/tests/extension_concurrency SHA256 61938226bf698ab55d7e609f1c2f01bcf4df2ab659f347b8ce8f424209ce89cb
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/extension_concurrency: Mach-O 64-bit executable arm64
+{"command": ["file", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/extension_concurrency"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.025}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/extension_concurrency:
+	@loader_path/../../../lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/extension_concurrency"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/extension_concurrency:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __PAGEZERO
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000100000000
+  fileoff 0
+ filesize 0
+  maxprot 0x00000000
+ initprot 0x00000000
+   nsects 0
+    flags 0x0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 552
+  segname __TEXT
+   vmaddr 0x0000000100000000
+   vmsize 0x0000000000004000
+  fileoff 0
+ filesize 16384
+  maxprot 0x00000005
+ initprot 0x00000005
+   nsects 6
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x00000001000011a8
+      size 0x0000000000001474
+    offset 4520
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x000000010000261c
+      size 0x000000000000024c
+    offset 9756
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x0000000100002870
+      size 0x0000000000000078
+    offset 10352
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __gcc_except_tab
+   segname __TEXT
+      addr 0x00000001000028e8
+      size 0x0000000000000244
+    offset 10472
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x0000000100002b2c
+      size 0x0000000000000317
+    offset 11052
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x0000000100002e44
+      size 0x00000000000000c0
+    offset 11844
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 152
+  segname __DATA_CONST
+   vmaddr 0x0000000100004000
+   vmsize 0x0000000000004000
+  fileoff 16384
+ filesize 16384
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 1
+    flags 0x10
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x0000000100004000
+      size 0x00000000000001e0
+    offset 16384
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 49 (index into indirect symbol table)
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x0000000100008000
+   vmsize 0x0000000000008000
+  fileoff 32768
+ filesize 25488
+  maxprot 0x00000001
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 4
+      cmd LC_DYLD_CHAINED_FIXUPS
+  cmdsize 16
+  dataoff 32768
+ datasize 2176
+Load command 5
+      cmd LC_DYLD_EXPORTS_TRIE
+  cmdsize 16
+  dataoff 34944
+ datasize 48
+Load command 6
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 35016
+   nsyms 82
+  stroff 36768
+ strsize 3112
+Load command 7
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 20
+     iextdefsym 20
+     nextdefsym 2
+      iundefsym 22
+      nundefsym 60
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 36328
+  nindirectsyms 109
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 8
+          cmd LC_LOAD_DYLINKER
+      cmdsize 32
+         name /usr/lib/dyld (offset 12)
+Load command 9
+     cmd LC_UUID
+ cmdsize 24
+    uuid 4DDEB4D6-B644-35F0-B758-33F8A22C169F
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform 1
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool 3
+  version 1230.1
+Load command 11
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 12
+       cmd LC_MAIN
+   cmdsize 24
+  entryoff 4520
+ stacksize 0
+Load command 13
+          cmd LC_LOAD_DYLIB
+      cmdsize 96
+         name @loader_path/../../../lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 0.20.2
+compatibility version 0.0.0
+Load command 14
+          cmd LC_LOAD_DYLIB
+      cmdsize 48
+         name /usr/lib/libc++.1.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 2000.63.0
+compatibility version 1.0.0
+Load command 15
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 16
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 34992
+ datasize 24
+Load command 17
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 35016
+ datasize 0
+Load command 18
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 39888
+ datasize 18368
+{"command": ["otool", "-l", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/extension_concurrency"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+__Unwind_Resume
+__ZN4lbug4main10Connection5queryENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE
+__ZN4lbug4main10ConnectionC1EPNS0_8DatabaseE
+__ZN4lbug4main10ConnectionD1Ev
+__ZN4lbug4main12SystemConfigC1Eyybbybybbbbbj
+__ZN4lbug4main8DatabaseC1ENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEENS0_12SystemConfigE
+__ZN4lbug4main8DatabaseD1Ev
+__ZN4lbug9processor9FlatTuple8getValueEj
+__ZNK4lbug4main11QueryResult15getErrorMessageEv
+__ZNK4lbug4main11QueryResult9isSuccessEv
+__ZNKSt3__16locale9use_facetERNS0_2idE
+__ZNKSt3__18ios_base6getlocEv
+__ZNSt11logic_errorC2EPKc
+__ZNSt12length_errorD1Ev
+__ZNSt13exception_ptrC1ERKS_
+__ZNSt13exception_ptrD1Ev
+__ZNSt13exception_ptraSERKS_
+__ZNSt13runtime_errorC1EPKc
+__ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt13runtime_errorD1Ev
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev
+__ZNSt3__115__thread_structC1Ev
+__ZNSt3__115__thread_structD1Ev
+__ZNSt3__119__shared_weak_count14__release_weakEv
+__ZNSt3__119__thread_local_dataEv
+__ZNSt3__120__throw_system_errorEiPKc
+__ZNSt3__14cerrE
+__ZNSt3__14coutE
+__ZNSt3__15ctypeIcE2idE
+__ZNSt3__16localeD1Ev
+__ZNSt3__16thread4joinEv
+__ZNSt3__16threadD1Ev
+__ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv
+__ZNSt3__18ios_base5clearEj
+__ZSt17current_exceptionv
+__ZSt17rethrow_exceptionSt13exception_ptr
+__ZSt9terminatev
+__ZTISt12length_error
+__ZTISt13runtime_error
+__ZTISt9exception
+__ZTVSt12length_error
+__ZdlPv
+__Znwm
+___cxa_allocate_exception
+___cxa_begin_catch
+___cxa_end_catch
+___cxa_free_exception
+___cxa_throw
+___gxx_personality_v0
+___stack_chk_fail
+___stack_chk_guard
+_memchr
+_memmove
+_memset
+_pthread_create
+_pthread_setspecific
+_sched_yield
+_strlen
+{"command": ["nm", "-u", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/extension_concurrency"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+
+FILE _build/native/tests/fixture SHA256 0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/fixture: Mach-O 64-bit executable arm64
+{"command": ["file", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.006}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/fixture:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/fixture:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __PAGEZERO
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000100000000
+  fileoff 0
+ filesize 0
+  maxprot 0x00000000
+ initprot 0x00000000
+   nsects 0
+    flags 0x0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 712
+  segname __TEXT
+   vmaddr 0x0000000100000000
+   vmsize 0x0000000001cc0000
+  fileoff 0
+ filesize 30146560
+  maxprot 0x00000005
+ initprot 0x00000005
+   nsects 8
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x0000000100000fe0
+      size 0x00000000019151a4
+    offset 4064
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x0000000101916184
+      size 0x0000000000000f0c
+    offset 26304900
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __init_offsets
+   segname __TEXT
+      addr 0x0000000101917090
+      size 0x000000000000000c
+    offset 26308752
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000016
+ reserved1 0
+ reserved2 0
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x00000001019170c0
+      size 0x000000000018cc8c
+    offset 26308800
+     align 2^6 (64)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __gcc_except_tab
+   segname __TEXT
+      addr 0x0000000101aa3d4c
+      size 0x0000000000168dc4
+    offset 27934028
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x0000000101c0cb10
+      size 0x00000000000615ca
+    offset 29412112
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x0000000101c6e0dc
+      size 0x000000000004d7e0
+    offset 29810908
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __eh_frame
+   segname __TEXT
+      addr 0x0000000101cbb8c0
+      size 0x00000000000013a8
+    offset 30128320
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x6800000b
+ reserved1 0
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 232
+  segname __DATA_CONST
+   vmaddr 0x0000000101cc0000
+   vmsize 0x0000000000068000
+  fileoff 30146560
+ filesize 425984
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 2
+    flags 0x10
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x0000000101cc0000
+      size 0x00000000000038c8
+    offset 30146560
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 321 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __const
+   segname __DATA_CONST
+      addr 0x0000000101cc38c8
+      size 0x0000000000063db8
+    offset 30161096
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 472
+  segname __DATA
+   vmaddr 0x0000000101d28000
+   vmsize 0x0000000000004000
+  fileoff 30572544
+ filesize 16384
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 5
+    flags 0x0
+Section
+  sectname __data
+   segname __DATA
+      addr 0x0000000101d28000
+      size 0x00000000000003c8
+    offset 30572544
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_vars
+   segname __DATA
+      addr 0x0000000101d283c8
+      size 0x0000000000000048
+    offset 30573512
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000013
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_bss
+   segname __DATA
+      addr 0x0000000101d28410
+      size 0x0000000000000438
+    offset 0
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000012
+ reserved1 0
+ reserved2 0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x0000000101d28850
+      size 0x0000000000002469
+    offset 0
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Section
+  sectname __common
+   segname __DATA
+      addr 0x0000000101d2acc0
+      size 0x0000000000000850
+    offset 0
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Load command 4
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x0000000101d2c000
+   vmsize 0x0000000000ab0000
+  fileoff 30588928
+ filesize 11205808
+  maxprot 0x00000001
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 5
+      cmd LC_DYLD_CHAINED_FIXUPS
+  cmdsize 16
+  dataoff 30588928
+ datasize 245088
+Load command 6
+      cmd LC_DYLD_EXPORTS_TRIE
+  cmdsize 16
+  dataoff 30834016
+ datasize 1329696
+Load command 7
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 32243952
+   nsyms 99319
+  stroff 33841608
+ strsize 7853416
+Load command 8
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 75719
+     iextdefsym 75719
+     nextdefsym 23220
+      iundefsym 98939
+      nundefsym 380
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 33833056
+  nindirectsyms 2138
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 9
+          cmd LC_LOAD_DYLINKER
+      cmdsize 32
+         name /usr/lib/dyld (offset 12)
+Load command 10
+     cmd LC_UUID
+ cmdsize 24
+    uuid F35724FD-0577-3387-A4D3-AC5B41B46F7E
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform 1
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool 3
+  version 1230.1
+Load command 12
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 13
+       cmd LC_MAIN
+   cmdsize 24
+  entryoff 4064
+ stacksize 0
+Load command 14
+          cmd LC_LOAD_DYLIB
+      cmdsize 48
+         name /usr/lib/libc++.1.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 2000.63.0
+compatibility version 1.0.0
+Load command 15
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 16
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 32163712
+ datasize 80240
+Load command 17
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 32243952
+ datasize 0
+Load command 18
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 41695024
+ datasize 99712
+{"command": ["otool", "-l", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+__DefaultRuneLocale
+__Unwind_Resume
+__ZNKSt13runtime_error4whatEv
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4copyEPcmm
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findEcm
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindEcm
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKc
+__ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strEv
+__ZNKSt3__119__shared_weak_count13__get_deleterERKSt9type_info
+__ZNKSt3__16locale9use_facetERNS0_2idE
+__ZNKSt3__18ios_base6getlocEv
+__ZNKSt9bad_alloc4whatEv
+__ZNKSt9exception4whatEv
+__ZNSt11logic_errorC1EPKc
+__ZNSt11logic_errorC2EPKc
+__ZNSt11logic_errorC2ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt11logic_errorD1Ev
+__ZNSt12length_errorD1Ev
+__ZNSt12out_of_rangeD1Ev
+__ZNSt13exception_ptrC1ERKS_
+__ZNSt13exception_ptrD1Ev
+__ZNSt13exception_ptraSERKS_
+__ZNSt13runtime_errorC1EPKc
+__ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt13runtime_errorC2ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt13runtime_errorD1Ev
+__ZNSt13runtime_errorD2Ev
+__ZNSt16invalid_argumentD1Ev
+__ZNSt20bad_array_new_lengthC1Ev
+__ZNSt20bad_array_new_lengthD1Ev
+__ZNSt3__111__call_onceERVmPvPFvS2_E
+__ZNSt3__111this_thread9sleep_forERKNS_6chrono8durationIxNS_5ratioILl1ELl1000000000EEEEE
+__ZNSt3__112__next_primeEm
+__ZNSt3__112bad_weak_ptrD1Ev
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5eraseEmm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendERKS5_mm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEmc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeEmc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7replaceEmmPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7reserveEm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__grow_byEmmmmmm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE4openEPKcj
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5closeEv
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC1Ev
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE6sentryC1ERS3_b
+__ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED0Ev
+__ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED0Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPKv
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEb
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEd
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEj
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEm
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEs
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEt
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEx
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEy
+__ZNSt3__113random_deviceC1ERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZNSt3__113random_deviceD1Ev
+__ZNSt3__113random_deviceclEv
+__ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED0Ev
+__ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev
+__ZNSt3__115__thread_structC1Ev
+__ZNSt3__115__thread_structD1Ev
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE4syncEv
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5uflowEv
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6setbufEPcl
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6xsgetnEPcl
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE7seekoffExNS_8ios_base7seekdirEj
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE7seekposENS_4fposI11__mbstate_tEEj
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8overflowEi
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE9pbackfailEi
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE9showmanycEv
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE9underflowEv
+__ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strERKNS_12basic_stringIcS2_S4_EE
+__ZNSt3__115recursive_mutex4lockEv
+__ZNSt3__115recursive_mutex6unlockEv
+__ZNSt3__115recursive_mutexC1Ev
+__ZNSt3__115recursive_mutexD1Ev
+__ZNSt3__118condition_variable10notify_allEv
+__ZNSt3__118condition_variable10notify_oneEv
+__ZNSt3__118condition_variable15__do_timed_waitERNS_11unique_lockINS_5mutexEEENS_6chrono10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1000000000EEEEEEE
+__ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE
+__ZNSt3__118condition_variableD1Ev
+__ZNSt3__119__shared_weak_count14__release_weakEv
+__ZNSt3__119__shared_weak_count4lockEv
+__ZNSt3__119__shared_weak_countD2Ev
+__ZNSt3__119__thread_local_dataEv
+__ZNSt3__120__throw_system_errorEiPKc
+__ZNSt3__13cinE
+__ZNSt3__14cerrE
+__ZNSt3__14coutE
+__ZNSt3__14stoiERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi
+__ZNSt3__15ctypeIcE2idE
+__ZNSt3__15mutex4lockEv
+__ZNSt3__15mutex6unlockEv
+__ZNSt3__15mutex8try_lockEv
+__ZNSt3__15mutexD1Ev
+__ZNSt3__15stollERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi
+__ZNSt3__16__sortIRNS_6__lessIaaEEPaEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIccEEPcEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIddEEPdEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIffEEPfEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIhhEEPhEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIiiEEPiEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIjjEEPjEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIssEEPsEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIttEEPtEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIxxEEPxEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIyyEEPyEEvT0_S5_T_
+__ZNSt3__16chrono12steady_clock3nowEv
+__ZNSt3__16chrono12system_clock3nowEv
+__ZNSt3__16locale7classicEv
+__ZNSt3__16localeC1ERKS0_
+__ZNSt3__16localeC1Ev
+__ZNSt3__16localeD1Ev
+__ZNSt3__16localeaSERKS0_
+__ZNSt3__16stoullERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi
+__ZNSt3__16thread20hardware_concurrencyEv
+__ZNSt3__16thread4joinEv
+__ZNSt3__16threadD1Ev
+__ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv
+__ZNSt3__18ios_base4initEPv
+__ZNSt3__18ios_base5clearEj
+__ZNSt3__18ios_base5imbueERKNS_6localeE
+__ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev
+__ZNSt3__19to_stringEd
+__ZNSt3__19to_stringEi
+__ZNSt3__19to_stringEj
+__ZNSt3__19to_stringEl
+__ZNSt3__19to_stringEm
+__ZNSt3__19to_stringEx
+__ZNSt3__19to_stringEy
+__ZNSt3__1plIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EEPKS6_RKS9_
+__ZNSt9bad_allocC1Ev
+__ZNSt9bad_allocD1Ev
+__ZNSt9exceptionD2Ev
+__ZSt17current_exceptionv
+__ZSt17rethrow_exceptionSt13exception_ptr
+__ZSt18uncaught_exceptionv
+__ZSt7nothrow
+__ZSt9terminatev
+__ZTINSt3__112bad_weak_ptrE
+__ZTINSt3__113basic_istreamIcNS_11char_traitsIcEEEE
+__ZTINSt3__113basic_ostreamIcNS_11char_traitsIcEEEE
+__ZTINSt3__114basic_iostreamIcNS_11char_traitsIcEEEE
+__ZTINSt3__115basic_streambufIcNS_11char_traitsIcEEEE
+__ZTINSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTINSt3__119__shared_weak_countE
+__ZTISt11logic_error
+__ZTISt12length_error
+__ZTISt12out_of_range
+__ZTISt13runtime_error
+__ZTISt16invalid_argument
+__ZTISt20bad_array_new_length
+__ZTISt9bad_alloc
+__ZTISt9exception
+__ZTTNSt3__114basic_ofstreamIcNS_11char_traitsIcEEEE
+__ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVN10__cxxabiv117__class_type_infoE
+__ZTVN10__cxxabiv119__pointer_type_infoE
+__ZTVN10__cxxabiv120__function_type_infoE
+__ZTVN10__cxxabiv120__si_class_type_infoE
+__ZTVN10__cxxabiv121__vmi_class_type_infoE
+__ZTVNSt3__112bad_weak_ptrE
+__ZTVNSt3__113basic_ostreamIcNS_11char_traitsIcEEEE
+__ZTVNSt3__114basic_ofstreamIcNS_11char_traitsIcEEEE
+__ZTVNSt3__115basic_streambufIcNS_11char_traitsIcEEEE
+__ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE
+__ZTVSt12length_error
+__ZTVSt12out_of_range
+__ZTVSt16invalid_argument
+__ZThn16_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED0Ev
+__ZThn16_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED1Ev
+__ZTv0_n24_NSt3__113basic_istreamIcNS_11char_traitsIcEEED0Ev
+__ZTv0_n24_NSt3__113basic_istreamIcNS_11char_traitsIcEEED1Ev
+__ZTv0_n24_NSt3__113basic_ostreamIcNS_11char_traitsIcEEED0Ev
+__ZTv0_n24_NSt3__113basic_ostreamIcNS_11char_traitsIcEEED1Ev
+__ZTv0_n24_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED0Ev
+__ZTv0_n24_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED1Ev
+__ZdaPv
+__ZdlPv
+__Znam
+__ZnamRKSt9nothrow_t
+__Znwm
+__ZnwmRKSt9nothrow_t
+___chkstk_darwin
+___cxa_allocate_exception
+___cxa_atexit
+___cxa_bad_cast
+___cxa_begin_catch
+___cxa_demangle
+___cxa_end_catch
+___cxa_free_exception
+___cxa_guard_abort
+___cxa_guard_acquire
+___cxa_guard_release
+___cxa_pure_virtual
+___cxa_rethrow
+___cxa_throw
+___dynamic_cast
+___error
+___exp10
+___gxx_personality_v0
+___maskrune
+___stack_chk_fail
+___stack_chk_guard
+___stderrp
+___stdoutp
+___tolower
+___toupper
+___udivti3
+__tlv_bootstrap
+_access
+_acos
+_acosh
+_asin
+_asinh
+_atan
+_atan2
+_atanh
+_atol
+_backtrace
+_backtrace_symbols
+_bind
+_bzero
+_calloc
+_cbrt
+_chdir
+_clearerr
+_close
+_closedir
+_connect
+_cos
+_cosh
+_dlerror
+_dlopen
+_dlsym
+_exit
+_exp
+_exp2
+_fclose
+_fcntl
+_ferror
+_fflush
+_fmod
+_fmodf
+_fopen
+_fputs
+_fread
+_free
+_freeaddrinfo
+_freeifaddrs
+_fseek
+_fstat
+_fsync
+_ftell
+_ftruncate
+_fwrite
+_getaddrinfo
+_getc
+_getcwd
+_getenv
+_getifaddrs
+_getnameinfo
+_getpeername
+_getpid
+_getpwuid
+_getsockname
+_getsockopt
+_inet_ntop
+_ioctl
+_isatty
+_ldexp
+_lgamma
+_localtime_r
+_log
+_log10
+_log2
+_lseek
+_lstat
+_mach_task_self_
+_malloc
+_memchr
+_memcmp
+_memcpy
+_memmove
+_memset
+_memset_pattern16
+_mkdir
+_mktime
+_mlock
+_munlock
+_nextafter
+_nextafterf
+_open
+_opendir
+_poll
+_pow
+_pread
+_proc_pidinfo
+_proc_pidpath
+_pthread_create
+_pthread_rwlock_destroy
+_pthread_rwlock_init
+_pthread_rwlock_rdlock
+_pthread_rwlock_unlock
+_pthread_rwlock_wrlock
+_pthread_self
+_pthread_setspecific
+_pwrite
+_read
+_readdir
+_realloc
+_recv
+_remove
+_rename
+_rmdir
+_sched_yield
+_semaphore_create
+_semaphore_destroy
+_semaphore_signal
+_semaphore_timedwait
+_semaphore_wait
+_send
+_setsockopt
+_shutdown
+_sin
+_sinh
+_snprintf
+_socket
+_stat
+_statvfs
+_strcasecmp
+_strchr
+_strcmp
+_strdup
+_strerror
+_strerror_r
+_strlen
+_strncmp
+_strstr
+_strtod
+_strtof
+_strtol
+_strtoll
+_strtoul
+_strtoull
+_sysconf
+_tan
+_tanh
+_tgamma
+_unlink
+_vsnprintf
+_wcslen
+_wmemcmp
+_write
+{"command": ["nm", "-u", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.185}
+
+FILE _build/native/tests/lifecycle SHA256 9574ce2c3ecd7fd8b83cffb86e02a7695c473691287ca1518477974b699612bc
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/lifecycle: Mach-O 64-bit executable arm64
+{"command": ["file", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.005}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/lifecycle:
+	@loader_path/../../../lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/lifecycle:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __PAGEZERO
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000100000000
+  fileoff 0
+ filesize 0
+  maxprot 0x00000000
+ initprot 0x00000000
+   nsects 0
+    flags 0x0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 552
+  segname __TEXT
+   vmaddr 0x0000000100000000
+   vmsize 0x0000000000018000
+  fileoff 0
+ filesize 98304
+  maxprot 0x00000005
+ initprot 0x00000005
+   nsects 6
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x0000000100001290
+      size 0x00000000000106e4
+    offset 4752
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x0000000100011974
+      size 0x00000000000005a0
+    offset 72052
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x0000000100011f20
+      size 0x00000000000000d4
+    offset 73504
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __gcc_except_tab
+   segname __TEXT
+      addr 0x0000000100011ff4
+      size 0x00000000000016c0
+    offset 73716
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x00000001000136b4
+      size 0x0000000000001272
+    offset 79540
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x0000000100014928
+      size 0x00000000000003f8
+    offset 84264
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 232
+  segname __DATA_CONST
+   vmaddr 0x0000000100018000
+   vmsize 0x0000000000004000
+  fileoff 98304
+ filesize 16384
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 2
+    flags 0x10
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x0000000100018000
+      size 0x0000000000000440
+    offset 98304
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 120 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __const
+   segname __DATA_CONST
+      addr 0x0000000100018440
+      size 0x0000000000000c68
+    offset 99392
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 152
+  segname __DATA
+   vmaddr 0x000000010001c000
+   vmsize 0x0000000000004000
+  fileoff 0
+ filesize 0
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 1
+    flags 0x0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x000000010001c000
+      size 0x0000000000000020
+    offset 0
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Load command 4
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x0000000100020000
+   vmsize 0x0000000000010000
+  fileoff 114688
+ filesize 49472
+  maxprot 0x00000001
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 5
+      cmd LC_DYLD_CHAINED_FIXUPS
+  cmdsize 16
+  dataoff 114688
+ datasize 6904
+Load command 6
+      cmd LC_DYLD_EXPORTS_TRIE
+  cmdsize 16
+  dataoff 121592
+ datasize 752
+Load command 7
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 122552
+   nsyms 327
+  stroff 128808
+ strsize 16792
+Load command 8
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 148
+     iextdefsym 148
+     nextdefsym 43
+      iundefsym 191
+      nundefsym 136
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 127784
+  nindirectsyms 256
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 9
+          cmd LC_LOAD_DYLINKER
+      cmdsize 32
+         name /usr/lib/dyld (offset 12)
+Load command 10
+     cmd LC_UUID
+ cmdsize 24
+    uuid F404FF56-7C37-38F7-AAF9-0F667FF2295B
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform 1
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool 3
+  version 1230.1
+Load command 12
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 13
+       cmd LC_MAIN
+   cmdsize 24
+  entryoff 29680
+ stacksize 0
+Load command 14
+          cmd LC_LOAD_DYLIB
+      cmdsize 96
+         name @loader_path/../../../lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 0.20.2
+compatibility version 0.0.0
+Load command 15
+          cmd LC_LOAD_DYLIB
+      cmdsize 48
+         name /usr/lib/libc++.1.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 2000.63.0
+compatibility version 1.0.0
+Load command 16
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 17
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 122344
+ datasize 208
+Load command 18
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 122552
+ datasize 0
+Load command 19
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 145600
+ datasize 18560
+{"command": ["otool", "-l", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+__Unwind_Resume
+__ZN4lbug11transaction18TransactionContext21beginWriteTransactionEv
+__ZN4lbug11transaction18TransactionContext3GetERKNS_4main13ClientContextE
+__ZN4lbug11transaction18TransactionContext6commitEv
+__ZN4lbug11transaction18TransactionContext8rollbackEv
+__ZN4lbug14json_extension11JsonWrapperD1Ev
+__ZN4lbug14json_extension12stringToJsonERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
+__ZN4lbug4main10Connection17executeWithParamsEPNS0_17PreparedStatementENSt3__113unordered_mapINS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS4_10unique_ptrINS_6common5ValueENS4_14default_deleteISE_EEEENS4_4hashISB_EENS4_8equal_toISB_EENS9_INS4_4pairIKSB_SH_EEEEEE
+__ZN4lbug4main10Connection17prepareWithParamsENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEENS2_13unordered_mapINS2_12basic_stringIcS5_NS2_9allocatorIcEEEENS2_10unique_ptrINS_6common5ValueENS2_14default_deleteISE_EEEENS2_4hashISB_EENS2_8equal_toISB_EENS9_INS2_4pairIKSB_SH_EEEEEE
+__ZN4lbug4main10Connection5queryENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE
+__ZN4lbug4main10Connection9interruptEv
+__ZN4lbug4main10ConnectionC1EPNS0_8DatabaseE
+__ZN4lbug4main10ConnectionD1Ev
+__ZN4lbug4main12SystemConfigC1Eyybbybybbbbbj
+__ZN4lbug4main17PreparedStatementD1Ev
+__ZN4lbug4main8DatabaseC1ENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEENS0_12SystemConfigE
+__ZN4lbug4main8DatabaseD1Ev
+__ZN4lbug6common10StructType12getFieldTypeERKNS0_11LogicalTypeEt
+__ZN4lbug6common10StructType12getNumFieldsERKNS0_11LogicalTypeE
+__ZN4lbug6common10StructType8getFieldERKNS0_11LogicalTypeEt
+__ZN4lbug6common10interval_tC1Eiix
+__ZN4lbug6common11DecimalType12getPrecisionERKNS0_11LogicalTypeE
+__ZN4lbug6common11DecimalType8getScaleERKNS0_11LogicalTypeE
+__ZN4lbug6common11LogicalType15getPhysicalTypeENS0_13LogicalTypeIDERKNSt3__110unique_ptrINS0_13ExtraTypeInfoENS3_14default_deleteIS5_EEEE
+__ZN4lbug6common11LogicalType3MAPES1_S1_
+__ZN4lbug6common11LogicalType4LISTES1_
+__ZN4lbug6common11LogicalType5ARRAYES1_y
+__ZN4lbug6common11LogicalType6STRUCTEONSt3__16vectorINS0_11StructFieldENS2_9allocatorIS4_EEEE
+__ZN4lbug6common11LogicalType7DECIMALEjj
+__ZN4lbug6common11LogicalTypeC1ENS0_13LogicalTypeIDENS0_12TypeCategoryE
+__ZN4lbug6common11LogicalTypeC1ERKS1_
+__ZN4lbug6common4UUID11fromCStringEPKcy
+__ZN4lbug6common5Value15createNullValueERKNS0_11LogicalTypeE
+__ZN4lbug6common5Value18createDefaultValueERKNS0_11LogicalTypeE
+__ZN4lbug6common5ValueC1ENS0_11LogicalTypeENSt3__16vectorINS3_10unique_ptrIS1_NS3_14default_deleteIS1_EEEENS3_9allocatorIS8_EEEE
+__ZN4lbug6common5ValueC1ENS0_4uuidE
+__ZN4lbug6common7MapType10getKeyTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common7MapType12getValueTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common8ListType12getChildTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common9ArrayType12getChildTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common9ArrayType14getNumElementsERKNS0_11LogicalTypeE
+__ZN4lbug6common9NestedVal11getChildValEPKNS0_5ValueEj
+__ZN4lbug6common9NestedVal15getChildrenSizeEPKNS0_5ValueE
+__ZN4lbug6parser6Parser10parseQueryENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEENS2_6vectorIPNS_9extension20TransformerExtensionENS2_9allocatorISA_EEEE
+__ZN4lbug9processor9FlatTuple8getValueEj
+__ZNK4lbug4main11QueryResult13getNumColumnsEv
+__ZNK4lbug4main11QueryResult14getColumnNamesEv
+__ZNK4lbug4main11QueryResult15getErrorMessageEv
+__ZNK4lbug4main11QueryResult18getColumnDataTypesEv
+__ZNK4lbug4main11QueryResult9isSuccessEv
+__ZNK4lbug4main17PreparedStatement15getErrorMessageEv
+__ZNK4lbug4main17PreparedStatement9isSuccessEv
+__ZNK4lbug6common11LogicalTypeneERKS1_
+__ZNK4lbug6common5Value11getDataTypeEv
+__ZNK4lbug6common5Value4copyEv
+__ZNK4lbug6common5Value6isNullEv
+__ZNK4lbug6common5ValueeqERKS1_
+__ZNK4lbug9processor9FlatTuple3lenEv
+__ZNKSt3__14__fs10filesystem4path10__filenameEv
+__ZNKSt3__14__fs10filesystem4path16__root_directoryEv
+__ZNKSt3__16locale9use_facetERNS0_2idE
+__ZNKSt3__18ios_base6getlocEv
+__ZNSt11logic_errorC2EPKc
+__ZNSt12length_errorD1Ev
+__ZNSt13runtime_errorC1EPKc
+__ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt13runtime_errorD1Ev
+__ZNSt16invalid_argumentD1Ev
+__ZNSt20bad_array_new_lengthC1Ev
+__ZNSt20bad_array_new_lengthD1Ev
+__ZNSt3__111this_thread9sleep_forERKNS_6chrono8durationIxNS_5ratioILl1ELl1000000000EEEEE
+__ZNSt3__112__next_primeEm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev
+__ZNSt3__115__thread_structC1Ev
+__ZNSt3__115__thread_structD1Ev
+__ZNSt3__118condition_variable10notify_oneEv
+__ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE
+__ZNSt3__118condition_variableD1Ev
+__ZNSt3__119__shared_weak_count14__release_weakEv
+__ZNSt3__119__thread_local_dataEv
+__ZNSt3__120__throw_system_errorEiPKc
+__ZNSt3__14__fs10filesystem10__absoluteERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem12__remove_allERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem18__weakly_canonicalERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem20__create_directoriesERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem21__temp_directory_pathEPNS_10error_codeE
+__ZNSt3__14cerrE
+__ZNSt3__14coutE
+__ZNSt3__15ctypeIcE2idE
+__ZNSt3__15mutex4lockEv
+__ZNSt3__15mutex6unlockEv
+__ZNSt3__15mutexD1Ev
+__ZNSt3__16chrono12steady_clock3nowEv
+__ZNSt3__16localeD1Ev
+__ZNSt3__16thread4joinEv
+__ZNSt3__16threadD1Ev
+__ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv
+__ZNSt3__18ios_base5clearEj
+__ZNSt3__19to_stringEj
+__ZNSt3__19to_stringEx
+__ZSt9terminatev
+__ZTISt12length_error
+__ZTISt13runtime_error
+__ZTISt16invalid_argument
+__ZTISt20bad_array_new_length
+__ZTISt9exception
+__ZTVSt12length_error
+__ZTVSt16invalid_argument
+__ZdlPv
+__Znwm
+___cxa_allocate_exception
+___cxa_begin_catch
+___cxa_end_catch
+___cxa_free_exception
+___cxa_guard_abort
+___cxa_guard_acquire
+___cxa_guard_release
+___cxa_rethrow
+___cxa_throw
+___gxx_personality_v0
+___stack_chk_fail
+___stack_chk_guard
+_bzero
+_memchr
+_memcmp
+_memcpy
+_memmove
+_memset
+_pthread_create
+_pthread_setspecific
+_sched_yield
+_strlen
+{"command": ["nm", "-u", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/_build/native/tests/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+
+FILE lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so SHA256 94b12c614c44b5e695b1233381dc3d4c21bdb21c7fd0287fedf185d4f5f74f77
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so: Mach-O 64-bit dynamically linked shared library arm64
+{"command": ["file", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.005}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so:
+	@loader_path/Elixir.Aphid.Native.so (compatibility version 1.0.0, current version 0.1.0)
+	@loader_path/libaphid_bridge.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.019}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 632
+  segname __TEXT
+   vmaddr 0x0000000000000000
+   vmsize 0x00000000001a27e4
+  fileoff 0
+ filesize 1714148
+  maxprot 0x00000005
+ initprot 0x00000005
+   nsects 7
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x00000000000008b0
+      size 0x0000000000156354
+    offset 2224
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x0000000000156c04
+      size 0x00000000000008c4
+    offset 1403908
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __stub_helper
+   segname __TEXT
+      addr 0x00000000001574c8
+      size 0x00000000000008dc
+    offset 1406152
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x0000000000157db0
+      size 0x000000000000fce0
+    offset 1408432
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x0000000000167a90
+      size 0x0000000000001c66
+    offset 1473168
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x00000000001696f8
+      size 0x0000000000005ff0
+    offset 1480440
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __eh_frame
+   segname __TEXT
+      addr 0x000000000016f6e8
+      size 0x00000000000330fc
+    offset 1505000
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x6800000b
+ reserved1 0
+ reserved2 0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 152
+  segname __DATA_CONST
+   vmaddr 0x00000000001a4000
+   vmsize 0x0000000000000010
+  fileoff 1720320
+ filesize 16
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 1
+    flags 0x10
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x00000000001a4000
+      size 0x0000000000000010
+    offset 1720320
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 187 (index into indirect symbol table)
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 632
+  segname __DATA
+   vmaddr 0x00000000001a8000
+   vmsize 0x000000000004acc0
+  fileoff 1736704
+ filesize 38062
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 7
+    flags 0x0
+Section
+  sectname __la_symbol_ptr
+   segname __DATA
+      addr 0x00000000001a8000
+      size 0x00000000000005d8
+    offset 1736704
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000007
+ reserved1 189 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __const
+   segname __DATA
+      addr 0x00000000001a85d8
+      size 0x0000000000003550
+    offset 1738200
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __data
+   segname __DATA
+      addr 0x00000000001abb28
+      size 0x0000000000004c88
+    offset 1751848
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __sema
+   segname __DATA
+      addr 0x00000000001b07b0
+      size 0x0000000000000c9e
+    offset 1771440
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_vars
+   segname __DATA
+      addr 0x00000000001b144e
+      size 0x0000000000000060
+    offset 1774670
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000013
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_bss
+   segname __DATA
+      addr 0x00000000001b14b0
+      size 0x0000000000040040
+    offset 0
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000012
+ reserved1 0
+ reserved2 0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x00000000001f1500
+      size 0x00000000000017c0
+    offset 0
+     align 2^6 (64)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x00000000001f4000
+   vmsize 0x0000000000080000
+  fileoff 1785856
+ filesize 523440
+  maxprot 0x00000001
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 4
+            cmd LC_DYLD_INFO_ONLY
+        cmdsize 48
+     rebase_off 1785856
+    rebase_size 224
+       bind_off 1786080
+      bind_size 56
+  weak_bind_off 1786136
+ weak_bind_size 0
+  lazy_bind_off 1786136
+ lazy_bind_size 4136
+     export_off 1790272
+    export_size 144
+Load command 5
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 1790416
+ datasize 0
+Load command 6
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 1790416
+ datasize 0
+Load command 7
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 1790416
+   nsyms 20823
+  stroff 2125088
+ strsize 161483
+Load command 8
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 20627
+     iextdefsym 20627
+     nextdefsym 7
+      iundefsym 20634
+      nundefsym 189
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 2123584
+  nindirectsyms 376
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 9
+          cmd LC_LOAD_DYLINKER
+      cmdsize 32
+         name /usr/lib/dyld (offset 12)
+Load command 10
+          cmd LC_ID_DYLIB
+      cmdsize 64
+         name @loader_path/Elixir.Aphid.Native.so (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 0.1.0
+compatibility version 1.0.0
+Load command 11
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 12
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform 1
+    minos 13.3
+      sdk 26.4
+   ntools 1
+     tool 5
+  version 0.0
+Load command 13
+     cmd LC_UUID
+ cmdsize 24
+    uuid BDE797E8-9095-3FFE-8F74-5D554D25BC18
+Load command 14
+          cmd LC_LOAD_DYLIB
+      cmdsize 64
+         name @loader_path/libaphid_bridge.dylib (offset 24)
+   time stamp 1 Thu Jan  1 07:30:01 1970
+      current version 0.0.0
+compatibility version 0.0.0
+Load command 15
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 16
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 2286576
+ datasize 22720
+{"command": ["otool", "-l", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+__NSGetExecutablePath
+___error
+___getdirentries64
+___ulock_wait2
+___ulock_wake
+__availability_version_check
+__dyld_get_image_header_containing_address
+__exit
+__tlv_bootstrap
+_abort
+_accept
+_aphid_bridge_version
+_aphid_cancel
+_aphid_closed
+_aphid_fetch_begin
+_aphid_fetch_column
+_aphid_fetch_columns
+_aphid_fetch_end
+_aphid_fetch_next
+_aphid_fetch_position
+_aphid_fetch_rows
+_aphid_fetch_unread
+_aphid_fetch_value
+_aphid_finish
+_aphid_lease_acquire
+_aphid_lease_release
+_aphid_live_databases
+_aphid_live_workers
+_aphid_next_id
+_aphid_open_configured
+_aphid_operation_error
+_aphid_params_add
+_aphid_params_free
+_aphid_params_new
+_aphid_release
+_aphid_reserve_lease
+_aphid_retire
+_aphid_session_state
+_aphid_submit_params
+_aphid_transaction_control
+_aphid_transferring
+_aphid_type_child
+_aphid_type_free
+_aphid_type_inspect
+_aphid_type_make
+_aphid_value_child
+_aphid_value_free
+_aphid_value_inspect
+_aphid_value_make
+_arc4random_buf
+_bind
+_bzero
+_chdir
+_clock_getres
+_clock_gettime
+_close$NOCANCEL
+_connect
+_dup2
+_dyld_image_path_containing_address
+_enif_alloc
+_enif_alloc_env
+_enif_alloc_resource
+_enif_binary_to_term
+_enif_compare
+_enif_free
+_enif_free_env
+_enif_get_double
+_enif_get_int
+_enif_get_list_cell
+_enif_get_long
+_enif_get_map_size
+_enif_get_map_value
+_enif_get_resource
+_enif_get_tuple
+_enif_get_uint
+_enif_get_ulong
+_enif_init_resource_type
+_enif_inspect_binary
+_enif_is_identical
+_enif_is_map
+_enif_is_number
+_enif_keep_resource
+_enif_make_atom
+_enif_make_atom_len
+_enif_make_double
+_enif_make_int
+_enif_make_list_cell
+_enif_make_list_from_array
+_enif_make_long
+_enif_make_map_from_arrays
+_enif_make_new_binary
+_enif_make_resource
+_enif_make_reverse_list
+_enif_make_tuple_from_array
+_enif_make_uint
+_enif_make_ulong
+_enif_map_iterator_create
+_enif_map_iterator_destroy
+_enif_map_iterator_get_pair
+_enif_map_iterator_next
+_enif_monitor_process
+_enif_monotonic_time
+_enif_raise_exception
+_enif_release_binary
+_enif_release_resource
+_enif_self
+_enif_send
+_enif_term_to_binary
+_enif_term_type
+_enif_time_offset
+_execve
+_faccessat
+_fchdir
+_fchmod
+_fchmodat
+_fchown
+_fcntl
+_fcopyfile
+_flock
+_fork
+_free
+_freeaddrinfo
+_fstat
+_fstatat
+_fsync
+_ftruncate
+_futimens
+_getaddrinfo
+_getcwd
+_getpid
+_getsockname
+_if_nametoindex
+_ioctl
+_isatty
+_kill
+_linkat
+_listen
+_lseek
+_malloc
+_malloc_size
+_mkdirat
+_mmap
+_munmap
+_nanosleep
+_open
+_openat
+_pipe
+_poll
+_posix_memalign
+_pread
+_preadv
+_pthread_attr_destroy
+_pthread_attr_init
+_pthread_attr_setguardsize
+_pthread_attr_setstacksize
+_pthread_create
+_pthread_detach
+_pthread_kill
+_pthread_self
+_pthread_threadid_np
+_pwrite
+_pwritev
+_read
+_readlinkat
+_readv
+_realloc
+_realpath$DARWIN_EXTSN
+_recvmsg
+_renameat
+_sendfile
+_sendmsg
+_setpgid
+_setregid
+_setreuid
+_setsockopt
+_shutdown
+_sigaction
+_sigaltstack
+_sigemptyset
+_socket
+_socketpair
+_symlinkat
+_sys_icache_invalidate
+_unlinkat
+_utimensat
+_wait4
+_write
+_writev
+dyld_stub_binder
+{"command": ["nm", "-u", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+00000000001abb28 D ___dso_handle
+00000000001abb28 D __mh_dylib_header
+0000000000136b98 T _blank_load
+000000000010314c T _blank_unload
+0000000000136b6c T _blank_upgrade
+00000000001017d8 T _nif_init
+00000000001b07b0 S _sema
+{"command": ["nm", "-gU", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.019}
+Zigler __sema present; source NIF identity:
+const entry = e.ErlNifEntry{
+    .major = 2,
+    .minor = 18,
+    .name = "Elixir.Aphid.Native",
+    .num_of_funcs = exported_nifs.len,
+    .funcs = &exported_nifs,
+    .load = load,
+    .reload = null, // never supported as of OTP 20
+    .upgrade = upgrade,
+    .unload = beam.loader.blank_unload,
+    .vm_variant = "beam.vanilla",
+    .options = 1,
+    .sizeof_ErlNifResourceTypeInit = @sizeOf(e.ErlNifResourceTypeInit),
+    .min_erts = "erts-17.0.4",
+};
+
+export fn nif_init() *const e.ErlNifEntry {
+    return &entry;
+}
+
+fn sectionName() []const u8 {
+    return switch (builtin.target.ofmt) {
+        .macho => "__DATA,__sema", // Mach-O requires SEGMENT,SECTION
+        else => ".sema", // ELF/COFF-style single name
+    };
+}
+
+export const sema: [3229:0]u8 linksection(sectionName()) = "{\"decls\":[],\"functions\":[{\"name\":\"load\",\"params\":[{\"type\":\"env\"},{\"child\":{\"child\":{\"child\":{\"child\":{\"type\":\"unusable:anyopaque\"},\"is_const\":false,\"type\":\"pointer\"},\"type\":\"optional\"},\"is_const\":false,\"type\":\"pointer\"},\"type\":\"optional\"},{\"type\":\"erl_nif_term\"}],\"return\":{\"bits\":32,\"signedness\":\"signed\",\"type\":\"integer\"}},{\"name\":\"upgrade\",\"params\":[{\"type\":\"env\"},{\"child\":{\"child\":{\"child\":{\"child\":{\"type\":\"unusable:anyopaque\"},\"is_const\":false,\"type\":\"pointer\"},\"type\":\"optional\"},\"is_const\":false,\"type\":\"pointer\"},\"type\":\"optional\"},{\"child\":{\"child\":{\"child\":{\"child\":{\"type\":\"unusable:anyopaque\"},\"is_const\":false,\"type\":\"pointer\"},\"type\":\"optional\"},\"is_const\":false,\"type\":\"pointer\"},\"type\":\"optional\"},{\"type\":\"erl_nif_term\"}],\"return\":{\"bits\":32,\"signedness\":\"signed\",\"type\":\"integer\"}},{\"name\":\"open\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"open_configured\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"},{\"bits\":64,\"signedness\":\"unsigned\",\"type\":\"integer\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"submit\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"},{\"type\":\"term\"},{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"submit_lease\",\"params\":[{\"type\":\"term\"},{\"type\":\"term\"},{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"lease_acquire\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"lease_release\",\"params\":[{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"bool\"},\"type\":\"error\"}},{\"name\":\"transaction_control\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"close\",\"params\":[{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"void\"},\"type\":\"error\"}},{\"name\":\"closed\",\"params\":[{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"bool\"},\"type\":\"error\"}},{\"name\":\"state\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"}],\"return\":{\"child\":{\"bits\":32,\"signedness\":\"signed\",\"type\":\"integer\"},\"type\":\"error\"}},{\"name\":\"cancel\",\"params\":[{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"bool\"},\"type\":\"error\"}},{\"name\":\"finish\",\"params\":[{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"bool\"},\"type\":\"error\"}},{\"name\":\"operation_error\",\"params\":[{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"transferring\",\"params\":[{\"type\":\"term\"}],\"return\":{\"child\":{\"type\":\"bool\"},\"type\":\"error\"}},{\"name\":\"stats\",\"params\":[],\"return\":{\"type\":\"term\"}},{\"name\":\"collect\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"},{\"bits\":64,\"signedness\":\"unsigned\",\"type\":\"integer\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}},{\"name\":\"fetch\",\"params\":[{\"type\":\"term\"},{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"},{\"bits\":64,\"signedness\":\"unsigned\",\"type\":\"integer\"}],\"return\":{\"child\":{\"type\":\"term\"},\"type\":\"error\"}}],\"types\":[]}".*;
+
+
+FILE lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so SHA256 ab08db391218885a20f3c35a95625d13f28bde5c6f7e7de5b8c1f946eba1f373
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so: Mach-O 64-bit dynamically linked shared library arm64
+{"command": ["file", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.005}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so:
+	@loader_path/Elixir.Aphid.Proof.so (compatibility version 1.0.0, current version 0.1.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.019}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 632
+  segname __TEXT
+   vmaddr 0x0000000000000000
+   vmsize 0x000000000016b580
+  fileoff 0
+ filesize 1488256
+  maxprot 0x00000005
+ initprot 0x00000005
+   nsects 7
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x0000000000000798
+      size 0x000000000012b2b4
+    offset 1944
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x000000000012ba4c
+      size 0x00000000000005b8
+    offset 1227340
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __stub_helper
+   segname __TEXT
+      addr 0x000000000012c004
+      size 0x00000000000005d0
+    offset 1228804
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x000000000012c5e0
+      size 0x000000000000f160
+    offset 1230304
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x000000000013b740
+      size 0x00000000000017b3
+    offset 1292096
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x000000000013cef4
+      size 0x0000000000004be4
+    offset 1298164
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __eh_frame
+   segname __TEXT
+      addr 0x0000000000141ad8
+      size 0x0000000000029aa8
+    offset 1317592
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x6800000b
+ reserved1 0
+ reserved2 0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 152
+  segname __DATA_CONST
+   vmaddr 0x000000000016c000
+   vmsize 0x0000000000000010
+  fileoff 1490944
+ filesize 16
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 1
+    flags 0x10
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x000000000016c000
+      size 0x0000000000000010
+    offset 1490944
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 122 (index into indirect symbol table)
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 632
+  segname __DATA
+   vmaddr 0x0000000000170000
+   vmsize 0x0000000000049900
+  fileoff 1507328
+ filesize 33013
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 7
+    flags 0x0
+Section
+  sectname __la_symbol_ptr
+   segname __DATA
+      addr 0x0000000000170000
+      size 0x00000000000003d0
+    offset 1507328
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000007
+ reserved1 124 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __const
+   segname __DATA
+      addr 0x00000000001703d0
+      size 0x0000000000002df8
+    offset 1508304
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __data
+   segname __DATA
+      addr 0x00000000001731d0
+      size 0x0000000000004b30
+    offset 1520080
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __sema
+   segname __DATA
+      addr 0x0000000000177d00
+      size 0x0000000000000395
+    offset 1539328
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_vars
+   segname __DATA
+      addr 0x0000000000178095
+      size 0x0000000000000060
+    offset 1540245
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000013
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_bss
+   segname __DATA
+      addr 0x00000000001780f8
+      size 0x0000000000040040
+    offset 0
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000012
+ reserved1 0
+ reserved2 0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x00000000001b8140
+      size 0x00000000000017c0
+    offset 0
+     align 2^6 (64)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x00000000001bc000
+   vmsize 0x000000000006c000
+  fileoff 1556480
+ filesize 436528
+  maxprot 0x00000001
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 4
+            cmd LC_DYLD_INFO_ONLY
+        cmdsize 48
+     rebase_off 1556480
+    rebase_size 200
+       bind_off 1556680
+      bind_size 56
+  weak_bind_off 1556736
+ weak_bind_size 0
+  lazy_bind_off 1556736
+ lazy_bind_size 2448
+     export_off 1559184
+    export_size 192
+Load command 5
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 1559376
+ datasize 0
+Load command 6
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 1559376
+ datasize 0
+Load command 7
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 1559376
+   nsyms 17042
+  stroff 1833032
+ strsize 137856
+Load command 8
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 16909
+     iextdefsym 16909
+     nextdefsym 9
+      iundefsym 16918
+      nundefsym 124
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 1832048
+  nindirectsyms 246
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 9
+          cmd LC_LOAD_DYLINKER
+      cmdsize 32
+         name /usr/lib/dyld (offset 12)
+Load command 10
+          cmd LC_ID_DYLIB
+      cmdsize 64
+         name @loader_path/Elixir.Aphid.Proof.so (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 0.1.0
+compatibility version 1.0.0
+Load command 11
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 12
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform 1
+    minos 13.3
+      sdk 26.4
+   ntools 1
+     tool 5
+  version 0.0
+Load command 13
+     cmd LC_UUID
+ cmdsize 24
+    uuid C22392B7-9537-3656-8C80-9B07FE50EC3B
+Load command 14
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 15
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 1970896
+ datasize 22112
+{"command": ["otool", "-l", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+__NSGetExecutablePath
+___error
+___getdirentries64
+___ulock_wait2
+___ulock_wake
+__availability_version_check
+__dyld_get_image_header_containing_address
+__exit
+__tlv_bootstrap
+_abort
+_accept
+_arc4random_buf
+_bind
+_bzero
+_chdir
+_clock_getres
+_clock_gettime
+_close$NOCANCEL
+_connect
+_dup2
+_dyld_image_path_containing_address
+_enif_alloc
+_enif_alloc_resource
+_enif_free
+_enif_get_int
+_enif_get_resource
+_enif_init_resource_type
+_enif_keep_resource
+_enif_make_atom
+_enif_make_atom_len
+_enif_make_int
+_enif_make_list_cell
+_enif_make_list_from_array
+_enif_make_long
+_enif_make_map_from_arrays
+_enif_make_new_binary
+_enif_make_resource
+_enif_make_tuple_from_array
+_enif_make_uint
+_enif_make_ulong
+_enif_monotonic_time
+_enif_raise_exception
+_enif_release_resource
+_enif_term_type
+_enif_time_offset
+_execve
+_faccessat
+_fchdir
+_fchmod
+_fchmodat
+_fchown
+_fcntl
+_fcopyfile
+_flock
+_fork
+_free
+_freeaddrinfo
+_fstat
+_fstatat
+_fsync
+_ftruncate
+_futimens
+_getaddrinfo
+_getcwd
+_getpid
+_getsockname
+_if_nametoindex
+_ioctl
+_isatty
+_kill
+_linkat
+_listen
+_lseek
+_malloc
+_malloc_size
+_mkdirat
+_mmap
+_munmap
+_nanosleep
+_open
+_openat
+_pipe
+_poll
+_posix_memalign
+_pread
+_preadv
+_pthread_attr_destroy
+_pthread_attr_init
+_pthread_attr_setguardsize
+_pthread_attr_setstacksize
+_pthread_create
+_pthread_detach
+_pthread_kill
+_pthread_self
+_pthread_threadid_np
+_pwrite
+_pwritev
+_read
+_readlinkat
+_readv
+_realloc
+_realpath$DARWIN_EXTSN
+_recvmsg
+_renameat
+_sendfile
+_sendmsg
+_setpgid
+_setregid
+_setreuid
+_setsockopt
+_shutdown
+_sigaction
+_sigaltstack
+_sigemptyset
+_socket
+_socketpair
+_symlinkat
+_sys_icache_invalidate
+_unlinkat
+_utimensat
+_wait4
+_write
+_writev
+dyld_stub_binder
+{"command": ["nm", "-u", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+00000000001731d0 D ___dso_handle
+00000000001731d0 D __mh_dylib_header
+0000000000000798 T _aphid_abi_version
+00000000000007a0 T _aphid_proof_add
+000000000010bcec T _blank_load
+00000000001027b4 T _blank_unload
+0000000000102828 T _blank_upgrade
+0000000000101728 T _nif_init
+0000000000177d00 S _sema
+{"command": ["nm", "-gU", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+Zigler __sema present; source NIF identity:
+const entry = e.ErlNifEntry{
+    .major = 2,
+    .minor = 18,
+    .name = "Elixir.Aphid.Proof",
+    .num_of_funcs = exported_nifs.len,
+    .funcs = &exported_nifs,
+    .load = load,
+    .reload = null, // never supported as of OTP 20
+    .upgrade = beam.loader.blank_upgrade,
+    .unload = beam.loader.blank_unload,
+    .vm_variant = "beam.vanilla",
+    .options = 1,
+    .sizeof_ErlNifResourceTypeInit = @sizeOf(e.ErlNifResourceTypeInit),
+    .min_erts = "erts-17.0.4",
+};
+
+export fn nif_init() *const e.ErlNifEntry {
+    return &entry;
+}
+
+fn sectionName() []const u8 {
+    return switch (builtin.target.ofmt) {
+        .macho => "__DATA,__sema", // Mach-O requires SEGMENT,SECTION
+        else => ".sema", // ELF/COFF-style single name
+    };
+}
+
+export const sema: [916:0]u8 linksection(sectionName()) = "{\"decls\":[],\"functions\":[{\"name\":\"abi_version\",\"params\":[],\"return\":{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"}},{\"name\":\"add\",\"params\":[{\"bits\":32,\"signedness\":\"signed\",\"type\":\"integer\"},{\"bits\":32,\"signedness\":\"signed\",\"type\":\"integer\"}],\"return\":{\"bits\":64,\"signedness\":\"signed\",\"type\":\"integer\"}},{\"name\":\"token\",\"params\":[],\"return\":{\"child\":{\"name\":\"resource.Resource(u32,sema,.{ .Callbacks = .Elixir.Aphid.Proof.Callbacks })\",\"type\":\"resource\"},\"type\":\"error\"}},{\"name\":\"token_value\",\"params\":[{\"name\":\"resource.Resource(u32,sema,.{ .Callbacks = .Elixir.Aphid.Proof.Callbacks })\",\"type\":\"resource\"}],\"return\":{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"}},{\"name\":\"live_tokens\",\"params\":[],\"return\":{\"bits\":32,\"signedness\":\"unsigned\",\"type\":\"integer\"}}],\"types\":[{\"name\":\"Token\",\"type\":{\"name\":\"resource.Resource(u32,sema,.{ .Callbacks = .Elixir.Aphid.Proof.Callbacks })\",\"type\":\"resource\"}}]}".*;
+
+
+FILE lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib SHA256 5dbdd4d341d63da2ba189b908510c1a13ef1f548821a9beaa06ed787e3725110
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib: Mach-O 64-bit dynamically linked shared library arm64
+{"command": ["file", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.005}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib:
+	@loader_path/libaphid_bridge.dylib (compatibility version 0.0.0, current version 0.0.0)
+	@loader_path/liblbug.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 552
+  segname __TEXT
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000000010000
+  fileoff 0
+ filesize 65536
+  maxprot 0x00000005
+ initprot 0x00000005
+   nsects 6
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x00000000000015f8
+      size 0x0000000000009878
+    offset 5624
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x000000000000ae70
+      size 0x0000000000000498
+    offset 44656
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x000000000000b308
+      size 0x0000000000000031
+    offset 45832
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __gcc_except_tab
+   segname __TEXT
+      addr 0x000000000000b33c
+      size 0x0000000000000ad4
+    offset 45884
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x000000000000be10
+      size 0x00000000000007cd
+    offset 48656
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x000000000000c5e0
+      size 0x0000000000000320
+    offset 50656
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 152
+  segname __DATA_CONST
+   vmaddr 0x0000000000010000
+   vmsize 0x0000000000004000
+  fileoff 65536
+ filesize 16384
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 1
+    flags 0x10
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x0000000000010000
+      size 0x0000000000000378
+    offset 65536
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 98 (index into indirect symbol table)
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 152
+  segname __DATA
+   vmaddr 0x0000000000014000
+   vmsize 0x0000000000004000
+  fileoff 0
+ filesize 0
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 1
+    flags 0x0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x0000000000014000
+      size 0x0000000000000020
+    offset 0
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x0000000000018000
+   vmsize 0x000000000000c000
+  fileoff 81920
+ filesize 43696
+  maxprot 0x00000001
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 4
+          cmd LC_ID_DYLIB
+      cmdsize 64
+         name @loader_path/libaphid_bridge.dylib (offset 24)
+   time stamp 1 Thu Jan  1 07:30:01 1970
+      current version 0.0.0
+compatibility version 0.0.0
+Load command 5
+      cmd LC_DYLD_CHAINED_FIXUPS
+  cmdsize 16
+  dataoff 81920
+ datasize 5728
+Load command 6
+      cmd LC_DYLD_EXPORTS_TRIE
+  cmdsize 16
+  dataoff 87648
+ datasize 712
+Load command 7
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 88536
+   nsyms 263
+  stroff 93584
+ strsize 13528
+Load command 8
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 111
+     iextdefsym 111
+     nextdefsym 41
+      iundefsym 152
+      nundefsym 111
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 92744
+  nindirectsyms 209
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 9
+     cmd LC_UUID
+ cmdsize 24
+    uuid 8A6307BE-317E-3443-BB76-D8C558978F6C
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform 1
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool 3
+  version 1230.1
+Load command 11
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 12
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name @loader_path/liblbug.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 0.20.2
+compatibility version 0.0.0
+Load command 13
+          cmd LC_LOAD_DYLIB
+      cmdsize 48
+         name /usr/lib/libc++.1.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 2000.63.0
+compatibility version 1.0.0
+Load command 14
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 15
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 88360
+ datasize 176
+Load command 16
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 88536
+ datasize 0
+Load command 17
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 107120
+ datasize 18496
+{"command": ["otool", "-l", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+__Unwind_Resume
+__ZN4lbug11transaction18TransactionContext21beginWriteTransactionEv
+__ZN4lbug11transaction18TransactionContext3GetERKNS_4main13ClientContextE
+__ZN4lbug11transaction18TransactionContext6commitEv
+__ZN4lbug11transaction18TransactionContext8rollbackEv
+__ZN4lbug14json_extension11JsonWrapperD1Ev
+__ZN4lbug14json_extension12stringToJsonERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
+__ZN4lbug4main10Connection17executeWithParamsEPNS0_17PreparedStatementENSt3__113unordered_mapINS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS4_10unique_ptrINS_6common5ValueENS4_14default_deleteISE_EEEENS4_4hashISB_EENS4_8equal_toISB_EENS9_INS4_4pairIKSB_SH_EEEEEE
+__ZN4lbug4main10Connection17prepareWithParamsENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEENS2_13unordered_mapINS2_12basic_stringIcS5_NS2_9allocatorIcEEEENS2_10unique_ptrINS_6common5ValueENS2_14default_deleteISE_EEEENS2_4hashISB_EENS2_8equal_toISB_EENS9_INS2_4pairIKSB_SH_EEEEEE
+__ZN4lbug4main10Connection5queryENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE
+__ZN4lbug4main10Connection9interruptEv
+__ZN4lbug4main10ConnectionC1EPNS0_8DatabaseE
+__ZN4lbug4main10ConnectionD1Ev
+__ZN4lbug4main12SystemConfigC1Eyybbybybbbbbj
+__ZN4lbug4main17PreparedStatementD1Ev
+__ZN4lbug4main8DatabaseC1ENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEENS0_12SystemConfigE
+__ZN4lbug4main8DatabaseD1Ev
+__ZN4lbug6common10StructType12getFieldTypeERKNS0_11LogicalTypeEt
+__ZN4lbug6common10StructType12getNumFieldsERKNS0_11LogicalTypeE
+__ZN4lbug6common10StructType8getFieldERKNS0_11LogicalTypeEt
+__ZN4lbug6common10interval_tC1Eiix
+__ZN4lbug6common11DecimalType12getPrecisionERKNS0_11LogicalTypeE
+__ZN4lbug6common11DecimalType8getScaleERKNS0_11LogicalTypeE
+__ZN4lbug6common11LogicalType15getPhysicalTypeENS0_13LogicalTypeIDERKNSt3__110unique_ptrINS0_13ExtraTypeInfoENS3_14default_deleteIS5_EEEE
+__ZN4lbug6common11LogicalType3MAPES1_S1_
+__ZN4lbug6common11LogicalType4LISTES1_
+__ZN4lbug6common11LogicalType5ARRAYES1_y
+__ZN4lbug6common11LogicalType6STRUCTEONSt3__16vectorINS0_11StructFieldENS2_9allocatorIS4_EEEE
+__ZN4lbug6common11LogicalType7DECIMALEjj
+__ZN4lbug6common11LogicalTypeC1ENS0_13LogicalTypeIDENS0_12TypeCategoryE
+__ZN4lbug6common11LogicalTypeC1ERKS1_
+__ZN4lbug6common4UUID11fromCStringEPKcy
+__ZN4lbug6common5Value15createNullValueERKNS0_11LogicalTypeE
+__ZN4lbug6common5Value18createDefaultValueERKNS0_11LogicalTypeE
+__ZN4lbug6common5ValueC1ENS0_11LogicalTypeENSt3__16vectorINS3_10unique_ptrIS1_NS3_14default_deleteIS1_EEEENS3_9allocatorIS8_EEEE
+__ZN4lbug6common5ValueC1ENS0_4uuidE
+__ZN4lbug6common7MapType10getKeyTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common7MapType12getValueTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common8ListType12getChildTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common9ArrayType12getChildTypeERKNS0_11LogicalTypeE
+__ZN4lbug6common9ArrayType14getNumElementsERKNS0_11LogicalTypeE
+__ZN4lbug6common9NestedVal11getChildValEPKNS0_5ValueEj
+__ZN4lbug6common9NestedVal15getChildrenSizeEPKNS0_5ValueE
+__ZN4lbug6parser6Parser10parseQueryENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEENS2_6vectorIPNS_9extension20TransformerExtensionENS2_9allocatorISA_EEEE
+__ZN4lbug9processor9FlatTuple8getValueEj
+__ZNK4lbug4main11QueryResult13getNumColumnsEv
+__ZNK4lbug4main11QueryResult14getColumnNamesEv
+__ZNK4lbug4main11QueryResult15getErrorMessageEv
+__ZNK4lbug4main11QueryResult18getColumnDataTypesEv
+__ZNK4lbug4main11QueryResult9isSuccessEv
+__ZNK4lbug4main17PreparedStatement15getErrorMessageEv
+__ZNK4lbug4main17PreparedStatement9isSuccessEv
+__ZNK4lbug6common11LogicalTypeneERKS1_
+__ZNK4lbug6common5Value11getDataTypeEv
+__ZNK4lbug6common5Value6isNullEv
+__ZNK4lbug6common5ValueeqERKS1_
+__ZNK4lbug9processor9FlatTuple3lenEv
+__ZNSt11logic_errorC2EPKc
+__ZNSt12length_errorD1Ev
+__ZNSt13runtime_errorC1EPKc
+__ZNSt13runtime_errorD1Ev
+__ZNSt16invalid_argumentD1Ev
+__ZNSt20bad_array_new_lengthC1Ev
+__ZNSt20bad_array_new_lengthD1Ev
+__ZNSt3__111this_thread9sleep_forERKNS_6chrono8durationIxNS_5ratioILl1ELl1000000000EEEEE
+__ZNSt3__112__next_primeEm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm
+__ZNSt3__115__thread_structC1Ev
+__ZNSt3__115__thread_structD1Ev
+__ZNSt3__118condition_variable10notify_oneEv
+__ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE
+__ZNSt3__118condition_variableD1Ev
+__ZNSt3__119__shared_weak_count14__release_weakEv
+__ZNSt3__119__thread_local_dataEv
+__ZNSt3__120__throw_system_errorEiPKc
+__ZNSt3__14__fs10filesystem10__absoluteERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem18__weakly_canonicalERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__15mutex4lockEv
+__ZNSt3__15mutex6unlockEv
+__ZNSt3__15mutexD1Ev
+__ZNSt3__16thread4joinEv
+__ZNSt3__16threadD1Ev
+__ZSt9terminatev
+__ZTISt12length_error
+__ZTISt13runtime_error
+__ZTISt16invalid_argument
+__ZTISt20bad_array_new_length
+__ZTISt9exception
+__ZTVSt12length_error
+__ZTVSt16invalid_argument
+__ZdlPv
+__Znwm
+___cxa_allocate_exception
+___cxa_begin_catch
+___cxa_end_catch
+___cxa_free_exception
+___cxa_guard_abort
+___cxa_guard_acquire
+___cxa_guard_release
+___cxa_rethrow
+___cxa_throw
+___gxx_personality_v0
+___stack_chk_fail
+___stack_chk_guard
+_bzero
+_memchr
+_memcmp
+_memcpy
+_memmove
+_pthread_create
+_pthread_setspecific
+{"command": ["nm", "-u", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+
+FILE lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib SHA256 775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib: Mach-O 64-bit dynamically linked shared library arm64
+{"command": ["file", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.005}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib:
+	@loader_path/liblbug.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 712
+  segname __TEXT
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000002e30000
+  fileoff 0
+ filesize 48431104
+  maxprot 0x00000005
+ initprot 0x00000005
+   nsects 8
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x0000000000001400
+      size 0x000000000271bb88
+    offset 5120
+     align 2^7 (128)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x000000000271cf88
+      size 0x00000000000018f0
+    offset 41013128
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 12 (size of stubs)
+Section
+  sectname __init_offsets
+   segname __TEXT
+      addr 0x000000000271e878
+      size 0x0000000000000054
+    offset 41019512
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000016
+ reserved1 0
+ reserved2 0
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x000000000271f000
+      size 0x0000000000371e70
+    offset 41021440
+     align 2^12 (4096)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __gcc_except_tab
+   segname __TEXT
+      addr 0x0000000002a90e70
+      size 0x000000000026395c
+    offset 44633712
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x0000000002cf47d0
+      size 0x00000000000bb266
+    offset 47138768
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x0000000002dafa38
+      size 0x000000000007e4f0
+    offset 47905336
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __eh_frame
+   segname __TEXT
+      addr 0x0000000002e2df28
+      size 0x0000000000001c68
+    offset 48422696
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x6800000b
+ reserved1 0
+ reserved2 0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 232
+  segname __DATA_CONST
+   vmaddr 0x0000000002e30000
+   vmsize 0x0000000000158000
+  fileoff 48431104
+ filesize 1409024
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 2
+    flags 0x10
+Section
+  sectname __got
+   segname __DATA_CONST
+      addr 0x0000000002e30000
+      size 0x0000000000004090
+    offset 48431104
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 532 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __const
+   segname __DATA_CONST
+      addr 0x0000000002e34090
+      size 0x0000000000150a00
+    offset 48447632
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 552
+  segname __DATA
+   vmaddr 0x0000000002f88000
+   vmsize 0x0000000000010000
+  fileoff 49840128
+ filesize 32768
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 6
+    flags 0x0
+Section
+  sectname __data
+   segname __DATA
+      addr 0x0000000002f88000
+      size 0x0000000000005e40
+    offset 49840128
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_vars
+   segname __DATA
+      addr 0x0000000002f8de40
+      size 0x00000000000000d8
+    offset 49864256
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000013
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_data
+   segname __DATA
+      addr 0x0000000002f8df18
+      size 0x0000000000000008
+    offset 49864472
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000011
+ reserved1 0
+ reserved2 0
+Section
+  sectname __thread_bss
+   segname __DATA
+      addr 0x0000000002f8df20
+      size 0x0000000000000470
+    offset 0
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000012
+ reserved1 0
+ reserved2 0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x0000000002f8e390
+      size 0x0000000000008e90
+    offset 0
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Section
+  sectname __common
+   segname __DATA
+      addr 0x0000000002f97220
+      size 0x0000000000000c18
+    offset 0
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000001
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x0000000002f98000
+   vmsize 0x000000000120c000
+  fileoff 49872896
+ filesize 18908992
+  maxprot 0x00000001
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 4
+          cmd LC_ID_DYLIB
+      cmdsize 56
+         name @loader_path/liblbug.dylib (offset 24)
+   time stamp 1 Thu Jan  1 07:30:01 1970
+      current version 0.20.2
+compatibility version 0.0.0
+Load command 5
+      cmd LC_DYLD_CHAINED_FIXUPS
+  cmdsize 16
+  dataoff 49872896
+ datasize 256472
+Load command 6
+      cmd LC_DYLD_EXPORTS_TRIE
+  cmdsize 16
+  dataoff 50129368
+ datasize 1750896
+Load command 7
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 52029824
+   nsyms 189069
+  stroff 55065320
+ strsize 13564248
+Load command 8
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 151713
+     iextdefsym 151713
+     nextdefsym 36803
+      iundefsym 188516
+      nundefsym 553
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 55054928
+  nindirectsyms 2598
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 9
+     cmd LC_UUID
+ cmdsize 24
+    uuid C9805D96-F35F-3E39-AC61-724E45BE3D1B
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform 1
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool 3
+  version 1230.1
+Load command 11
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 12
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 1356.0.0
+compatibility version 1.0.0
+Load command 13
+          cmd LC_LOAD_DYLIB
+      cmdsize 48
+         name /usr/lib/libc++.1.dylib (offset 24)
+   time stamp 2 Thu Jan  1 07:30:02 1970
+      current version 2000.63.0
+compatibility version 1.0.0
+Load command 14
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 51880264
+ datasize 149560
+Load command 15
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 52029824
+ datasize 0
+Load command 16
+      cmd LC_CODE_SIGNATURE
+  cmdsize 16
+  dataoff 68629568
+ datasize 152320
+{"command": ["otool", "-l", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+_CCRandomGenerateBytes
+__DefaultRuneLocale
+__Unwind_Resume
+__ZNKSt13runtime_error4whatEv
+__ZNKSt16nested_exception14rethrow_nestedEv
+__ZNKSt3__110error_code7messageEv
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4copyEPcmm
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findEcm
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindEcm
+__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKc
+__ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strEv
+__ZNKSt3__119__shared_weak_count13__get_deleterERKSt9type_info
+__ZNKSt3__123__match_any_but_newlineIcE6__execERNS_7__stateIcEE
+__ZNKSt3__14__fs10filesystem18directory_iterator13__dereferenceEv
+__ZNKSt3__14__fs10filesystem4path10__filenameEv
+__ZNKSt3__14__fs10filesystem4path11__extensionEv
+__ZNKSt3__14__fs10filesystem4path13__parent_pathEv
+__ZNKSt3__14__fs10filesystem4path16__root_directoryEv
+__ZNKSt3__14__fs10filesystem4path16lexically_normalEv
+__ZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_
+__ZNKSt3__14__fs10filesystem4path3endEv
+__ZNKSt3__14__fs10filesystem4path5beginEv
+__ZNKSt3__14__fs10filesystem4path6__stemEv
+__ZNKSt3__14__fs10filesystem4path9__compareENS_17basic_string_viewIcNS_11char_traitsIcEEEE
+__ZNKSt3__16locale4nameEv
+__ZNKSt3__16locale9use_facetERNS0_2idE
+__ZNKSt3__18ios_base6getlocEv
+__ZNKSt9bad_alloc4whatEv
+__ZNKSt9exception4whatEv
+__ZNSt11logic_errorC1EPKc
+__ZNSt11logic_errorC2EPKc
+__ZNSt11logic_errorC2ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt11logic_errorD1Ev
+__ZNSt12length_errorD1Ev
+__ZNSt12out_of_rangeD1Ev
+__ZNSt13bad_exceptionD1Ev
+__ZNSt13exception_ptrC1ERKS_
+__ZNSt13exception_ptrD1Ev
+__ZNSt13exception_ptraSERKS_
+__ZNSt13runtime_errorC1EPKc
+__ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt13runtime_errorC2EPKc
+__ZNSt13runtime_errorC2ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+__ZNSt13runtime_errorD1Ev
+__ZNSt13runtime_errorD2Ev
+__ZNSt16invalid_argumentD1Ev
+__ZNSt16nested_exceptionC2Ev
+__ZNSt16nested_exceptionD1Ev
+__ZNSt16nested_exceptionD2Ev
+__ZNSt19bad_optional_accessD1Ev
+__ZNSt20bad_array_new_lengthC1Ev
+__ZNSt20bad_array_new_lengthD1Ev
+__ZNSt3__111__call_onceERVmPvPFvS2_E
+__ZNSt3__111regex_errorC1ENS_15regex_constants10error_typeE
+__ZNSt3__111regex_errorD1Ev
+__ZNSt3__111this_thread9sleep_forERKNS_6chrono8durationIxNS_5ratioILl1ELl1000000000EEEEE
+__ZNSt3__112__next_primeEm
+__ZNSt3__112bad_weak_ptrD1Ev
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5eraseEmm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendERKS5_mm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEmc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeEmc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7replaceEmmPKcm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7reserveEm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__grow_byEmmmmmm
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
+__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE4openEPKcj
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5closeEv
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC1Ev
+__ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE6sentryC1ERS3_b
+__ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED0Ev
+__ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5writeEPKcl
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED0Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPKv
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEb
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEd
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEj
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEl
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEm
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEs
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEt
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEx
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEy
+__ZNSt3__113random_deviceC1ERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZNSt3__113random_deviceD1Ev
+__ZNSt3__113random_deviceclEv
+__ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED0Ev
+__ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED1Ev
+__ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev
+__ZNSt3__115__get_classnameEPKcb
+__ZNSt3__115__thread_structC1Ev
+__ZNSt3__115__thread_structD1Ev
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE4syncEv
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5uflowEv
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6setbufEPcl
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6xsgetnEPcl
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE7seekoffExNS_8ios_base7seekdirEj
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE7seekposENS_4fposI11__mbstate_tEEj
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE8overflowEi
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE9pbackfailEi
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE9showmanycEv
+__ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE9underflowEv
+__ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strERKNS_12basic_stringIcS2_S4_EE
+__ZNSt3__115recursive_mutex4lockEv
+__ZNSt3__115recursive_mutex6unlockEv
+__ZNSt3__115recursive_mutexC1Ev
+__ZNSt3__115recursive_mutexD1Ev
+__ZNSt3__115system_categoryEv
+__ZNSt3__118condition_variable10notify_allEv
+__ZNSt3__118condition_variable10notify_oneEv
+__ZNSt3__118condition_variable15__do_timed_waitERNS_11unique_lockINS_5mutexEEENS_6chrono10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1000000000EEEEEEE
+__ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE
+__ZNSt3__118condition_variableD1Ev
+__ZNSt3__119__shared_mutex_base11lock_sharedEv
+__ZNSt3__119__shared_mutex_base13unlock_sharedEv
+__ZNSt3__119__shared_mutex_base15try_lock_sharedEv
+__ZNSt3__119__shared_mutex_base4lockEv
+__ZNSt3__119__shared_mutex_base6unlockEv
+__ZNSt3__119__shared_mutex_base8try_lockEv
+__ZNSt3__119__shared_mutex_baseC1Ev
+__ZNSt3__119__shared_weak_count14__release_weakEv
+__ZNSt3__119__shared_weak_count4lockEv
+__ZNSt3__119__shared_weak_countD2Ev
+__ZNSt3__119__thread_local_dataEv
+__ZNSt3__120__get_collation_nameEPKc
+__ZNSt3__120__throw_system_errorEiPKc
+__ZNSt3__14__fs10filesystem10__absoluteERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem12__remove_allERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem13__fs_is_emptyERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem14__current_pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem18__weakly_canonicalERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem18directory_iterator11__incrementEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem18directory_iteratorC1ERKNS1_4pathEPNS_10error_codeENS1_17directory_optionsE
+__ZNSt3__14__fs10filesystem20__create_directoriesERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem4path8iterator11__incrementEv
+__ZNSt3__14__fs10filesystem8__removeERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14__fs10filesystem8__renameERKNS1_4pathES4_PNS_10error_codeE
+__ZNSt3__14__fs10filesystem8__statusERKNS1_4pathEPNS_10error_codeE
+__ZNSt3__14cerrE
+__ZNSt3__14coutE
+__ZNSt3__14stodERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPm
+__ZNSt3__14stofERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPm
+__ZNSt3__14stoiERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi
+__ZNSt3__15ctypeIcE2idE
+__ZNSt3__15mutex4lockEv
+__ZNSt3__15mutex6unlockEv
+__ZNSt3__15mutex8try_lockEv
+__ZNSt3__15mutexD1Ev
+__ZNSt3__15stollERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi
+__ZNSt3__15stoulERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi
+__ZNSt3__16__sortIRNS_6__lessIaaEEPaEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIccEEPcEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIddEEPdEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIffEEPfEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIhhEEPhEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIiiEEPiEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIjjEEPjEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIssEEPsEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIttEEPtEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIxxEEPxEEvT0_S5_T_
+__ZNSt3__16__sortIRNS_6__lessIyyEEPyEEvT0_S5_T_
+__ZNSt3__16chrono12steady_clock3nowEv
+__ZNSt3__16chrono12system_clock3nowEv
+__ZNSt3__16locale7classicEv
+__ZNSt3__16localeC1ERKS0_
+__ZNSt3__16localeC1Ev
+__ZNSt3__16localeD1Ev
+__ZNSt3__16localeaSERKS0_
+__ZNSt3__16stoullERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi
+__ZNSt3__16thread20hardware_concurrencyEv
+__ZNSt3__16thread4joinEv
+__ZNSt3__16threadD1Ev
+__ZNSt3__17collateIcE2idE
+__ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv
+__ZNSt3__18ios_base4initEPv
+__ZNSt3__18ios_base5clearEj
+__ZNSt3__18ios_base5imbueERKNS_6localeE
+__ZNSt3__18numpunctIcE2idE
+__ZNSt3__18to_charsEPcS0_d
+__ZNSt3__18to_charsEPcS0_dNS_12chars_formatE
+__ZNSt3__18to_charsEPcS0_dNS_12chars_formatEi
+__ZNSt3__18to_charsEPcS0_e
+__ZNSt3__18to_charsEPcS0_eNS_12chars_formatE
+__ZNSt3__18to_charsEPcS0_eNS_12chars_formatEi
+__ZNSt3__18to_charsEPcS0_f
+__ZNSt3__18to_charsEPcS0_fNS_12chars_formatE
+__ZNSt3__18to_charsEPcS0_fNS_12chars_formatEi
+__ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev
+__ZNSt3__19to_stringEd
+__ZNSt3__19to_stringEf
+__ZNSt3__19to_stringEi
+__ZNSt3__19to_stringEj
+__ZNSt3__19to_stringEl
+__ZNSt3__19to_stringEm
+__ZNSt3__19to_stringEx
+__ZNSt3__19to_stringEy
+__ZNSt3__1plIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EEPKS6_RKS9_
+__ZNSt9bad_allocC1Ev
+__ZNSt9bad_allocD1Ev
+__ZNSt9exceptionD2Ev
+__ZSt17current_exceptionv
+__ZSt17rethrow_exceptionSt13exception_ptr
+__ZSt18uncaught_exceptionv
+__ZSt7nothrow
+__ZSt9terminatev
+__ZTINSt3__111regex_errorE
+__ZTINSt3__112bad_weak_ptrE
+__ZTINSt3__113basic_istreamIcNS_11char_traitsIcEEEE
+__ZTINSt3__113basic_ostreamIcNS_11char_traitsIcEEEE
+__ZTINSt3__114basic_iostreamIcNS_11char_traitsIcEEEE
+__ZTINSt3__115basic_streambufIcNS_11char_traitsIcEEEE
+__ZTINSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTINSt3__119__shared_weak_countE
+__ZTIPKc
+__ZTISt11logic_error
+__ZTISt12length_error
+__ZTISt12out_of_range
+__ZTISt13bad_exception
+__ZTISt13runtime_error
+__ZTISt16invalid_argument
+__ZTISt16nested_exception
+__ZTISt18bad_variant_access
+__ZTISt19bad_optional_access
+__ZTISt20bad_array_new_length
+__ZTISt8bad_cast
+__ZTISt9bad_alloc
+__ZTISt9exception
+__ZTTNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE
+__ZTTNSt3__114basic_ofstreamIcNS_11char_traitsIcEEEE
+__ZTTNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTTNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVN10__cxxabiv117__class_type_infoE
+__ZTVN10__cxxabiv119__pointer_type_infoE
+__ZTVN10__cxxabiv120__function_type_infoE
+__ZTVN10__cxxabiv120__si_class_type_infoE
+__ZTVN10__cxxabiv121__vmi_class_type_infoE
+__ZTVNSt3__112bad_weak_ptrE
+__ZTVNSt3__113basic_ostreamIcNS_11char_traitsIcEEEE
+__ZTVNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE
+__ZTVNSt3__114basic_ofstreamIcNS_11char_traitsIcEEEE
+__ZTVNSt3__115basic_streambufIcNS_11char_traitsIcEEEE
+__ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVNSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVNSt3__119basic_istringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE
+__ZTVNSt3__19basic_iosIcNS_11char_traitsIcEEEE
+__ZTVSt12length_error
+__ZTVSt12out_of_range
+__ZTVSt13bad_exception
+__ZTVSt16invalid_argument
+__ZTVSt16nested_exception
+__ZTVSt18bad_variant_access
+__ZTVSt19bad_optional_access
+__ZThn16_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED0Ev
+__ZThn16_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED1Ev
+__ZTv0_n24_NSt3__113basic_istreamIcNS_11char_traitsIcEEED0Ev
+__ZTv0_n24_NSt3__113basic_istreamIcNS_11char_traitsIcEEED1Ev
+__ZTv0_n24_NSt3__113basic_ostreamIcNS_11char_traitsIcEEED0Ev
+__ZTv0_n24_NSt3__113basic_ostreamIcNS_11char_traitsIcEEED1Ev
+__ZTv0_n24_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED0Ev
+__ZTv0_n24_NSt3__114basic_iostreamIcNS_11char_traitsIcEEED1Ev
+__ZdaPv
+__ZdlPv
+__Znam
+__ZnamRKSt9nothrow_t
+__Znwm
+__ZnwmRKSt9nothrow_t
+___chkstk_darwin
+___cxa_allocate_exception
+___cxa_atexit
+___cxa_bad_cast
+___cxa_bad_typeid
+___cxa_begin_catch
+___cxa_demangle
+___cxa_end_catch
+___cxa_free_exception
+___cxa_guard_abort
+___cxa_guard_acquire
+___cxa_guard_release
+___cxa_pure_virtual
+___cxa_rethrow
+___cxa_throw
+___darwin_check_fd_set_overflow
+___dynamic_cast
+___error
+___exp10
+___gxx_personality_v0
+___maskrune
+___memcpy_chk
+___memmove_chk
+___memset_chk
+___stack_chk_fail
+___stack_chk_guard
+___stderrp
+___stdinp
+___stdoutp
+___strncpy_chk
+___tolower
+___toupper
+___udivti3
+___umodti3
+__longjmp
+__setjmp
+__tlv_atexit
+__tlv_bootstrap
+_abort
+_accept
+_access
+_acos
+_acosh
+_asin
+_asinh
+_atan
+_atan2
+_atanh
+_atexit
+_atof
+_atoi
+_atol
+_backtrace
+_backtrace_symbols
+_bind
+_bzero
+_calloc
+_cbrt
+_chdir
+_clearerr
+_close
+_closedir
+_connect
+_cos
+_cosh
+_dladdr
+_dlclose
+_dlerror
+_dlopen
+_dlsym
+_exit
+_exp
+_exp2
+_fclose
+_fcntl
+_feof
+_ferror
+_fflush
+_fgets
+_fileno
+_fmod
+_fmodf
+_fopen
+_fprintf
+_fputc
+_fputs
+_fread
+_free
+_freeaddrinfo
+_freeifaddrs
+_fseek
+_fstat
+_fsync
+_ftell
+_ftruncate
+_fwrite
+_gai_strerror
+_getaddrinfo
+_getc
+_getcontext
+_getcwd
+_getegid
+_getenv
+_geteuid
+_getgid
+_gethostbyname
+_getifaddrs
+_getnameinfo
+_getpeername
+_getpid
+_getpwuid
+_getsockname
+_getsockopt
+_gettimeofday
+_getuid
+_gmtime
+_gmtime_r
+_inet_ntop
+_inet_pton
+_ioctl
+_isatty
+_ldexp
+_lgamma
+_listen
+_localtime_r
+_log
+_log10
+_log2
+_lseek
+_lstat
+_mach_task_self_
+_madvise
+_makecontext
+_malloc
+_memchr
+_memcmp
+_memcpy
+_memmove
+_memset
+_memset_pattern16
+_mkdir
+_mktime
+_mlock
+_mmap
+_mprotect
+_munlock
+_munmap
+_nanosleep
+_nextafter
+_nextafterf
+_open
+_opendir
+_poll
+_posix_memalign
+_pow
+_pread
+_printf
+_proc_pidinfo
+_proc_pidpath
+_pthread_attr_destroy
+_pthread_attr_init
+_pthread_attr_setdetachstate
+_pthread_cond_broadcast
+_pthread_cond_destroy
+_pthread_cond_init
+_pthread_cond_signal
+_pthread_cond_timedwait
+_pthread_cond_wait
+_pthread_create
+_pthread_equal
+_pthread_exit
+_pthread_getspecific
+_pthread_join
+_pthread_key_create
+_pthread_key_delete
+_pthread_mutex_destroy
+_pthread_mutex_init
+_pthread_mutex_lock
+_pthread_mutex_trylock
+_pthread_mutex_unlock
+_pthread_once
+_pthread_rwlock_destroy
+_pthread_rwlock_init
+_pthread_rwlock_rdlock
+_pthread_rwlock_unlock
+_pthread_rwlock_wrlock
+_pthread_self
+_pthread_set_qos_class_self_np
+_pthread_setspecific
+_putchar
+_puts
+_pwrite
+_qsort
+_rand
+_read
+_readdir
+_realloc
+_recv
+_recvfrom
+_recvmsg
+_remove
+_rename
+_rmdir
+_sched_yield
+_select
+_semaphore_create
+_semaphore_destroy
+_semaphore_signal
+_semaphore_timedwait
+_semaphore_wait
+_send
+_sendmsg
+_sendto
+_setcontext
+_setsockopt
+_shutdown
+_sigaction
+_signal
+_sin
+_sinh
+_snprintf
+_socket
+_socketpair
+_sscanf
+_stat
+_statvfs
+_strcasecmp
+_strcat
+_strchr
+_strcmp
+_strcpy
+_strcspn
+_strdup
+_strerror
+_strerror_r
+_strftime
+_strlen
+_strncmp
+_strncpy
+_strpbrk
+_strrchr
+_strspn
+_strstr
+_strtod
+_strtof
+_strtol
+_strtoll
+_strtoul
+_strtoull
+_sysconf
+_sysctlbyname
+_tan
+_tanh
+_tcgetattr
+_tcsetattr
+_tgamma
+_time
+_timegm
+_unlink
+_usleep
+_vfprintf
+_vsnprintf
+_wcslen
+_wmemcmp
+_write
+{"command": ["nm", "-u", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpfqy21adp/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.289}
+no native CPU flags: /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/compile_commands.json sha256: 97df04a1d7461cc36c6314e3ea769f231958120632fc24d129c07ddd6c7688a0
+no native CPU flags: /Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/compile_commands.json sha256: 4c84346ff7e1c9f5773829ee9cdb96d23c9a528df09f1d18aca14b361996c6a0
+no native CPU flags: /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/build.ninja sha256: 0a37e11b2ca7873d45035ee697364f0ec143b2859ba2de2a7c2322e4fd6b99ef
+{
+  "archive": "runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+  "archive_sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+  "bytes": 33608999,
+  "package_version": "0.1.0-dev",
+  "target": "aarch64-macos.13.3-none",
+  "nif_cpu": "baseline (Zig 0.16.0 resolves macOS ARM64 to apple_m1)",
+  "whole_closure_cpu": "unverified",
+  "declared_load_command_floor": "13.3",
+  "minimum_os_execution": "unavailable; host 26.6 only",
+  "nif_api": "2.18",
+  "min_erts": "erts-17.0.4",
+  "modules": [
+    "Elixir.Aphid.Native",
+    "Elixir.Aphid.Proof"
+  ],
+  "native_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+  "build_inputs": {
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid.ex": "bcbd29f2ba7d1a347a5073baeadcdd78364780eabfaaf0fe4c1fb8953ac846f4",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/transaction.ex": "4ae4c457c5d422efbeb4c2c43a169c17cb2ca1f185088adbd59d2fb4b098fa79",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/database.ex": "b9c862ae6d1cff37e4b6436c8c82c0e53fd659865ea450dc819610901aad6a9c",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/telemetry.ex": "589fc4d2283c73c0ca60780bbdb2dccc6c0ed69f1f772ab7f4abe937fa9b0dd8",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/native.ex": "f15a109fd590118fb6e6f024ecc2dc9c76da12386696e98df157781f5613660d",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/stream.ex": "14cec0da334a1240d472bed7e9aca605f43bb766045a1978a6dafe1b18f19eb9",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/options.ex": "edb4e65d16a2e57db086a4a0f1451c6a82e483badc16c88dce32c27c0e5ff6d9",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/error.ex": "9df2c6d17c7d6689e9b23eb17649b118c400cde98767379d3f1094f483d8a5cd",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/value.ex": "e28c3ed1931394aabbbdb7b3563d0eab4358aae87a1f805bb1807f7f6f44451a",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/result.ex": "e08208d7dac19ec8f67ab79dd62f0e8bb6ecf2f82c70cf0b29171b0041671bad",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/.Elixir.Aphid.Native.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/.Elixir.Aphid.Proof.zig": "aac3c481fc6917b571107edc34e1f0e5f4c9ef987efcafd559b2969e6f90382c",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/lib/aphid/proof.ex": "8201eb6c92dc66067035fa71cce43a5d9f7f67a65bcbfc897fe8f3163e6b163f",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/native/aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/native/bridge.h": "e36e6b3a95109b29c1063b50db4416313f28d36e54ad7ec70ff5d231a1f14c1a",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/native/lock.json": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/native/proof.cpp": "a0084e23dd90ca6be5431b4f4ef69aa4d629ba1ea5f3821587aa0972cae92a12",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/native/proof.h": "681fb93f25bda1998303ed196741cf88056e78dacb1468731421902b6a40f7ad",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/native/proof.zig": "aac3c481fc6917b571107edc34e1f0e5f4c9ef987efcafd559b2969e6f90382c",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Proof/build.zig.zon": "dfefbd8975d054a01b9d7b42a5e5844ecb49652069e20c5b8730f40b7258c4f5",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Proof/attributes.zig": "fd13ce5d5a5e29bb6352cc2415c8b5253fc5ca1cb444ae553839f680f0b31c1e",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Proof/build.zig": "5f3b9f982333998ca0f856fd52161dd7f57ceea4e194c8a675fc0b31a039081b",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Proof/module.zig": "7e9663d99a6f59ca6ae690b6e527f0472bb67a021a169e7c6f9f5d03891795e2",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Native/build.zig.zon": "70aa2dd13b112817290f7e3b194698264e56e07e7c5d80db7c8387a66f21b30a",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Native/attributes.zig": "fd13ce5d5a5e29bb6352cc2415c8b5253fc5ca1cb444ae553839f680f0b31c1e",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Native/build.zig": "1ecce4f1382c608da30211f2cbaa33f0321846c7988989a0f343bc83803bc323",
+    "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-4/staging/Elixir.Aphid.Native/module.zig": "2cf7d6c71584d9edf67810dfc8e58385ec5942aa0de4177174e1763274465e1e",
+    "/Users/catethos/workspace/ladybugex/zig_library/deps/zigler/lib/zig/command.ex": "2061ea998b342f3d6efdbd796376ee5692b716299dd0299197a16092ca2d959c",
+    "/Users/catethos/workspace/ladybugex/zig_library/deps/zigler/lib/zig/templates/build_mod.zig.eex": "0fae27dfbbae49be67b885c802c51c73ff7bada735c8d2b6c89d49f80d67a61f",
+    "/Users/catethos/.zvm/0.16.0/zig": "e6cd688d25664983833aae272f501d4bceeae304875b8f1741209d15fd13a4ec",
+    "/Users/catethos/.zvm/0.16.0/lib/std/Target.zig": "b830bac98558e0e6b83af9917f3ff492452f57f608c3c54f009384c793a6f345",
+    "/Users/catethos/.zvm/0.16.0/lib/std/Build.zig": "dffb5a172899d660c370c6cdeca04c073468c64f28b9bb6fce919e71d1d5326d"
+  },
+  "build_input_fingerprint": "503b31f7af2b4435c6b2e3f109cf325ddac31d4d200e11c2a835f5d74cab6700",
+  "native_files": {
+    "lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so": "94b12c614c44b5e695b1233381dc3d4c21bdb21c7fd0287fedf185d4f5f74f77",
+    "lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so": "ab08db391218885a20f3c35a95625d13f28bde5c6f7e7de5b8c1f946eba1f373",
+    "lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib": "5dbdd4d341d63da2ba189b908510c1a13ef1f548821a9beaa06ed787e3725110",
+    "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393"
+  }
+}

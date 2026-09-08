@@ -1,0 +1,9 @@
+expected rejection: ../escape unsafe archive path
+expected rejection: /absolute unsafe archive path
+expected rejection: link unsafe archive member: links and special files forbidden
+expected rejection: hard unsafe archive member: links and special files forbidden
+expected rejection: unsupported unsupported target
+expected rejection: engine incompatible engine: native lock mismatch
+expected rejection: content corrupt artifact: content manifest mismatch
+expected rejection: missing artifact
+selected local-validator failure checks passed

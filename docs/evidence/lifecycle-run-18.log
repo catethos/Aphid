@@ -1,0 +1,58 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge
+{"command": ["cmake", "-S", "native", "-B", "_build/native/bridge", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-DAPHID_BUILD_TESTS=ON"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.188}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.396}
+Compiling 1 file (.ex)
+
+02:20:11.070 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:20:11.071 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:20:11.071 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+02:20:11.114 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+02:20:11.126 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:20:11.127 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:20:11.127 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+02:20:13.755 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:20:13.756 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:20:13.756 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+02:20:13.800 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+02:20:13.801 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:20:13.801 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:20:13.801 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+02:20:15.419 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+02:20:15.424 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+Running ExUnit with seed: 0, max_cases: 2
+
+...............heartbeat: 30 samples; maximum gap 6 ms
+.
+02:20:19.336 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.
+02:20:19.351 [debug] loaded module at Elixir.Aphid.Proof
+.........
+Finished in 3.9 seconds (0.3s async, 3.6s sync)
+
+Result: 26 passed
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 8.896}

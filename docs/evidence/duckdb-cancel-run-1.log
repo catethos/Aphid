@@ -1,0 +1,16 @@
+[1/2] Building CXX object CMakeFiles/fixture.dir/fixture.cpp.o
+FAILED: [code=1] CMakeFiles/fixture.dir/fixture.cpp.o 
+/usr/bin/c++  -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/src/include -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/fsst -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/libpg_query/include -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/re2 -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/miniz -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/hyperloglog -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/fastpforlib -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/skiplist -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/yyjson/include -isystem /Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/third_party/zstd/include -O3 -DNDEBUG -std=gnu++20 -arch arm64 -mmacosx-version-min=13.3 -MD -MT CMakeFiles/fixture.dir/fixture.cpp.o -MF CMakeFiles/fixture.dir/fixture.cpp.o.d -o CMakeFiles/fixture.dir/fixture.cpp.o -c /Users/catethos/workspace/ladybugex/zig_library/native/tests/fixture.cpp
+/Users/catethos/workspace/ladybugex/zig_library/native/tests/fixture.cpp:12:81: error: incompatible pointer types assigning to 'duckdb::MaterializedQueryResult *' from 'pointer' (aka 'duckdb::QueryResult *')
+   12 |             for (auto* current = result.get(); current; current = current->next.get()) {
+      |                                                                   ~~~~~~~~~~~~~~^~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+{"command": ["cmake", "--build", "_build/native/tests", "--target", "fixture", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 2.348}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/duckdb_cancel.py", line 8, in <module>
+    run(["cmake", "--build", "_build/native/tests", "--target", "fixture", "--parallel", "2"])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['cmake', '--build', '_build/native/tests', '--target', 'fixture', '--parallel', '2']

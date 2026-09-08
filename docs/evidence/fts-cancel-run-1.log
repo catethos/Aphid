@@ -1,0 +1,2 @@
+FTS build cancellation: response=101 ms, native_idle=105 ms; source rows intact
+{"command": ["mix", "run", "scripts/fts_cancel.exs"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.414}

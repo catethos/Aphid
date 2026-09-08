@@ -1,0 +1,52 @@
+_build/tsan-clt21/ladybug/src/liblbug.0.20.2.dylib sha256 a97864e17d3adbc416a537a416426d7e100768d1c761ede77bd3f7bafa1d766b
+_build/tsan-clt21/ladybug/src/liblbug.0.20.2.dylib:
+	@rpath/liblbug.0.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+{"command": ["otool", "-L", "_build/tsan-clt21/ladybug/src/liblbug.0.20.2.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.023}
+TSan init/read/write imports verified
+          cmd LC_RPATH
+      cmdsize 32
+         path @executable_path (offset 12)
+          cmd LC_RPATH
+      cmdsize 80
+         path /Library/Developer/CommandLineTools/usr/lib/clang/21/lib/darwin (offset 12)
+_build/tsan-clt21/bridge/lifecycle sha256 75465bb0c882bcdad67b54cb46b5879d4ac7c0630dbce46aa7f213d52b022409
+_build/tsan-clt21/bridge/lifecycle:
+	@rpath/liblbug.0.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "_build/tsan-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.024}
+TSan init/read/write imports verified
+          cmd LC_RPATH
+      cmdsize 96
+         path /Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/ladybug/src (offset 12)
+          cmd LC_RPATH
+      cmdsize 32
+         path @executable_path (offset 12)
+          cmd LC_RPATH
+      cmdsize 80
+         path /Library/Developer/CommandLineTools/usr/lib/clang/21/lib/darwin (offset 12)
+_build/tsan-clt21/bridge/libaphid_bridge.dylib sha256 c54b1ee31f105bcf3d2cd894b467774d1618e0d3cbddc18ee46ec9fba804f7da
+_build/tsan-clt21/bridge/libaphid_bridge.dylib:
+	@rpath/libaphid_bridge.dylib (compatibility version 0.0.0, current version 0.0.0)
+	@rpath/liblbug.0.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "_build/tsan-clt21/bridge/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.023}
+TSan init/read/write imports verified
+          cmd LC_RPATH
+      cmdsize 96
+         path /Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/ladybug/src (offset 12)
+          cmd LC_RPATH
+      cmdsize 32
+         path @executable_path (offset 12)
+          cmd LC_RPATH
+      cmdsize 80
+         path /Library/Developer/CommandLineTools/usr/lib/clang/21/lib/darwin (offset 12)
+/Users/catethos/workspace/ladybugex/zig_library/native/bridge.cpp TSan enabled; test cap: False
+/Users/catethos/workspace/ladybugex/zig_library/native/tests/lifecycle.cpp TSan enabled; test cap: True
+lock sha256 d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955

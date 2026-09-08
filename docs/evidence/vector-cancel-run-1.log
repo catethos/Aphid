@@ -1,0 +1,4 @@
+Vector build cancellation: response=101 ms, native_idle=562 ms; source rows intact; same-name index rebuild/query/drop passed
+{"command": ["mix", "run", "scripts/vector_cancel.exs"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 6.464}
+Vector build cancellation: response=101 ms, native_idle=511 ms; source rows intact; same-name index rebuild/query/drop passed
+{"command": ["mix", "run", "scripts/vector_cancel.exs", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-cancel-trmrea_n/persistent graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 5.938}

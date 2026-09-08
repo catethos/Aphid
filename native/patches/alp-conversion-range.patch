@@ -1,0 +1,20 @@
+diff --git a/third_party/alp/include/alp/encode.hpp b/third_party/alp/include/alp/encode.hpp
+index 611842c7b..e0c1051d9 100644
+--- a/third_party/alp/include/alp/encode.hpp
++++ b/third_party/alp/include/alp/encode.hpp
+@@ -47,9 +47,14 @@ struct AlpEncode {
+ 	static ENCODED_TYPE encode_value(const T value, const factor_idx_t factor_idx, const exponent_idx_t exponent_idx) {
+ 		T tmp_encoded_value = value * Constants<T>::EXP_ARR[exponent_idx] * Constants<T>::FRAC_ARR[factor_idx];
+ 		if constexpr (SAFE) {
+-			if (is_impossible_to_encode(tmp_encoded_value)) { return static_cast<ENCODED_TYPE>(ENCODING_UPPER_LIMIT); }
++			if (is_impossible_to_encode(tmp_encoded_value)) { return std::numeric_limits<ENCODED_TYPE>::max(); }
+ 		}
+ 		tmp_encoded_value = tmp_encoded_value + Constants<T>::MAGIC_NUMBER - Constants<T>::MAGIC_NUMBER;
++		// Rounding can cross the destination boundary, including in the SIMD scalar path.
++		constexpr T upper = -static_cast<T>(std::numeric_limits<ENCODED_TYPE>::lowest());
++		if (!std::isfinite(tmp_encoded_value) || tmp_encoded_value >= upper || tmp_encoded_value < -upper) {
++			return std::numeric_limits<ENCODED_TYPE>::max();
++		}
+ 		return static_cast<ENCODED_TYPE>(tmp_encoded_value);
+ 	}
+ 

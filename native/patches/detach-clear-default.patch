@@ -1,0 +1,14 @@
+diff --git a/src/main/database_manager.cpp b/src/main/database_manager.cpp
+index 6c8908e1d..e825c29a8 100644
+--- a/src/main/database_manager.cpp
++++ b/src/main/database_manager.cpp
+@@ -76,6 +76,9 @@ void DatabaseManager::detachDatabase(const std::string& databaseName) {
+         auto attachedDBName = (*it)->getDBName();
+         StringUtils::toUpper(attachedDBName);
+         if (attachedDBName == upperCaseName) {
++            if (StringUtils::getUpper(defaultDatabase) == upperCaseName) {
++                defaultDatabase.clear();
++            }
+             attachedDatabases.erase(it);
+             return;
+         }

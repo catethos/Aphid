@@ -1,0 +1,24 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.127}
+[1/6] Building CXX object CMakeFiles/features.dir/features.cpp.o
+[2/6] Building CXX object CMakeFiles/aphid_feature_bridge.dir/features.cpp.o
+[3/6] Linking CXX executable features
+[4/6] Building CXX object CMakeFiles/fixture.dir/fixture.cpp.o
+[5/6] Linking CXX shared library libaphid_feature_bridge.dylib
+[6/6] Linking CXX executable fixture
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/src/libduckdb_static.a'
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.148}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.24}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: create
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.597}
+ATTACH '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/café fixture.duckdb' AS localduck (dbtype duckdb): Catalog exception: records already exists in catalog.
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/features", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 0.128}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/features.py", line 19, in <module>
+    run([str(out / "tests/features"), mode, str(temp / "graph"), str(fixture)], timeout=60)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/features', 'reopen', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/graph', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-mxm017j8/café fixture.duckdb']

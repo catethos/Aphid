@@ -1,0 +1,118 @@
+CASE missing
+Aphid artifact [missing]: set APHID_BUNDLE_ARCHIVE to an existing local .tar.gz. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.574}
+CASE missing-pin
+Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.353}
+CASE checksum
+Aphid artifact [corrupt]: archive SHA256 mismatch; obtain the pinned archive again. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE target
+Aphid artifact [unsupported-target]: this local adapter accepts only aarch64-macos bundles on macOS. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.353}
+CASE engine
+Aphid artifact [incompatible-engine]: native lock differs; obtain the bundle for this Aphid source package. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.344}
+CASE manifest
+Aphid artifact [corrupt]: content manifest mismatch; obtain the pinned archive again. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.347}
+CASE missing-sidecar
+Aphid artifact [missing]: bundle lacks liblbug.dylib; obtain the complete 0.1.0-dev bundle. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE architecture
+Aphid artifact [wrong-architecture]: Elixir.Aphid.Native.so is not ARM64. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE unloadable-header
+Aphid artifact [unloadable]: Elixir.Aphid.Native.so is not a Mach-O library; obtain a valid native bundle. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE native-fingerprint
+Aphid artifact [incompatible-engine]: native fingerprint differs from this package's reviewed local-bundle.json; use the matching candidate. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.353}
+CASE force-source
+Aphid artifact [selection]: unset ZIGLER_PRECOMPILE_FORCE_RECOMPILE; local bundle mode never falls back to source. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE conflicting-source
+Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive and SHA256, or explicit source without bundle inputs. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.347}
+CASE invalid-tar
+Aphid artifact [corrupt]: invalid tar archive: :eof. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE traversal
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "../escape". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE absolute
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "/tmp/aphid-escape". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.346}
+CASE duplicate
+Aphid artifact [unsafe]: duplicate archive member. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.347}
+CASE symlink
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "link". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.341}
+CASE hardlink
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "hard". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.345}
+CASE fifo
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "fifo". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-3/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.346}
+REAL LOADER missing
+
+00:14:50.661 [error] Aphid artifact [missing]: /private/tmp/aphid-adapter-failures-3/load-missing/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Native
+
+00:14:50.664 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error,
+ {:missing,
+  "/private/tmp/aphid-adapter-failures-3/load-missing/aphid/priv/lib/liblbug.dylib"}}
+
+
+00:14:50.674 [error] Aphid artifact [missing]: /private/tmp/aphid-adapter-failures-3/load-missing/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Proof
+
+00:14:50.675 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+{:error,
+ {:missing,
+  "/private/tmp/aphid-adapter-failures-3/load-missing/aphid/priv/lib/liblbug.dylib"}}
+
+{"command": ["elixir", "-pa", "/private/tmp/aphid-adapter-failures-3/load-missing/aphid/ebin", "/private/tmp/aphid-adapter-failures-3/load.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.293}
+REAL LOADER corrupt
+
+00:14:51.139 [error] Aphid artifact [corrupt]: /private/tmp/aphid-adapter-failures-3/load-corrupt/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Native
+
+00:14:51.142 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error,
+ {:corrupt,
+  "/private/tmp/aphid-adapter-failures-3/load-corrupt/aphid/priv/lib/liblbug.dylib"}}
+
+
+00:14:51.152 [error] Aphid artifact [corrupt]: /private/tmp/aphid-adapter-failures-3/load-corrupt/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Proof
+
+00:14:51.153 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+{:error,
+ {:corrupt,
+  "/private/tmp/aphid-adapter-failures-3/load-corrupt/aphid/priv/lib/liblbug.dylib"}}
+
+{"command": ["elixir", "-pa", "/private/tmp/aphid-adapter-failures-3/load-corrupt/aphid/ebin", "/private/tmp/aphid-adapter-failures-3/load.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 0.29}
+REAL LOADER unloadable
+
+00:14:52.799 [error] Aphid artifact [unloadable]: /private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native: {:load_failed, ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so, 0x0006): tried: '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (no such file), '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so')'"}; use the matching complete bundle and runtime. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Native
+
+00:14:52.803 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error,
+ {:load_failed,
+  ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so, 0x0006): tried: '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (no such file), '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Native.so')'"}}
+
+
+00:14:53.585 [error] Aphid artifact [unloadable]: /private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof: {:load_failed, ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so, 0x0006): tried: '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (no such file), '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so')'"}; use the matching complete bundle and runtime. No source fallback.
+real loader rejected artifact: Elixir.Aphid.Proof
+
+00:14:53.588 [warning] The on_load function for module Elixir.Aphid.Proof returned:
+{:error,
+ {:load_failed,
+  ~c"Failed to load NIF library: 'dlopen(/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so, 0x0006): tried: '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so'), '/System/Volumes/Preboot/Cryptexes/OS/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (no such file), '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so' (file system sandbox blocked mmap() of '/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/priv/lib/Elixir.Aphid.Proof.so')'"}}
+
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-adapter-failures-3/unloadable.sb", "elixir", "-pa", "/private/tmp/aphid-adapter-failures-3/load-unloadable/aphid/ebin", "/private/tmp/aphid-adapter-failures-3/load.exs"], "cwd": "/private/tmp/aphid-adapter-failures-3", "exit": 0, "seconds": 2.279}
+real Mix adapter rejection cases and loader processes passed

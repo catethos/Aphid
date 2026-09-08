@@ -1,0 +1,254 @@
+{
+  "platform": "macOS-26.6-arm64-arm-64bit-Mach-O",
+  "python": "3.14.7",
+  "cases": [
+    {
+      "mode": "stream",
+      "rows": 10000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 256,
+      "batch_bytes": 1048576,
+      "baseline": {
+        "binary": 309384,
+        "caller": 55624,
+        "processes_used": 16379960,
+        "total": 62122536
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 498088,
+        "caller": 176984,
+        "processes_used": 17173048,
+        "total": 63102880
+      },
+      "elapsed_ms": 18,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 113115136,
+      "rss_sampled_peak_bytes": 113115136,
+      "rss_samples": 2,
+      "rss_whole_process_peak_bytes": 113147904,
+      "log": "stream-memory-1.log"
+    },
+    {
+      "mode": "stream",
+      "rows": 100000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 256,
+      "batch_bytes": 1048576,
+      "baseline": {
+        "binary": 309560,
+        "caller": 55624,
+        "processes_used": 16379968,
+        "total": 62122840
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 517768,
+        "caller": 176984,
+        "processes_used": 17218816,
+        "total": 63159904
+      },
+      "elapsed_ms": 150,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 114130944,
+      "rss_sampled_peak_bytes": 114655232,
+      "rss_samples": 10,
+      "rss_whole_process_peak_bytes": 114655232,
+      "log": "stream-memory-2.log"
+    },
+    {
+      "mode": "stream",
+      "rows": 500000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 256,
+      "batch_bytes": 1048576,
+      "baseline": {
+        "binary": 309608,
+        "caller": 55624,
+        "processes_used": 16379968,
+        "total": 62122896
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 538976,
+        "caller": 177072,
+        "processes_used": 17261592,
+        "total": 63232296
+      },
+      "elapsed_ms": 750,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 122077184,
+      "rss_sampled_peak_bytes": 122863616,
+      "rss_samples": 49,
+      "rss_whole_process_peak_bytes": 122863616,
+      "log": "stream-memory-3.log"
+    },
+    {
+      "mode": "stream",
+      "rows": 100000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 32,
+      "batch_bytes": 1048576,
+      "baseline": {
+        "binary": 309512,
+        "caller": 55624,
+        "processes_used": 16379944,
+        "total": 62122816
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 350464,
+        "caller": 68704,
+        "processes_used": 16608376,
+        "total": 62384720
+      },
+      "elapsed_ms": 228,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 114278400,
+      "rss_sampled_peak_bytes": 114278400,
+      "rss_samples": 16,
+      "rss_whole_process_peak_bytes": 114278400,
+      "log": "stream-memory-4.log"
+    },
+    {
+      "mode": "stream",
+      "rows": 100000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 2048,
+      "batch_bytes": 1048576,
+      "baseline": {
+        "binary": 309360,
+        "caller": 55624,
+        "processes_used": 16379968,
+        "total": 62122688
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 1056928,
+        "caller": 1574848,
+        "processes_used": 21148536,
+        "total": 67622344
+      },
+      "elapsed_ms": 150,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 117112832,
+      "rss_sampled_peak_bytes": 117309440,
+      "rss_samples": 11,
+      "rss_whole_process_peak_bytes": 117309440,
+      "log": "stream-memory-5.log"
+    },
+    {
+      "mode": "stream",
+      "rows": 100000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 4096,
+      "batch_bytes": 8192,
+      "baseline": {
+        "binary": 309152,
+        "caller": 55624,
+        "processes_used": 16379944,
+        "total": 62122560
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 372368,
+        "caller": 68704,
+        "processes_used": 16656320,
+        "total": 62447768
+      },
+      "elapsed_ms": 198,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 114065408,
+      "rss_sampled_peak_bytes": 114098176,
+      "rss_samples": 14,
+      "rss_whole_process_peak_bytes": 114098176,
+      "log": "stream-memory-6.log"
+    },
+    {
+      "mode": "stream",
+      "rows": 100000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 4096,
+      "batch_bytes": 65536,
+      "baseline": {
+        "binary": 309560,
+        "caller": 55624,
+        "processes_used": 16379968,
+        "total": 62123024
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 544816,
+        "caller": 514968,
+        "processes_used": 17857584,
+        "total": 63807624
+      },
+      "elapsed_ms": 150,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 114589696,
+      "rss_sampled_peak_bytes": 114720768,
+      "rss_samples": 10,
+      "rss_whole_process_peak_bytes": 114720768,
+      "log": "stream-memory-7.log"
+    },
+    {
+      "mode": "eager",
+      "rows": 100000,
+      "phase": "result",
+      "engine": "0.20.2",
+      "sessions": 1,
+      "batch_rows": 0,
+      "batch_bytes": 0,
+      "baseline": {
+        "binary": 309488,
+        "caller": 55624,
+        "processes_used": 16380024,
+        "total": 62122840
+      },
+      "row_text_bytes": 128,
+      "peak": {
+        "binary": 18703472,
+        "caller": 11550816,
+        "processes_used": 50718360,
+        "total": 114854184
+      },
+      "elapsed_ms": 156,
+      "engine_threads": 2,
+      "ordinary_schedulers": 1,
+      "dirty_cpu_schedulers": 1,
+      "rss_first_sample_bytes": 116948992,
+      "rss_sampled_peak_bytes": 192577536,
+      "rss_samples": 11,
+      "rss_whole_process_peak_bytes": 194199552,
+      "log": "stream-memory-8.log"
+    }
+  ]
+}

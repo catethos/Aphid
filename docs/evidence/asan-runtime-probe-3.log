@@ -1,0 +1,10 @@
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-c1zq77lg/probe.cpp:1:10: fatal error: 'cstdio' file not found
+    1 | #include <cstdio>
+      |          ^~~~~~~~
+1 error generated.
+{"command": ["/Library/Developer/CommandLineTools/usr/bin/clang++", "-isysroot", "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk", "-isystem", "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1", "-fsanitize=address,undefined", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-c1zq77lg/probe.cpp", "-o", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-c1zq77lg/probe"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 0.024}
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Library/Developer/CommandLineTools/usr/bin/clang++', '-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk', '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1', '-fsanitize=address,undefined', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-c1zq77lg/probe.cpp', '-o', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-asan21-c1zq77lg/probe']

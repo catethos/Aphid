@@ -1,0 +1,13 @@
+fresh caches; pinned source dependencies: [{"name": "earmark_parser", "version": "1.4.46", "sha256": "9c44636e8a1c68c62f526b2dcd85d941dbbcee7ab82cf64ba06ce28bef8e89f5"}, {"name": "ex_doc", "version": "0.39.1", "sha256": "8abf0ed3e3ca87c0847dfc4168ceab5bedfe881692f1b7c45f4a11b232806865"}, {"name": "makeup", "version": "1.2.2", "sha256": "9a1a24e5b343b8ae16abea0822c10a6f75da27af7fa802ada5251f7579bfccfa"}, {"name": "makeup_elixir", "version": "1.0.1", "sha256": "7284900d412a3e5cfd97fdaed4f5ed389b8f2b4cb49efc0eb3bd10e2febf9507"}, {"name": "makeup_erlang", "version": "1.1.0", "sha256": "1cd6780fb1dd1a03979abaed0fe82712b0625118fd5257d3ebbf73f960c73c3c"}, {"name": "nimble_parsec", "version": "1.4.2", "sha256": "4b21398942dda052b403bbe1da991ccd03a053668d147d53fb8c4e0efe09c973"}, {"name": "pegasus", "version": "0.2.6", "sha256": "0ac159f0ccab7967cf90208327cc8a35788874814c8d78e19d47104d3fc049b9"}, {"name": "protoss", "version": "1.1.0", "sha256": "c2f874383dd047fcfdf467b814dd33a208a4d24a467aef90d86185b41a0752ad"}, {"name": "telemetry", "version": "1.4.2", "sha256": "928f6495066506077862c0d1646609eed891a4326bee3126ba54b60af61febb1"}, {"name": "zig_doc", "version": "0.7.0", "sha256": "28b57b0bc12f241fc855b6514fe5198f3067fbab2555a3e3a83f6f9ed4699f4c"}, {"name": "zig_get", "version": "0.16.0", "sha256": "2841127cf2005da74fb28d3cc68397a393d3d71df5f45752b974345e696beb01"}, {"name": "zig_parser", "version": "0.7.0", "sha256": "fd0b2fc343820a202787a78a40feae372386b4303717b099223d5f5c5f21f0bb"}, {"name": "zigler", "version": "0.16.0", "sha256": "867ce49289568a7fabff400cb9f1636a429defcd488f3302a82c4b51b2bc7741"}]
+sandbox-exec: sandbox_apply: Operation not permitted
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-adapter-consumer-1/install.sb", "mix", "deps.compile"], "cwd": "/private/tmp/aphid-adapter-consumer-1/consumer", "exit": 71, "seconds": 0.01}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/precompiled_consumer.py", line 140, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/precompiled_consumer.py", line 128, in main
+    run([*offline, 'mix', 'deps.compile'], cwd=project, env=env, timeout=300)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/usr/bin/sandbox-exec', '-f', '/private/tmp/aphid-adapter-consumer-1/install.sb', 'mix', 'deps.compile']

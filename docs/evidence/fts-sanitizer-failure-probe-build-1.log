@@ -1,0 +1,7 @@
+^D[0/1] Re-running CMake...
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests
+[1/3] Building CXX object CMakeFiles/fts_failure_recovery.dir/fts_failure_recovery.cpp.o
+[2/3] Linking CXX executable fts_failure_recovery
+{"command": ["cmake", "--build", "_build/sanitizers-clt21/tests", "--target", "fts_failure_recovery", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.664}

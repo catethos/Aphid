@@ -1,0 +1,25 @@
+[1/2] Building CXX object CMakeFiles/aggregate_alignment.dir/aggregate_alignment.cpp.o
+[2/2] Linking CXX executable aggregate_alignment
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests", "--target", "aggregate_alignment", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.115}
+Before aggregate layout fix, shared library sha256: e79ab75e3687c5815befe6551bf4fd7c72fc5e6046224eaff4805191f6d38bd8
+ /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/function/aggregate/count_star.cpp:22:12: runtime error: member access within misaligned address 0x000120104001 for type 'CountState', which requires 8 byte alignment
+0x000120104001: note: pointer points here
+ 00 00 00  01 48 cd fa 1b 01 00 00  00 00 00 00 00 00 00 00  00 28 47 fb 1b 01 00 00  00 01 00 00 00
+              ^ 
+    #0 0x000112afe804 in lbug::function::CountStarFunction::updatePos(unsigned char*, lbug::common::ValueVector*, unsigned long long, unsigned int, lbug::common::InMemOverflowBuffer*)+0x50 (liblbug.0.20.2.dylib:arm64+0x432804)
+    #1 0x00011399ecac in std::__1::function<void (unsigned char*, lbug::common::ValueVector*, unsigned long long, unsigned int, lbug::common::InMemOverflowBuffer*)>::operator()(unsigned char*, lbug::common::ValueVector*, unsigned long long, unsigned int, lbug::common::InMemOverflowBuffer*) const+0x174 (liblbug.0.20.2.dylib:arm64+0x12d2cac)
+    #2 0x000113997fb4 in lbug::processor::AggregateHashTable::updateNullAggVectorState(lbug::common::DataChunkState const&, lbug::function::AggregateFunction&, unsigned long long, unsigned int)+0x1ec (liblbug.0.20.2.dylib:arm64+0x12cbfb4)
+    #3 0x00011398c050 in lbug::processor::AggregateHashTable::updateAggStates(std::__1::vector<lbug::common::ValueVector*, std::__1::allocator<lbug::common::ValueVector*>> const&, std::__1::vector<lbug::processor::AggregateInput, std::__1::allocator<lbug::processor::AggregateInput>> const&, unsigned long long, lbug::common::DataChunkState const*)+0x330 (liblbug.0.20.2.dylib:arm64+0x12c0050)
+    #4 0x00011399b018 in lbug::processor::PartitioningAggregateHashTable::append(std::__1::vector<lbug::common::ValueVector*, std::__1::allocator<lbug::common::ValueVector*>> const&, std::__1::vector<lbug::common::ValueVector*, std::__1::allocator<lbug::common::ValueVector*>> const&, lbug::common::DataChunkState const*, std::__1::vector<lbug::processor::AggregateInput, std::__1::allocator<lbug::processor::AggregateInput>> const&, unsigned long long)+0xec (liblbug.0.20.2.dylib:arm64+0x12cf018)
+    #5 0x0001139ad240 in lbug::processor::HashAggregate::executeInternal(lbug::processor::ExecutionContext*)+0x130 (liblbug.0.20.2.dylib:arm64+0x12e1240)
+    #6 0x000113d9516c in lbug::processor::Sink::execute(lbug::processor::ResultSet*, lbug::processor::ExecutionContext*)+0x9c (liblbug.0.20.2.dylib:arm64+0x16c916c)
+    #7 0x000113d94ba8 in lbug::processor::ProcessorTask::run()+0x524 (liblbug.0.20.2.dylib:arm64+0x16c8ba8)
+    #8 0x0001129f4578 in lbug::common::TaskScheduler::runWorkerThread()+0x47c (liblbug.0.20.2.dylib:arm64+0x328578)
+    #9 0x0001129f643c in void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, lbug::common::TaskScheduler::TaskScheduler(unsigned long long, unsigned int)::$_0>>(void*)+0x11c (liblbug.0.20.2.dylib:arm64+0x32a43c)
+    #10 0x0001052d1d64 in asan_thread_start(void*)+0x4c (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3dd64)
+    #11 0x000181d97c54 in _pthread_start+0x84 (libsystem_pthread.dylib:arm64e+0x6c54)
+    #12 0x000181d92c18 in thread_start+0x4 (libsystem_pthread.dylib:arm64e+0x1c18)
+
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/function/aggregate/count_star.cpp:22:12 
+
+Focused aggregate regression reproduces the original alignment failure; exit -6

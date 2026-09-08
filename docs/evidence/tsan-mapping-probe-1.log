@@ -1,0 +1,11 @@
+{"command": ["/Library/Developer/CommandLineTools/usr/bin/clang++", "-std=c++20", "-g", "-O1", "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk", "-isystem", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/usr/include/c++/v1", "-mmacosx-version-min=13.3", "native/tests/tsan_probe.cpp", "-o", "/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/mapping-normal"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.564}
+TSan main reached
+mmap 1073741824 passed
+mmap 8796093022208 passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/mapping-normal", "mapping"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.883}
+{"command": ["/Library/Developer/CommandLineTools/usr/bin/clang++", "-std=c++20", "-g", "-O1", "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk", "-isystem", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/usr/include/c++/v1", "-mmacosx-version-min=13.3", "-fsanitize=thread", "native/tests/tsan_probe.cpp", "-o", "/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/mapping-tsan"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.499}
+TSan main reached
+mmap 1073741824 passed
+mmap 8796093022208 failed: Cannot allocate memory
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/mapping-tsan", "mapping"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 1.104}
+command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/mapping-tsan', 'mapping']

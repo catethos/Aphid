@@ -1,0 +1,17 @@
+** (MatchError) no match of right hand side value:
+
+    {:error,
+     %Aphid.Error{
+       code: :engine_error,
+       message: "Buffer manager exception: Unable to allocate memory! The buffer pool is full and no memory could be freed!",
+       context: %{}
+     }}
+
+    scripts/fts_cancel.exs:9: (file)
+    (elixir 1.20.0) lib/code.ex:1638: Code.require_file/2
+{"command": ["mix", "run", "scripts/fts_cancel.exs", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-fts-persistent-1yvh8kl_/persistent graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 1.368}
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'run', 'scripts/fts_cancel.exs', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-fts-persistent-1yvh8kl_/persistent graph']

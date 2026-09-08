@@ -1,0 +1,12 @@
+error: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/install_name_tool: changing install names or rpaths can't be redone for: /var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-relocated-7z84dnxf/bundle/lib/aphid-0.1.0/priv/lib/Elixir.Aphid.FeatureProof.so (for architecture arm64) because larger updated load commands do not fit (the program must be relinked, and you may need to use -headerpad or -headerpad_max_install_names)
+{"command": ["install_name_tool", "-change", "@rpath/libaphid_feature_bridge.dylib", "@loader_path/libaphid_feature_bridge.dylib", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-relocated-7z84dnxf/bundle/lib/aphid-0.1.0/priv/lib/Elixir.Aphid.FeatureProof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 0.02}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/bundle_proof.py", line 95, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/bundle_proof.py", line 48, in main
+    run(["install_name_tool", "-change", dependency, replacement, str(destination)])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['install_name_tool', '-change', '@rpath/libaphid_feature_bridge.dylib', '@loader_path/libaphid_feature_bridge.dylib', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-relocated-7z84dnxf/bundle/lib/aphid-0.1.0/priv/lib/Elixir.Aphid.FeatureProof.so']

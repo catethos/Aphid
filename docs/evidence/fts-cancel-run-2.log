@@ -1,0 +1,20 @@
+** (ExUnit.AssertionError) 
+
+match (=) failed
+code:  assert {:ok, _} =
+              Aphid.query(db, "CALL CREATE_FTS_INDEX('Document','words',['body'])", %{}, timeout: 60000)
+left:  {:ok, _}
+right: {:error, %Aphid.Error{code: :engine_error, message: "Binder exception: Table: 0_words_appears_info already exists. Please drop or rename the table before creating a full text search index.", context: %{}}}
+
+    scripts/fts_cancel.exs:33: (file)
+    (elixir 1.20.0) lib/code.ex:1638: Code.require_file/2
+{"command": ["mix", "run", "scripts/fts_cancel.exs"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 1.489}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/fts_cancel.py", line 6, in <module>
+    run(["mix", "run", "scripts/fts_cancel.exs"],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(os.environ, MIX_ENV="test", ERL_FLAGS="+S 1:1 +SDcpu 1:1"), timeout=120)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'run', 'scripts/fts_cancel.exs']

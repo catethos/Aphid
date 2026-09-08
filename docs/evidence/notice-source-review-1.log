@@ -1,0 +1,18 @@
+{
+  "archive": "/Users/catethos/workspace/ladybugex/zig_library/artifacts/notice-review-5.tar.gz",
+  "sha256": "281df6b5fba8bb07bf06b2b27c9f238fad7979573460188f0c4f8bb504d94810",
+  "bytes": 684017,
+  "otp_texts": 22,
+  "matched_otp_source_files": 303,
+  "hex_matched_files": {
+    "pegasus": 14,
+    "zig_parser": 45,
+    "zig_get": 3
+  },
+  "open": [
+    "Pegasus and ZigParser pinned/matched sources declare MIT but have no license text",
+    "OTP build provenance, external/static component coverage and six installed files absent from source tree",
+    "OpenSSL 3.5.7 notice is version-matched; original OTP crypto build inputs unproved",
+    "Native linked-component and final shipped-content notice review"
+  ]
+}

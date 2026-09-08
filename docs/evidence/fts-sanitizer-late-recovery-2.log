@@ -1,0 +1,5 @@
+^DTraceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from proof import run; base=["python3","scripts/candidate_beam.py","run","scripts/fts_late_failure.exs"]; run([*base,"create","memory"],timeout=180); path="/private/tmp/aphid-fts-sanitizer-late-run2/graph"; run([*base,"create",path],timeout=180); run([*base,"verify",path],timeout=180)
+    ^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'proof'

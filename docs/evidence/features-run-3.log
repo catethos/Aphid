@@ -1,0 +1,101 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.132}
+[1/6] Building CXX object CMakeFiles/features.dir/features.cpp.o
+[2/6] Building CXX object CMakeFiles/aphid_feature_bridge.dir/features.cpp.o
+[3/6] Building CXX object CMakeFiles/fixture.dir/fixture.cpp.o
+[4/6] Linking CXX executable features
+[5/6] Linking CXX shared library libaphid_feature_bridge.dylib
+[6/6] Linking CXX executable fixture
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/src/libduckdb_static.a'
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.312}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.04}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: create
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.155}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: reopen
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/features", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.13}
+
+00:54:54.326 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:54:54.328 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:54:54.328 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/build.zig
+
+00:54:54.496 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/build.zig
+
+00:54:54.509 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:54:54.510 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:54:54.510 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/scripts
+
+00:55:01.561 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:55:01.562 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:55:01.562 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/module.zig
+
+00:55:01.603 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/module.zig
+
+00:55:01.603 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:55:01.604 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:55:01.604 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/scripts --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+00:55:03.099 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+00:55:03.100 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.FeatureProof.so
+
+00:55:03.662 [debug] loaded module at Elixir.Aphid.FeatureProof
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: create
+BEAM engine feature proof passed: create
+{"command": ["mix", "run", "scripts/feature_nif.exs", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/beamgraph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 10.375}
+Generated aphid app
+
+00:55:04.586 [debug] loaded module at Elixir.Aphid.FeatureProof
+    warning: redefining module Aphid.FeatureProof (current version loaded from _build/test/lib/aphid/ebin/Elixir.Aphid.FeatureProof.beam)
+    │
+  1 │ defmodule Aphid.FeatureProof do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ scripts/feature_nif.ex:1: Aphid.FeatureProof (module)
+
+
+00:55:04.610 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:55:04.611 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:55:04.611 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/build.zig
+
+00:55:04.654 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/build.zig
+
+00:55:04.668 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:55:04.668 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:55:04.668 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/scripts
+
+00:55:04.892 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:55:04.893 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:55:04.893 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/module.zig
+
+00:55:04.933 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/module.zig
+
+00:55:04.934 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:55:04.934 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:55:04.934 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/scripts --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+00:55:05.117 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+00:55:05.119 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.FeatureProof.so
+
+00:55:05.133 [debug] loaded module at Elixir.Aphid.FeatureProof
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: reopen
+BEAM engine feature proof passed: reopen
+{"command": ["mix", "run", "scripts/feature_nif.exs", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/beamgraph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-4b0o32od/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.157}

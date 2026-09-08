@@ -1,0 +1,9 @@
+expected rejection: ../escape unsafe archive path
+expected rejection: /absolute unsafe archive path
+expected rejection: link unsafe archive member: links and special files forbidden
+expected rejection: hard unsafe archive member: links and special files forbidden
+unsupported expected rejection: unsupported target
+engine expected rejection: incompatible engine: native lock mismatch
+content expected rejection: corrupt artifact: content manifest mismatch
+missing expected rejection: missing artifact
+all selected local-validator failure cases passed; no production installer claim

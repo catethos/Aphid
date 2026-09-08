@@ -1,0 +1,8 @@
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-combined-reopen-8otlmybt/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.126}
+Combined features create passed
+{"command": ["mix", "run", "scripts/combined_reopen.exs", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-combined-reopen-8otlmybt/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-combined-reopen-8otlmybt/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.101}
+APHID_CRASH_READY
+
+Confirmed transaction process killed and reaped
+Combined features reopen passed
+{"command": ["mix", "run", "scripts/combined_reopen.exs", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-combined-reopen-8otlmybt/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-combined-reopen-8otlmybt/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.513}

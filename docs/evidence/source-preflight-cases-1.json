@@ -1,0 +1,22 @@
+{
+  "patch-mismatch.json": {
+    "sha256": "4134bdc59e7028ec09499a12fd20822b3a8387d28799db3fda1623c94c76fc24",
+    "status": "blocked"
+  },
+  "wrong-pin.json": {
+    "sha256": "3e8ba0ba15bf8ca6b4b617ab5225d5da3bd2812c301d55ce673bcebde139f95b",
+    "status": "invalid_input"
+  },
+  "current-package.json": {
+    "sha256": "b754248931433590228943fe507771d711a44fa8ea2467c0f490005d9946635b",
+    "status": "blocked"
+  },
+  "structural-inputs-only.json": {
+    "sha256": "79fb5fa06e4b542712253c3cbbfa4e404c146f25e9084ec3fa001ce1cc29b139",
+    "status": "inputs_present_not_build_proven"
+  },
+  "unsafe-member.json": {
+    "sha256": "6cad1a995c357574f686985d0ad2622025419fce7d0b620bbd28cb4413c9d14a",
+    "status": "invalid_input"
+  }
+}

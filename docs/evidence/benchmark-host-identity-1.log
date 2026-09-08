@@ -1,0 +1,23 @@
+Mon Sep  7 15:32:41 UTC 2026
+{"command": ["date", "-u"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.004}
+Darwin elvenanalyzer.local 25.6.0 Darwin Kernel Version 25.6.0: Sat Jul 11 15:27:02 PDT 2026; root:xnu-12377.161.13~4/RELEASE_ARM64_T8112 arm64
+{"command": ["uname", "-a"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.006}
+hw.model: Mac14,15
+machdep.cpu.brand_string: Apple M2
+hw.memsize: 8589934592
+hw.ncpu: 8
+{"command": ["sysctl", "hw.model", "machdep.cpu.brand_string", "hw.memsize", "hw.ncpu"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.003}
+Erlang/OTP 29 [erts-17.0.4] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [jit]
+
+Elixir 1.20.0 (compiled with Erlang/OTP 28)
+{"command": ["elixir", "--version"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.187}
+Apple clang version 17.0.0 (clang-1700.4.4.1)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+{"command": ["clang++", "--version"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.045}
+native/lock.json d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955
+mix.lock e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a
+_build/native/inputs.json 83c7ccb24948fde836acd4a8d7daf418bf7872ce7a5fd968208c564e7bb9e513
+_build/native/ladybug/src/liblbug.dylib 3a2afd166d9f8854800a2023f73e29b8bb009de23df257180b5dbb95ba5b7a2c
+_build/test/lib/aphid/priv/lib/Elixir.Aphid.Native.so 7ffa51eabcaab4a19b4adf488650f1358199c33aabcbe504b49f754b97bfa587

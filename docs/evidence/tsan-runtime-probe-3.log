@@ -1,0 +1,27 @@
+TSan main reached
+==================
+WARNING: ThreadSanitizer: data race (pid=20447)
+  Write of size 4 at 0x00016b7a293c by thread T2:
+    #0 void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, main::$_1>>(void*) thread.h:168 (probe:arm64+0x100000c80)
+
+  Previous write of size 4 at 0x00016b7a293c by thread T1:
+    #0 void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, main::$_0>>(void*) thread.h:168 (probe:arm64+0x100000af8)
+
+  Location is stack of main thread.
+
+  Thread T2 (tid=13634541, running) created by main thread at:
+    #0 pthread_create <null> (libclang_rt.tsan_osx_dynamic.dylib:arm64e+0x33834)
+    #1 main tsan_probe.cpp:12 (probe:arm64+0x10000078c)
+
+  Thread T1 (tid=13634540, finished) created by main thread at:
+    #0 pthread_create <null> (libclang_rt.tsan_osx_dynamic.dylib:arm64e+0x33834)
+    #1 main tsan_probe.cpp:11 (probe:arm64+0x1000006fc)
+
+SUMMARY: ThreadSanitizer: data race thread.h:168 in void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, main::$_1>>(void*)
+==================
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/probe", "race"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": -6, "seconds": 0.295}
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/probe', 'race']

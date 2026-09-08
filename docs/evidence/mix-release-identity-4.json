@@ -1,0 +1,179 @@
+{
+  "kind": "local-mix-release-validation-only",
+  "archive": "mix-release-validation-aarch64-macos-4.tar.gz",
+  "archive_sha256": "b82a0a6981f09a0d982ff7700678a1a598134b3b52d70ffba434ec6ec0141fd7",
+  "input_archive_sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+  "release_mode": "interactive",
+  "distribution": "none",
+  "runtime_host": "macOS 26.6 ARM64",
+  "erts": "17.0.4",
+  "elixir": "1.20.0",
+  "native_files": {
+    "erts-17.0.4/bin/beam.smp": {
+      "sha256": "68b27ae188fa8083eb28c08c14f9f85f62932dda93beb27602b9ccfc499a9322",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/ct_run": {
+      "sha256": "a9a892f2176bae4171cee34849a7e62ed6ec272c249b5ac5f9dfb2c33e4bdb94",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/dialyzer": {
+      "sha256": "824a220c9f80a116dd3da9fc258cad4777defce834bfd13aa0fe07743cd98db6",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/epmd": {
+      "sha256": "d32303695c95dc3f8215470832cb325e177b119dd4bd078dfe38a24bce19c70d",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/erl_call": {
+      "sha256": "d557f45e7b27c98d76b60b4702ed53f8acaae55c7719ec901c467a67ca7a3974",
+      "architecture": "arm64",
+      "declared_macos": [
+        "11.0"
+      ]
+    },
+    "erts-17.0.4/bin/erl_child_setup": {
+      "sha256": "323054cf2680f0b4432306a15413c2e02a111410f56a1190ed789ecd8604ebb2",
+      "architecture": "arm64",
+      "declared_macos": [
+        "11.0"
+      ]
+    },
+    "erts-17.0.4/bin/erlc": {
+      "sha256": "79ff48b409a2b65d8fe444428bc8d4871f344a2d6b160324f7f96fe276c791f8",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/erlexec": {
+      "sha256": "f2f5732f2072a3d21ba0dd5d582549ab554f6d31803b1654301601879b6b62d1",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/escript": {
+      "sha256": "339efdafd27f61e85513b64d018339ea2f26443e5324bc8a79a4f5cdb0866143",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/heart": {
+      "sha256": "5d9c1a6ecb6c840f88340701e5d92285d5fa0df8a45ff0fa2fe9d87664185dbc",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/inet_gethost": {
+      "sha256": "f73e6eab6a3910949cbac967d6202c514774a392de399b3d1236ad16fce680e4",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/run_erl": {
+      "sha256": "6a33479075eec21efa6ecf01313ab6d7a806810cd632c3cca6d10ad7539caa3a",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/to_erl": {
+      "sha256": "5a2a02f2a232c4503bf17b4ab18819f389962d204f6d0fac965d1c8edc811e3b",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/typer": {
+      "sha256": "b07e258994569bf7e258720c4c77c10735433a98a5441f93988d7dca7e7a7ac2",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "erts-17.0.4/bin/yielding_c_fun": {
+      "sha256": "b51f6b1e8fa863b829be7ef3c37fdc66d887eb7cc872db49095b01ded400679e",
+      "architecture": "arm64",
+      "declared_macos": [
+        "11.0"
+      ]
+    },
+    "lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so": {
+      "sha256": "94b12c614c44b5e695b1233381dc3d4c21bdb21c7fd0287fedf185d4f5f74f77",
+      "architecture": "arm64",
+      "declared_macos": [
+        "13.3"
+      ]
+    },
+    "lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so": {
+      "sha256": "ab08db391218885a20f3c35a95625d13f28bde5c6f7e7de5b8c1f946eba1f373",
+      "architecture": "arm64",
+      "declared_macos": [
+        "13.3"
+      ]
+    },
+    "lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib": {
+      "sha256": "5dbdd4d341d63da2ba189b908510c1a13ef1f548821a9beaa06ed787e3725110",
+      "architecture": "arm64",
+      "declared_macos": [
+        "13.3"
+      ]
+    },
+    "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib": {
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "architecture": "arm64",
+      "declared_macos": [
+        "13.3"
+      ]
+    },
+    "lib/crypto-5.9.2/priv/lib/crypto.so": {
+      "sha256": "9631aec2e87046d60a9e358a79de730432557ff867bd5cfb18f9ecea78c2ccbd",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "lib/crypto-5.9.2/priv/lib/otp_test_engine.so": {
+      "sha256": "bd85102d467321df697d8739b36c0ef5d178cfbc28926b0dac9300dd3924e550",
+      "architecture": "arm64",
+      "declared_macos": [
+        "15.0"
+      ]
+    },
+    "validation/_build/native/tests/fixture": {
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "architecture": "arm64",
+      "declared_macos": [
+        "13.3"
+      ]
+    }
+  },
+  "test_results": {
+    "beam_tests": 92,
+    "normal_start": "passed",
+    "graceful_shutdown_and_reopen": "passed"
+  },
+  "limits": [
+    "embedded boot fails due to crypto on_load ordering",
+    "bundled ERTS/crypto declare 15.0",
+    "minimum OS/CPU execution unproved",
+    "validation release includes ExUnit and fixtures",
+    "no release-support claim"
+  ]
+}

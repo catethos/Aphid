@@ -1,0 +1,5 @@
+[{Aphid.FeatureProof, binary}] = Code.compile_file(Path.join(__DIR__, "feature_nif.ex"))
+File.write!(Path.join([Mix.Project.app_path(), "ebin", "Elixir.Aphid.FeatureProof.beam"]), binary)
+[mode, graph, fixture] = System.argv()
+0 = Aphid.FeatureProof.check(mode == "reopen", graph, fixture)
+IO.puts("BEAM engine feature proof passed: #{mode}")

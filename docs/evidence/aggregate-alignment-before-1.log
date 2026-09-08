@@ -1,0 +1,6 @@
+Before aggregate layout fix, shared library sha256: e79ab75e3687c5815befe6551bf4fd7c72fc5e6046224eaff4805191f6d38bd8
+ Conversion exception: Unsupported casting function from INT64 to BOOL.
+
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+AssertionError: 1

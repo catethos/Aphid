@@ -1,0 +1,50 @@
+Candidate row-value-alignment.patch sha256: 1a794197bcde506dc1324b2c2fe0d75c900f93f7d7e3e58961c7943ff61c8d54
+[0/2] Re-checking globbed directories...
+[1/4] Building CXX object src/common/vector/CMakeFiles/lbug_common_vector.dir/value_vector.cpp.o
+[2/4] Linking CXX static library src/liblbug.a
+[3/4] Linking CXX shared library src/liblbug.0.20.2.dylib
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/src/libduckdb_static.a', 'src/liblbug.a'
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/ladybug", "--target", "src/liblbug.0.20.2.dylib", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 11.129}
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 7.421}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ldt5p2l4/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 3.528}
+/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/include/function/hash/hash_functions.h:144:55: runtime error: load of misaligned address 0x62d0000c8404 for type 'const uint64_t' (aka 'const unsigned long long'), which requires 8 byte alignment
+0x62d0000c8404: note: pointer points here
+  0b 00 00 00 6f 63 65 61  6e 20 63 6f 72 61 6c 00  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+              ^ 
+    #0 0x00011105c550 in void lbug::function::Hash::operation<std::__1::basic_string_view<char, std::__1::char_traits<char>>>(std::__1::basic_string_view<char, std::__1::char_traits<char>> const&, unsigned long long&)+0x1b8 (liblbug.0.20.2.dylib:arm64+0x34c550)
+    #1 0x000111aef0f0 in void lbug::function::UnaryHashFunctionExecutor::execute<lbug::common::string_t, unsigned long long>(lbug::common::ValueVector const&, lbug::common::SelectionView const&, lbug::common::ValueVector&, lbug::common::SelectionView const&)+0x700 (liblbug.0.20.2.dylib:arm64+0xddf0f0)
+    #2 0x000111ae183c in lbug::function::VectorHashFunction::computeHash(lbug::common::ValueVector const&, lbug::common::SelectionView const&, lbug::common::ValueVector&, lbug::common::SelectionView const&)+0x244 (liblbug.0.20.2.dylib:arm64+0xdd183c)
+    #3 0x0001125cc09c in lbug::storage::ColumnStats::update(lbug::common::ValueVector const*)+0x2d0 (liblbug.0.20.2.dylib:arm64+0x18bc09c)
+    #4 0x0001125d237c in lbug::storage::TableStats::update(std::__1::vector<unsigned int, std::__1::allocator<unsigned int>> const&, std::__1::vector<lbug::common::ValueVector*, std::__1::allocator<lbug::common::ValueVector*>> const&, unsigned long)+0x180 (liblbug.0.20.2.dylib:arm64+0x18c237c)
+    #5 0x0001125d208c in lbug::storage::TableStats::update(std::__1::vector<lbug::common::ValueVector*, std::__1::allocator<lbug::common::ValueVector*>> const&, unsigned long)+0x160 (liblbug.0.20.2.dylib:arm64+0x18c208c)
+    #6 0x0001126de5c8 in lbug::storage::NodeGroupCollection::append(lbug::transaction::Transaction const*, std::__1::vector<lbug::common::ValueVector*, std::__1::allocator<lbug::common::ValueVector*>> const&)+0x660 (liblbug.0.20.2.dylib:arm64+0x19ce5c8)
+    #7 0x000112435868 in lbug::storage::LocalNodeTable::insert(lbug::transaction::Transaction*, lbug::storage::TableInsertState&)+0x304 (liblbug.0.20.2.dylib:arm64+0x1725868)
+    #8 0x0001126ed8c4 in lbug::storage::NodeTable::insert(lbug::transaction::Transaction*, lbug::storage::TableInsertState&)+0x2d0 (liblbug.0.20.2.dylib:arm64+0x19dd8c4)
+    #9 0x0001122ba168 in lbug::processor::NodeInsertExecutor::insert(lbug::main::ClientContext*)+0x3c0 (liblbug.0.20.2.dylib:arm64+0x15aa168)
+    #10 0x0001122b38a8 in lbug::processor::Insert::getNextTuplesInternal(lbug::processor::ExecutionContext*)+0x100 (liblbug.0.20.2.dylib:arm64+0x15a38a8)
+    #11 0x000112373ac4 in lbug::processor::PhysicalOperator::getNextTuple(lbug::processor::ExecutionContext*)+0xf4 (liblbug.0.20.2.dylib:arm64+0x1663ac4)
+    #12 0x000112385f24 in lbug::processor::ResultCollector::executeInternal(lbug::processor::ExecutionContext*)+0xb8 (liblbug.0.20.2.dylib:arm64+0x1675f24)
+    #13 0x0001123d7f30 in lbug::processor::Sink::execute(lbug::processor::ResultSet*, lbug::processor::ExecutionContext*)+0x9c (liblbug.0.20.2.dylib:arm64+0x16c7f30)
+    #14 0x0001123d796c in lbug::processor::ProcessorTask::run()+0x524 (liblbug.0.20.2.dylib:arm64+0x16c796c)
+    #15 0x000111038578 in lbug::common::TaskScheduler::runWorkerThread()+0x47c (liblbug.0.20.2.dylib:arm64+0x328578)
+    #16 0x00011103a43c in void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, lbug::common::TaskScheduler::TaskScheduler(unsigned long long, unsigned int)::$_0>>(void*)+0x11c (liblbug.0.20.2.dylib:arm64+0x32a43c)
+    #17 0x000103915d64 in asan_thread_start(void*)+0x4c (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3dd64)
+    #18 0x000181d97c54 in _pthread_start+0x84 (libsystem_pthread.dylib:arm64e+0x6c54)
+    #19 0x000181d92c18 in thread_start+0x4 (libsystem_pthread.dylib:arm64e+0x1c18)
+
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/include/function/hash/hash_functions.h:144:55 
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ldt5p2l4/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ldt5p2l4/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": -6, "seconds": 1.321}
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features', 'create', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ldt5p2l4/graph', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-ldt5p2l4/fixture.duckdb']

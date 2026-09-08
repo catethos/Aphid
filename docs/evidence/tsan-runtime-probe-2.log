@@ -1,0 +1,39 @@
+TSan main reached
+==20354==WARNING: external symbolizer didn't start up correctly!
+==20354==WARNING: Can't write to symbolizer at fd 4
+==20354==WARNING: external symbolizer didn't start up correctly!
+==20354==WARNING: Can't write to symbolizer at fd 5
+==20354==WARNING: Can't read from symbolizer at fd 6
+==20354==WARNING: atos failed to symbolize address "0x102cf77a0"
+==20354==WARNING: Can't write to symbolizer at fd 6
+==20354==WARNING: Can't read from symbolizer at fd 7
+==20354==WARNING: atos failed to symbolize address "0x1027a4c80"
+==20354==WARNING: Can't write to symbolizer at fd 7
+==20354==WARNING: external symbolizer didn't start up correctly!
+==20354==WARNING: Failed to use and restart external symbolizer!
+==================
+WARNING: ThreadSanitizer: data race (pid=20354)
+  Write of size 4 at 0x00016d65a90c by thread T2:
+    #0 void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, main::$_1>>(void*) <null> (probe:arm64+0x100000c80)
+
+  Previous write of size 4 at 0x00016d65a90c by thread T1:
+    #0 void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, main::$_0>>(void*) <null> (probe:arm64+0x100000af8)
+
+  Location is stack of main thread.
+
+  Thread T2 (tid=13634042, running) created by main thread at:
+    #0 pthread_create <null> (libclang_rt.tsan_osx_dynamic.dylib:arm64e+0x33834)
+    #1 main <null> (probe:arm64+0x10000078c)
+
+  Thread T1 (tid=13634041, finished) created by main thread at:
+    #0 pthread_create <null> (libclang_rt.tsan_osx_dynamic.dylib:arm64e+0x33834)
+    #1 main <null> (probe:arm64+0x1000006fc)
+
+SUMMARY: ThreadSanitizer: data race (/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/probe:arm64+0x100000c80) in void* std::__1::__thread_proxy[abi:nqe210106]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, main::$_1>>(void*)+0x60
+==================
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/probe", "race"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": -6, "seconds": 0.293}
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/probe', 'race']

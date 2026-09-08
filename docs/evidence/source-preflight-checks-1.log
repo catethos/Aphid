@@ -1,0 +1,52 @@
+{
+  "status": "blocked",
+  "missing_files": [
+    "native/CMakeLists.txt",
+    "native/bridge.cpp",
+    "scripts/build.py",
+    "scripts/proof.py",
+    "native/patches/duckdb-tabular-only.patch",
+    "native/patches/vector-drop-auto-transaction.patch",
+    "native/patches/detach-clear-default.patch",
+    "native/patches/row-value-alignment.patch",
+    "native/patches/string-hash-alignment.patch",
+    "native/patches/join-row-alignment.patch",
+    "native/patches/alp-conversion-range.patch",
+    "native/patches/aggregate-state-alignment.patch",
+    "native/patches/sort-key-alignment.patch",
+    "native/patches/node-delete-finalize.patch",
+    "native/patches/fts-atomic-create.patch"
+  ],
+  "patch_checksum_mismatches": []
+}
+verified preflight case: /private/tmp/aphid-source-preflight-checks-1/current-package.json blocked
+{"command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/check.py", "/private/tmp/aphid-source-preflight-checks-1/current-package.json", "blocked", "2", "/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-source-preflight-checks-1/preflight.sb", "/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/preflight.py", "--package", "/private/tmp/aphid-source-preflight-checks-1/package.tar", "--sha256", "921d21ece8c5a96bb3cdc5ab60b6932e73dd4471b2f9382d446d9f182bd8d7e3", "--output", "/private/tmp/aphid-source-preflight-checks-1/current-package.json"], "cwd": "/private/tmp/aphid-source-preflight-checks-1", "exit": 0, "seconds": 0.133}
+{
+  "status": "invalid_input",
+  "error": "source package SHA256 mismatch; use an independently pinned archive"
+}
+verified preflight case: /private/tmp/aphid-source-preflight-checks-1/wrong-pin.json invalid_input
+{"command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/check.py", "/private/tmp/aphid-source-preflight-checks-1/wrong-pin.json", "invalid_input", "2", "/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-source-preflight-checks-1/preflight.sb", "/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/preflight.py", "--package", "/private/tmp/aphid-source-preflight-checks-1/package.tar", "--sha256", "0000000000000000000000000000000000000000000000000000000000000000", "--output", "/private/tmp/aphid-source-preflight-checks-1/wrong-pin.json"], "cwd": "/private/tmp/aphid-source-preflight-checks-1", "exit": 0, "seconds": 0.129}
+{
+  "status": "invalid_input",
+  "error": "unsafe or duplicate package member: ../escape"
+}
+verified preflight case: /private/tmp/aphid-source-preflight-checks-1/unsafe-member.json invalid_input
+{"command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/check.py", "/private/tmp/aphid-source-preflight-checks-1/unsafe-member.json", "invalid_input", "2", "/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-source-preflight-checks-1/preflight.sb", "/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/preflight.py", "--package", "/private/tmp/aphid-source-preflight-checks-1/unsafe.tar", "--sha256", "e39385de22679db8f03b3fff746accde1bf27bc42650bc0a15c84875627a5a25", "--output", "/private/tmp/aphid-source-preflight-checks-1/unsafe-member.json"], "cwd": "/private/tmp/aphid-source-preflight-checks-1", "exit": 0, "seconds": 0.129}
+{
+  "status": "blocked",
+  "missing_files": [],
+  "patch_checksum_mismatches": [
+    "native/patches/duckdb-tabular-only.patch"
+  ]
+}
+verified preflight case: /private/tmp/aphid-source-preflight-checks-1/patch-mismatch.json blocked
+{"command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/check.py", "/private/tmp/aphid-source-preflight-checks-1/patch-mismatch.json", "blocked", "2", "/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-source-preflight-checks-1/preflight.sb", "/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/preflight.py", "--package", "/private/tmp/aphid-source-preflight-checks-1/bad-patch.tar", "--sha256", "6e1654535daa07a1d1b66b52dc541fe306a0e09e52dec0b7efd9349cadec9349", "--output", "/private/tmp/aphid-source-preflight-checks-1/patch-mismatch.json"], "cwd": "/private/tmp/aphid-source-preflight-checks-1", "exit": 0, "seconds": 0.132}
+{
+  "status": "inputs_present_not_build_proven",
+  "missing_files": [],
+  "patch_checksum_mismatches": []
+}
+verified preflight case: /private/tmp/aphid-source-preflight-checks-1/structural-inputs-only.json inputs_present_not_build_proven
+{"command": ["/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/check.py", "/private/tmp/aphid-source-preflight-checks-1/structural-inputs-only.json", "inputs_present_not_build_proven", "0", "/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-source-preflight-checks-1/preflight.sb", "/opt/homebrew/opt/python@3.14/bin/python3.14", "/private/tmp/aphid-source-preflight-checks-1/preflight.py", "--package", "/private/tmp/aphid-source-preflight-checks-1/structural-inputs-only.tar", "--sha256", "5e00136fb3ef1d53826d5d12be87c6e2888d98881e9fea3a16e0e8effa23d648", "--output", "/private/tmp/aphid-source-preflight-checks-1/structural-inputs-only.json"], "cwd": "/private/tmp/aphid-source-preflight-checks-1", "exit": 0, "seconds": 0.132}
+Five source preflight cases passed; no extraction, build or source readiness claim

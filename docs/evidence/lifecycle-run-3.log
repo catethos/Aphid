@@ -1,0 +1,45 @@
+Compiling 1 file (.ex)
+
+01:19:22.569 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:19:22.570 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:19:22.570 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:19:22.942 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:19:22.954 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:19:22.954 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:19:22.954 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+01:19:23.276 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:19:23.277 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:19:23.277 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+01:19:23.316 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+01:19:23.316 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:19:23.317 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:19:23.317 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+01:19:23.823 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+01:19:23.827 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+Generated aphid app
+Running ExUnit with seed: 0, max_cases: 2
+
+.......
+01:19:26.833 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.
+Finished in 2.8 seconds (0.00s async, 2.8s sync)
+
+Result: 8 passed
+{"command": ["mix", "test", "test/native_lifecycle_test.exs", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 4.899}

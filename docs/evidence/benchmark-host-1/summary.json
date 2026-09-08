@@ -1,0 +1,104 @@
+[
+  {
+    "implementation": "cpp",
+    "case": "small",
+    "p50_us": 42.5,
+    "p95_us": 51.917,
+    "p99_us": 63.792,
+    "throughput_qps": 22563.80819318952
+  },
+  {
+    "implementation": "cpp",
+    "case": "rows",
+    "p50_us": 328.458,
+    "p95_us": 367.084,
+    "p99_us": 381.667,
+    "throughput_qps": 2991.343948017621
+  },
+  {
+    "implementation": "cpp",
+    "case": "nested",
+    "p50_us": 3307.71,
+    "p95_us": 3418.08,
+    "p99_us": 3435.79,
+    "throughput_qps": 300.7159927500983
+  },
+  {
+    "implementation": "cpp",
+    "case": "fts",
+    "p50_us": 955.042,
+    "p95_us": 1005.21,
+    "p99_us": 1049.25,
+    "throughput_qps": 1040.0623812775293
+  },
+  {
+    "implementation": "cpp",
+    "case": "vector",
+    "p50_us": 604.209,
+    "p95_us": 662.625,
+    "p99_us": 687.542,
+    "throughput_qps": 1626.9035442565512
+  },
+  {
+    "implementation": "cpp",
+    "case": "duckdb",
+    "p50_us": 220.042,
+    "p95_us": 266.75,
+    "p99_us": 288.5,
+    "throughput_qps": 4393.093670158268
+  },
+  {
+    "case": "small",
+    "implementation": "aphid",
+    "beam_memory_bytes": 60217082,
+    "p50_us": 5999.125,
+    "p95_us": 6555.709,
+    "p99_us": 6740.917,
+    "throughput_qps": 166.58312023437554
+  },
+  {
+    "case": "rows",
+    "implementation": "aphid",
+    "beam_memory_bytes": 62256565,
+    "p50_us": 6002.541,
+    "p95_us": 6358.542,
+    "p99_us": 6457.125,
+    "throughput_qps": 166.68723781649766
+  },
+  {
+    "case": "nested",
+    "implementation": "aphid",
+    "beam_memory_bytes": 63464997,
+    "p50_us": 11974.458,
+    "p95_us": 12702.041,
+    "p99_us": 25364.25,
+    "throughput_qps": 79.35801486421012
+  },
+  {
+    "case": "fts",
+    "implementation": "aphid",
+    "beam_memory_bytes": 62091413,
+    "p50_us": 5990.958,
+    "p95_us": 6520.917,
+    "p99_us": 6715.0,
+    "throughput_qps": 166.4901754264024
+  },
+  {
+    "case": "vector",
+    "implementation": "aphid",
+    "beam_memory_bytes": 61573773,
+    "p50_us": 5955.125,
+    "p95_us": 6707.666,
+    "p99_us": 6977.125,
+    "throughput_qps": 166.85220743368097
+  },
+  {
+    "case": "duckdb",
+    "implementation": "aphid",
+    "beam_memory_bytes": 61589021,
+    "p50_us": 5967.042,
+    "p95_us": 7174.708,
+    "p99_us": 7823.542,
+    "throughput_qps": 166.72275053271838
+  }
+]

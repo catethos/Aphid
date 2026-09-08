@@ -1,0 +1,36 @@
+vector create: recall@10 mean=1.0, minimum=1.0, points=1000, probes=20, efs=200
+vector fresh-process create passed
+{"command": ["mix", "run", "scripts/vector_persistence.exs", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-lb4zk8h0/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 5.438}
+vector reopen: recall@10 mean=1.0, minimum=1.0, points=1000, probes=20, efs=200
+vector fresh-process reopen passed
+{"command": ["mix", "run", "scripts/vector_persistence.exs", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-lb4zk8h0/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.564}
+** (ExUnit.AssertionError) 
+
+match (=) failed
+     The following variables were pinned:
+       id = 1
+code:  assert [[^id, zero]] =
+              query.(
+                "CALL QUERY_VECTOR_INDEX('#{table}','neighbors',$v,1) RETURN node.id,distance",
+                %{"v" => vector.([0.0, 0.0, 0.0])}
+              )
+left:  [[^id, zero]]
+right: [[191, 1633.957465786671]]
+
+    scripts/vector_persistence.exs:91: anonymous fn/4 in :elixir_compiler_2.__FILE__/1
+    (elixir 1.20.0) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+    scripts/vector_persistence.exs:90: (file)
+{"command": ["mix", "run", "scripts/vector_persistence.exs", "verify", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-lb4zk8h0/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 0.405}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/vector_persistence.py", line 10, in <module>
+    run(["mix", "run", "scripts/vector_persistence.exs", mode,
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         str(Path(temp) / "café graph")],
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(os.environ, MIX_ENV="test", ERL_FLAGS="+S 1:1 +SDcpu 1:1"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        timeout=120)
+        ^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'run', 'scripts/vector_persistence.exs', 'verify', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-lb4zk8h0/café graph']

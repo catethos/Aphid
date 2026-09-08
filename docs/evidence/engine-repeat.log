@@ -1,0 +1,40 @@
+CMake Warning at CMakeLists.txt:200 (message):
+  Not disabling vptr sanitizer on M1 Macbook - set DISABLE_VPTR_SANITIZER
+  manually if you run into issues with false positives in the sanitizer
+
+
+-- git hash 6ddac802ff, version v1.4.4, extension folder v1.4.4
+-- Extensions will be deployed to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/repository
+-- Load extension 'core_functions' from '/Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/extensions' @ v1.4.4
+-- Load extension 'parquet' from '/Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/extensions' @ v1.4.4
+-- Extensions linked into DuckDB: [core_functions, parquet]
+-- Configuring done (1.1s)
+-- Generating done (0.3s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb
+{"command": ["cmake", "-S", "native/upstream/duckdb", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON", "-DBUILD_UNITTESTS=OFF", "-DBUILD_SHELL=OFF", "-DENABLE_EXTENSION_AUTOLOADING=OFF", "-DENABLE_EXTENSION_AUTOINSTALL=OFF", "-DOVERRIDE_GIT_DESCRIBE=v1.4.4-0-g6ddac802ff"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.404}
+-- Multi-threaded mode is enabled: CMAKE_BUILD_PARALLEL_LEVEL=
+-- 64-bit architecture detected
+-- LBUG_PAGE_SIZE_LOG2: 12
+-- LBUG_VECTOR_CAPACITY_LOG2: 11
+-- LBUG_NODE_GROUP_SIZE_LOG2: 17
+-- LBUG_MAX_SEGMENT_SIZE_LOG2: 18
+-- ✓ F_FULLFSYNC will be used on this platform
+-- ✗ fdatasync not available, using fsync fallback
+-- Build type is 'Release'
+-- Compiler is not EMSCRIPTEN
+-- Static link extensions: fts, vector, duckdb
+CMake Warning at extension/duckdb/CMakeLists.txt:45 (message):
+  duckdb static libs are used but the duckdb_generated_extension_loader
+  target was not exported by the DuckDB package - the build may fail to link
+
+
+-- Query processor SIMD: NEON filter kernels enabled
+-- Configuring done (0.3s)
+-- Generating done (0.6s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug
+{"command": ["cmake", "-S", "native/upstream/ladybug", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON", "-DBUILD_SHELL=ON", "-DBUILD_TESTS=OFF", "-DBUILD_SINGLE_FILE_HEADER=OFF", "-DEXTENSION_STATIC_LINK_LIST=fts;vector;duckdb", "-DBUILD_SHARED_LBUG=ON", "-DBUILD_STATIC_LBUG=ON", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-DOPENSSL_ROOT_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/install", "-DOPENSSL_USE_STATIC_LIBS=ON", "-DOPENSSL_SSL_LIBRARY=/Users/catethos/workspace/ladybugex/zig_library/_build/native/install/lib/libssl.a", "-DOPENSSL_CRYPTO_LIBRARY=/Users/catethos/workspace/ladybugex/zig_library/_build/native/install/lib/libcrypto.a", "-DOPENSSL_INCLUDE_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/install/include"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.948}
+ninja: no work to do.
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "--target", "duckdb_static", "core_functions_extension", "parquet_extension", "--parallel", "4"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.077}
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "--parallel", "4"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.077}

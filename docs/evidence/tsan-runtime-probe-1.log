@@ -1,0 +1,18 @@
+Apple clang version 21.0.0 (clang-2100.1.1.101)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+{"command": ["/Library/Developer/CommandLineTools/usr/bin/clang++", "--version"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+ProductName:		macOS
+ProductVersion:		26.6
+BuildVersion:		25G72
+{"command": ["sw_vers"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.01}
+{"command": ["/Library/Developer/CommandLineTools/usr/bin/clang++", "-std=c++20", "-g", "-O1", "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk", "-isystem", "/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/usr/include/c++/v1", "-mmacosx-version-min=13.3", "-fsanitize=thread", "-fno-omit-frame-pointer", "native/tests/tsan_probe.cpp", "-o", "_build/tsan-probe/probe"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.082}
+_build/tsan-probe/probe:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "_build/tsan-probe/probe"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.041}
+TSan main reached
+clean threaded probe passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-probe/probe"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.979}

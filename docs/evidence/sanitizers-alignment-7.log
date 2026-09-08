@@ -1,0 +1,59 @@
+Candidate row-value-alignment sha256: 1a794197bcde506dc1324b2c2fe0d75c900f93f7d7e3e58961c7943ff61c8d54
+Candidate string-hash-alignment sha256: 54ea5d790fb5a3d20ddb4609ffedd84ae76bb04a48f0101efe4ee340ebf20bac
+Candidate join-row-alignment sha256: ff51a377d6fb6b607539c831b0189688f9de10843e0f7d37bc672aa250845e9c
+[0/2] Re-checking globbed directories...
+[1/4] Building CXX object src/processor/result/CMakeFiles/lbug_processor_result.dir/base_hash_table.cpp.o
+[2/4] Linking CXX static library src/liblbug.a
+[3/4] Linking CXX shared library src/liblbug.0.20.2.dylib
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/src/libduckdb_static.a', 'src/liblbug.a'
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/ladybug", "--target", "src/liblbug.0.20.2.dylib", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 12.289}
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 7.989}
+string hash is invariant across all byte alignments and lengths 0..80
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/hash_alignment"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.243}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-rv85vvc4/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.346}
+/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/third_party/alp/include/alp/encode.hpp:53:36: runtime error: 1e+10 is outside the range of representable values of type 'int'
+    #0 0x0001124cdae0 in alp::AlpEncode<float>::find_top_k_combinations(float const*, alp::state&)+0xaf0 (liblbug.0.20.2.dylib:arm64+0x1979ae0)
+    #1 0x0001124c686c in lbug::storage::GetFloatCompressionMetadata<float>::operator()(std::__1::span<unsigned char const, 18446744073709551615ul>, unsigned long long, lbug::storage::StorageValue, lbug::storage::StorageValue)+0x3e8 (liblbug.0.20.2.dylib:arm64+0x197286c)
+    #2 0x0001124c9678 in lbug::storage::GetCompressionMetadata::operator()(std::__1::span<unsigned char const, 18446744073709551615ul>, unsigned long long, lbug::storage::StorageValue, lbug::storage::StorageValue) const+0x594 (liblbug.0.20.2.dylib:arm64+0x1975678)
+    #3 0x00011247d678 in std::__1::function<lbug::storage::ColumnChunkMetadata (std::__1::span<unsigned char, 18446744073709551615ul>, unsigned long long, lbug::storage::StorageValue, lbug::storage::StorageValue)>::operator()(std::__1::span<unsigned char, 18446744073709551615ul>, unsigned long long, lbug::storage::StorageValue, lbug::storage::StorageValue) const+0x174 (liblbug.0.20.2.dylib:arm64+0x1929678)
+    #4 0x00011247d0ac in lbug::storage::ColumnChunkData::getMetadataToFlush() const+0x37c (liblbug.0.20.2.dylib:arm64+0x19290ac)
+    #5 0x000112489120 in lbug::storage::ColumnChunkData::getSizeOnDisk() const+0x104 (liblbug.0.20.2.dylib:arm64+0x1935120)
+    #6 0x00011250b350 in lbug::storage::ListChunkData::getSizeOnDisk() const+0xd0 (liblbug.0.20.2.dylib:arm64+0x19b7350)
+    #7 0x00011244bd28 in lbug::storage::InMemChunkedNodeGroup::flushInternal(lbug::storage::ColumnChunkData&, lbug::storage::PageAllocator&)+0x164 (liblbug.0.20.2.dylib:arm64+0x18f7d28)
+    #8 0x00011244cb14 in lbug::storage::InMemChunkedNodeGroup::flush(lbug::transaction::Transaction const*, lbug::storage::PageAllocator&)+0x238 (liblbug.0.20.2.dylib:arm64+0x18f8b14)
+    #9 0x00011251bbf8 in lbug::storage::NodeGroup::checkpointInMemOnly(lbug::storage::MemoryManager&, lbug::common::UniqLock const&, lbug::storage::NodeGroupCheckpointState const&) const+0x250 (liblbug.0.20.2.dylib:arm64+0x19c7bf8)
+    #10 0x00011251a314 in lbug::storage::NodeGroup::checkpoint(lbug::storage::MemoryManager&, lbug::storage::NodeGroupCheckpointState&)+0x460 (liblbug.0.20.2.dylib:arm64+0x19c6314)
+    #11 0x000112528280 in lbug::storage::NodeGroupCollection::checkpoint(lbug::storage::MemoryManager&, lbug::storage::NodeGroupCheckpointState&)+0x19c (liblbug.0.20.2.dylib:arm64+0x19d4280)
+    #12 0x000112539734 in lbug::storage::NodeTable::checkpoint(lbug::main::ClientContext*, lbug::catalog::TableCatalogEntry*, lbug::storage::PageAllocator&, lbug::transaction::Transaction const*, unsigned long long)+0x648 (liblbug.0.20.2.dylib:arm64+0x19e5734)
+    #13 0x000112646f88 in lbug::storage::StorageManager::checkpoint(lbug::main::ClientContext*, lbug::catalog::Catalog const&, lbug::transaction::Transaction const&, lbug::storage::PageAllocator&, std::__1::unordered_map<unsigned long long, unsigned long long, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<unsigned long long const, unsigned long long>>> const&)+0x350 (liblbug.0.20.2.dylib:arm64+0x1af2f88)
+    #14 0x0001125e1fdc in lbug::storage::Checkpointer::checkpointStorage()+0x2c8 (liblbug.0.20.2.dylib:arm64+0x1a8dfdc)
+    #15 0x0001125e126c in lbug::storage::Checkpointer::checkpointStoragePhase()+0x78 (liblbug.0.20.2.dylib:arm64+0x1a8d26c)
+    #16 0x0001126763d4 in lbug::transaction::TransactionManager::checkpointNoLock(lbug::main::ClientContext&)+0x2ac (liblbug.0.20.2.dylib:arm64+0x1b223d4)
+    #17 0x000112675798 in lbug::transaction::TransactionManager::checkpoint(lbug::main::ClientContext&)+0xe4 (liblbug.0.20.2.dylib:arm64+0x1b21798)
+    #18 0x000112674b2c in lbug::transaction::TransactionManager::commit(lbug::main::ClientContext&, lbug::transaction::Transaction*)+0x3a8 (liblbug.0.20.2.dylib:arm64+0x1b20b2c)
+    #19 0x0001126738dc in lbug::transaction::TransactionContext::commit()+0xac (liblbug.0.20.2.dylib:arm64+0x1b1f8dc)
+    #20 0x000111a338a4 in lbug::main::ClientContext::TransactionHelper::runFuncInTransaction(lbug::transaction::TransactionContext&, std::__1::function<void ()> const&, bool, bool, lbug::main::ClientContext::TransactionHelper::TransactionCommitAction)+0x114 (liblbug.0.20.2.dylib:arm64+0xedf8a4)
+    #21 0x000111a38058 in lbug::main::ClientContext::executeNoLock(lbug::main::PreparedStatement*, lbug::main::CachedPreparedStatement*, std::__1::optional<unsigned long long>, lbug::main::ClientContext::QueryConfig, bool)+0x468 (liblbug.0.20.2.dylib:arm64+0xee4058)
+    #22 0x000111a38e7c in lbug::main::ClientContext::queryNoLock(std::__1::basic_string_view<char, std::__1::char_traits<char>>, std::__1::optional<unsigned long long>, lbug::main::ClientContext::QueryConfig)+0x340 (liblbug.0.20.2.dylib:arm64+0xee4e7c)
+    #23 0x000111a38a04 in lbug::main::ClientContext::query(std::__1::basic_string_view<char, std::__1::char_traits<char>>, std::__1::optional<unsigned long long>, lbug::main::ClientContext::QueryConfig)+0x10c (liblbug.0.20.2.dylib:arm64+0xee4a04)
+    #24 0x000111a4f574 in lbug::main::Connection::query(std::__1::basic_string_view<char, std::__1::char_traits<char>>)+0x128 (liblbug.0.20.2.dylib:arm64+0xefb574)
+    #25 0x000102d30714 in query(lbug::main::Connection&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+0x1dc (features:arm64+0x100004714)
+    #26 0x000102d2e338 in check_features(int, char const**)+0x624 (features:arm64+0x100002338)
+    #27 0x0001819cc4e0 in start+0x1b4c (dyld:arm64e+0x204e0)
+
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/third_party/alp/include/alp/encode.hpp:53:36 
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-rv85vvc4/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-rv85vvc4/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": -6, "seconds": 0.889}
+Traceback (most recent call last):
+  File "<stdin>", line 18, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features', 'create', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-rv85vvc4/graph', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-rv85vvc4/fixture.duckdb']

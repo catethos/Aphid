@@ -1,0 +1,10 @@
+[1/2] Building CXX object CMakeFiles/lifecycle.dir/tests/lifecycle.cpp.o
+[2/2] Linking CXX executable lifecycle
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.155}
+native lifecycle assertion at line 377
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 3.63}
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge/lifecycle']

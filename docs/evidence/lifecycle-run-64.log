@@ -1,0 +1,79 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge
+{"command": ["cmake", "-S", "native", "-B", "_build/native/bridge", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-DAPHID_BUILD_TESTS=ON"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.14}
+[1/4] Building CXX object CMakeFiles/aphid_bridge.dir/bridge.cpp.o
+[2/4] Linking CXX shared library libaphid_bridge.dylib
+[3/4] Building CXX object CMakeFiles/lifecycle.dir/tests/lifecycle.cpp.o
+[4/4] Linking CXX executable lifecycle
+{"command": ["cmake", "--build", "_build/native/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.012}
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.583}
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "_build/native/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.079}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/tests", "--target", "fixture", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.024}
+Compiling 3 files (.ex)
+
+15:56:08.549 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+15:56:08.554 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+15:56:08.554 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+15:56:08.989 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+15:56:08.997 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+15:56:08.998 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+15:56:08.998 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+15:56:12.362 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+15:56:12.363 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+15:56:12.363 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+15:56:12.410 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+15:56:12.410 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+15:56:12.411 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+15:56:12.411 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+15:56:14.390 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+15:56:14.394 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+Running ExUnit with seed: 0, max_cases: 2
+
+...............Aphid basic example passed
+.Aphid transaction example passed
+.Aphid stream example passed
+.Aphid FTS example passed
+.Aphid vector example passed
+.Aphid DuckDB example passed
+.......................stale-cancel race: 30 iterations; maximum cancel-to-idle 103003 us
+........heartbeat: 32 samples; maximum gap 9 ms
+.
+15:56:23.845 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.....
+15:56:23.957 [debug] loaded module at Elixir.Aphid.Proof
+...............................
+Finished in 10.9 seconds (1.2s async, 9.7s sync)
+
+Result: 88 passed
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 17.791}

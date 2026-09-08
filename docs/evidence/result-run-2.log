@@ -1,0 +1,30 @@
+Compiling 1 file (.ex)
+
+01:45:14.261 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:45:14.262 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:45:14.262 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:45:14.451 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:45:14.463 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:45:14.464 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:45:14.464 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+01:45:15.553 [error] sema error: build.zig:79:52: error: use of undeclared identifier 'bridge'
+                    .{ .name = "bridge", .module = bridge },
+                                                   ^~~~~~
+
+== Compilation error in file lib/aphid/native.ex ==
+** (CompileError) build.zig:79:52: error: use of undeclared identifier 'bridge'
+                    .{ .name = "bridge", .module = bridge },
+                                                   ^~~~~~
+    (zigler 0.16.0) lib/zig/command.ex:33: Zig.Command.run_zig/2
+    (zigler 0.16.0) lib/zig/command.ex:61: Zig.Command.run_sema!/1
+    (zigler 0.16.0) lib/zig/sema.ex:49: Zig.Sema.run_sema!/1
+    (zigler 0.16.0) lib/zig/compiler.ex:144: Zig.Compiler.compile/3
+    (zigler 0.16.0) expanding macro: Zig.Compiler.__before_compile__/1
+    lib/aphid/native.ex:14: Aphid.Native (module)

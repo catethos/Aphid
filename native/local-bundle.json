@@ -1,0 +1,24 @@
+{
+  "package_version": "0.1.0-dev",
+  "target": "aarch64-macos.13.3-none",
+  "nif_cpu": "baseline (Zig 0.16.0 resolves macOS ARM64 to apple_m1)",
+  "nif_api": "2.18",
+  "erts": "17.0.4",
+  "elixir": "1.20.0",
+  "native_lock_sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955",
+  "native_files": {
+    "Elixir.Aphid.Native.so": "94b12c614c44b5e695b1233381dc3d4c21bdb21c7fd0287fedf185d4f5f74f77",
+    "Elixir.Aphid.Proof.so": "ab08db391218885a20f3c35a95625d13f28bde5c6f7e7de5b8c1f946eba1f373",
+    "libaphid_bridge.dylib": "5dbdd4d341d63da2ba189b908510c1a13ef1f548821a9beaa06ed787e3725110",
+    "liblbug.dylib": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393"
+  },
+  "native_sources": {
+    "aphid_nif.zig": "b14bdb099c82d0e3966138e01577c114bb1c40aa81647ed1dd31e0ce71d13622",
+    "bridge.h": "e36e6b3a95109b29c1063b50db4416313f28d36e54ad7ec70ff5d231a1f14c1a",
+    "proof.zig": "aac3c481fc6917b571107edc34e1f0e5f4c9ef987efcafd559b2969e6f90382c",
+    "proof.h": "681fb93f25bda1998303ed196741cf88056e78dacb1468731421902b6a40f7ad",
+    "proof.cpp": "a0084e23dd90ca6be5431b4f4ef69aa4d629ba1ea5f3821587aa0972cae92a12"
+  },
+  "minimum_os_execution": "unavailable; host 26.6 only",
+  "whole_closure_cpu": "unverified"
+}

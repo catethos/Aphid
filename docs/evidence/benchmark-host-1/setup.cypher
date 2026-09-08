@@ -1,0 +1,5 @@
+CREATE NODE TABLE Bench(id INT64, body STRING, vec FLOAT[3], PRIMARY KEY(id))
+UNWIND range(1,1000) AS i CREATE (:Bench {id:i, body:'aphid nectar', vec:CAST([i, i, i], 'FLOAT[3]')})
+CALL CREATE_FTS_INDEX('Bench','words',['body'],stemmer := 'none')
+CALL CREATE_VECTOR_INDEX('Bench','neighbors','vec',metric := 'l2',efc := 200)
+ATTACH '/Users/catethos/workspace/ladybugex/zig_library/docs/evidence/benchmark-host-1/fixture.duckdb' AS source (dbtype duckdb)

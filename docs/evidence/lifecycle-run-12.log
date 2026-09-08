@@ -1,0 +1,97 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge
+{"command": ["cmake", "-S", "native", "-B", "_build/native/bridge", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-DAPHID_BUILD_TESTS=ON"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.124}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.386}
+Compiling 1 file (.ex)
+
+02:09:48.311 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:09:48.316 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:09:48.316 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+02:09:48.695 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+02:09:48.707 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:09:48.707 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:09:48.707 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+02:09:49.339 [error] sema error: lib/aphid/.Elixir.Aphid.Native.zig:468: error: local constant shadows declaration of 'value'
+   +- compile exe sema Debug native 2 errors
++- install sema
+install
+
+        const value = try get_binary(term, self.remaining);
+              ^~~~~
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:506note: declared here
+    fn value(self: *Input, input: beam.term) !*c.aphid_value {
+    ^~
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:475error: local variable shadows declaration of 'integer'
+        var integer: i64 = undefined;
+            ^~~~~~~
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:483note: declared here
+    fn integer(term: beam.term, unsigned: bool, scalar: *c.aphid_value_info) !void {
+    ^~
+error: 2 compilation errors
+failed command: /Users/catethos/.zvm/0.16.0/zig build-exe /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/libaphid_bridge.dylib -ferror-tracing -ODebug -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src --dep nif -Mroot=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/sema.zig --dep erl_nif --dep beam --dep attributes --dep bridge -Mnif=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig -Merl_nif=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/stub_erl_nif.zig --dep erl_nif -Mbeam=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/beam.zig -Mattributes=attributes.zig -ODebug -Mbridge=.zig-cache/o/9562b4641ac587e25510919ffba338b1/bridge.zig -lc --cache-dir .zig-cache --global-cache-dir /tmp/aphid-zig-cache --name sema --zig-lib-dir /Users/catethos/.zvm/0.16.0/lib/ --listen=-
+
+Build Summary: 1/4 steps succeeded (1 failed)
+install transitive failure
++- install sema transitive failure
+   +- compile exe sema Debug native 2 errors
+
+error: the following build command failed with exit code 1:
+.zig-cache/o/6505930dd65eb4251fc6044c9bfc8ce8/build /Users/catethos/.zvm/0.16.0/zig /Users/catethos/.zvm/0.16.0/lib /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native .zig-cache /tmp/aphid-zig-cache --seed 0x3201087b -Z228b626e1ae8ed7a -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+== Compilation error in file lib/aphid/native.ex ==
+** (CompileError) lib/aphid/.Elixir.Aphid.Native.zig:468: error: local constant shadows declaration of 'value'
+   +- compile exe sema Debug native 2 errors
++- install sema
+install
+
+        const value = try get_binary(term, self.remaining);
+              ^~~~~
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:506note: declared here
+    fn value(self: *Input, input: beam.term) !*c.aphid_value {
+    ^~
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:475error: local variable shadows declaration of 'integer'
+        var integer: i64 = undefined;
+            ^~~~~~~
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:483note: declared here
+    fn integer(term: beam.term, unsigned: bool, scalar: *c.aphid_value_info) !void {
+    ^~
+error: 2 compilation errors
+failed command: /Users/catethos/.zvm/0.16.0/zig build-exe /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/libaphid_bridge.dylib -ferror-tracing -ODebug -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src --dep nif -Mroot=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/sema.zig --dep erl_nif --dep beam --dep attributes --dep bridge -Mnif=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig -Merl_nif=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/stub_erl_nif.zig --dep erl_nif -Mbeam=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/beam.zig -Mattributes=attributes.zig -ODebug -Mbridge=.zig-cache/o/9562b4641ac587e25510919ffba338b1/bridge.zig -lc --cache-dir .zig-cache --global-cache-dir /tmp/aphid-zig-cache --name sema --zig-lib-dir /Users/catethos/.zvm/0.16.0/lib/ --listen=-
+
+Build Summary: 1/4 steps succeeded (1 failed)
+install transitive failure
++- install sema transitive failure
+   +- compile exe sema Debug native 2 errors
+
+error: the following build command failed with exit code 1:
+.zig-cache/o/6505930dd65eb4251fc6044c9bfc8ce8/build /Users/catethos/.zvm/0.16.0/zig /Users/catethos/.zvm/0.16.0/lib /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native .zig-cache /tmp/aphid-zig-cache --seed 0x3201087b -Z228b626e1ae8ed7a -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+    (zigler 0.16.0) lib/zig/command.ex:33: Zig.Command.run_zig/2
+    (zigler 0.16.0) lib/zig/command.ex:61: Zig.Command.run_sema!/1
+    (zigler 0.16.0) lib/zig/sema.ex:49: Zig.Sema.run_sema!/1
+    (zigler 0.16.0) lib/zig/compiler.ex:144: Zig.Compiler.compile/3
+    (zigler 0.16.0) expanding macro: Zig.Compiler.__before_compile__/1
+    lib/aphid/native.ex:15: Aphid.Native (module)
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 1.666}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/lifecycle.py", line 13, in <module>
+    run(["mix", "test", "--seed", "0"],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(os.environ, MIX_ENV="test", ERL_FLAGS="+S 1:1 +SDcpu 4"), timeout=120)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'test', '--seed', '0']

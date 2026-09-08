@@ -1,0 +1,2 @@
+external connect errno 1
+localhost bind/connect/accept passed

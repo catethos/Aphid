@@ -1,0 +1,43 @@
+All 821 packaged files unchanged. Retained ExUnit scratch databases: ["validation/tmp/Aphid.TransactionTest/test-supervisor-death-stops-even-an-exit-trapping-callback-before-persistent-reopen-cc171fa5/graph", "validation/tmp/AphidTest/test-supervisor-restart-preserves-data-and-waits-for-the-retiring-native-owner-1f95b412/graph"]
+{"file": "native/lock.json", "sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955", "bytes": 7182}
+{"file": "mix.lock", "sha256": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a", "bytes": 3957}
+{"file": "_build/native/bridge/libaphid_bridge.dylib", "sha256": "66da4859f901aac548666e496be75c4e0ba34703be02fbc352eb971679f1a06f", "bytes": 108120}
+{"file": "_build/native/ladybug/src/liblbug.dylib", "sha256": "3a2afd166d9f8854800a2023f73e29b8bb009de23df257180b5dbb95ba5b7a2c", "bytes": 69165888}
+{"file": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz", "sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034", "bytes": 33608999}
+{"file": "artifacts/mix-release-validation-aarch64-macos-4.tar.gz", "sha256": "b82a0a6981f09a0d982ff7700678a1a598134b3b52d70ffba434ec6ec0141fd7", "bytes": 91405140}
+Verified observed check: runtime guards verified:
+Verified observed check: relocated Mix release: all 92 tests passed
+Verified observed check: release start booted applications, loaded both NIFs, persisted data and closed database
+Verified observed check: new release VM reopened persisted database after graceful shutdown
+All five watched commands exited zero; run 4 final assertion was an extra-file harness error only.
+All 22 shipped Mach-O files are ARM64; dependency closure audit contains only system/loader-relative libraries.
+Material limit: bundled ERTS/crypto declare macOS 15.0; Aphid natives declare 13.3; actual minimum execution remains unproved.
+{"file": "scripts/mix_release.py", "sha256": "4c3ef3d01f9edd398d59059ac359893dfb91b6a8baf06a4fb4f84a31c2d9a622", "bytes": 12916}
+{"file": "docs/evidence/mix-release-identity-4.json", "sha256": "3179c09e5744e0111816bcd2df67ae32d8f89cde49babe705d30c2aaa6fddf2a", "bytes": 5471}
+{"file": "docs/evidence/mix-release-files-4.json", "sha256": "13d0e93b6da800018079c69bbdd98c1a3d6e63083f56cb46905bee7f8657fde8", "bytes": 97268}
+{"file": "docs/evidence/mix-release-native-audit-4.json", "sha256": "e90612ef1334d42104a9b1183913dcc2b1692861b823c04760d698d538a9b858", "bytes": 138070}
+Traceback (most recent call last):
+  File "/tmp/aphid-release-final-checks-1.py", line 58, in <module>
+    processes=subprocess.check_output(['ps','-axo','comm=,args='],text=True).splitlines()
+              ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 473, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 1] Operation not permitted: 'ps'

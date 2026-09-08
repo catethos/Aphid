@@ -1,0 +1,4 @@
+Native Linux source qualification passed; precompiled consumer, relocation, minimum-system and cross-build gates remain open.
+Native Linux source qualification passed; precompiled consumer, relocation, minimum-system and cross-build gates remain open.
+Both Linux orchestration routes checked with captured commands only; no Linux code executed.
+{"command": ["python3", "scripts/linux_ci_checks.py", "--destination", "/tmp/aphid-linux-ci-checks-1"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.265}

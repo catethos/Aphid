@@ -1,0 +1,8 @@
+vector create: recall@10 mean=1.0, minimum=1.0, points=1000, probes=20, efs=200
+vector fresh-process create passed
+{"command": ["mix", "run", "scripts/vector_persistence.exs", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-nld17pd5/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 4.466}
+vector reopen: recall@10 mean=1.0, minimum=1.0, points=1000, probes=20, efs=200
+vector fresh-process reopen passed
+{"command": ["mix", "run", "scripts/vector_persistence.exs", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-nld17pd5/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.536}
+vector fresh-process verify passed
+{"command": ["mix", "run", "scripts/vector_persistence.exs", "verify", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-vector-nld17pd5/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.481}

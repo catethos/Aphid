@@ -1,0 +1,82 @@
+Resolving Hex dependencies...
+Resolution completed in 0.023s
+Unchanged:
+  earmark_parser 1.4.46
+  ex_doc 0.39.1
+  makeup 1.2.2
+  makeup_elixir 1.0.1
+  makeup_erlang 1.1.0
+  nimble_parsec 1.4.2
+  pegasus 0.2.6
+  protoss 1.1.0
+  zig_doc 0.7.0
+  zig_get 0.16.0
+  zig_parser 0.7.0
+  zigler 0.16.0
+All dependencies have been fetched
+{"command": ["mix", "deps.get"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.245}
+Compiling 1 file (.ex)
+
+00:39:32.907 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:39:32.912 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:39:32.912 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/build.zig
+
+00:39:33.373 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/build.zig
+
+00:39:33.399 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:39:33.400 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:39:33.400 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+00:39:33.810 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:39:33.811 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:39:33.811 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/module.zig
+
+00:39:33.884 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Proof/module.zig
+
+00:39:33.884 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:39:33.885 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:39:33.885 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+00:39:34.199 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+00:39:34.204 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+Generated aphid app
+{"command": ["mix", "compile", "--force"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.385}
+Running ExUnit with seed: 0, max_cases: 16
+
+
+00:39:35.954 [debug] loaded module at Elixir.Aphid.Proof
+..
+Finished in 0.6 seconds (0.00s async, 0.6s sync)
+
+Result: 2 passed
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.456}
+Compiling 1 file (.ex)
+
+00:39:36.899 [debug] skipping compile step for precompiled module Elixir.Aphid.Proof, at /Users/catethos/workspace/ladybugex/zig_library/artifacts/proof/Elixir.Aphid.Proof.so
+
+00:39:36.902 [debug] destination library path: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Proof.so
+Generated aphid app
+{"command": ["mix", "compile", "--force"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.259}
+Running ExUnit with seed: 0, max_cases: 16
+
+
+00:39:38.105 [debug] loaded module at Elixir.Aphid.Proof
+..
+Finished in 0.05 seconds (0.00s async, 0.05s sync)
+
+Result: 2 passed
+{"command": ["mix", "test", "--no-compile", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.882}
+
+00:39:39.000 [debug] loaded module at Elixir.Aphid.Proof
+relocated dependency-free precompiled consumer passed
+{"command": ["elixir", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-proof-27_sdmai/relocated/check.exs"], "cwd": "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-proof-27_sdmai", "exit": 0, "seconds": 0.877}
+artifact sha256: b793ca76b81864f8d1dd67cc9ee6bc2ef48e6a1ac824f3de92a5cc9f5e0189ad

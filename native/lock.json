@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "bridge_abi": 1,
+  "engine": {
+    "repository": "https://github.com/LadybugDB/ladybug.git",
+    "commit": "f150bddf7d01c65e5308384b8a064af1e2347701",
+    "tree": "5ee7aa542480e278321968582bf2538b588c54e2",
+    "patched_diff_sha256": "a653fb6beaa80478556f869e1fad14a4060d25798d8b0e88656c8941991358ae"
+  },
+  "extensions": {
+    "repository": "https://github.com/LadybugDB/extensions.git",
+    "commit": "89fceca9aa0c3d404984b84697a502ac6a088536",
+    "tree": "9ea717e16688b237e6507a027ab92ee751c220f4",
+    "required": [
+      "fts",
+      "vector",
+      "duckdb"
+    ],
+    "patched_diff_sha256": "78bbc2ec29eb3bf6d687025604817540300de1f4d3d1a16d99768429b3e734c7"
+  },
+  "duckdb": {
+    "version": "1.4.4",
+    "commit": "6ddac802ffa9bcfbcc3f5f0d71de5dff9b0bc250",
+    "archive": "https://codeload.github.com/duckdb/duckdb/tar.gz/refs/tags/v1.4.4",
+    "sha256": "43645e15419c6539bae6915ba397de6569e4a7ca0d502be95d653a78fdb0bece",
+    "bundled_extensions": [
+      "core_functions",
+      "parquet"
+    ],
+    "compatibility": "pending Stage 01"
+  },
+  "toolchain": {
+    "zig": "0.16.0",
+    "zigler": "0.16.0",
+    "elixir_build": "1.20.0",
+    "otp_build": "29.0.4",
+    "cmake_tested": "4.4.3",
+    "cmake_minimum": "3.20",
+    "host": "aarch64-macos",
+    "host_os": "26.6",
+    "deployment_target_goal": "13.3",
+    "cxx": "Apple clang 17.0.0 (clang-1700.4.4.1)",
+    "macos_sdk": "26.1",
+    "zig_executable_sha256": "e6cd688d25664983833aae272f501d4bceeae304875b8f1741209d15fd13a4ec"
+  },
+  "patches": [
+    {
+      "source": "extensions",
+      "path": "patches/duckdb-tabular-only.patch",
+      "sha256": "05b214f64350c5126a98ed036a3e134d84efe17198121b44254db97139310835",
+      "reason": "Exclude unsafe direct graph projections; retain required DuckDB table scans/imports and safe detach/reopen"
+    },
+    {
+      "source": "extensions",
+      "path": "patches/vector-drop-auto-transaction.patch",
+      "sha256": "b362199b15d63056e3715bfd3ff02731dbe07d8f3e094f7e777080eb3b6f3818",
+      "reason": "Reject explicit-transaction vector index drops: rollback restores catalog metadata but loses the in-memory index (lifecycle-run-54). Only public bind is guarded; internal auto-transaction rewrite remains supported."
+    },
+    {
+      "source": "engine",
+      "path": "patches/detach-clear-default.patch",
+      "sha256": "75e11aa0c8398196f7e94eaff0f6856d8e6c48b78b8056a58743dd15ad19a411",
+      "reason": "Clear a detached default database alias; combined graph traversal otherwise fails after DuckDB detach (lifecycle-run-59)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/row-value-alignment.patch",
+      "sha256": "8c5719d3a3e3442f85e9f0a107358eae662ea519ed9a865cd317fae28951e7d5",
+      "reason": "UBSan misaligned-load aborts reading packed row-layout scalars, list/string headers, and factorized-table overflow values; copy through memcpy/aligned locals instead of binding references onto packed storage (docs/evidence/row-alignment.md)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/string-hash-alignment.patch",
+      "sha256": "54ea5d790fb5a3d20ddb4609ffedd84ae76bb04a48f0101efe4ee340ebf20bac",
+      "reason": "UBSan misaligned-load abort in Hash::operation(string_view) reading 8 bytes through a uint64_t*; replaced with memcpy into a local. Verified invariant across byte alignments/lengths 0..80 (docs/evidence/hash-alignment-1.log)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/join-row-alignment.patch",
+      "sha256": "ff51a377d6fb6b607539c831b0189688f9de10843e0f7d37bc672aa250845e9c",
+      "reason": "UBSan misaligned-load aborts reading packed hash-join tuple hashes/pointers/keys (JoinHashTable, BaseHashTable::compareEntry, intersect, path-property probe); reads/compares go through memcpy'd locals (docs/evidence/aggregate-alignment.md)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/alp-conversion-range.patch",
+      "sha256": "4956d6ca30ae4ee911e7db103e0797a1dd0f616e853193c2a53a723723a91024",
+      "reason": "AlpEncode<float>::encode_value converted out-of-range doubles to int32_t; bound the scaled value against the destination integer's exact range before conversion in both the checked and SAFE=false scalar paths (docs/evidence/alp-range.md)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/aggregate-state-alignment.patch",
+      "sha256": "75ff061b727f3f2e27e298c184a0bc5ba6af3c9eb5dc4b98eee1dd58fbb38f18",
+      "reason": "Packed factorized-table rows misaligned live aggregate-state objects and their packed hash reads; schema now pads aggregate column offsets/stride to alignof(AggregateState) and hash reads go through memcpy (docs/evidence/aggregate-alignment.md)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/sort-key-alignment.patch",
+      "sha256": "6cd05b54e072203398b59f2b9db91ae94f8756e32df90b124f4d6bbe72fa6be1",
+      "reason": "OrderByKeyEncoder::encodeFTIdx stored/read packed 32-bit sort-key metadata through unaligned references; copied through byte storage with memcpy, preserving field layout and byte order (docs/evidence/aggregate-alignment.md)."
+    },
+    {
+      "source": "engine",
+      "path": "patches/node-delete-finalize.patch",
+      "sha256": "73db975fc76cc2e0d06a14f143279066108155f182416fa5fb4cc9aa20bc3da6",
+      "reason": "SingleLabelNodeDeleteExecutor::finalize dereferenced detach-delete batch storage on an ordinary DELETE with an empty batch, aborting under UBSan during the public OOM recovery workflow; the flush is now guarded by !batchNodeIDs.empty()."
+    },
+    {
+      "source": "extensions",
+      "path": "patches/fts-atomic-create.patch",
+      "sha256": "b0c8f418e4880690fb48e632611b2f33c5a4abca082a0df3e140d0a5afaf3eb5",
+      "reason": "Wrap CREATE_FTS_INDEX's internal table rewrite in a transaction so a cancelled/late-failing build leaves no leftover internal tables and same-name rebuild succeeds; verified under ASan/UBSan for cancellation capacity, buffer-pool OOM recovery, and injected late-registration failure in memory and persistent modes (docs/evidence/fts-sanitizer-candidate-checks-clt21-1.log)."
+    }
+  ],
+  "mix_lock_sha256": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a",
+  "submodules": [
+    "160000 commit 42dd2882d319c339d72b1f10f25e237eafaa1a8f\tbenchmark",
+    "160000 commit cf50d1a9a530ee807491d350351bf954e75f4a1e\tdataset",
+    "160000 commit 89fceca9aa0c3d404984b84697a502ac6a088536\textension",
+    "160000 commit f2fb39f73759c5f5a88b97b95980c629ce85690b\ttools/java_api",
+    "160000 commit b62c5499d266ca1af4053e3e2e61d999c11962d3\ttools/nodejs_api",
+    "160000 commit eed4d5db4bc45b6358f5b25b9ce4efbf0c314f31\ttools/python_api",
+    "160000 commit 7afc780e33fb42c8f9b2f0c4ab6833bf2f86c76f\ttools/rust_api",
+    "160000 commit aa726993fd95b0cbe6e080a76d94e689a7044950\ttools/wasm"
+  ],
+  "openssl": {
+    "version": "3.6.4",
+    "archive": "https://github.com/openssl/openssl/releases/download/openssl-3.6.4/openssl-3.6.4.tar.gz",
+    "sha256": "9bffaa1ad1e07b354c21bd3324ec02fa15579f45a7d0494b3e74bc449b7333ef",
+    "license": "Apache-2.0",
+    "build": "darwin64-arm64-cc no-shared no-tests"
+  }
+}

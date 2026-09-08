@@ -1,0 +1,29 @@
+Candidate row-value-alignment.patch sha256: 407440293afa78bf15e1bd62ca16049dab62d3772154d895159d5516366886a0
+[0/2] Re-checking globbed directories...
+[1/3] Building CXX object src/common/types/value/CMakeFiles/lbug_common_types_value.dir/value.cpp.o
+[2/3] Linking CXX static library src/liblbug.a
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/ladybug", "--target", "lbug", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 8.738}
+/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/common/types/value/value.cpp:358:24: runtime error: load of misaligned address 0x603000187b79 for type 'int64_t' (aka 'long long'), which requires 8 byte alignment
+0x603000187b79: note: pointer points here
+ be be be  be 01 00 00 00 00 00 00  00 cf 97 00 80 60 00 00  00 00 00 00 00 00 00 00  03 02 00 00 18
+              ^ 
+    #0 0x0001127aa38c in lbug::common::Value::copyFromRowLayout(unsigned char const*)+0x748 (liblbug.0.20.2.dylib:arm64+0x34238c)
+    #1 0x0001127aa86c in lbug::common::Value::copyFromRowLayoutList(lbug::common::list_t const&, lbug::common::LogicalType const&)+0x1b8 (liblbug.0.20.2.dylib:arm64+0x34286c)
+    #2 0x0001127aa224 in lbug::common::Value::copyFromRowLayout(unsigned char const*)+0x5e0 (liblbug.0.20.2.dylib:arm64+0x342224)
+    #3 0x000113b15224 in lbug::processor::FactorizedTableIterator::getNext(lbug::processor::FlatTuple&)+0x1e4 (liblbug.0.20.2.dylib:arm64+0x16ad224)
+    #4 0x00011333d488 in lbug::main::MaterializedQueryResult::getNext()+0x148 (liblbug.0.20.2.dylib:arm64+0xed5488)
+    #5 0x0001046450bc in aphid_fetch_next+0x304 (lifecycle:arm64+0x1000090bc)
+    #6 0x00010465fa40 in parameter_cases(aphid_db*)::$_2::operator()(aphid_value*) const+0x3a0 (lifecycle:arm64+0x100023a40)
+    #7 0x00010464f8d4 in main+0x2378 (lifecycle:arm64+0x1000138d4)
+    #8 0x0001819cc4e0 in start+0x1b4c (dyld:arm64e+0x204e0)
+
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/common/types/value/value.cpp:358:24 
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": -6, "seconds": 1.717}
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/bridge/lifecycle']

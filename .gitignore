@@ -1,0 +1,11 @@
+/_build/
+/deps/
+/native/upstream/
+/.zig-cache/
+/priv/lib/
+/.elixir_ls/
+**/.Elixir.*.zig
+/artifacts/
+__pycache__/
+/tmp/
+/docs/evidence/**/*.duckdb

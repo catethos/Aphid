@@ -1,0 +1,40 @@
+* assembling aphid_consumer-0.0.0 on MIX_ENV=prod
+* skipping runtime configuration (config/runtime.exs not found)
+* building /private/tmp/aphid-mix-release-1/assembled/aphid_consumer-0.0.0.tar.gz
+
+Release created at /private/tmp/aphid-mix-release-1/assembled
+
+    # To start your system
+    /private/tmp/aphid-mix-release-1/assembled/bin/aphid_consumer start
+
+Once the release is running:
+
+    # To connect to it remotely
+    /private/tmp/aphid-mix-release-1/assembled/bin/aphid_consumer remote
+
+    # To stop it gracefully (you may also send SIGINT/SIGTERM)
+    /private/tmp/aphid-mix-release-1/assembled/bin/aphid_consumer stop
+
+To list all commands:
+
+    /private/tmp/aphid-mix-release-1/assembled/bin/aphid_consumer
+
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-mix-release-1/assemble.sb", "mix", "release", "--no-compile", "--path", "/private/tmp/aphid-mix-release-1/assembled"], "cwd": "/private/tmp/aphid-mix-release-1/build", "exit": 0, "seconds": 9.543}
+{"release_archive": "/Users/catethos/workspace/ladybugex/zig_library/artifacts/mix-release-validation-aarch64-macos-1.tar.gz", "sha256": "7fccb5a415dbf5ffcccd1c81a729472576db464531d82c6df2b982edcc8ddcd9", "bytes": 91405200}
+audited shipped Mach-O files: 22
+** (MatchError) no match of right hand side value:
+
+    false
+
+    guards.exs:10: (file)
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-mix-release-1/runtime.sb", "/private/tmp/aphid-mix-release-1/relocated caf\u00e9 release/bin/aphid_consumer", "eval", "Code.require_file(\"guards.exs\")"], "cwd": "/private/tmp/aphid-mix-release-1/relocated caf\u00e9 release/validation", "exit": 1, "seconds": 3.386}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/mix_release.py", line 200, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/mix_release.py", line 184, in main
+    run([*command, 'eval', 'Code.require_file("guards.exs")'], cwd=checks, env=runtime_env, timeout=30)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/usr/bin/sandbox-exec', '-f', '/private/tmp/aphid-mix-release-1/runtime.sb', '/private/tmp/aphid-mix-release-1/relocated café release/bin/aphid_consumer', 'eval', 'Code.require_file("guards.exs")']

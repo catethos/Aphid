@@ -1,0 +1,4 @@
+FTS build cancellation: response=102 ms, native_idle=104 ms; source rows intact; same-name index rebuild/query/drop passed
+{"command": ["mix", "run", "scripts/fts_cancel.exs"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.647}
+FTS build cancellation: response=101 ms, native_idle=103 ms; source rows intact; same-name index rebuild/query/drop passed
+{"command": ["mix", "run", "scripts/fts_cancel.exs", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-fts-cancel-glhth3uv/persistent graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 3.17}

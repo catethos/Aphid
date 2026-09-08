@@ -1,0 +1,20 @@
+Running ExUnit with seed: 0, max_cases: 16
+
+..Aphid basic example passed
+.Aphid transaction example passed
+.Aphid stream example passed
+.Aphid FTS example passed
+.Aphid vector example passed
+.Aphid DuckDB example passed
+................
+18:45:47.828 [debug] loaded module at Elixir.Aphid.Proof
+.......................................stale-cancel race: 30 iterations; maximum cancel-to-idle 83017 us
+........heartbeat: 31 samples; maximum gap 6 ms
+.
+18:45:55.269 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+....................
+Finished in 13.9 seconds (0.2s async, 13.6s sync)
+
+Result: 91 passed

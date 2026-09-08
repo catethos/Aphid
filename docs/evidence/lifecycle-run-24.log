@@ -1,0 +1,34 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge
+{"command": ["cmake", "-S", "native", "-B", "_build/native/bridge", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-DAPHID_BUILD_TESTS=ON"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.203}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.083}
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.408}
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "_build/native/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.086}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/tests", "--target", "fixture", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.024}
+Compiling 2 files (.ex)
+Generated aphid app
+Running ExUnit with seed: 0, max_cases: 2
+
+.................heartbeat: 30 samples; maximum gap 6 ms
+.
+03:04:30.516 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.
+03:04:30.532 [debug] loaded module at Elixir.Aphid.Proof
+.........
+Finished in 3.6 seconds (0.3s async, 3.3s sync)
+
+Result: 28 passed
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 4.236}

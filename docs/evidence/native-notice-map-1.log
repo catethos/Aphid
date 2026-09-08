@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/native_notice_map.py", line 144, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/native_notice_map.py", line 132, in main
+    archive.addfile(info, io.BytesIO(data))
+                          ^^
+NameError: name 'io' is not defined. Did you mean: 'id'? Or did you forget to import 'io'?

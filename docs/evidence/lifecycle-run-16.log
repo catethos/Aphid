@@ -1,0 +1,81 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge
+{"command": ["cmake", "-S", "native", "-B", "_build/native/bridge", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-DAPHID_BUILD_TESTS=ON"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.131}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.389}
+Compiling 1 file (.ex)
+
+02:17:16.508 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:17:16.509 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:17:16.509 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+02:17:16.709 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+02:17:16.721 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:17:16.722 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:17:16.722 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+02:17:17.051 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:17:17.051 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:17:17.051 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+02:17:17.092 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+02:17:17.092 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+02:17:17.093 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+02:17:17.093 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+== Compilation error in file lib/aphid/native.ex ==
+** (CompileError) lib/aphid/.Elixir.Aphid.Native.zig:517: error: root source file struct 'erl_nif' has no member named 'enif_is_list'
+   +- compile lib Elixir.Aphid.Native Debug native 1 errors
++- install Elixir.Aphid.Native
+install
+
+        if (e.enif_is_list(beam.context.env, term.v) != 0) {
+            ~^~~~~~~~~~~~~
+/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/erl_nif.zig:1:1: note: struct declared here
+//! Provides erlang's NIF convenience functions to your Zig code.
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+referenced by:
+    value: /Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:563:41
+    convert: /Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:733:45
+    10 reference(s) hidden; use '-freference-trace=12' to see all references
+error: 1 compilation errors
+failed command: /Users/catethos/.zvm/0.16.0/zig build-lib /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/libaphid_bridge.dylib -ferror-tracing -ODebug -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge -rpath /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src --dep beam --dep erl_nif --dep nif -Mroot=module.zig --dep erl_nif -Mbeam=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/beam.zig --dep erl -Merl_nif=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/erl_nif.zig --dep erl_nif --dep beam --dep attributes --dep bridge -Mnif=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig -ODebug -Merl=.zig-cache/o/64da031450229183e47aa85ab9932c72/erl_nif.zig -Mattributes=attributes.zig -ODebug -Mbridge=.zig-cache/o/35abce6de146d2cf846d26900fce0f03/bridge.zig -lc -fallow-shlib-undefined --cache-dir .zig-cache --global-cache-dir /tmp/aphid-zig-cache --name Elixir.Aphid.Native -dynamic --version 0.1.0 -install_name @rpath/libElixir.Aphid.Native.dylib --zig-lib-dir /Users/catethos/.zvm/0.16.0/lib/ --listen=-
+
+Build Summary: 2/5 steps succeeded (1 failed)
+install transitive failure
++- install Elixir.Aphid.Native transitive failure
+   +- compile lib Elixir.Aphid.Native Debug native 1 errors
+
+error: the following build command failed with exit code 1:
+.zig-cache/o/6505930dd65eb4251fc6044c9bfc8ce8/build /Users/catethos/.zvm/0.16.0/zig /Users/catethos/.zvm/0.16.0/lib /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native .zig-cache /tmp/aphid-zig-cache --seed 0xc3584755 -Z2c3e48a55aaf83c7 -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+    (zigler 0.16.0) lib/zig/command.ex:33: Zig.Command.run_zig/2
+    (zigler 0.16.0) lib/zig/command.ex:191: Zig.Command.compile!/1
+    (zigler 0.16.0) lib/zig/compiler.ex:151: Zig.Compiler.compile/3
+    (zigler 0.16.0) expanding macro: Zig.Compiler.__before_compile__/1
+    lib/aphid/native.ex:15: Aphid.Native (module)
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 1.933}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/lifecycle.py", line 13, in <module>
+    run(["mix", "test", "--seed", "0"],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(os.environ, MIX_ENV="test", ERL_FLAGS="+S 1:1 +SDcpu 4"), timeout=120)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'test', '--seed', '0']

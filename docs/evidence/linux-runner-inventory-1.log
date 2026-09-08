@@ -1,0 +1,25 @@
+Darwin elvenanalyzer.local 25.6.0 Darwin Kernel Version 25.6.0: Sat Jul 11 15:27:02 PDT 2026; root:xnu-12377.161.13~4/RELEASE_ARM64_T8112 arm64
+{"command": ["uname", "-a"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.004}
+NAME       DESCRIPTION                               DOCKER ENDPOINT                                      ERROR
+colima *   colima                                    unix:///Users/catethos/.colima/default/docker.sock   
+default    Current DOCKER_HOST based configuration   unix:///var/run/docker.sock                          
+{"command": ["docker", "context", "ls"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.147}
+Client: Docker Engine - Community
+ Version:    29.8.0
+ Context:    colima
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.37.0
+    Path:     /Users/catethos/.docker/cli-plugins/docker-buildx
+
+Server:
+failed to connect to the docker API at unix:///Users/catethos/.colima/default/docker.sock; check if the path is correct and if the daemon is running: dial unix /Users/catethos/.colima/default/docker.sock: connect: no such file or directory
+{"command": ["docker", "info"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 0.253}
+command failed: ['docker', 'info']
+time="2026-09-07T18:57:33+08:00" level=warning msg="failed to detect whether running under rosetta, assuming false" error="failed to read sysctl \"sysctl.proc_translated\": operation not permitted"
+time="2026-09-07T18:57:33+08:00" level=warning msg="No instance found. Run `limactl create` to create an instance."
+{"command": ["limactl", "list"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.141}
+PROFILE    STATUS     ARCH       CPUS    MEMORY    DISK      RUNTIME    ADDRESS
+default    Stopped    aarch64    2       2GiB      100GiB    docker     
+{"command": ["colima", "list"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.366}

@@ -1,0 +1,9 @@
+[0/1] Re-running CMake...
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests
+[1/3] Building CXX object CMakeFiles/alp_range.dir/alp_range.cpp.o
+[2/3] Linking CXX executable alp_range
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests", "--target", "alp_range", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.215}
+ALP float/double conversion boundaries and ordinary values passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/alp_range"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.197}

@@ -1,0 +1,8 @@
+native/lock.json d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955
+mix.lock e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a
+_build/native/bridge/libaphid_bridge.dylib 66da4859f901aac548666e496be75c4e0ba34703be02fbc352eb971679f1a06f
+_build/native/ladybug/src/liblbug.dylib 3a2afd166d9f8854800a2023f73e29b8bb009de23df257180b5dbb95ba5b7a2c
+runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz 33608999 3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034
+mix-release-embedded-aarch64-macos-1.tar.gz 91405126 2ee9d858ec12ab848f083ceb4b1b57d2acf289a40bc94690eaac3991e21a9008
+822 packaged files unchanged after negative tests; no remaining embedded proof BEAM; native lock and engine unchanged
+Mach-O audit files: 22

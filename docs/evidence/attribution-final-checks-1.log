@@ -1,0 +1,9 @@
+artifacts/notice-review-8.tar.gz 56647f85783f8d15301176b53f860baaabdc04b73ea694bcc161415a99293471
+artifacts/notice-review-7.tar.gz 550da48de1d66b4e1205157d9b62a9cfbc2a3a1e0022060a47ca6232a987598d
+artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz 3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034
+artifacts/aphid-0.1.0-dev-local-2.tar 921d21ece8c5a96bb3cdc5ab60b6932e73dd4471b2f9382d446d9f182bd8d7e3
+native/lock.json d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955
+mix.lock e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a
+_build/native/bridge/libaphid_bridge.dylib 66da4859f901aac548666e496be75c4e0ba34703be02fbc352eb971679f1a06f
+_build/native/ladybug/src/liblbug.dylib 3a2afd166d9f8854800a2023f73e29b8bb009de23df257180b5dbb95ba5b7a2c
+Verified 129 manifest files, prior texts, upstream Git blobs and retained pinned-engine header; all previous runtime/package/native inputs unchanged

@@ -1,0 +1,21 @@
+Running ExUnit with seed: 0, max_cases: 2
+
+................Aphid basic example passed
+.Aphid transaction example passed
+.Aphid stream example passed
+.Aphid FTS example passed
+.Aphid vector example passed
+.Aphid DuckDB example passed
+.............stale-cancel race: 30 iterations; maximum cancel-to-idle 217030 us
+........heartbeat: 35 samples; maximum gap 6 ms
+.
+23:11:18.513 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+........................
+23:11:19.770 [debug] loaded module at Elixir.Aphid.Proof
+........................
+Finished in 18.0 seconds (1.5s on load, 0.00s async, 16.5s sync)
+
+Result: 91 passed
+{"command": ["/usr/bin/sandbox-exec", "-p", "(version 1)(allow default)(deny network*)(deny file-read* (subpath \"/Users/catethos/workspace/ladybugex/zig_library\"))", "elixir", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-extracted-7r6q00li/relocated caf\u00e9/check.exs"], "cwd": "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-extracted-7r6q00li/relocated caf\u00e9", "exit": 0, "seconds": 18.603}

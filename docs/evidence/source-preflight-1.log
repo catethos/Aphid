@@ -1,0 +1,21 @@
+{
+  "status": "blocked",
+  "missing_files": [
+    "native/CMakeLists.txt",
+    "native/bridge.cpp",
+    "scripts/build.py",
+    "scripts/proof.py",
+    "native/patches/duckdb-tabular-only.patch",
+    "native/patches/vector-drop-auto-transaction.patch",
+    "native/patches/detach-clear-default.patch",
+    "native/patches/row-value-alignment.patch",
+    "native/patches/string-hash-alignment.patch",
+    "native/patches/join-row-alignment.patch",
+    "native/patches/alp-conversion-range.patch",
+    "native/patches/aggregate-state-alignment.patch",
+    "native/patches/sort-key-alignment.patch",
+    "native/patches/node-delete-finalize.patch",
+    "native/patches/fts-atomic-create.patch"
+  ],
+  "patch_checksum_mismatches": []
+}

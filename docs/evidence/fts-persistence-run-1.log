@@ -1,0 +1,6 @@
+FTS fresh-process create passed
+{"command": ["mix", "run", "scripts/fts_persistence.exs", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-fts-vdl6yy1t/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.104}
+FTS fresh-process mutate passed
+{"command": ["mix", "run", "scripts/fts_persistence.exs", "mutate", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-fts-vdl6yy1t/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.466}
+FTS fresh-process verify passed
+{"command": ["mix", "run", "scripts/fts_persistence.exs", "verify", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-fts-vdl6yy1t/caf\u00e9 graph"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.41}

@@ -1,0 +1,16 @@
+diff --git a/vector/src/function/drop_hnsw_index.cpp b/vector/src/function/drop_hnsw_index.cpp
+index a663038..3fb6419 100644
+--- a/vector/src/function/drop_hnsw_index.cpp
++++ b/vector/src/function/drop_hnsw_index.cpp
+@@ -114,7 +114,10 @@ function_set DropVectorIndexFunction::getFunctionSet() {
+     std::vector inputTypes = {common::LogicalTypeID::STRING, common::LogicalTypeID::STRING};
+     auto func = std::make_unique<TableFunction>(name, inputTypes);
+     func->tableFunc = TableFunction::emptyTableFunc;
+-    func->bindFunc = bindFunc;
++    func->bindFunc = [](main::ClientContext* context, const TableFuncBindInput* input) {
++        HNSWIndexUtils::validateAutoTransaction(*context, DropVectorIndexFunction::name);
++        return bindFunc(context, input);
++    };
+     func->initSharedStateFunc = SimpleTableFunc::initSharedState;
+     func->initLocalStateFunc = TableFunction::initEmptyLocalState;
+     func->rewriteFunc = dropHNSWIndexTables;

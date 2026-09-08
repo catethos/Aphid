@@ -1,0 +1,179 @@
+diff --git a/src/include/processor/operator/aggregate/aggregate_hash_table.h b/src/include/processor/operator/aggregate/aggregate_hash_table.h
+index fd705d128..d0e1fb59e 100644
+--- a/src/include/processor/operator/aggregate/aggregate_hash_table.h
++++ b/src/include/processor/operator/aggregate/aggregate_hash_table.h
+@@ -280,8 +280,6 @@ protected:
+     uint32_t hashColOffsetInFT{};
+     uint32_t aggStateColOffsetInFT{};
+     uint32_t aggStateColIdxInFT{};
+-    uint32_t numBytesForKeys = 0;
+-    uint32_t numBytesForDependentKeys = 0;
+     std::vector<update_agg_function_t> updateAggFuncs;
+     // Temporary arrays to hold intermediate results.
+     std::unique_ptr<uint64_t[]> tmpValueIdxes;
+diff --git a/src/include/processor/result/factorized_table_schema.h b/src/include/processor/result/factorized_table_schema.h
+index 948867fbb..e73d02757 100644
+--- a/src/include/processor/result/factorized_table_schema.h
++++ b/src/include/processor/result/factorized_table_schema.h
+@@ -57,7 +57,7 @@ public:
+     FactorizedTableSchema() = default;
+     EXPLICIT_COPY_DEFAULT_MOVE(FactorizedTableSchema);
+ 
+-    void appendColumn(ColumnSchema column);
++    void appendColumn(ColumnSchema column, uint32_t alignment = 1);
+ 
+     const ColumnSchema* getColumn(ft_col_idx_t idx) const { return &columns[idx]; }
+ 
+@@ -90,6 +90,7 @@ private:
+     uint32_t numBytesForDataPerTuple = 0;
+     uint32_t numBytesForNullMapPerTuple = 0;
+     uint32_t numBytesPerTuple = 0;
++    uint32_t tupleAlignment = 1;
+     std::vector<ft_col_offset_t> colOffsets;
+ };
+ 
+diff --git a/src/processor/map/map_aggregate.cpp b/src/processor/map/map_aggregate.cpp
+index 75da20ec4..ad55ad132 100644
+--- a/src/processor/map/map_aggregate.cpp
++++ b/src/processor/map/map_aggregate.cpp
+@@ -308,7 +308,8 @@ static FactorizedTableSchema getFactorizedTableSchema(const expression_vector& f
+     }
+     for (auto& aggregateFunc : aggregateFunctions) {
+         tableSchema.appendColumn(
+-            ColumnSchema(isUnFlat, groupID, aggregateFunc.getAggregateStateSize()));
++            ColumnSchema(isUnFlat, groupID, aggregateFunc.getAggregateStateSize()),
++            alignof(AggregateState));
+     }
+     tableSchema.appendColumn(ColumnSchema(isUnFlat, groupID, sizeof(hash_t)));
+     return tableSchema;
+diff --git a/src/processor/operator/aggregate/aggregate_hash_table.cpp b/src/processor/operator/aggregate/aggregate_hash_table.cpp
+index 1c7eb271f..f0299d853 100644
+--- a/src/processor/operator/aggregate/aggregate_hash_table.cpp
++++ b/src/processor/operator/aggregate/aggregate_hash_table.cpp
+@@ -59,8 +59,10 @@ uint64_t AggregateHashTable::append(const std::vector<ValueVector*>& keyVectors,
+ }
+ 
+ hash_t getHash(const FactorizedTable& table, ft_tuple_idx_t tupleIdx) {
+-    return *(hash_t*)(table.getTuple(tupleIdx) + table.getTableSchema()->getColOffset(
+-                                                     table.getTableSchema()->getNumColumns() - 1));
++    hash_t hash;
++    memcpy(&hash, table.getTuple(tupleIdx) + table.getTableSchema()->getColOffset(
++                    table.getTableSchema()->getNumColumns() - 1), sizeof(hash));
++    return hash;
+ }
+ 
+ void AggregateHashTable::merge(FactorizedTable&& table) {
+@@ -182,13 +184,7 @@ void AggregateHashTable::finalizeAggregateStates() {
+ void AggregateHashTable::initializeFT(const std::vector<AggregateFunction>& aggFuncs,
+     FactorizedTableSchema&& tableSchema) {
+     aggStateColIdxInFT = keyTypes.size() + payloadTypes.size();
+-    for (auto& dataType : keyTypes) {
+-        numBytesForKeys += LogicalTypeUtils::getRowLayoutSize(dataType);
+-    }
+-    for (auto& dataType : payloadTypes) {
+-        numBytesForDependentKeys += LogicalTypeUtils::getRowLayoutSize(dataType);
+-    }
+-    aggStateColOffsetInFT = numBytesForKeys + numBytesForDependentKeys;
++    aggStateColOffsetInFT = tableSchema.getColOffset(aggStateColIdxInFT);
+ 
+     aggregateFunctions.reserve(aggFuncs.size());
+     for (auto i = 0u; i < aggFuncs.size(); i++) {
+@@ -232,8 +228,11 @@ void AggregateHashTable::resize(uint64_t newSize) {
+     for (auto& block : hashSlotsBlocks) {
+         block->resetToZero();
+     }
+-    factorizedTable->forEach(
+-        [&](auto tuple) { fillHashSlot(*(hash_t*)(tuple + hashColOffsetInFT), tuple); });
++    factorizedTable->forEach([&](auto tuple) {
++        hash_t hash;
++        memcpy(&hash, tuple + hashColOffsetInFT, sizeof(hash));
++        fillHashSlot(hash, tuple);
++    });
+ }
+ 
+ uint64_t AggregateHashTable::matchFTEntries(std::span<const ValueVector*> keyVectors,
+diff --git a/src/processor/result/factorized_table_schema.cpp b/src/processor/result/factorized_table_schema.cpp
+index c92cc2475..4940319e5 100644
+--- a/src/processor/result/factorized_table_schema.cpp
++++ b/src/processor/result/factorized_table_schema.cpp
+@@ -1,5 +1,7 @@
+ #include "processor/result/factorized_table_schema.h"
+ 
++#include <algorithm>
++
+ #include "common/null_buffer.h"
+ 
+ using namespace lbug::common;
+@@ -14,19 +16,27 @@ ColumnSchema::ColumnSchema(const ColumnSchema& other) {
+     mayContainNulls = other.mayContainNulls;
+ }
+ 
+-FactorizedTableSchema::FactorizedTableSchema(const FactorizedTableSchema& other) {
++FactorizedTableSchema::FactorizedTableSchema(const FactorizedTableSchema& other)
++    : numBytesForDataPerTuple{other.numBytesForDataPerTuple},
++      numBytesForNullMapPerTuple{other.numBytesForNullMapPerTuple},
++      numBytesPerTuple{other.numBytesPerTuple}, tupleAlignment{other.tupleAlignment},
++      colOffsets{other.colOffsets} {
+     for (auto i = 0u; i < other.columns.size(); ++i) {
+-        appendColumn(other.columns[i].copy());
++        columns.push_back(other.columns[i].copy());
+     }
+ }
+ 
+-void FactorizedTableSchema::appendColumn(ColumnSchema column) {
++void FactorizedTableSchema::appendColumn(ColumnSchema column, uint32_t alignment) {
++    DASSERT(alignment && (alignment & (alignment - 1)) == 0);
++    tupleAlignment = std::max(tupleAlignment, alignment);
++    numBytesForDataPerTuple =
++        (numBytesForDataPerTuple + alignment - 1) / alignment * alignment;
++    colOffsets.push_back(numBytesForDataPerTuple);
+     numBytesForDataPerTuple += column.getNumBytes();
+     columns.push_back(std::move(column));
+-    colOffsets.push_back(
+-        colOffsets.empty() ? 0 : colOffsets.back() + getColumn(columns.size() - 2)->getNumBytes());
+     numBytesForNullMapPerTuple = NullBuffer::getNumBytesForNullValues(getNumColumns());
+-    numBytesPerTuple = numBytesForDataPerTuple + numBytesForNullMapPerTuple;
++    numBytesPerTuple = (numBytesForDataPerTuple + numBytesForNullMapPerTuple + tupleAlignment - 1) /
++                      tupleAlignment * tupleAlignment;
+ }
+ 
+ bool FactorizedTableSchema::operator==(const FactorizedTableSchema& other) const {
+@@ -38,8 +48,8 @@ bool FactorizedTableSchema::operator==(const FactorizedTableSchema& other) const
+             return false;
+         }
+     }
+-    return numBytesForDataPerTuple == other.numBytesForDataPerTuple && numBytesForNullMapPerTuple &&
+-           other.numBytesForNullMapPerTuple;
++    return colOffsets == other.colOffsets && numBytesPerTuple == other.numBytesPerTuple &&
++           tupleAlignment == other.tupleAlignment;
+ }
+ 
+ uint64_t FactorizedTableSchema::getNumFlatColumns() const {
+diff --git a/src/include/processor/operator/aggregate/hash_aggregate.h b/src/include/processor/operator/aggregate/hash_aggregate.h
+index f24939a7c..234608b66 100644
+--- a/src/include/processor/operator/aggregate/hash_aggregate.h
++++ b/src/include/processor/operator/aggregate/hash_aggregate.h
+@@ -52,7 +52,8 @@ public:
+         auto numBytesPerTuple = factorizedTable.getTableSchema()->getNumBytesPerTuple();
+         for (ft_tuple_idx_t tupleIdx = 0; tupleIdx < factorizedTable.getNumTuples(); tupleIdx++) {
+             auto tuple = factorizedTable.getTuple(tupleIdx);
+-            auto hash = *reinterpret_cast<common::hash_t*>(tuple + hashOffset);
++            common::hash_t hash;
++            memcpy(&hash, tuple + hashOffset, sizeof(hash));
+             auto& partition =
+                 globalPartitions[(hash >> shiftForPartitioning) % globalPartitions.size()];
+             partition.queue->appendTuple(std::span(tuple, numBytesPerTuple));
+diff --git a/src/processor/operator/aggregate/simple_aggregate.cpp b/src/processor/operator/aggregate/simple_aggregate.cpp
+index 8b2384f5a..822bfcdde 100644
+--- a/src/processor/operator/aggregate/simple_aggregate.cpp
++++ b/src/processor/operator/aggregate/simple_aggregate.cpp
+@@ -170,7 +170,8 @@ void SimpleAggregateSharedState::SimpleAggregatePartitioningData::appendTuples(
+     auto numBytesPerTuple = factorizedTable.getTableSchema()->getNumBytesPerTuple();
+     for (ft_tuple_idx_t tupleIdx = 0; tupleIdx < factorizedTable.getNumTuples(); tupleIdx++) {
+         auto tuple = factorizedTable.getTuple(tupleIdx);
+-        auto hash = *reinterpret_cast<common::hash_t*>(tuple + hashOffset);
++        common::hash_t hash;
++        memcpy(&hash, tuple + hashOffset, sizeof(hash));
+         auto& partition =
+             sharedState->globalPartitions[(hash >> sharedState->shiftForPartitioning) %
+                                           sharedState->globalPartitions.size()];

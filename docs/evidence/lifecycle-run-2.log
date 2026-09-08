@@ -1,0 +1,65 @@
+Compiling 1 file (.ex)
+
+01:17:52.725 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:17:52.726 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:17:52.726 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:17:53.086 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/build.zig
+
+01:17:53.098 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:17:53.099 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:17:53.099 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid
+
+01:17:56.326 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:17:56.327 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:17:56.327 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+01:17:56.372 [debug] wrote module code to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig
+
+01:17:56.372 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+01:17:56.372 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+01:17:56.372 [debug] running command: /Users/catethos/.zvm/bin/zig build -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/lib/aphid --prefix /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+01:17:58.033 [debug] compiled lib at: /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv
+
+01:17:58.035 [debug] moved library to /Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/aphid/priv/lib/Elixir.Aphid.Native.so
+Running ExUnit with seed: 0, max_cases: 2
+
+
+01:17:59.077 [debug] loaded module at Elixir.Aphid.Native
+.......
+01:18:01.572 [error] loading module Elixir.Aphid.Native {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}
+
+
+  1) test live upgrade is rejected and the existing resource stays usable (Aphid.NativeLifecycleTest)
+     test/native_lifecycle_test.exs:125
+     match (=) failed
+     code:  assert {:error, :on_load_failure} = :code.load_binary(Native, path, binary)
+     left:  {:error, :on_load_failure}
+     right: {:module, Aphid.Native}
+     stacktrace:
+       test/native_lifecycle_test.exs:128: (test)
+
+
+Finished in 3.3 seconds (0.00s async, 3.3s sync)
+
+Result: 7/8 passed
+Failed: 1 test
+{"command": ["mix", "test", "test/native_lifecycle_test.exs", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 2, "seconds": 9.482}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/lifecycle.py", line 6, in <module>
+    run(["mix", "test", "test/native_lifecycle_test.exs", "--seed", "0"],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(os.environ, MIX_ENV="test", ERL_FLAGS="+S 1:1 +SDcpu 4"), timeout=120)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'test', 'test/native_lifecycle_test.exs', '--seed', '0']

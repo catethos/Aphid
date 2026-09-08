@@ -1,0 +1,7 @@
+{
+  "status": "inputs_present_not_build_proven",
+  "missing_files": [],
+  "patch_checksum_mismatches": []
+}
+{"command": ["python3", "scripts/source_preflight.py", "--package", "artifacts/aphid-0.1.0-dev-github-metadata-1.tar", "--sha256", "14fc2dee16f5042521cc10095a2e936dd6aea009137e58b3e0404718551d5890", "--output", "docs/evidence/github-source-preflight-1.json"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.077}
+{"command": ["/tmp/aphid-actionlint-1/actionlint", ".github/workflows/linux-native.yml"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}

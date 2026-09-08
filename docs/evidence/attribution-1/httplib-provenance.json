@@ -1,0 +1,17 @@
+{
+  "commit": "f14accb7b6ff4499321e14c61497bc7e4b28e49b",
+  "files": [
+    {
+      "path": "LICENSE",
+      "git_blob": "3e5ed359a2bb16f52c383745c25f14bb7a81c9e4",
+      "sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+      "url": "https://raw.githubusercontent.com/yhirose/cpp-httplib/f14accb7b6ff4499321e14c61497bc7e4b28e49b/LICENSE"
+    },
+    {
+      "path": "httplib.h",
+      "git_blob": "2540a7ef67b3476078c5559a854b15ec9ef67c5b",
+      "sha256": "646136e93fdec176cc9576b89cf0164eb7ed95d55277747454c4373a26b48349",
+      "url": "https://raw.githubusercontent.com/yhirose/cpp-httplib/f14accb7b6ff4499321e14c61497bc7e4b28e49b/httplib.h"
+    }
+  ]
+}

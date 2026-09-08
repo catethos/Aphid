@@ -1,0 +1,119 @@
+{"command": ["install_name_tool", "-delete_rpath", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.039}
+{"command": ["install_name_tool", "-delete_rpath", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.021}
+{"command": ["install_name_tool", "-change", "@rpath/libaphid_bridge.dylib", "@loader_path/libaphid_bridge.dylib", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+{"command": ["install_name_tool", "-id", "@loader_path/Elixir.Aphid.Native.so", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so: replacing existing signature
+{"command": ["codesign", "--force", "--sign", "-", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.042}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so:
+	@loader_path/Elixir.Aphid.Native.so (compatibility version 1.0.0, current version 0.1.0)
+	@loader_path/libaphid_bridge.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so:
+Load command 12
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 26.6
+      sdk 26.1
+   ntools 1
+     tool 5
+  version 0.0
+{"command": ["vtool", "-show-build", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+{"command": ["install_name_tool", "-id", "@loader_path/Elixir.Aphid.Proof.so", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so: replacing existing signature
+{"command": ["codesign", "--force", "--sign", "-", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.021}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so:
+	@loader_path/Elixir.Aphid.Proof.so (compatibility version 1.0.0, current version 0.1.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.021}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so:
+Load command 12
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 26.6
+      sdk 26.1
+   ntools 1
+     tool 5
+  version 0.0
+{"command": ["vtool", "-show-build", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.021}
+{"command": ["install_name_tool", "-delete_rpath", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.019}
+{"command": ["install_name_tool", "-change", "@rpath/liblbug.0.dylib", "@loader_path/liblbug.dylib", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.018}
+{"command": ["install_name_tool", "-id", "@loader_path/libaphid_bridge.dylib", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib: replacing existing signature
+{"command": ["codesign", "--force", "--sign", "-", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib:
+	@loader_path/libaphid_bridge.dylib (compatibility version 0.0.0, current version 0.0.0)
+	@loader_path/liblbug.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib:
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool LD
+  version 1230.1
+{"command": ["vtool", "-show-build", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.021}
+{"command": ["install_name_tool", "-change", "@rpath/liblbug.0.dylib", "@loader_path/liblbug.dylib", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.077}
+{"command": ["install_name_tool", "-id", "@loader_path/liblbug.dylib", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.237}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib: replacing existing signature
+{"command": ["codesign", "--force", "--sign", "-", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.243}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib:
+	@loader_path/liblbug.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib:
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool LD
+  version 1230.1
+{"command": ["vtool", "-show-build", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.039}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/_build/native/tests/fixture: replacing existing signature
+{"command": ["codesign", "--force", "--sign", "-", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.077}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/_build/native/tests/fixture:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+{"command": ["otool", "-L", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.02}
+/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/_build/native/tests/fixture:
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.3
+      sdk 26.1
+   ntools 1
+     tool LD
+  version 1230.1
+{"command": ["vtool", "-show-build", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/staging/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.021}
+{"archive": "/Users/catethos/workspace/ladybugex/zig_library/artifacts/runtime-validation-aarch64-macos-1.tar.gz", "sha256": "730e5cd0d9aef4fbd6f95d5b2edad5725c7bdad82278158b5b6c0059077eeb8d", "bytes": 33565504}
+expected rejection: ../escape unsafe archive path
+expected rejection: /absolute unsafe archive path
+expected rejection: link unsafe archive member: links and special files forbidden
+expected rejection: hard unsafe archive member: links and special files forbidden
+expected rejection: corrupt artifact: checksum mismatch
+sandbox-exec: sandbox_apply: Operation not permitted
+{"command": ["/usr/bin/sandbox-exec", "-p", "(version 1)(allow default)(deny network*)(deny file-read* (subpath \"/Users/catethos/workspace/ladybugex/zig_library\"))", "elixir", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/relocated caf\u00e9/check.exs"], "cwd": "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/relocated caf\u00e9", "exit": 71, "seconds": 0.011}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/runtime_bundle.py", line 182, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/runtime_bundle.py", line 177, in main
+    run(['/usr/bin/sandbox-exec', '-p', profile, 'elixir', str(relocated / 'check.exs')],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        cwd=relocated, env=dict(os.environ, ERL_FLAGS='+S 1:1 +SDcpu 1:1'), timeout=180)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/usr/bin/sandbox-exec', '-p', '(version 1)(allow default)(deny network*)(deny file-read* (subpath "/Users/catethos/workspace/ladybugex/zig_library"))', 'elixir', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-runtime-80zo4ur1/relocated café/check.exs']

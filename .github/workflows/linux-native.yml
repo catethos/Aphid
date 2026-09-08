@@ -1,0 +1,54 @@
+name: Linux native qualification
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            target: x86_64-linux-gnu
+            zig_arch: x86_64-linux
+            zig_sha256: 70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00
+          - runner: ubuntu-24.04-arm
+            target: aarch64-linux-gnu
+            zig_arch: aarch64-linux
+            zig_sha256: ea4b09bfb22ec6f6c6ceac57ab63efb6b46e17ab08d21f69f3a48b38e1534f17
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124 # v1
+        with:
+          otp-version: '29.0.4'
+          elixir-version: '1.20.0'
+      - name: Install build prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes build-essential cmake ninja-build perl binutils
+      - name: Install checksum-pinned Zig in job directory
+        env:
+          ZIG_ARCH: ${{ matrix.zig_arch }}
+          ZIG_SHA256: ${{ matrix.zig_sha256 }}
+        run: |
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/zig.tar.xz" "https://ziglang.org/download/0.16.0/zig-${ZIG_ARCH}-0.16.0.tar.xz"
+          echo "$ZIG_SHA256  $RUNNER_TEMP/zig.tar.xz" | sha256sum --check --strict
+          mkdir "$RUNNER_TEMP/zig"
+          tar -xJf "$RUNNER_TEMP/zig.tar.xz" -C "$RUNNER_TEMP/zig" --strip-components=1
+          echo "$RUNNER_TEMP/zig" >> "$GITHUB_PATH"
+      - name: Check routing without compiling
+        run: python3 scripts/source_routing_checks.py --destination "$RUNNER_TEMP/routing"
+      - name: Build private locked sources and run native and BEAM suites
+        env:
+          APHID_TARGET: ${{ matrix.target }}
+        run: |
+          set -o pipefail
+          python3 -u scripts/linux_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-linux" 2>&1 | tee "$RUNNER_TEMP/linux-qualification.log"

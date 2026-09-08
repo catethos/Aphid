@@ -1,0 +1,22 @@
+Prepared consumer fixture equals final fresh-run inputs; no BEAM cache in archive.
+Pinned Zigler source unchanged; native lock, mix lock, normal engine and bridge unchanged.
+{"command": ["codesign", "--verify", "--strict", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpwzhfjrk2/bundle/_build/native/tests/extension_concurrency"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.013}
+verified signature/ARM64/13.3/no-rpath: _build/native/tests/extension_concurrency 61938226bf698ab55d7e609f1c2f01bcf4df2ab659f347b8ce8f424209ce89cb
+{"command": ["codesign", "--verify", "--strict", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpwzhfjrk2/bundle/_build/native/tests/fixture"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+verified signature/ARM64/13.3/no-rpath: _build/native/tests/fixture 0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc
+{"command": ["codesign", "--verify", "--strict", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpwzhfjrk2/bundle/_build/native/tests/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.01}
+verified signature/ARM64/13.3/no-rpath: _build/native/tests/lifecycle 9574ce2c3ecd7fd8b83cffb86e02a7695c473691287ca1518477974b699612bc
+{"command": ["codesign", "--verify", "--strict", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpwzhfjrk2/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.01}
+verified signature/ARM64/13.3/no-rpath: lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native.so 94b12c614c44b5e695b1233381dc3d4c21bdb21c7fd0287fedf185d4f5f74f77
+{"command": ["codesign", "--verify", "--strict", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpwzhfjrk2/bundle/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.01}
+verified signature/ARM64/13.3/no-rpath: lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Proof.so ab08db391218885a20f3c35a95625d13f28bde5c6f7e7de5b8c1f946eba1f373
+{"command": ["codesign", "--verify", "--strict", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpwzhfjrk2/bundle/lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.005}
+verified signature/ARM64/13.3/no-rpath: lib/aphid-0.1.0-dev/priv/lib/libaphid_bridge.dylib 5dbdd4d341d63da2ba189b908510c1a13ef1f548821a9beaa06ed787e3725110
+{"command": ["codesign", "--verify", "--strict", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/tmpwzhfjrk2/bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.077}
+verified signature/ARM64/13.3/no-rpath: lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib 775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393
+Final fresh consumer native file hashes match the extracted artifact exactly.
+{"file": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz", "bytes": 33608999, "sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034"}
+{"file": "artifacts/fresh-mix-local-aarch64-macos-13.3-1.tar.gz", "bytes": 34024269, "sha256": "c724981605cec376f015b2d0c934b627e5acc20c56959dee2aadb7b5b04f0748"}
+{"file": "docs/evidence/nif-artifact-identity-3.json", "bytes": 6676, "sha256": "2b2100391f7d7166395ce1f3ef3c45695b81a185719093f504d0aaa9702454c0"}
+{"file": "docs/evidence/fresh-mix-inputs-6.json", "bytes": 20584, "sha256": "90869f03f0a2a97c3ac85aff6de7ee724d376de6a5e215dc4cb09f334787618f"}
+No target release-supported; no minimum-system execution; no stage completion.

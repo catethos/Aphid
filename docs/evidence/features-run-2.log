@@ -1,0 +1,51 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.131}
+[1/4] Building CXX object CMakeFiles/features.dir/features.cpp.o
+[2/4] Building CXX object CMakeFiles/aphid_feature_bridge.dir/features.cpp.o
+[3/4] Linking CXX executable features
+[4/4] Linking CXX shared library libaphid_feature_bridge.dylib
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.294}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.131}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: create
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.813}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: reopen
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/tests/features", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.132}
+
+00:54:13.674 [debug] creating staging directory /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof
+
+00:54:13.680 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:54:13.681 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:54:13.681 [debug] running command: /Users/catethos/.zvm/bin/zig fmt /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/build.zig
+
+00:54:14.041 [debug] wrote build.zig to /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/build.zig
+
+00:54:14.054 [info] searching for zig in /Users/catethos/Library/Caches/zigler/zig-aarch64-macos-0.16.0/zig
+
+00:54:14.054 [info] system zig found in /Users/catethos/.zvm/bin/zig
+
+00:54:14.054 [debug] running command: /Users/catethos/.zvm/bin/zig build -Dzigler-mode=sema -Derts_include=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include -Derl_nif_header=/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/include/erl_nif.h -Derl_nif_win_path=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/erl_nif_win -Dzigler_priv=/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv -Dmodule_root=/Users/catethos/workspace/ladybugex/zig_library/scripts
+dyld[30851]: Library not loaded: @rpath/libaphid_feature_bridge.dylib
+  Referenced from: <26984A2C-4E93-3190-8A75-CFD50B22F84A> /private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.FeatureProof/zig-out/bin/sema
+  Reason: no LC_RPATH's found
+
+00:54:20.883 [error] sema error: 
+** (CompileError) 
+    (zigler 0.16.0) lib/zig/command.ex:145: Zig.Command.attempt_json/2
+    (zigler 0.16.0) lib/zig/sema.ex:49: Zig.Sema.run_sema!/1
+    (zigler 0.16.0) lib/zig/compiler.ex:144: Zig.Compiler.compile/3
+    (zigler 0.16.0) expanding macro: Zig.Compiler.__before_compile__/1
+    scripts/feature_nif.ex:1: Aphid.FeatureProof (module)
+{"command": ["mix", "run", "scripts/feature_nif.exs", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/beamgraph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/caf\u00e9 fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 7.805}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/features.py", line 21, in <module>
+    run(["mix", "run", "scripts/feature_nif.exs", mode, str(temp / "beamgraph"), str(fixture)],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(os.environ, MIX_ENV="test"), timeout=300)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'run', 'scripts/feature_nif.exs', 'create', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/beamgraph', '/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-features-kylea50z/café fixture.duckdb']

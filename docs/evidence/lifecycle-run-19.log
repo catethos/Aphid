@@ -1,0 +1,57 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge
+{"command": ["cmake", "-S", "native", "-B", "_build/native/bridge", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-DAPHID_BUILD_TESTS=ON"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.186}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.336}
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/tests
+{"command": ["cmake", "-S", "native/tests", "-B", "_build/native/tests", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.3", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-DLADYBUG_SOURCE=/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug", "-DLADYBUG_BUILD=/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.075}
+ninja: no work to do.
+{"command": ["cmake", "--build", "_build/native/tests", "--target", "fixture", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.04}
+Running ExUnit with seed: 0, max_cases: 2
+
+warning: pattern matching on 0.0 is equivalent to matching only on +0.0. Instead you must match on +0.0 or -0.0
+└─ test/native_features_test.exs: Aphid.NativeFeaturesTest."test FTS, vector index and DuckDB use prepared parameters and bounded results"/1
+
+warning: pattern matching on 0.0 is equivalent to matching only on +0.0. Instead you must match on +0.0 or -0.0
+└─ test/native_features_test.exs: Aphid.NativeFeaturesTest."test FTS, vector index and DuckDB use prepared parameters and bounded results"/1
+
+.
+
+  1) test FTS, vector index and DuckDB use prepared parameters and bounded results (Aphid.NativeFeaturesTest)
+     test/native_features_test.exs:6
+     {:error, 3, "Connection Exception: We do not support prepare multiple statements."}
+     code: query(db, "CALL CREATE_FTS_INDEX('Document', 'words', ['body'])")
+     stacktrace:
+       test/native_features_test.exs:71: Aphid.NativeFeaturesTest.query/3
+       test/native_features_test.exs:37: (test)
+
+..............heartbeat: 34 samples; maximum gap 10 ms
+.
+02:21:38.739 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.
+02:21:38.753 [debug] loaded module at Elixir.Aphid.Proof
+.........
+Finished in 4.0 seconds (0.3s async, 3.6s sync)
+
+Result: 26/27 passed
+Failed: 1 test
+{"command": ["mix", "test", "--seed", "0"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 2, "seconds": 4.432}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/lifecycle.py", line 19, in <module>
+    run(["mix", "test", "--seed", "0"],
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        env=dict(os.environ, MIX_ENV="test", ERL_FLAGS="+S 1:1 +SDcpu 4"), timeout=120)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'test', '--seed', '0']

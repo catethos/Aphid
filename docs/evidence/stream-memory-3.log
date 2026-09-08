@@ -1,0 +1,21 @@
+APHID_MEMORY {"pid":"60223","phase":"pid"}
+APHID_MEMORY {"memory":{"binary":309608,"caller":55624,"processes_used":16379968,"total":62122896},"phase":"baseline"}
+APHID_MEMORY {"mode":"stream","rows":500000,"phase":"result","engine":"0.20.2","sessions":1,"batch_rows":256,"batch_bytes":1048576,"baseline":{"binary":309608,"caller":55624,"processes_used":16379968,"total":62122896},"row_text_bytes":128,"peak":{"binary":538976,"caller":177072,"processes_used":17261592,"total":63232296},"elapsed_ms":750,"engine_threads":2,"ordinary_schedulers":1,"dirty_cpu_schedulers":1}
+        1.13 real         1.06 user         0.13 sys
+           122863616  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               11642  page reclaims
+                  17  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                2359  voluntary context switches
+               11489  involuntary context switches
+         13049367563  instructions retired
+          3847084462  cycles elapsed
+           100254392  peak memory footprint

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/package_inventory.py", line 96, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/package_inventory.py", line 63, in main
+    assert sha(elixir / 'lib/elixir/ebin/Elixir.beam') == release_manifest['lib/elixir-1.20.0/ebin/Elixir.beam']
+                                                          ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'lib/elixir-1.20.0/ebin/Elixir.beam'

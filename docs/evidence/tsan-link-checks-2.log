@@ -1,0 +1,33 @@
+ladybug/src/liblbug.dylib sha256 3dc846873f9941ad1ad49be9fed806d81b9ffb4018f469400ab5bfc380c62404
+TSan init/read/write imports 1 5 5
+/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/ladybug/src/liblbug.dylib:
+	@rpath/liblbug.0.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+bridge/libaphid_bridge.dylib sha256 c54b1ee31f105bcf3d2cd894b467774d1618e0d3cbddc18ee46ec9fba804f7da
+TSan init/read/write imports 1 5 5
+/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge/libaphid_bridge.dylib:
+	@rpath/libaphid_bridge.dylib (compatibility version 0.0.0, current version 0.0.0)
+	@rpath/liblbug.0.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+bridge/lifecycle sha256 75465bb0c882bcdad67b54cb46b5879d4ac7c0630dbce46aa7f213d52b022409
+TSan init/read/write imports 1 5 5
+/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge/lifecycle:
+	@rpath/liblbug.0.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+bridge/extension_concurrency sha256 5f2bab6216d0103adc9a20d8795d172948501fd8b3b0e67a2e5cb02e96d2f95f
+TSan init/read/write imports 1 3 4
+/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge/extension_concurrency:
+	@rpath/liblbug.0.dylib (compatibility version 0.0.0, current version 0.20.2)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)
+	@rpath/libclang_rt.tsan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)
+bridge.cpp test-only address cap False
+extension_concurrency.cpp test-only address cap True
+lifecycle.cpp test-only address cap True
+normal bridge has no TSan imports; normal targets have no test address cap

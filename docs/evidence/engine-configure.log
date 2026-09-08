@@ -1,0 +1,60 @@
+CMake Warning at CMakeLists.txt:200 (message):
+  Not disabling vptr sanitizer on M1 Macbook - set DISABLE_VPTR_SANITIZER
+  manually if you run into issues with false positives in the sanitizer
+
+
+-- git hash 6ddac802ff, version v1.4.4, extension folder v1.4.4
+-- Extensions will be deployed to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/repository
+-- Load extension 'core_functions' from '/Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/extensions' @ v1.4.4
+-- Load extension 'parquet' from '/Users/catethos/workspace/ladybugex/zig_library/native/upstream/duckdb/extensions' @ v1.4.4
+-- Extensions linked into DuckDB: [core_functions, parquet]
+-- Configuring done (1.1s)
+-- Generating done (0.3s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb
+{"command": ["cmake", "-S", "native/upstream/duckdb", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.0", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON", "-DBUILD_UNITTESTS=OFF", "-DBUILD_SHELL=OFF", "-DENABLE_EXTENSION_AUTOLOADING=OFF", "-DENABLE_EXTENSION_AUTOINSTALL=OFF", "-DOVERRIDE_GIT_DESCRIBE=v1.4.4-0-g6ddac802ff"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 1.486}
+-- The CXX compiler identification is AppleClang 17.0.0.17000404
+-- The C compiler identification is AppleClang 17.0.0.17000404
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Multi-threaded mode is enabled: CMAKE_BUILD_PARALLEL_LEVEL=
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- 64-bit architecture detected
+-- LBUG_PAGE_SIZE_LOG2: 12
+-- LBUG_VECTOR_CAPACITY_LOG2: 11
+-- LBUG_NODE_GROUP_SIZE_LOG2: 17
+-- LBUG_MAX_SEGMENT_SIZE_LOG2: 18
+-- Looking for F_FULLFSYNC
+-- Looking for F_FULLFSYNC - found
+-- Looking for fdatasync
+-- Looking for fdatasync - not found
+-- ✓ F_FULLFSYNC will be used on this platform
+-- ✗ fdatasync not available, using fsync fallback
+-- Build type is 'Release'
+-- Performing Test BROTLI_EMSCRIPTEN
+-- Performing Test BROTLI_EMSCRIPTEN - Failed
+-- Compiler is not EMSCRIPTEN
+-- Looking for log2 in m
+-- Looking for log2 in m - found
+-- Found OpenSSL: /opt/homebrew/Cellar/openssl@3/3.6.4/lib/libcrypto.dylib (found suitable version "3.6.4", minimum required is "3")
+-- Static link extensions: fts, vector, duckdb
+CMake Warning at extension/duckdb/CMakeLists.txt:45 (message):
+  duckdb static libs are used but the duckdb_generated_extension_loader
+  target was not exported by the DuckDB package - the build may fail to link
+
+
+-- Query processor SIMD: NEON filter kernels enabled
+-- Found Python3: /opt/homebrew/Frameworks/Python.framework/Versions/3.14/bin/python3.14 (found suitable version "3.14.7", required range is "3.9...4") found components: Interpreter
+-- Configuring done (2.7s)
+-- Generating done (2.2s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug
+{"command": ["cmake", "-S", "native/upstream/ladybug", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug", "-G", "Ninja", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_OSX_DEPLOYMENT_TARGET=13.0", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON", "-DBUILD_SHELL=ON", "-DBUILD_TESTS=OFF", "-DBUILD_SINGLE_FILE_HEADER=OFF", "-DEXTENSION_STATIC_LINK_LIST=fts;vector;duckdb", "-DBUILD_SHARED_LBUG=ON", "-DBUILD_STATIC_LBUG=OFF", "-DDuckDB_DIR=/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 5.013}

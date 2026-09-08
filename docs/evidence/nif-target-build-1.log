@@ -1,0 +1,15 @@
+{"flags": ["-Dtarget=aarch64-macos.13.3-none", "-Dcpu=baseline", "--verbose"], "inputs": {"/Users/catethos/workspace/ladybugex/zig_library/native/lock.json": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955", "/Users/catethos/workspace/ladybugex/zig_library/mix.lock": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/bridge/libaphid_bridge.dylib": "66da4859f901aac548666e496be75c4e0ba34703be02fbc352eb971679f1a06f", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src/liblbug.dylib": "3a2afd166d9f8854800a2023f73e29b8bb009de23df257180b5dbb95ba5b7a2c"}}
+warning: failed to subscribe to Mix events using TCP, reason: :eperm
+
+** (Mix) failed to acquire filesystem lock using TCP, reason: :eperm
+{"command": ["mix", "compile", "--force"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library/_build/nif-macos-13-3-1", "exit": 1, "seconds": 0.621}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/nif_target.py", line 51, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/nif_target.py", line 46, in main
+    run(['mix', 'compile', '--force'], cwd=project, env=env, timeout=600)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['mix', 'compile', '--force']

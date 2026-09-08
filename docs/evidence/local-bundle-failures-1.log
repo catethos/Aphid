@@ -1,0 +1,77 @@
+CASE missing
+Aphid artifact [missing]: set APHID_BUNDLE_ARCHIVE to an existing local .tar.gz. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.623}
+CASE missing-pin
+Aphid artifact [corrupt]: set APHID_BUNDLE_SHA256 to an independently trusted 64-digit SHA256. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.353}
+CASE checksum
+Aphid artifact [corrupt]: archive SHA256 mismatch; obtain the pinned archive again. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.404}
+CASE target
+Aphid artifact [unsupported-target]: this local adapter accepts only aarch64-macos bundles on macOS. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.397}
+CASE engine
+Aphid artifact [incompatible-engine]: native lock differs; obtain the bundle for this Aphid source package. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.4}
+CASE manifest
+Aphid artifact [corrupt]: content manifest mismatch; obtain the pinned archive again. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.405}
+CASE missing-sidecar
+Aphid artifact [missing]: bundle lacks liblbug.dylib; obtain the complete 0.1.0-dev bundle. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.397}
+CASE architecture
+Aphid artifact [wrong-architecture]: Elixir.Aphid.Native.so is not ARM64. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.4}
+CASE unloadable-header
+Aphid artifact [unloadable]: Elixir.Aphid.Native.so is not a Mach-O library; obtain a valid native bundle. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.392}
+CASE force-source
+Aphid artifact [selection]: unset ZIGLER_PRECOMPILE_FORCE_RECOMPILE; local bundle mode never falls back to source. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.344}
+CASE conflicting-source
+Aphid artifact [selection]: use APHID_INSTALL=precompiled with archive and SHA256, or explicit source without bundle inputs. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.344}
+CASE invalid-tar
+Aphid artifact [corrupt]: invalid tar archive: :eof. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.404}
+CASE traversal
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "../escape". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.4}
+CASE absolute
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "/tmp/aphid-escape". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.4}
+CASE duplicate
+Aphid artifact [unsafe]: duplicate archive member. No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.405}
+CASE symlink
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "link". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.393}
+CASE hardlink
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "hard". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.401}
+CASE fifo
+Aphid artifact [unsafe]: archive contains a link, special file or unsafe path: "fifo". No source fallback.
+{"command": ["elixir", "/private/tmp/aphid-adapter-failures-1/reject.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.402}
+REAL LOADER missing
+
+00:05:20.277 [error] Aphid artifact [missing]: /private/tmp/aphid-adapter-failures-1/load-missing/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact
+{"command": ["elixir", "-pa", "/private/tmp/aphid-adapter-failures-1/load-missing/aphid/ebin", "/private/tmp/aphid-adapter-failures-1/load.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.294}
+REAL LOADER corrupt
+
+00:05:20.765 [error] Aphid artifact [corrupt]: /private/tmp/aphid-adapter-failures-1/load-corrupt/aphid/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+real loader rejected artifact
+{"command": ["elixir", "-pa", "/private/tmp/aphid-adapter-failures-1/load-corrupt/aphid/ebin", "/private/tmp/aphid-adapter-failures-1/load.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 0, "seconds": 0.28}
+REAL LOADER unloadable
+sandbox-exec: sandbox_apply: Operation not permitted
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-adapter-failures-1/unloadable.sb", "elixir", "-pa", "/private/tmp/aphid-adapter-failures-1/load-unloadable/aphid/ebin", "/private/tmp/aphid-adapter-failures-1/load.exs"], "cwd": "/private/tmp/aphid-adapter-failures-1", "exit": 71, "seconds": 0.01}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/local_bundle_failures.py", line 134, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/local_bundle_failures.py", line 129, in main
+    run(command, cwd=work, env=dict(os.environ, ERL_FLAGS='+S 1:1 +SDcpu 1:1'), timeout=30)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/usr/bin/sandbox-exec', '-f', '/private/tmp/aphid-adapter-failures-1/unloadable.sb', 'elixir', '-pa', '/private/tmp/aphid-adapter-failures-1/load-unloadable/aphid/ebin', '/private/tmp/aphid-adapter-failures-1/load.exs']

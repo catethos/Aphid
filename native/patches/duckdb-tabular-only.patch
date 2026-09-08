@@ -1,0 +1,48 @@
+diff --git a/duckdb/src/catalog/CMakeLists.txt b/duckdb/src/catalog/CMakeLists.txt
+index 4f1c69f..22e4fae 100644
+--- a/duckdb/src/catalog/CMakeLists.txt
++++ b/duckdb/src/catalog/CMakeLists.txt
+@@ -3,6 +3,8 @@ add_library(lbug_duckdb_catalog
+         duckdb_catalog.cpp
+         duckdb_table_catalog_entry.cpp)
+ 
++target_compile_definitions(lbug_duckdb_catalog PRIVATE APHID_DUCKDB_TABULAR_ONLY)
++
+ set(DUCKDB_EXTENSION_OBJECT_FILES
+         ${DUCKDB_EXTENSION_OBJECT_FILES} $<TARGET_OBJECTS:lbug_duckdb_catalog>
+         PARENT_SCOPE)
+diff --git a/duckdb/src/catalog/duckdb_catalog.cpp b/duckdb/src/catalog/duckdb_catalog.cpp
+index 4f13a4f..9c2dda0 100644
+--- a/duckdb/src/catalog/duckdb_catalog.cpp
++++ b/duckdb/src/catalog/duckdb_catalog.cpp
+@@ -61,6 +61,14 @@ void DuckDBCatalog::init() {
+     DuckDBResultConverter::getDuckDBVectorConversionFunc(common::PhysicalTypeID::STRING,
+         conversionFunc);
+     conversionFunc(resultChunk->data[0], tableNamesVector, resultChunk->size());
++#ifdef APHID_DUCKDB_TABULAR_ONLY
++    // Aphid supports attached table scans/imports. Upstream graph shadows survive
++    // DETACH/checkpoint and collide on reattach; do not create them in this bundle.
++    for (auto i = 0u; i < resultChunk->size(); i++) {
++        createForeignTable(tableNamesVector.getValue<common::string_t>(i).getAsString());
++    }
++    return;
++#endif
+     // Two-pass initialization: node tables must be registered before rel tables
+     // so that rel tables can resolve their src/dst node table IDs. The table
+     // enumeration order is alphabetical, which can put rel_* tables before the
+@@ -136,6 +144,7 @@ void DuckDBCatalog::createForeignTable(const std::string& tableName) {
+         tableEntry->addProperty(definition);
+     }
+     tables->createEntry(&transaction::DUMMY_TRANSACTION, std::move(tableEntry));
++#ifndef APHID_DUCKDB_TABULAR_ONLY
+     auto attachedEntry = tableEntry.get();
+     // Create another for main catalog for traversal support
+     auto primaryKeyName = extraInfo->propertyDefinitions[0].getName();
+@@ -155,6 +164,7 @@ void DuckDBCatalog::createForeignTable(const std::string& tableName) {
+     auto mainEntry = context_->getDatabase()->getCatalog()->getTableCatalogEntry(
+         &transaction::DUMMY_TRANSACTION, info->tableName);
+     lbug::storage::StorageManager::Get(*context_)->createTable(mainEntry);
++#endif
+ }
+ 
+ void DuckDBCatalog::createForeignRelTable(const std::string& tableName, bool internalIDContract) {

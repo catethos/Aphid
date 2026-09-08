@@ -1,0 +1,48 @@
+{
+  "httplib": {
+    "upstream": {
+      "commit": "f14accb7b6ff4499321e14c61497bc7e4b28e49b",
+      "files": [
+        {
+          "path": "LICENSE",
+          "git_blob": "3e5ed359a2bb16f52c383745c25f14bb7a81c9e4",
+          "sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+          "url": "https://raw.githubusercontent.com/yhirose/cpp-httplib/f14accb7b6ff4499321e14c61497bc7e4b28e49b/LICENSE"
+        },
+        {
+          "path": "httplib.h",
+          "git_blob": "2540a7ef67b3476078c5559a854b15ec9ef67c5b",
+          "sha256": "646136e93fdec176cc9576b89cf0164eb7ed95d55277747454c4373a26b48349",
+          "url": "https://raw.githubusercontent.com/yhirose/cpp-httplib/f14accb7b6ff4499321e14c61497bc7e4b28e49b/httplib.h"
+        }
+      ]
+    },
+    "retained_header_sha256": "0ee34d727ac5d751091abaf8ac92ba01eeb95d5979402427b5161b7fc14fd71e",
+    "retained_engine_commit": "f150bddf7d01c65e5308384b8a064af1e2347701",
+    "retained_header_matches_engine_commit": true,
+    "matches_upstream_header": false,
+    "existing_notice_path": "native/duckdb/third_party/httplib/LICENSE",
+    "existing_notice_sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+    "diff_sha256": "1d65665edb373ff3974b3ae6d694daaf5dd0b2be186d97199de23141b8541cd2",
+    "scope": "Version-matched full notice; retained header is a modified fork, not a byte-identical upstream header"
+  },
+  "history": {
+    "pegasus": {
+      "head": "34828fb48ad80f751ea5be8aca5d5f59673a43c4",
+      "shallow": "false",
+      "commit_count": 34,
+      "named_notice_history": "2528f293b1e7d65898e8a11ad092dc57a297ac53 documentation and 1.0.0",
+      "scope": "Fetched default-branch ancestors only; not all possible refs or external grants",
+      "pinned_package_commit": "6f955046465d97fcef3ade6da47e7ed80e6ca3c8",
+      "later_license_commit": "2528f293b1e7d65898e8a11ad092dc57a297ac53"
+    },
+    "zig_parser": {
+      "head": "3ab4aa2ff10d1886a33a6ea0fc1c908712496360",
+      "shallow": "false",
+      "commit_count": 119,
+      "named_notice_history": "",
+      "scope": "Fetched default-branch ancestors only; not all possible refs or external grants",
+      "pinned_package_commit": "3ab4aa2ff10d1886a33a6ea0fc1c908712496360"
+    }
+  }
+}

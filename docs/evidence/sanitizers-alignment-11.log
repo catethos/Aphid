@@ -1,0 +1,42 @@
+Candidate row-value-alignment sha256: 1a794197bcde506dc1324b2c2fe0d75c900f93f7d7e3e58961c7943ff61c8d54
+Candidate string-hash-alignment sha256: 54ea5d790fb5a3d20ddb4609ffedd84ae76bb04a48f0101efe4ee340ebf20bac
+Candidate join-row-alignment sha256: ff51a377d6fb6b607539c831b0189688f9de10843e0f7d37bc672aa250845e9c
+Candidate alp-conversion-range sha256: 4956d6ca30ae4ee911e7db103e0797a1dd0f616e853193c2a53a723723a91024
+Candidate aggregate-state-alignment sha256: e2b54fe271cf58effcf0e7a69c9a890a88e16c0715bab8245f6ec44137766f17
+Candidate sort-key-alignment sha256: 6cd05b54e072203398b59f2b9db91ae94f8756e32df90b124f4d6bbe72fa6be1
+[0/2] Re-checking globbed directories...
+[1/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/key_block_merger.cpp.o
+[2/13] Building CXX object src/processor/map/CMakeFiles/lbug_processor_mapper.dir/map_order_by.cpp.o
+[3/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/order_by.cpp.o
+[4/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/order_by_key_encoder.cpp.o
+[5/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/order_by_merge.cpp.o
+[6/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/order_by_scan.cpp.o
+[7/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/radix_sort.cpp.o
+[8/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/sort_state.cpp.o
+[9/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/top_k_scanner.cpp.o
+[10/13] Building CXX object src/processor/operator/order_by/CMakeFiles/lbug_processor_operator_order_by.dir/top_k.cpp.o
+[11/13] Linking CXX static library src/liblbug.a
+[12/13] Linking CXX shared library src/liblbug.0.20.2.dylib
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/duckdb/src/libduckdb_static.a', 'src/liblbug.a'
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/ladybug", "--target", "src/liblbug.0.20.2.dylib", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 21.952}
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 6.158}
+string hash is invariant across all byte alignments and lengths 0..80
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/hash_alignment"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.236}
+ALP float/double conversion boundaries and ordinary values passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/alp_range"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.077}
+byte-sized grouping key, multiple aggregate states and rows passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/aggregate_alignment"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.189}
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/fixture", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-grirp691/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.349}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: create
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features", "create", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-grirp691/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-grirp691/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.947}
+FTS, indexed vector, empty FTS, DuckDB attach/read/import/detach passed: reopen
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/sanitizers-clt21/tests/features", "reopen", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-grirp691/graph", "/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/aphid-alignment-grirp691/fixture.duckdb"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.405}

@@ -1,0 +1,68 @@
+Running ExUnit with seed: 0, max_cases: 16
+
+.
+
+  1) test all integer widths retain exact values and types (Aphid.NativeValuesTest)
+     test/native_values_test.exs:12
+     ** (ArgumentError) errors were found at the given arguments:
+
+       * 1st argument: not an already existing atom
+
+     code: for {name, bits, signed} <- [
+     stacktrace:
+       :erlang.binary_to_existing_atom("uint64")
+       test/native_values_test.exs:21: anonymous fn/3 in Aphid.NativeValuesTest."test all integer widths retain exact values and types"/1
+       (elixir 1.20.0) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/native_values_test.exs:13: (test)
+
+
+
+  2) test exact decimal coefficient, raw temporal units, JSON and binary (Aphid.NativeValuesTest)
+     test/native_values_test.exs:29
+     match (=) failed
+     code:  assert %Result{rows: [[%Value{type: :timestamp_ns, value: 123_456_789}]]} =
+              query(db, "RETURN CAST('1970-01-01 00:00:00.123456789' AS TIMESTAMP_NS)")
+     left:  %Aphid.Result{rows: [[%Aphid.Value{type: :timestamp_ns, value: 123_456_789}]]}
+     right: %Aphid.Result{
+              columns: [
+                {"CAST(1970-01-01 00:00:00.123456789, TIMESTAMP_NS)",
+                 :timestamp_ns}
+              ],
+              rows: [
+                [
+                  %Aphid.Value{
+                    type: :timestamp_ns,
+                    value: 123456000
+                  }
+                ]
+              ],
+              statistics: nil
+            }
+     stacktrace:
+       test/native_values_test.exs:33: (test)
+
+.thread 13091428 panic: attempt to use null value
+error return context:
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:327:48: 0x110d479a3 in collect (Elixir.Aphid.Native)
+    if (c.aphid_fetch_rows(cursor) > max_rows) return error.RowLimit;
+                                               ^
+/Users/catethos/workspace/ladybugex/zig_library/lib/aphid/.Elixir.Aphid.Native.zig:158:5: 0x110d4850f in collect (Elixir.Aphid.Native)
+    return Result.collect(op.parent.handle, op.session, op.id, max_rows, max_bytes);
+    ^
+
+stack trace:
+/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/beam.zig:1883:39: 0x110d490b3 in has_processterminated__anon_31681 (Elixir.Aphid.Native)
+    inline for (@typeInfo(T).error_set.?) |err| {
+                                      ^
+/Users/catethos/workspace/ladybugex/zig_library/_build/test/lib/zigler/priv/beam/beam.zig:1877:30: 0x110d4901f in thread_not_running__anon_31625 (Elixir.Aphid.Native)
+    if (has_processterminated(@TypeOf(err))) {
+                             ^
+/private/var/folders/z1/r2b_0ydd7yg1xjgf6m352nf40000gn/T/Elixir.Aphid.Native/module.zig:318:40: 0x110d48853 in collect (Elixir.Aphid.Native)
+            if (beam.thread_not_running(err)) return 0;
+                                       ^
+???:?:?: 0x100f370e3 in _erts_call_dirty_nif (/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/bin/beam.smp)
+???:?:?: 0x100e1df63 in _erts_dirty_process_main (/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/bin/beam.smp)
+???:?:?: 0x100d8324f in _sched_dirty_cpu_thread_func (/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/bin/beam.smp)
+???:?:?: 0x10103d33b in _thr_wrapper (/Users/catethos/.local/share/mise/installs/erlang/29.0.4/erts-17.0.4/bin/beam.smp)
+???:?:?: 0x181d97c57 in __pthread_cond_wait (/usr/lib/system/libsystem_pthread.dylib)
+???:?:?: 0x181d92c1b in _pthread_cond_broadcast (/usr/lib/system/libsystem_pthread.dylib)

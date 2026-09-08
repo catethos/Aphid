@@ -1,0 +1,74 @@
+--- a/fts/src/function/create_fts_index.cpp
++++ b/fts/src/function/create_fts_index.cpp
+@@ -87,7 +87,6 @@
+ 
+ static std::unique_ptr<TableFuncBindData> bindFunc(ClientContext* context,
+     const TableFuncBindInput* input) {
+-    FTSIndexUtils::validateAutoTransaction(*context, CreateFTSFunction::name);
+     auto indexName = input->getLiteralVal<std::string>(1);
+     auto nodeTableEntry = FTSIndexUtils::bindNodeTable(*context,
+         input->getLiteralVal<std::string>(0), indexName, FTSIndexUtils::IndexOperation::CREATE);
+@@ -151,10 +150,8 @@
+     validateInternalTablesNotExist(ftsBindData->tableID, ftsBindData->indexName,
+         *catalog::Catalog::Get(context), transaction::Transaction::Get(context));
+     context.setUseInternalCatalogEntry(true /* useInternalCatalogEntry */);
+-    // TODO(Ziyi): Copy statement can't be wrapped in manual transaction, so we can't wrap all
+-    // statements in a single transaction there.
+     // Create the tokenize macro.
+-    std::string query = "";
++    std::string query = "BEGIN TRANSACTION;";
+     if (!catalog::Catalog::Get(context)->containsMacro(transaction::Transaction::Get(context),
+             FTSUtils::getTokenizeMacroName(tableID, indexName))) {
+         // TOKENIZE(text, tokenizer, extra_param)
+@@ -239,6 +236,7 @@
+         std::format("stopWords := '{}'", ftsBindData->createFTSConfig.stopWordsTableInfo.stopWords);
+     query += std::format("CALL _CREATE_FTS_INDEX('{}', '{}', {}, {});", tableName, indexName,
+         properties, params);
++    query += "COMMIT;";
+     query += std::format("RETURN 'Index {} has been created.' as result;", ftsBindData->indexName);
+     return query;
+ }
+@@ -314,24 +312,14 @@
+         nodeTable->getNumTotalRows(transaction::Transaction::Get(*context.clientContext)));
+     auto onDiskIndex = std::make_unique<FTSIndex>(std::move(indexInfo), std::move(storageInfo),
+         std::move(ftsConfig), context.clientContext);
+-    if (!context.clientContext->isInMemory()) {
+-        // We currently can't support FSM reclaiming when rolling back checkpoint
+-        // so we don't use the optimistic allocator here
+-        auto& pageAllocator = *storageManager->getDataFH()->getPageManager();
+-        // Checkpoint internal tables.
+-        onDiskIndex->getInternalTableInfo().docTable->checkpoint(context.clientContext,
+-            docTableEntry, pageAllocator);
+-        auto termsTableName = FTSUtils::getTermsTableName(bindData.tableID, bindData.indexName);
+-        auto termsTableEntry = catalog->getTableCatalogEntry(transaction, termsTableName);
+-        onDiskIndex->getInternalTableInfo().termsTable->checkpoint(context.clientContext,
+-            termsTableEntry, pageAllocator);
+-        auto appearsInTableName =
+-            FTSUtils::getAppearsInTableName(bindData.tableID, bindData.indexName);
+-        auto appearsInTableEntry = catalog->getTableCatalogEntry(transaction, appearsInTableName);
+-        onDiskIndex->getInternalTableInfo().appearsInfoTable->checkpoint(context.clientContext,
+-            appearsInTableEntry, pageAllocator);
+-    }
++    auto registered = std::make_shared<bool>(false);
++    transaction->pushRollbackCallback([nodeTable, registered, indexName = bindData.indexName](auto&) {
++        if (*registered) {
++            nodeTable->dropIndex(indexName);
++        }
++    });
+     nodeTable->addIndex(std::move(onDiskIndex));
++    *registered = true;
+     transaction->setForceCheckpoint();
+     return 0;
+ }
+@@ -363,7 +351,10 @@
+     auto func = std::make_unique<TableFunction>(name,
+         std::vector{LogicalTypeID::STRING, LogicalTypeID::STRING, LogicalTypeID::LIST});
+     func->tableFunc = TableFunction::emptyTableFunc;
+-    func->bindFunc = bindFunc;
++    func->bindFunc = [](ClientContext* context, const TableFuncBindInput* input) {
++        FTSIndexUtils::validateAutoTransaction(*context, CreateFTSFunction::name);
++        return bindFunc(context, input);
++    };
+     func->initSharedStateFunc = SimpleTableFunc::initSharedState;
+     func->initLocalStateFunc = TableFunction::initEmptyLocalState;
+     func->rewriteFunc = createFTSIndexQuery;

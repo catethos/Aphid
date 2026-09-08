@@ -1,0 +1,68 @@
+* assembling aphid_consumer-0.0.0 on MIX_ENV=prod
+* skipping runtime configuration (config/runtime.exs not found)
+* creating /private/tmp/aphid-mix-release-3/assembled/releases/0.0.0/env.sh
+* building /private/tmp/aphid-mix-release-3/assembled/aphid_consumer-0.0.0.tar.gz
+
+Release created at /private/tmp/aphid-mix-release-3/assembled
+
+    # To start your system
+    /private/tmp/aphid-mix-release-3/assembled/bin/aphid_consumer start
+
+Once the release is running:
+
+    # To connect to it remotely
+    /private/tmp/aphid-mix-release-3/assembled/bin/aphid_consumer remote
+
+    # To stop it gracefully (you may also send SIGINT/SIGTERM)
+    /private/tmp/aphid-mix-release-3/assembled/bin/aphid_consumer stop
+
+To list all commands:
+
+    /private/tmp/aphid-mix-release-3/assembled/bin/aphid_consumer
+
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-mix-release-3/assemble.sb", "mix", "release", "--no-compile", "--path", "/private/tmp/aphid-mix-release-3/assembled"], "cwd": "/private/tmp/aphid-mix-release-3/build", "exit": 0, "seconds": 9.296}
+{"release_archive": "/Users/catethos/workspace/ladybugex/zig_library/artifacts/mix-release-validation-aarch64-macos-3.tar.gz", "sha256": "9d7a0b2cf5c568bdf1d70046b7e01ec497820333f32516690b7588260df6e3cc", "bytes": 91405083}
+audited shipped Mach-O files: 22
+denied compiler execution: :eperm
+runtime guards verified: network, compiler, development, build and host-runtime reads denied
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-mix-release-3/runtime.sb", "/private/tmp/aphid-mix-release-3/relocated caf\u00e9 release/bin/aphid_consumer", "eval", "Code.require_file(\"guards.exs\")"], "cwd": "/private/tmp/aphid-mix-release-3/relocated caf\u00e9 release/validation", "exit": 0, "seconds": 1.512}
+bundled release runtime: {"1.20.0", ~c"17.0.4",
+ "/private/tmp/aphid-mix-release-3/relocated café release"}
+Running ExUnit with seed: 0, max_cases: 2
+
+................Aphid basic example passed
+.Aphid transaction example passed
+.Aphid stream example passed
+.Aphid FTS example passed
+.Aphid vector example passed
+.Aphid DuckDB example passed
+.............stale-cancel race: 30 iterations; maximum cancel-to-idle 93062 us
+........heartbeat: 31 samples; maximum gap 6 ms
+.
+00:35:01.077 [error] Aphid artifact [unloadable]: /private/tmp/aphid-mix-release-3/relocated café release/lib/aphid-0.1.0-dev/priv/lib/Elixir.Aphid.Native: {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}; use the matching complete bundle and runtime. No source fallback.
+
+00:35:01.082 [warning] The on_load function for module Elixir.Aphid.Native returned:
+{:error, {:upgrade, ~c"Library upgrade-call unsuccessful (-1)."}}
+
+.................................................
+Finished in 17.3 seconds (0.00s async, 17.3s sync)
+
+Result: 92 passed
+relocated Mix release: all 92 tests passed
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-mix-release-3/runtime.sb", "/private/tmp/aphid-mix-release-3/relocated caf\u00e9 release/bin/aphid_consumer", "eval", "Code.require_file(\"suite.exs\")"], "cwd": "/private/tmp/aphid-mix-release-3/relocated caf\u00e9 release/validation", "exit": 0, "seconds": 19.04}
+Error! Failed to eval: Elixir.Code:eval_file(unicode:characters_to_binary(os:getenv(PROOF_START_SCRIPT))).
+
+Runtime terminating during boot ({{badmatch,{error,{1,erl_parse,["syntax error before: ","'.'"]}}},[{init,start_it,1,[]},{init,start_em,1,[]},{init,do_boot,3,[]}]})
+
+Crash dump is being written to: erl_crash.dump...done
+{"command": ["/usr/bin/sandbox-exec", "-f", "/private/tmp/aphid-mix-release-3/runtime.sb", "/private/tmp/aphid-mix-release-3/relocated caf\u00e9 release/bin/aphid_consumer", "start"], "cwd": "/private/tmp/aphid-mix-release-3/relocated caf\u00e9 release/validation", "exit": 1, "seconds": 0.361}
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/mix_release.py", line 205, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/mix_release.py", line 194, in main
+    run([*command, 'start'], cwd=checks, env=start_env, timeout=30)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/usr/bin/sandbox-exec', '-f', '/private/tmp/aphid-mix-release-3/runtime.sb', '/private/tmp/aphid-mix-release-3/relocated café release/bin/aphid_consumer', 'start']

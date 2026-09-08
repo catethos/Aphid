@@ -1,0 +1,31 @@
+[0/2] Re-checking globbed directories...
+[1/2] Re-running CMake...
+-- Multi-threaded mode is enabled: CMAKE_BUILD_PARALLEL_LEVEL=
+-- 64-bit architecture detected
+-- LBUG_PAGE_SIZE_LOG2: 12
+-- LBUG_VECTOR_CAPACITY_LOG2: 11
+-- LBUG_NODE_GROUP_SIZE_LOG2: 17
+-- LBUG_MAX_SEGMENT_SIZE_LOG2: 18
+-- ✓ F_FULLFSYNC will be used on this platform
+-- ✗ fdatasync not available, using fsync fallback
+-- Build type is 'Release'
+-- Compiler is not EMSCRIPTEN
+-- Static link extensions: fts, vector, duckdb
+CMake Warning at extension/duckdb/CMakeLists.txt:45 (message):
+  duckdb static libs are used but the duckdb_generated_extension_loader
+  target was not exported by the DuckDB package - the build may fail to link
+
+
+-- Query processor SIMD: NEON filter kernels enabled
+-- Configuring done (0.4s)
+-- Generating done (0.6s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug
+[0/4] Re-checking globbed directories...
+[1/9] Building CXX object extension/duckdb/src/catalog/CMakeFiles/lbug_duckdb_catalog.dir/duckdb_table_catalog_entry.cpp.o
+[2/9] Building CXX object extension/duckdb/src/catalog/CMakeFiles/lbug_duckdb_catalog.dir/duckdb_catalog.cpp.o
+[3/9] Linking CXX static library /Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/extension/duckdb/build/libduckdb_static.lbug_extension
+[4/9] Linking CXX shared library src/liblbug.0.20.2.dylib
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/src/libduckdb_static.a', 'src/liblbug.a'
+[5/9] Linking CXX executable tools/shell/lbug
+ld: warning: ignoring duplicate libraries: '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/core_functions/libcore_functions_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/extension/parquet/libparquet_extension.a', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/duckdb/src/libduckdb_static.a', 'src/liblbug.a'
+[6/9] Creating library symlink src/liblbug.0.dylib src/liblbug.dylib

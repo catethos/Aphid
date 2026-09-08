@@ -1,0 +1,20 @@
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge
+{"command": ["cmake", "-S", "native", "-B", "/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge", "-DAPHID_TEST_MAX_DB_SIZE=1073741824"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.09}
+[1/4] Building CXX object CMakeFiles/aphid_bridge.dir/bridge.cpp.o
+[2/4] Linking CXX shared library libaphid_bridge.dylib
+[3/4] Building CXX object CMakeFiles/lifecycle.dir/tests/lifecycle.cpp.o
+[4/4] Linking CXX executable lifecycle
+{"command": ["cmake", "--build", "/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge", "--parallel", "2"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 2.127}
+engine transaction visibility, commit, rollback, destructor rollback and failure/autocommit semantics passed
+native transaction leases, stale/foreign rejection, commit, rollback, abandonment and failure guard passed
+transaction abandonment during execution/fetch rolls back before reuse passed
+30 gated stale-cancel/reuse and simultaneous lease contention iterations passed
+prepared parameter scalar types, raw timestamp units, bytes and integer overflow passed
+typed empty/null nested parameters, JSON validation and duplicate map keys passed
+bounded conversion reservations and stale conversion rejection passed
+failed delivery, throwing callback, worker failure and joined cleanup passed
+exclusive fetch, stale fetch, metadata, finish/close during fetch and parent retention passed
+active/retiring path distinction, alias reservation and reopen after fetch release passed
+{"command": ["/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/bridge/lifecycle"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 6.677}

@@ -1,0 +1,10 @@
+{
+  "archive": "/Users/catethos/workspace/ladybugex/zig_library/artifacts/notice-review-7.tar.gz",
+  "bytes": 709776,
+  "sha256": "550da48de1d66b4e1205157d9b62a9cfbc2a3a1e0022060a47ca6232a987598d",
+  "components": 57,
+  "direct_link_inputs": 41,
+  "identical_sections": 13,
+  "embedded_notice_preambles": 7,
+  "without_candidate_notice": []
+}

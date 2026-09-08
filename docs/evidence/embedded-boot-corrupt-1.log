@@ -1,0 +1,7 @@
+
+00:53:56.344 [error] Aphid artifact [corrupt]: /private/tmp/aphid-embedded-release-1/relocated café release/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib; reinstall the complete pinned bundle. No source fallback.
+
+00:53:56.344 [notice] Application aphid exited: Aphid.Application.start(:normal, []) returned an error: {:corrupt, "/private/tmp/aphid-embedded-release-1/relocated café release/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib"}
+Kernel pid terminated (application_controller) ("{application_start_failure,aphid,{{corrupt,<<\"/private/tmp/aphid-embedded-release-1/relocated cafÃ© release/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib\">>},{'Elixir.Aphid.Application',start,[normal,[]]}}}")
+
+Crash dump is being written to: /private/tmp/aphid-embedded-boot-failures-1/crash.dump...done

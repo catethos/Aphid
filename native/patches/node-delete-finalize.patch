@@ -1,0 +1,19 @@
+diff --git a/src/processor/operator/persistent/delete_executor.cpp b/src/processor/operator/persistent/delete_executor.cpp
+index 5d5a6d262..25014070f 100644
+--- a/src/processor/operator/persistent/delete_executor.cpp
++++ b/src/processor/operator/persistent/delete_executor.cpp
+@@ -104,9 +104,11 @@ void SingleLabelNodeDeleteExecutor::init(ResultSet* resultSet, ExecutionContext*
+ }
+ 
+ void SingleLabelNodeDeleteExecutor::finalize(ExecutionContext* context) {
+-    auto transaction = Transaction::Get(*context->clientContext);
+-    flushBatch(batchNodeIDs, *batchSrcNodeIDVector, tableInfo.fwdRelTables, tableInfo.bwdRelTables,
+-        transaction);
++    if (!batchNodeIDs.empty()) {
++        auto transaction = Transaction::Get(*context->clientContext);
++        flushBatch(batchNodeIDs, *batchSrcNodeIDVector, tableInfo.fwdRelTables,
++            tableInfo.bwdRelTables, transaction);
++    }
+     batchNodeIDs.clear();
+ }
+ 

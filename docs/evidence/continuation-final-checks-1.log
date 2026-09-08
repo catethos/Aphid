@@ -1,0 +1,8 @@
+native lock unchanged; DuckDB 1.4.4
+lifecycle runtime paths ['/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/ladybug/src', '@executable_path', '/Library/Developer/CommandLineTools/usr/lib/clang/21/lib/darwin']
+extension_concurrency runtime paths ['/Users/catethos/workspace/ladybugex/zig_library/_build/tsan-clt21/ladybug/src', '@executable_path', '/Library/Developer/CommandLineTools/usr/lib/clang/21/lib/darwin']
+tsan-run-8.log no TSan diagnostics
+tsan-extension-concurrency-1.log no TSan diagnostics
+artifact 2 checksum matches
+all 12 comparative records contain ordered positive latency percentiles and throughput
+changed Python entrypoints parse

@@ -1,0 +1,8 @@
+        1.56 real         0.97 user         0.31 sys
+time: sysctl kern.clockrate: Operation not permitted
+{"command": ["/usr/bin/time", "-l", "clang++", "-std=c++20", "-O3", "-DNDEBUG", "-mmacosx-version-min=13.3", "-I/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/include", "-I/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src/include", "native/tests/benchmark.cpp", "/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src/liblbug.dylib", "-Wl,-rpath,/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src", "-o", "_build/native/tests/benchmark"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 1, "seconds": 1.596}
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/proof.py", line 28, in run
+    raise RuntimeError(f"command failed: {args}")
+RuntimeError: command failed: ['/usr/bin/time', '-l', 'clang++', '-std=c++20', '-O3', '-DNDEBUG', '-mmacosx-version-min=13.3', '-I/Users/catethos/workspace/ladybugex/zig_library/native/upstream/ladybug/src/include', '-I/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src/include', 'native/tests/benchmark.cpp', '/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src/liblbug.dylib', '-Wl,-rpath,/Users/catethos/workspace/ladybugex/zig_library/_build/native/ladybug/src', '-o', '_build/native/tests/benchmark']

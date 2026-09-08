@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/precompiled_consumer.py", line 117, in <module>
+    main()
+    ~~~~^^
+  File "/Users/catethos/workspace/ladybugex/zig_library/scripts/precompiled_consumer.py", line 53, in main
+    assert len(pins) == 14
+           ^^^^^^^^^^^^^^^
+AssertionError

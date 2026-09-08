@@ -1,0 +1,20 @@
+{"unchanged": "native/lock.json", "sha256": "d6c2db650b15ccb9ab77df54fcd9ad96dfc05da24b0104660c06caf9b575f955"}
+{"unchanged": "mix.lock", "sha256": "e4472a3af936a40b6703d2acc849ed2f5ac1e1ce3b445752b7e509236d49379a"}
+{"unchanged": "_build/native/bridge/libaphid_bridge.dylib", "sha256": "66da4859f901aac548666e496be75c4e0ba34703be02fbc352eb971679f1a06f"}
+{"unchanged": "_build/native/ladybug/src/liblbug.dylib", "sha256": "3a2afd166d9f8854800a2023f73e29b8bb009de23df257180b5dbb95ba5b7a2c"}
+All 13 pinned dependency source archives remain unmodified; no staged application BEAM/cache/priv; final source copy equals final adapter code.
+Complete native closure and licenses equal candidate; no installed symlinks; archive unavailable at runtime; no compiler invocation and empty Zig cache.
+Default development and explicit source selection remain no-ops in an empty build; no native build was run
+{"command": ["elixir", "-e", "Mix.start()\nCode.require_file(\"mix/aphid_bundle.exs\")\ndefmodule SourceSelector do\n use Mix.Project\n def project, do: [app: :aphid, version: \"0.1.0-dev\"]\nend\nfor key <- ~w(APHID_INSTALL APHID_BUNDLE_ARCHIVE APHID_BUNDLE_SHA256 APHID_BUNDLE_RECEIPT), do: System.delete_env(key)\n{:noop, []} = Mix.Tasks.Compile.AphidBundle.run([])\nSystem.put_env(\"APHID_INSTALL\", \"source\")\n{:noop, []} = Mix.Tasks.Compile.AphidBundle.run([])\nIO.puts(\"Default development and explicit source selection remain no-ops in an empty build; no native build was run\")\n"], "cwd": "/Users/catethos/workspace/ladybugex/zig_library", "exit": 0, "seconds": 0.624}
+{"file": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz", "bytes": 33608999, "sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034"}
+{"file": "mix.exs", "bytes": 465, "sha256": "f3468f76ad57dfe3782a3dae2c55befc10448d30f122a1d588b14395821d3567"}
+{"file": "mix/aphid_bundle.exs", "bytes": 9162, "sha256": "31bb2cd95454debdd837d004dd9a9ce7c33635062be16f356f4b996b050d35ad"}
+{"file": "lib/aphid/bundle_loader.ex", "bytes": 1705, "sha256": "d5ce5ab94bd63cb541e814aae28aedd8d249a8cbbc355dcf01eb76d48de395ba"}
+{"file": "lib/aphid/native.ex", "bytes": 1162, "sha256": "127f911615e569dddbc07f42a61b32766d2295aa93006c9f3854a740879d2a39"}
+{"file": "lib/aphid/proof.ex", "bytes": 490, "sha256": "31389df3a67ab87483a9e857793a87aed61001c092bdd368e8acefa65c8564b3"}
+{"file": "native/local-bundle.json", "bytes": 1253, "sha256": "2553be69f0cbb1e161014b0ccd297d1f046b3d9f5edc682644d97d72de0c6d43"}
+{"file": "scripts/precompiled_consumer.py", "bytes": 8004, "sha256": "15cd1f4b2f4b9428f7d0b520d330a4e96d65bf2331915395f96ea012bcac069e"}
+{"file": "scripts/local_bundle_failures.py", "bytes": 7174, "sha256": "94ef8375db533dc786a562440b5faf5ab18bffea699b35a9a78a693525e465ce"}
+{"file": "scripts/nif_target.py", "bytes": 2493, "sha256": "b7b6a70b2f1e232a47615d02697f1d490ca2401181b48e2e6fb4bc9db9e290a8"}
+{"file": "scripts/proof.py", "bytes": 3565, "sha256": "775a308be4b3f66f3f20e8999b5b62863ec081a14822160f701594a177e391a5"}
+Root library/, source/, hex_consumer/ were not edited. No publication/upload/stage completion, Linux provisioning/emulation, native rebuild, sanitizer rerun or performance optimization.
