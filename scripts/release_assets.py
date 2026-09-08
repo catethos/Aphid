@@ -14,6 +14,20 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def verify_source(consumer, root, refreshed=False):
+    def executable_source(name):
+        return name in ['mix.exs', 'mix.lock', 'THIRD_PARTY_NOTICES.txt'] or name.startswith(('lib/', 'mix/')) or (
+            refreshed and name in ['native/local-bundle.json', 'native/linux-bundles.json'])
+    tested = {name: digest for name, digest in consumer['package_files'].items()
+              if executable_source(name)}
+    current = {str(path.relative_to(root)): sha(path)
+               for pattern in (['mix.exs', 'mix.lock', 'THIRD_PARTY_NOTICES.txt', 'lib/**/*.ex', 'mix/**/*.exs'] +
+                               (['native/local-bundle.json', 'native/linux-bundles.json'] if refreshed else []))
+               for path in root.glob(pattern) if path.is_file()}
+    if tested != current or not tested:
+        raise ValueError('Tagged Elixir source differs from the fresh qualified consumer')
+
+
 def prepare(catalog, run, artifacts, output, tag, root=ROOT, consumer_run=None, consumer_artifacts=None):
     if set(catalog) != TARGETS:
         raise ValueError('Both reviewed Linux bundle identities must be pinned before release preparation')
@@ -70,17 +84,7 @@ def prepare(catalog, run, artifacts, output, tag, root=ROOT, consumer_run=None, 
         if consumer['archive_sha256'] != pin['sha256'] or not consumer['normal_hex_dependencies']:
             raise ValueError('Consumer record does not qualify this archive with normal dependencies')
         source_consumer = refreshed if refreshed is not None else consumer
-        def executable_source(name):
-            return name in ['mix.exs', 'mix.lock', 'THIRD_PARTY_NOTICES.txt'] or name.startswith(('lib/', 'mix/')) or (
-                refreshed is not None and name in ['native/local-bundle.json', 'native/linux-bundles.json'])
-        tested = {name: digest for name, digest in source_consumer['package_files'].items()
-                  if executable_source(name)}
-        current = {str(path.relative_to(root)): sha(path)
-                   for pattern in (['mix.exs', 'mix.lock', 'THIRD_PARTY_NOTICES.txt', 'lib/**/*.ex', 'mix/**/*.exs'] +
-                                   (['native/local-bundle.json', 'native/linux-bundles.json'] if refreshed is not None else []))
-                   for path in root.glob(pattern) if path.is_file()}
-        if tested != current or not tested:
-            raise ValueError('Tagged Elixir source differs from the fresh qualified consumer')
+        verify_source(source_consumer, root, refreshed=refreshed is not None)
         expected_name = f'aphid-{pin["package_version"]}-{target}.tar.gz'
         if pin['archive'] != expected_name:
             raise ValueError('Unexpected runtime archive name')
@@ -92,6 +96,10 @@ def prepare(catalog, run, artifacts, output, tag, root=ROOT, consumer_run=None, 
             raise ValueError('Runtime archive size differs from reviewed identity')
         assets += [(archive, archive.name), (identity_path, target + '-identity.json'),
                    (audit, target + '-elf-audit.json')]
+    if refreshed is not None:
+        for name in ['THIRD_PARTY_NOTICES.txt', 'THIRD_PARTY.md']:
+            if (root / name).is_file():
+                assets.append((root / name, name))
     output.mkdir()  # Never merge into an earlier staging directory.
     for source, name in assets:
         shutil.copy2(source, output / name)

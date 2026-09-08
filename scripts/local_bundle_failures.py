@@ -126,6 +126,37 @@ end
     assert not (work / 'escape').exists()
     assert not Path('/tmp/aphid-escape').exists()
 
+    # Tiny native-header fixtures reach notice validation without loading code.
+    fixture_source = work / 'notice-source'
+    (fixture_source / 'mix').mkdir(parents=True)
+    (fixture_source / 'native').mkdir()
+    shutil.copy2(source / 'mix/aphid_bundle.exs', fixture_source / 'mix/aphid_bundle.exs')
+    for name in ['lock.json', 'local-bundle.json', 'linux-bundles.json', 'aphid_nif.zig',
+                 'bridge.h', 'bridge.cpp', 'proof.zig', 'proof.h', 'proof.cpp']:
+        shutil.copy2(source / 'native' / name, fixture_source / 'native' / name)
+    fixture_catalog = fixture_source / 'native' / ('linux-bundles.json' if linux else 'local-bundle.json')
+    catalog = json.loads(fixture_catalog.read_text())
+    pin = catalog[target] if linux else catalog
+    pin['native_files'] = {name: sha(base[prefix + name]) for name in closure}
+    fixture_catalog.write_text(json.dumps(catalog))
+    notice_cases = [('missing-source-notices', healthy_schema, 'missing')]
+    for number, member in enumerate(['licenses/aphid-supplemental.txt',
+                                     'licenses/APHID-SUPPLEMENTAL.TXT',
+                                     'licenses/aphid-supplemental.txt/child']):
+        notice_cases.append((f'notice-collision-{number}',
+            archive(f'notice-collision-{number}', change=lambda files, key=member: files.update({key: b'collision'})),
+            'corrupt'))
+    for name, path, expected in notice_cases:
+        if name != 'missing-source-notices':
+            shutil.copy2(source / 'THIRD_PARTY_NOTICES.txt', fixture_source / 'THIRD_PARTY_NOTICES.txt')
+        env = dict(os.environ, APHID_INSTALL='precompiled', APHID_BUNDLE_ARCHIVE=str(path),
+                   APHID_BUNDLE_SHA256=sha(path.read_bytes()), MIX_BUILD_PATH=str(work / name),
+                   ADAPTER=str(fixture_source / 'mix/aphid_bundle.exs'), EXPECTED=expected,
+                   ERL_FLAGS='+S 1:1 +SDcpu 1:1')
+        print('NOTICE FIXTURE', name, flush=True)
+        run(['elixir', str(checker)], cwd=work, env=env, timeout=30)
+        assert not (work / name / 'lib/aphid/priv').exists()
+
     # Reinstallation must reject missing/corrupt shipped notices, then recover
     # after restoration without another native copy or loading a NIF.
     installed = args.consumer.resolve() / 'consumer/_build/prod/lib/aphid/priv'
@@ -133,7 +164,17 @@ end
     notice_probe.write_text('''Mix.start()
 Code.require_file(System.fetch_env!("ADAPTER"))
 [archive, digest, destination] = System.argv()
-receipt = File.read!(Path.join(destination, "aphid-bundle.json")) |> JSON.decode!()
+receipt_path = Path.join(destination, "aphid-bundle.json")
+original_receipt = File.read!(receipt_path)
+receipt = JSON.decode!(original_receipt)
+reordered = "{" <> Enum.map_join(Enum.reverse(Enum.to_list(receipt)), ",", fn {k, v} -> JSON.encode!(k) <> ":" <> JSON.encode!(v) end) <> "}"
+File.write!(receipt_path, reordered)
+try do
+  Mix.Tasks.Compile.AphidBundle.install(archive, digest, destination)
+  IO.puts("Semantically identical reordered receipt accepted without replacement")
+after
+  File.write!(receipt_path, original_receipt)
+end
 for name <- ["licenses/aphid-supplemental.txt", Enum.find(Map.keys(receipt["licenses"]), &(&1 != "licenses/aphid-supplemental.txt"))] do
   path = Path.join(destination, name)
   original = File.read!(path)
@@ -144,6 +185,7 @@ for name <- ["licenses/aphid-supplemental.txt", Enum.find(Map.keys(receipt["lice
       raise "accepted #{kind} notice"
     rescue
       e in Mix.Error ->
+        IO.puts("notice rejection detail: #{e.message}")
         true = String.contains?(e.message, "[#{kind}]")
         IO.puts("expected notice rejection: #{name}: #{kind}")
     after

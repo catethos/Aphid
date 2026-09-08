@@ -43,3 +43,36 @@ execution systems. GLIBC 2.38/GLIBCXX 3.4.32 requirements and macOS 13.3
 load-command declarations do not prove minimum-system/CPU execution. GNU objcopy
 and otool remain installer prerequisites. Other OTP/binutils, cross-build from
 x86_64 to ARM64, source installation and outstanding plan gates remain open.
+
+## Retained attempts and corrections
+
+The first macOS attempt failed while copying the engine because the host ran out
+of disk space. All 1,330 members were verified against a lossless archive before
+removing its raw disposable tree: `artifacts/notices-macos-failed-1.tar.gz`,
+SHA256 `860be1de705c8e39d746924538e14bc8985921732284d6f02a90767a90cb07fe`.
+The original native/source artifacts remain. Cleanup manifests identify only
+completed disposable consumer/staging/native copies; no sibling project or
+failed overall attempt was discarded. The second consumer passes 92 tests,
+including exact installed supplement/license hashes.
+
+Run 34204140341 at `bfac823` passed 92-test consumers on both native Linux
+architectures, then failed the new notice rejection probe. The original probe
+asserted the error category without printing the unexpected detail; its logs
+therefore do not establish the exact rejected category. No assets were uploaded.
+The next probe prints the error before asserting it.
+
+Independent local reproduction demonstrated that byte-order-only changes in
+receipt JSON were wrongly rejected (`notice-receipt-order-1.log`). Receipts now
+compare decoded JSON values; native and notice hashes are still individually
+checked, and existing receipts are never rewritten by repeat installation.
+A first semantic comparison mistakenly compared decoded string keys with atom
+keys; `notices-failures-2.log` retains that failed attempt. The corrected comparison
+normalizes both serialized objects and passes in `notices-failures-3.log`.
+
+The reserved supplemental path now rejects case variants and descendants too.
+Four small header-only fixtures check absent source notices and three path
+collisions; they never load NIFs or qualify replacement native bytes. Four real
+installed-notice mutations (missing/corrupt supplement and existing archive
+notice), reordered receipt/repeat installation and the original 23 installer
+rejections plus native loader failures pass locally. Tests restore original
+receipt, notice and native hashes. Final source qualification follows separately.

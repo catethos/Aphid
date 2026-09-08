@@ -319,8 +319,11 @@ defmodule Mix.Tasks.Compile.AphidBundle do
 
     notice_name = "licenses/aphid-supplemental.txt"
 
-    if Map.has_key?(files, notice_name),
-      do: fail("corrupt", "archive collides with the source-package notice supplement")
+    if Enum.any?(names, fn name ->
+         name = String.downcase(name)
+         name == notice_name or String.starts_with?(name, notice_name <> "/")
+       end),
+       do: fail("corrupt", "archive collides with the source-package notice supplement")
 
     licenses =
       Map.filter(files, fn {name, _} -> String.starts_with?(name, "licenses/") end)
@@ -328,20 +331,27 @@ defmodule Mix.Tasks.Compile.AphidBundle do
 
     license_hashes = Map.new(licenses, fn {name, bytes} -> {name, sha(bytes)} end)
 
-    receipt =
-      JSON.encode!(%{
-        archive_sha256: String.downcase(digest),
-        files: hashes,
-        licenses: license_hashes,
-        identity: identity
-      })
+    receipt_data = %{
+      archive_sha256: String.downcase(digest),
+      files: hashes,
+      licenses: license_hashes,
+      identity: identity
+    }
+
+    receipt = JSON.encode!(receipt_data)
 
     if match?({:ok, %File.Stat{type: :symlink}}, File.lstat(destination)),
       do: fail("unsafe", "installation destination is a symlink; use an empty MIX_BUILD_PATH")
 
     if File.exists?(destination) do
       # Never overwrite an unrelated/native development priv or follow its symlink.
-      unless File.read(Path.join(destination, "aphid-bundle.json")) == {:ok, receipt},
+      same_receipt =
+        case File.read(Path.join(destination, "aphid-bundle.json")) do
+          {:ok, bytes} -> JSON.decode(bytes) == {:ok, JSON.decode!(receipt)}
+          _ -> false
+        end
+
+      unless same_receipt,
         do:
           fail(
             "selection",
