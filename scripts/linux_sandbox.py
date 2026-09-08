@@ -64,4 +64,6 @@ else:
 print('Linux namespace probe passed: build trees hidden, compiler paths masked, external network unavailable')
 ''')
     run([*command, shutil.which('python3'), str(check)], cwd=work, timeout=30)
+    run([*command, shutil.which('elixir'), '-e',
+         ':utf8 = :file.native_name_encoding(); IO.puts("UTF-8 runtime filename mode verified")'], cwd=work, timeout=30)
     return command

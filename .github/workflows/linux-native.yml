@@ -2,6 +2,10 @@ name: Linux native qualification
 on:
   workflow_dispatch:
     inputs:
+      preflight_only:
+        description: Check isolation and runtime prerequisites only; no native qualification
+        type: boolean
+        default: false
       retain_validation:
         description: Retain passing validation bundles for review (owner approval required)
         type: boolean
@@ -10,7 +14,7 @@ permissions:
   contents: read
 jobs:
   linux:
-    name: ${{ matrix.target }}
+    name: ${{ matrix.target }} (${{ inputs.preflight_only && 'preflight' || 'full' }})
     strategy:
       fail-fast: false
       matrix:
@@ -64,13 +68,14 @@ jobs:
           probe(work, [])
           PY
       - name: Build private locked sources and run native and BEAM suites
+        if: ${{ !inputs.preflight_only }}
         env:
           APHID_TARGET: ${{ matrix.target }}
         run: |
           set -o pipefail
           python3 -u scripts/linux_ci.py --target "$APHID_TARGET" --work "$RUNNER_TEMP/aphid-linux" 2>&1 | tee "$RUNNER_TEMP/linux-qualification.log"
       - name: Retain passing validation bundles for seven days
-        if: ${{ success() && inputs.retain_validation }}
+        if: ${{ success() && inputs.retain_validation && !inputs.preflight_only }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: validation-${{ matrix.target }}-${{ github.run_id }}-${{ github.run_attempt }}
