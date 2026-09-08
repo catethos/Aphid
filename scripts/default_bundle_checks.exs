@@ -2,7 +2,7 @@ Mix.start()
 
 defmodule DefaultSelectionProject do
   use Mix.Project
-  def project, do: [app: :default_selection_proof, version: "0.1.0-dev"]
+  def project, do: [app: :default_selection_proof, version: "0.1.1-dev"]
 end
 
 work = Path.join(System.tmp_dir!(), "aphid-default-#{System.unique_integer([:positive])}")
@@ -43,7 +43,7 @@ for {os, arch} <- [
       {{:win32, :nt}, "aarch64"}
     ] do
   reject.("unsupported-target", fn ->
-    Mix.Tasks.Compile.AphidBundle.default_bundle("0.1.0-dev", os, arch)
+    Mix.Tasks.Compile.AphidBundle.default_bundle("0.1.1-dev", os, arch)
   end)
 end
 
@@ -55,10 +55,10 @@ for {file, os, arch, target} <- [
   path = Path.join(work, "native/#{file}")
   catalog = File.read!(path) |> JSON.decode!()
   pin = if target, do: catalog[target], else: catalog
-  url = "https://github.com/catethos/Aphid/releases/download/v0.1.0-dev/#{pin["archive"]}"
+  url = "https://github.com/catethos/Aphid/releases/download/v0.1.1-dev/#{pin["archive"]}"
   updated = Map.put(pin, "url", url)
   File.write!(path, JSON.encode!(if target, do: Map.put(catalog, target, updated), else: updated))
-  {^url, digest} = Mix.Tasks.Compile.AphidBundle.default_bundle("0.1.0-dev", os, arch)
+  {^url, digest} = Mix.Tasks.Compile.AphidBundle.default_bundle("0.1.1-dev", os, arch)
   true = digest == pin["sha256"]
 
   reject.("incompatible-engine", fn ->
@@ -68,7 +68,7 @@ for {file, os, arch, target} <- [
   bad = Map.put(updated, "sha256", "bad")
   File.write!(path, JSON.encode!(if target, do: Map.put(catalog, target, bad), else: bad))
 
-  reject.("corrupt", fn -> Mix.Tasks.Compile.AphidBundle.default_bundle("0.1.0-dev", os, arch) end)
+  reject.("corrupt", fn -> Mix.Tasks.Compile.AphidBundle.default_bundle("0.1.1-dev", os, arch) end)
 
   File.write!(path, JSON.encode!(catalog))
 end

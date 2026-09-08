@@ -48,7 +48,7 @@ def prepare(catalog, run, artifacts, output, tag, root=ROOT, consumer_run=None, 
                 'completed', 'success', 'workflow_dispatch', 'main', '.github/workflows/linux-consumer.yml'):
             raise ValueError('Fresh consumer run differs from reviewed successful source qualification')
         records = list(consumer_artifacts.rglob('inputs.json'))
-        packages = list(consumer_artifacts.rglob('aphid-0.1.0-dev-combined.tar'))
+        packages = list(consumer_artifacts.rglob(f'aphid-{tag.removeprefix("v")}-combined.tar'))
         if len(records) != 1 or len(packages) != 1 or records[0].is_symlink() or packages[0].is_symlink():
             raise ValueError('Expected one retained combined source package and consumer record')
         if sha(records[0]) != reviewed['inputs_sha256']:

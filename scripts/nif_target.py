@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+from pathlib import Path
 import shutil
 from proof import ROOT, run
 from runtime_bundle import sha
@@ -11,7 +12,9 @@ from runtime_bundle import sha
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--name', required=True)
+    parser.add_argument('--native-build', type=Path, default=ROOT / '_build/native')
     args = parser.parse_args()
+    native = args.native_build.resolve()
     project = ROOT / '_build' / args.name
     project.mkdir()  # Retain failed attempts; never overwrite a candidate.
     (project / 'staging').mkdir()
@@ -29,7 +32,7 @@ def main():
         path.write_text(source.replace('    otp_app: :aphid,',
             '    otp_app: :aphid,\n    build_flags: ' + json.dumps(flags) + ',', 1))
     (project / '_build').mkdir()
-    (project / '_build/native').symlink_to(ROOT / '_build/native', target_is_directory=True)
+    (project / '_build/native').symlink_to(native, target_is_directory=True)
     # Reuse compiled build tools, not the Aphid application or NIFs.
     deps = project / '_build/test/lib'
     deps.mkdir(parents=True)
@@ -37,12 +40,13 @@ def main():
         if path.name != 'aphid':
             (deps / path.name).symlink_to(path, target_is_directory=True)
     inputs = [ROOT / 'native/lock.json', ROOT / 'mix.lock',
-              ROOT / '_build/native/bridge/libaphid_bridge.dylib',
-              ROOT / '_build/native/ladybug/src/liblbug.dylib']
+              native / 'bridge/libaphid_bridge.dylib',
+              native / 'ladybug/src/liblbug.dylib']
     identity = {'flags': flags, 'inputs': {str(p): sha(p) for p in inputs}}
     (project / 'candidate.json').write_text(json.dumps(identity, indent=2) + '\n')
     print(json.dumps(identity), flush=True)
-    env = dict(os.environ, MIX_ENV='test', MIX_DEPS_PATH=str(ROOT / 'deps'),
+    env = dict(os.environ, APHID_INSTALL='source', APHID_NATIVE_BUILD_ROOT=str(native),
+               MIX_ENV='test', MIX_DEPS_PATH=str(ROOT / 'deps'),
                ZIG_GLOBAL_CACHE_DIR='/tmp/aphid-zig-cache',
                ZIGLER_STAGING_ROOT=str(project / 'staging'), ERL_FLAGS='+S 1:1 +SDcpu 1:1')
     run(['mix', 'compile', '--force'], cwd=project, env=env, timeout=600)

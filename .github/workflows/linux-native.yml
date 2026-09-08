@@ -88,10 +88,10 @@ jobs:
           compression-level: 0
           if-no-files-found: error
           path: |
-            ${{ runner.temp }}/aphid-linux-distribution/packaged/aphid-0.1.0-dev-${{ matrix.target }}.tar.gz
+            ${{ runner.temp }}/aphid-linux-distribution/packaged/aphid-0.1.1-dev-${{ matrix.target }}.tar.gz
             ${{ runner.temp }}/aphid-linux-distribution/packaged/identity.json
             ${{ runner.temp }}/aphid-linux-distribution/packaged/elf-audit.json
-            ${{ runner.temp }}/aphid-linux-distribution/aphid-0.1.0-dev-linux-validation.tar
+            ${{ runner.temp }}/aphid-linux-distribution/aphid-0.1.1-dev-linux-validation.tar
             ${{ runner.temp }}/aphid-linux-distribution/package-identity.json
             ${{ runner.temp }}/aphid-linux-distribution/consumer-proof/inputs.json
             ${{ runner.temp }}/linux-qualification.log

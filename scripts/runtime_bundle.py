@@ -140,7 +140,9 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--app-build', type=Path, default=ROOT / '_build/test/lib/aphid')
     parser.add_argument('--candidate-identity', type=Path)
+    parser.add_argument('--native-build', type=Path, default=ROOT / '_build/native')
     args = parser.parse_args()
+    native_build = args.native_build.resolve()
     archive = args.output.resolve()
     if archive.exists():
         raise RuntimeError('refusing to overwrite existing evidence artifact')
@@ -148,26 +150,26 @@ def main():
     with tempfile.TemporaryDirectory(prefix='aphid-runtime-') as temp:
         temp = Path(temp)
         bundle = temp / 'staging'
-        lib = bundle / 'lib/aphid-0.1.0-dev/priv/lib'
+        lib = bundle / 'lib/aphid-0.1.1-dev/priv/lib'
         lib.mkdir(parents=True)
         shutil.copytree(args.app_build / 'ebin', lib.parent.parent / 'ebin')
         shutil.copytree(ROOT / '_build/test/lib/telemetry/ebin', bundle / 'lib/telemetry/ebin')
         files = {
             'Elixir.Aphid.Native.so': args.app_build / 'priv/lib/Elixir.Aphid.Native.so',
             'Elixir.Aphid.Proof.so': args.app_build / 'priv/lib/Elixir.Aphid.Proof.so',
-            'libaphid_bridge.dylib': ROOT / '_build/native/bridge/libaphid_bridge.dylib',
-            'liblbug.dylib': ROOT / '_build/native/ladybug/src/liblbug.dylib',
+            'libaphid_bridge.dylib': native_build / 'bridge/libaphid_bridge.dylib',
+            'liblbug.dylib': native_build / 'ladybug/src/liblbug.dylib',
         }
         libraries = {name: lib / name for name in files}
         for name, source in files.items():
             shutil.copy2(source, libraries[name])
         fixture = bundle / '_build/native/tests/fixture'
         fixture.parent.mkdir(parents=True)
-        shutil.copy2(ROOT / '_build/native/tests/fixture', fixture)
+        shutil.copy2(native_build / 'tests/fixture', fixture)
         native_tests = []
         for name in ['lifecycle', 'extension_concurrency']:
             target = fixture.parent / name
-            shutil.copy2(ROOT / '_build/native/bridge' / name, target)
+            shutil.copy2(native_build / 'bridge' / name, target)
             native_tests.append(target)
         for path in [*libraries.values(), fixture, *native_tests]:
             relocate(path, libraries)

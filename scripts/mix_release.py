@@ -13,9 +13,6 @@ from proof import ROOT, run
 from runtime_bundle import sha
 
 
-DIGEST = '3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034'
-
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--consumer', type=Path, required=True)
@@ -30,8 +27,8 @@ def main():
     identity = json.loads(identity_file.read_text())
     if linux:
         identity = identity[platform.machine() + '-linux-gnu']
-    archive = source / 'candidate-retained.tar.gz' if linux else ROOT / 'artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz'
-    expected_digest = identity['sha256'] if linux else DIGEST
+    archive = source / 'candidate-retained.tar.gz'
+    expected_digest = identity['sha256']
     assert sha(archive) == expected_digest
     assert sha(source / 'candidate-retained.tar.gz') == expected_digest
     prior = source / 'consumer/_build/prod/lib/aphid/priv'
@@ -65,8 +62,8 @@ true = String.starts_with?(List.to_string(:code.root_dir()), System.fetch_env!("
 {:error, :nofile} = :code.ensure_loaded(Zig)
 ExUnit.start(seed: 0, autorun: false)
 Path.wildcard("test/*_test.exs") |> Enum.each(&Code.require_file/1)
-%{failures: 0, total: 92} = ExUnit.run()
-IO.puts("relocated Mix release: all 92 tests passed")
+%{failures: 0, total: 99} = ExUnit.run()
+IO.puts("relocated Mix release: all 99 tests passed")
 ''')
     (overlay / 'start.exs').write_text('''
 true = Enum.any?(Application.started_applications(), fn {app, _, _} -> app == :aphid_consumer end)
@@ -178,7 +175,7 @@ IO.puts("Linux release guards verified: no network routes, hidden build/host run
         tar.extractall(extracted, filter='data')
     relocated = work / 'relocated café release'
     extracted.rename(relocated)
-    native = relocated / 'lib/aphid-0.1.0-dev/priv'
+    native = relocated / 'lib/aphid-0.1.1-dev/priv'
     assert {p.name: sha(p) for p in (native / 'lib').iterdir()} == identity['native_files']
     assert sha(native / 'licenses/aphid-supplemental.txt') == sha(ROOT / 'THIRD_PARTY_NOTICES.txt')
     print('Relocated source-package notice supplement:', sha(native / 'licenses/aphid-supplemental.txt'), flush=True)
@@ -269,7 +266,7 @@ IO.puts("Linux release guards verified: no network routes, hidden build/host run
     assert not (work / 'compiler-invocations').exists()
     assert not list((work / 'zig-cache').iterdir())
     assert original_inputs == {p: sha(Path(p)) for p in original_inputs}
-    print('relocated Mix release passed: closure unchanged, compiler-free, offline start/shutdown/reopen, 92 tests; no release support claim', flush=True)
+    print('relocated Mix release passed: closure unchanged, compiler-free, offline start/shutdown/reopen, 99 tests; no release support claim', flush=True)
 
 
 if __name__ == '__main__':

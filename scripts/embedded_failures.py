@@ -22,7 +22,7 @@ def main():
     work.mkdir()
     release_work = args.release_work.resolve()
     release = release_work / 'relocated café release'
-    native = release / 'lib/aphid-0.1.0-dev/priv/lib'
+    native = release / 'lib/aphid-0.1.1-dev/priv/lib'
     before = {p.name: sha(p) for p in native.iterdir()}
     env = {k: v for k, v in os.environ.items() if not k.startswith(
         ('APHID_', 'ERL_', 'ELIXIR_', 'MIX_', 'HEX_', 'ZIG', 'DYLD_', 'RELEASE_'))}
