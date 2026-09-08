@@ -1,5 +1,8 @@
 # Release preparation checklist
 
+For future releases, follow [publishing updates and platform changes](publishing-updates.md).
+The checkpoints below retain the first release’s history.
+
 Current outcome (2026-09-08): [aphid 0.1.0-dev is published on Hex](https://hex.pm/packages/aphid/0.1.0-dev).
 The public Hex archive matches the exact reviewed SHA256
 `922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7`.

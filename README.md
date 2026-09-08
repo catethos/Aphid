@@ -8,6 +8,8 @@ This is an early development library: supervised queries, transactions and
 batch streams are available; hardening and release gates are unfinished. See
 [the status ledger](docs/status.md) and [GitHub release preparation](docs/github-release.md).
 
+For maintainers: [publishing future versions and adding platforms](docs/publishing-updates.md).
+
 ## Experimental installation
 
 The [published `0.1.0-dev` Hex prerelease](https://hex.pm/packages/aphid/0.1.0-dev)

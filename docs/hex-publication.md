@@ -1,5 +1,7 @@
 # Experimental Hex publication scope
 
+For subsequent versions, see [publishing updates and platform changes](publishing-updates.md).
+
 Published: [aphid 0.1.0-dev](https://hex.pm/packages/aphid/0.1.0-dev).
 The anonymous archive matches the approved package SHA256
 `922fdacc2be68fc94f646f6fa281ed10fbf200ca9805b8e34eb169810514ebd7`.
