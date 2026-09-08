@@ -1,0 +1,574 @@
+{
+  "state": "removed verified duplicate files; remaining workspace files retained",
+  "retained_archive_sha256": "3125907a738162c55ba8f68874c861c767bc7a5f17e9b23c69f028df192e3034",
+  "files": [
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-embedded-consumer-2/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-embedded-consumer-2/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-embedded-consumer-2/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-embedded-consumer-2/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-4/consumer/vendor/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-4/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-4/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-4/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-3/consumer/vendor/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-3/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-3/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-3/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-1/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-2/consumer/vendor/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-2/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-2/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-2/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-5/consumer/vendor/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-5/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-5/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-5/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-2/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-2/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-2/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-2/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-4/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-4/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-4/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-4/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-3/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-3/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-3/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-3/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-embedded-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-embedded-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-embedded-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-2/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-2/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-2/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-adapter-consumer-2/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-source-inputs-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-source-inputs-consumer-1/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-source-inputs-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-source-inputs-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-package-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-package-consumer-1/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-package-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-package-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-normal-hex-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-normal-hex-consumer-1/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-normal-hex-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-normal-hex-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-platform-hex-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-platform-hex-consumer-1/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-platform-hex-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-platform-hex-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-linux-prep-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-linux-prep-consumer-1/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-linux-prep-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-linux-prep-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-2/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-2/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-2/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-combined-consumer-2/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-6/consumer/vendor/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-6/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-6/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-6/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-1/consumer/vendor/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-fresh-mix-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-1/consumer/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-1/consumer/_build/prod/lib/aphid/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-1/verified-bundle/lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "sha256": "775f5babbe47f29f004585dd9f108f79a4564a06d4196e8133b4bc74dd193393",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "lib/aphid-0.1.0-dev/priv/lib/liblbug.dylib",
+      "size": 68781888
+    },
+    {
+      "path": "/private/tmp/aphid-platform-consumer-1/verified-bundle/_build/native/tests/fixture",
+      "sha256": "0a7a1132f423f6420226a21f66770834b2b180f19717802e772b8f7f9fde47cc",
+      "archive": "artifacts/runtime-validation-aarch64-macos-13.3-baseline-3.tar.gz",
+      "member": "_build/native/tests/fixture",
+      "size": 41794736
+    }
+  ],
+  "removed_bytes": 4464859696
+}

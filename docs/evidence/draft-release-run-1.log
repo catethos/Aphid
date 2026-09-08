@@ -1,0 +1,229 @@
+draft	Set up job	﻿2026-09-08T09:17:56.5897385Z Current runner version: '2.337.0'
+draft	Set up job	2026-09-08T09:17:56.5918838Z ##[group]Runner Image Provisioner
+draft	Set up job	2026-09-08T09:17:56.5919598Z Hosted Compute Agent
+draft	Set up job	2026-09-08T09:17:56.5920093Z Version: 20260828.587
+draft	Set up job	2026-09-08T09:17:56.5920645Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+draft	Set up job	2026-09-08T09:17:56.5921288Z Build Date: 2026-08-28T16:44:25Z
+draft	Set up job	2026-09-08T09:17:56.5921840Z Worker ID: {22a48a5e-078d-4459-b962-db66964a5ada}
+draft	Set up job	2026-09-08T09:17:56.5922404Z Azure Region: mexicocentral
+draft	Set up job	2026-09-08T09:17:56.5922987Z ##[endgroup]
+draft	Set up job	2026-09-08T09:17:56.5924182Z ##[group]Operating System
+draft	Set up job	2026-09-08T09:17:56.5924756Z Ubuntu
+draft	Set up job	2026-09-08T09:17:56.5925192Z 24.04.4
+draft	Set up job	2026-09-08T09:17:56.5925601Z LTS
+draft	Set up job	2026-09-08T09:17:56.5926308Z ##[endgroup]
+draft	Set up job	2026-09-08T09:17:56.5926819Z ##[group]Runner Image
+draft	Set up job	2026-09-08T09:17:56.5927341Z Image: ubuntu-24.04
+draft	Set up job	2026-09-08T09:17:56.5927819Z Version: 20260831.293.1
+draft	Set up job	2026-09-08T09:17:56.5928689Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+draft	Set up job	2026-09-08T09:17:56.5930173Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+draft	Set up job	2026-09-08T09:17:56.5930984Z ##[endgroup]
+draft	Set up job	2026-09-08T09:17:56.5931984Z ##[group]GITHUB_TOKEN Permissions
+draft	Set up job	2026-09-08T09:17:56.5933719Z Actions: read
+draft	Set up job	2026-09-08T09:17:56.5934263Z Contents: write
+draft	Set up job	2026-09-08T09:17:56.5934755Z Metadata: read
+draft	Set up job	2026-09-08T09:17:56.5935279Z ##[endgroup]
+draft	Set up job	2026-09-08T09:17:56.5937051Z Secret source: Actions
+draft	Set up job	2026-09-08T09:17:56.5938321Z Prepare workflow directory
+draft	Set up job	2026-09-08T09:17:56.6196529Z Prepare all required actions
+draft	Set up job	2026-09-08T09:17:56.6250495Z Getting action download info
+draft	Set up job	2026-09-08T09:17:56.8965279Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+draft	Set up job	2026-09-08T09:17:57.0601981Z Complete job name: draft
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	﻿2026-09-08T09:17:57.1333668Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1334507Z with:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1334964Z   persist-credentials: false
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1335401Z   repository: catethos/Aphid
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1338636Z   token: ***
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1338991Z   ssh-strict: true
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1339349Z   ssh-user: git
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1339684Z   clean: true
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1340043Z   sparse-checkout-cone-mode: true
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1340454Z   fetch-depth: 1
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1340794Z   fetch-tags: false
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1341149Z   show-progress: true
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1341509Z   lfs: false
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1341839Z   submodules: false
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1342201Z   set-safe-directory: true
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1342606Z   allow-unsafe-pr-checkout: false
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.1343203Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2161667Z Syncing repository: catethos/Aphid
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2163611Z ##[group]Getting Git version info
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2164264Z Working directory is '/home/runner/work/Aphid/Aphid'
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2165112Z [command]/usr/bin/git version
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2833650Z git version 2.55.0
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2852009Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2865355Z Temporarily overriding HOME='/home/runner/work/_temp/508edff5-cfbc-4d95-b53c-50f8b38fc461' before making global git config changes
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2867361Z Adding repository directory to the temporary git global config as a safe directory
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2870480Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2918165Z Deleting the contents of '/home/runner/work/Aphid/Aphid'
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2922108Z ##[group]Determining repository object format
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2924021Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2924989Z ##[group]Initializing the repository
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.2928269Z [command]/usr/bin/git init /home/runner/work/Aphid/Aphid
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3035003Z hint: Using 'master' as the name for the initial branch. This default branch name
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3036282Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3037847Z hint: to use in all of your new repositories, which will suppress this warning,
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3038782Z hint: call:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3039276Z hint:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3039858Z hint: 	git config --global init.defaultBranch <name>
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3040392Z hint:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3040858Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3041595Z hint: 'development'. The just-created branch can be renamed via this command:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3042197Z hint:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3042535Z hint: 	git branch -m <name>
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3042923Z hint:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3043685Z hint: Disable this message with "git config set advice.defaultBranchName false"
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3044638Z Initialized empty Git repository in /home/runner/work/Aphid/Aphid/.git/
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3047215Z [command]/usr/bin/git remote add origin https://github.com/catethos/Aphid
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3089729Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3090371Z ##[group]Disabling automatic garbage collection
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3092434Z [command]/usr/bin/git config --local gc.auto 0
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3119498Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3120782Z ##[group]Setting up auth
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3121219Z Removing SSH command configuration
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3125029Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3154287Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3464173Z Removing HTTP extra header
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3469736Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3501227Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3680495Z Removing includeIf entries pointing to credentials config files
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3685279Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3714194Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3905035Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3938786Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.3968188Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.4492578Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.4524420Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.4550936Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.4551557Z ##[group]Fetching the repository
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:57.4558371Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/tags/v0.1.0-dev:refs/tags/v0.1.0-dev
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3713232Z From https://github.com/catethos/Aphid
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3714771Z  * [new tag]         v0.1.0-dev -> v0.1.0-dev
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3720349Z [command]/usr/bin/git tag --list v0.1.0-dev
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3748061Z v0.1.0-dev
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3754347Z [command]/usr/bin/git rev-parse refs/tags/v0.1.0-dev^{commit}
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3778410Z 750dc79ec3607893fe53ba84c2cfe45158c49bc3
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3782879Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3784341Z ##[group]Determining the checkout info
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3785947Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3787152Z [command]/usr/bin/git sparse-checkout disable
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3831683Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3857917Z ##[group]Checking out the ref
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.3859574Z [command]/usr/bin/git checkout --progress --force refs/tags/v0.1.0-dev
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5263112Z Note: switching to 'refs/tags/v0.1.0-dev'.
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5264313Z 
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5265260Z You are in 'detached HEAD' state. You can look around, make experimental
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5267584Z changes and commit them, and you can discard any commits you make in this
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5269764Z state without impacting any branches by switching back to a branch.
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5270957Z 
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5271893Z If you want to create a new branch to retain commits you create, you may
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5273869Z do so (now or later) by using -c with the switch command. Example:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5275104Z 
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5275710Z   git switch -c <new-branch-name>
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5276756Z 
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5277341Z Or undo this operation with:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5278179Z 
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5278714Z   git switch -
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5279367Z 
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5280367Z Turn off this advice by setting config variable advice.detachedHead to false
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5281897Z 
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5283092Z HEAD is now at 750dc79 Record three-target notice qualification and private draft proposal
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.5290128Z ##[endgroup]
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6254950Z [command]/usr/bin/git log -1 --format=%H
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6281882Z 750dc79ec3607893fe53ba84c2cfe45158c49bc3
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6290269Z ##[group]Removing auth
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6290698Z Removing SSH command configuration
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6293083Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6322436Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6510909Z Removing HTTP extra header
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6513857Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6542198Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6726394Z Removing includeIf entries pointing to credentials config files
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6728927Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6755498Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6756132Z includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6756713Z includeif.gitdir:/github/workspace/.git.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6757239Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6762934Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6784834Z /home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6792610Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git.path /home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6823205Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6844537Z /home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6852899Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Aphid/Aphid/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6883935Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6905842Z /github/runner_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6922458Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6950080Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6970777Z /github/runner_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.6976385Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.7004443Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.7185650Z Removing credentials config '/home/runner/work/_temp/git-credentials-9056af01-5630-4b72-a232-375a5b83ec28.config'
+draft	Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:17:59.7192491Z ##[endgroup]
+draft	Retrieve the selected qualification	﻿2026-09-08T09:17:59.7366360Z ##[group]Run [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7366735Z ^[[36;1m[[ "$RUN_ID" =~ ^[0-9]+$ ]]^[[0m
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7367045Z ^[[36;1m[[ "$CONSUMER_RUN_ID" =~ ^[0-9]+$ ]]^[[0m
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7367485Z ^[[36;1mgh api "repos/$GITHUB_REPOSITORY/actions/runs/$CONSUMER_RUN_ID" > "$RUNNER_TEMP/consumer.json"^[[0m
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7368151Z ^[[36;1mgh run download "$CONSUMER_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "combined-source-$CONSUMER_RUN_ID" --dir "$RUNNER_TEMP/consumer"^[[0m
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7368783Z ^[[36;1mgh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" > "$RUNNER_TEMP/qualification.json"^[[0m
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7369427Z ^[[36;1mgh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --pattern "validation-*-$RUN_ID-*" --dir "$RUNNER_TEMP/qualified"^[[0m
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7405860Z shell: /usr/bin/bash -e {0}
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7406436Z env:
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7408676Z   GH_TOKEN: ***
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7408906Z   RUN_ID: 34193449987
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7409132Z   CONSUMER_RUN_ID: 34205212486
+draft	Retrieve the selected qualification	2026-09-08T09:17:59.7409412Z ##[endgroup]
+draft	Verify source-pinned identities and stage exact assets	﻿2026-09-08T09:18:10.6194761Z ##[group]Run python3 scripts/release_assets.py --run "$RUNNER_TEMP/qualification.json" --artifacts "$RUNNER_TEMP/qualified" --output "$RUNNER_TEMP/release" --tag "$TAG" --consumer-run "$RUNNER_TEMP/consumer.json" --consumer-artifacts "$RUNNER_TEMP/consumer"
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.6196321Z ^[[36;1mpython3 scripts/release_assets.py --run "$RUNNER_TEMP/qualification.json" --artifacts "$RUNNER_TEMP/qualified" --output "$RUNNER_TEMP/release" --tag "$TAG" --consumer-run "$RUNNER_TEMP/consumer.json" --consumer-artifacts "$RUNNER_TEMP/consumer"^[[0m
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.6232543Z shell: /usr/bin/bash -e {0}
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.6232756Z env:
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.6232915Z   TAG: v0.1.0-dev
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.6233094Z ##[endgroup]
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8902815Z {
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8903277Z   "tag": "v0.1.0-dev",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8903561Z   "qualification": {
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8903821Z     "run_id": 34193449987,
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8904074Z     "attempt": 1,
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8904555Z     "commit": "c37c458211d0bff7e4054f90bf5d429f29ece2ef"
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8905010Z   },
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8905325Z   "consumer_qualification": {
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8905602Z     "run_id": 34205212486,
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8905877Z     "attempt": 1,
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8906320Z     "commit": "06d0a99dfc4efd8c0d3171262b2a886382b87704",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8906879Z     "source_package_sha256": "11ca5ca447a7a93ee6d8e2d79758f3ed67d9ce04d20947a08e82598851152507",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8907534Z     "inputs_sha256": "8c67b243edaa60df015686e8508b2f528da4e2d5262449913571dcfbf4d302f5"
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8908474Z   },
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8908675Z   "assets": {
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8909189Z     "aphid-0.1.0-dev-aarch64-linux-gnu.tar.gz": "235ceb0490a1baf64e33fd53f17f683ce263197cf0cac6cf1107275dd94b62af",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8910021Z     "aarch64-linux-gnu-identity.json": "5e00e063aa7ddb131ff050f267a840d3672d2e74cd26b2ee05068df3716fc6a2",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8910819Z     "aarch64-linux-gnu-elf-audit.json": "647d7cf9fe2f37e215860fbe1de4530eb2b408d775189d4387137e710cf4739e",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8911613Z     "aphid-0.1.0-dev-x86_64-linux-gnu.tar.gz": "fa9535c7e8f3b149658ed0f5f98329f7142cfd21f30f20fef765c74c42b798cc",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8912366Z     "x86_64-linux-gnu-identity.json": "5c4643108438c42eb24d9b76f7815b96479939d3be1fc59cd7dc779fb6bc5cb7",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8913128Z     "x86_64-linux-gnu-elf-audit.json": "c00a1963031ed4c24d8a72d0030471ff56fa3fad73a02af188dce008dc0f1014",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8913854Z     "THIRD_PARTY_NOTICES.txt": "08cc1d20ccb4808537545220152d6aff97701e2c3b0b8597ab2dadaa82a789d1",
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8914534Z     "THIRD_PARTY.md": "58a0d518a8ec5a1021dfef10380fc08c1eed9b70b54a8f2de18b075f4bbb23ab"
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8915054Z   }
+draft	Verify source-pinned identities and stage exact assets	2026-09-08T09:18:10.8915297Z }
+draft	Create a draft prerelease for owner review	﻿2026-09-08T09:18:10.9599837Z ##[group]Run gh release create "$TAG" "$RUNNER_TEMP/release/"* --repo "$GITHUB_REPOSITORY" --verify-tag --draft --prerelease --title "Aphid $TAG — native review draft" --notes-file "docs/releases/$TAG.md"
+draft	Create a draft prerelease for owner review	2026-09-08T09:18:10.9601537Z ^[[36;1mgh release create "$TAG" "$RUNNER_TEMP/release/"* --repo "$GITHUB_REPOSITORY" --verify-tag --draft --prerelease --title "Aphid $TAG — native review draft" --notes-file "docs/releases/$TAG.md"^[[0m
+draft	Create a draft prerelease for owner review	2026-09-08T09:18:10.9634961Z shell: /usr/bin/bash -e {0}
+draft	Create a draft prerelease for owner review	2026-09-08T09:18:10.9635180Z env:
+draft	Create a draft prerelease for owner review	2026-09-08T09:18:10.9637458Z   GH_TOKEN: ***
+draft	Create a draft prerelease for owner review	2026-09-08T09:18:10.9637639Z   TAG: v0.1.0-dev
+draft	Create a draft prerelease for owner review	2026-09-08T09:18:10.9637815Z ##[endgroup]
+draft	Create a draft prerelease for owner review	2026-09-08T09:18:15.7550082Z https://github.com/catethos/Aphid/releases/tag/untagged-08d7eb9d9a9b931b7919
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	﻿2026-09-08T09:18:15.7660958Z Post job cleanup.
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8338231Z [command]/usr/bin/git version
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8371343Z git version 2.55.0
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8402716Z Temporarily overriding HOME='/home/runner/work/_temp/e8e3c8df-c9e5-420a-a50c-09964f0537fb' before making global git config changes
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8403797Z Adding repository directory to the temporary git global config as a safe directory
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8405909Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Aphid/Aphid
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8431095Z Removing SSH command configuration
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8436248Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8464349Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8661115Z Removing HTTP extra header
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8666191Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8694392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8893952Z Removing includeIf entries pointing to credentials config files
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8899945Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+draft	Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803	2026-09-08T09:18:15.8929965Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+draft	Complete job	﻿2026-09-08T09:18:15.9252261Z Cleaning up orphan processes

@@ -1,5 +1,9 @@
 # GitHub release preparation
 
+Current checkpoint: [authorized private draft and remaining gates](evidence/draft-release-1.md).
+The draft exists; public publication and Hex remain unauthorized. Earlier proposal
+records describe their historical authorization state.
+
 Current continuation: [installed notices and draft proposal](evidence/shipped-notices-1.md).
 Known supplemental notices now ship into installed priv and Linux Mix releases.
 One exact updated source archive passes 92 tests on all three targets. The

@@ -1,6 +1,11 @@
 # Implementation status
 
-Current continuation: [installed notices and draft proposal](evidence/shipped-notices-1.md).
+Current continuation: [authorized private draft](evidence/draft-release-1.md).
+Signed `v0.1.0-dev` remains fixed at `750dc79ec3607893fe53ba84c2cfe45158c49bc3`.
+The private draft exists; public publication and Hex remain unauthorized.
+Default URLs remain disabled. All attribution, support and plan gates remain open.
+
+Previous continuation: [installed notices and draft proposal](evidence/shipped-notices-1.md).
 Known supplemental notices now ship into installed priv and Linux Mix releases.
 One exact updated source archive passes 92 tests on all three targets. The
 thirteen-asset private-draft proposal is locally verified and awaits separate
